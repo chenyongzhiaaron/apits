@@ -8,10 +8,11 @@
 # Date:         2021/1/12 15:15
 # -------------------------------------------------------------------------------
 import logging
+from common.tools.logger import MyLog
 
 __all__ = ['slice', 'sublist']
 
-logger = logging.getLogger(__name__)
+logger = MyLog()
 
 
 def slice(obj, index=None, start=None, end=None, step=1):
@@ -27,19 +28,19 @@ def slice(obj, index=None, start=None, end=None, step=1):
     Returns:
 
     """
-    logger.info(f'执行方法：slice({obj}, {index}, {start}, {end}, {step})')
+    logger.my_log(f'执行方法：slice({obj}, {index}, {start}, {end}, {step})', "info")
     if isinstance(obj, (str, tuple, list)):
         if index != None:
             try:
                 result = obj[index]
             except IndexError:
-                logger.error(f'列表{obj}，下标{index}，异常原因：下标越界')
+                logger.my_log(f'列表{obj}，下标{index}，异常原因：下标越界')
                 result = None
             return result
         else:
             step = step or 1
             return obj[start:end:step]
-    logger.error("obj参数格式不正确")
+    logger.my_log("obj参数格式不正确")
     return None
 
 
@@ -54,7 +55,7 @@ def sublist(raw_list, start=None, end=None):
     Returns: 截取的字符串
 
     """
-    logger.info(f'执行方法：sublist({raw_list}, {start}, {end})')
+    logger.my_log(f'执行方法：sublist({raw_list}, {start}, {end})', "info")
     try:
         start = int(start) if (isinstance(start, str) and start.isdigit()) else start
         end = int(end) if (isinstance(end, str) and end.isdigit()) else end

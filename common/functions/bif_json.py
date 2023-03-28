@@ -8,11 +8,11 @@
 # Date:         2021/1/12 14:02
 # -------------------------------------------------------------------------------
 import json
-import logging
+from common.tools.logger import MyLog
 
 __all__ = ['json_dumps', 'json_loads']
 
-logger = logging.getLogger(__name__)
+logger = MyLog()
 
 
 def json_dumps(obj):
@@ -24,7 +24,7 @@ def json_dumps(obj):
     Returns:
 
     """
-    logger.info(f'执行方法：json_dumps({obj})')
+    logger.my_log(f'执行方法：json_dumps({obj})', "info")
     return json.dumps(obj, ensure_ascii=False)
 
 
@@ -37,5 +37,5 @@ def json_loads(obj):
     Returns:
 
     """
-    logger.info(f'执行方法：json_loads({obj})')
+    logger.my_log(f'执行方法：json_loads({obj})', "info")
     return json.loads(obj)

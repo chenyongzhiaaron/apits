@@ -9,10 +9,11 @@
 # -------------------------------------------------------------------------------
 
 import json
-import logging
 import jsonpath
 
-logger = logging.getLogger(__name__)
+from common.tools.logger import MyLog
+
+logger = MyLog()
 
 
 class Extractor(object):
@@ -74,14 +75,14 @@ class Extractor(object):
 
         """
         # logger.info('正在执行数据提取：提取数据源内容：{resp_obj}'.format(resp_obj=resp_obj))
-        logger.info('正在执行数据提取：提取表达式：{expr}'.format(expr=expr))
+        logger.my_log('正在执行数据提取：提取表达式：{expr}'.format(expr=expr), "info")
         result = jsonpath.jsonpath(resp_obj, expr)
         if result is False:
             # jsonpath没有匹配到数据
             result = []
-            logger.info(f'提取失败：提取表达式：{expr}，没有提取到对应的值')
+            logger.my_log(f'提取失败：提取表达式：{expr}，没有提取到对应的值')
         elif isinstance(result, list):
             if len(result) == 1:
                 result = result[0]
-            logger.info(f'输出变量，提取表达式：{expr}，提取结果：{result}')
+            logger.my_log(f'输出变量，提取表达式：{expr}，提取结果：{result}', "info")
         return result

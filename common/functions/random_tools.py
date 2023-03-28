@@ -2,10 +2,15 @@
 import datetime
 import math
 import random
-import time
 from faker import Faker
 
-__all__ = ['random_phone', 'random_gps', "random_string", "random_ssn"]
+__all__ = [
+    'random_phone', 'random_gps',
+    "random_string", "random_ssn",
+    "random_email", "random_id_card",
+    "random_int", "random_male_name",
+    "random_female_name", "random_current_time"
+]
 
 f = Faker(locale='Zh-CN')
 
@@ -48,54 +53,6 @@ def random_ssn():
     :return:随机生成省份中
     """
     return f.ssn()
-
-
-def next_time():
-    """
-
-    Returns:
-
-    """
-    c_time = time.time()  # 获取当前时间，秒值输出
-    yesterday_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(c_time - 86400))
-    # 获取当前日期 带时分秒
-    current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(c_time))
-    # 獲取當前日期时间 0时0分开始
-    c_date_start = time.strftime("%Y-%m-%d", time.localtime(c_time)) + ' 00:00:00'
-    c_date_end = time.strftime("%Y-%m-%d", time.localtime(c_time)) + ' 23:59:59'
-    # 获取昨天日期
-    y_date = time.strftime("%Y-%m-%d", time.localtime(c_time - 86400))
-    # 获取当前日期
-    c_date = time.strftime("%Y-%m-%d", time.localtime(c_time))
-    # 获取明天日期
-    n_date = time.strftime("%Y-%m-%d", time.localtime(c_time + 86400))
-    # 获取明日日期
-    n_date_start = time.strftime("%Y-%m-%d", time.localtime(c_time + 86400)) + ' 00:00:00'
-    n_date_end = time.strftime("%Y-%m-%d", time.localtime(c_time + 86400)) + ' 23:59:59'
-    # 獲取過去日期
-    p_time_start = time.strftime("%Y-%m-%d", time.localtime(c_time - 86400)) + ' 00:00:00'
-    p_time_end = time.strftime("%Y-%m-%d", time.localtime(c_time - 86400)) + ' 23:59:59'
-    # 獲取将来60天内的任意日期，不包含今天
-    random_data = time.strftime(
-        "%Y-%m-%d", time.localtime(c_time + random.randint(86400, 5184000)))
-    # 获取当前时间戳
-    timestamp = int(round(time.time() * 1000))
-    res = {
-        "{{random_data}": random_data,
-        "{{n_date_start}}": n_date_start,
-        "{{n_date_end}}": n_date_end,
-        "{{p_time_start}}": p_time_start,
-        "{{p_time_end}}": p_time_end,
-        "{{c_date_start}}": c_date_start,
-        "{{c_date_end}}": c_date_end,
-        "{{timestamp}}": timestamp,
-        "{{current_time}}": current_time,
-        "{{yesterday_time}}": yesterday_time,
-        "{{c_date}}": c_date,
-        "{{n_date}}": n_date,
-        "{{y_date}}": y_date
-    }
-    return res
 
 
 def random_phone(self) -> int:

@@ -3,15 +3,15 @@
 # -------------------------------------------------------------------------------
 # Name:         bif_str.py
 # Description:
-# Author:       XiangjunZhao
-# EMAIL:        2419352654@qq.com
+# Author:       kira
+# EMAIL:        262667641@qq.com
 # Date:         2021/1/12 15:12
 # -------------------------------------------------------------------------------
-import logging
+from common.tools.logger import MyLog
 
 __all__ = ['substr', 'str_join']
 
-logger = logging.getLogger(__name__)
+logger = MyLog()
 
 
 def substr(raw_str, start=None, end=None):
@@ -25,7 +25,7 @@ def substr(raw_str, start=None, end=None):
     Returns: 截取的字符串
 
     """
-    logger.info(f'执行方法：substr({raw_str}, {start}, {end})')
+    logger.my_log(f'执行方法：substr({raw_str}, {start}, {end})', "info")
     try:
         start = int(start) if (isinstance(start, str) and start.isdigit()) else start
         end = int(end) if (isinstance(end, str) and end.isdigit()) else end
@@ -44,7 +44,7 @@ def str_join(obj, connector=","):
     Returns:
 
     """
-    logger.info(f'执行方法：str_join({obj}, {connector})')
+    logger.my_log(f'执行方法：str_join({obj}, {connector})', "info")
     if not isinstance(connector, str):
         connector = str(connector)
     if isinstance(obj, str):

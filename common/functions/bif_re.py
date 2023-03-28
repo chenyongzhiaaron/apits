@@ -3,15 +3,16 @@
 # -------------------------------------------------------------------------------
 # Name:         bif_re.py
 # Description:
-# Author:       XiangjunZhao
-# EMAIL:        2419352654@qq.com
+# Author:       kira
+# EMAIL:        262667641@qq.com
 # Date:         2021/1/12 15:11
 # -------------------------------------------------------------------------------
 import json
-import logging
 import re
 
-logger = logging.getLogger(__name__)
+from common.tools.logger import MyLog
+
+logger = MyLog()
 
 __all__ = ['regex_extract']
 
@@ -27,7 +28,7 @@ def regex_extract(string, pattern, group=None):
     Returns:
 
     """
-    logger.info(f'执行方法：regex_extract({string}, {pattern}, {group})')
+    logger.my_log(f'执行方法：regex_extract({string}, {pattern}, {group})', "info")
     if not isinstance(string, str):
         string = json.dumps(string, ensure_ascii=False)
     re_obj = re.search(pattern, string)

@@ -3,18 +3,20 @@
 # -------------------------------------------------------------------------------
 # Name:         bif_time.py
 # Description:
-# Author:       XiangjunZhao
-# EMAIL:        2419352654@qq.com
+# Author:       kira
+# EMAIL:        262667641@qq.com
 # Date:         2021/1/12 14:03
 # -------------------------------------------------------------------------------
-import logging
 import time
 
-logger = logging.getLogger(__name__)
+from common.tools.logger import MyLog
+
+logger = MyLog()
 
 __all__ = ['get_timestamp', 'ms_fmt_hms']
 
 
+@logger.decorator_log("错误原因：时间戳的长度只能在10到16位之间，默认返回长度为13位的时间戳")
 def get_timestamp(length=13):
     """
     获取时间戳字符串，长度最多为16位；默认13位
@@ -24,13 +26,13 @@ def get_timestamp(length=13):
     Returns:
 
     """
-    logger.info(f'执行方法：get_timestamp({length})')
+    logger.my_log(f'执行方法：get_timestamp({length})', "info")
     if isinstance(length, (int,)) and 10 <= length <= 16:
         power = length - 10
         timestamp = time.time()
         return int(timestamp * 10 ** power)
     else:
-        logger.error("错误原因：时间戳的长度只能在10到16位之间，默认返回长度为13位的时间戳")
+        # logger.error("错误原因：时间戳的长度只能在10到16位之间，默认返回长度为13位的时间戳")
         get_timestamp(13)
 
 

@@ -7,11 +7,12 @@
 # EMAIL:        2419352654@qq.com
 # Date:         2021/1/12 14:02
 # -------------------------------------------------------------------------------
-import logging
 import random
 import string
 
-logger = logging.getLogger(__name__)
+from common.tools.logger import MyLog
+
+logger = MyLog()
 
 __all__ = ['random_choice', 'gen_random_num', 'gen_random_str']
 
@@ -25,7 +26,7 @@ def random_choice(args):
     Returns:
 
     """
-    logger.info(f'执行方法：random_choice({args})')
+    logger.my_log(f'执行方法：random_choice({args})', "info")
     return random.choice(args)
 
 
@@ -38,7 +39,7 @@ def gen_random_num(length):
     Returns:
 
     """
-    logger.info(f'执行方法：gen_random_num({length})')
+    logger.my_log(f'执行方法：gen_random_num({length})', "info")
     return random.randint(int('1' + '0' * (length - 1)), int('9' * length))
 
 
@@ -51,5 +52,5 @@ def gen_random_str(length):
     Returns:
 
     """
-    logger.info(f'执行方法：gen_random_str({length})')
+    logger.my_log(f'执行方法：gen_random_str({length})', "info")
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(length))

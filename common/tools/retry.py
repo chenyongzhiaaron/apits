@@ -10,8 +10,11 @@
 
 
 def retry(func):
+    "函数重跑"
+
     def run_again(*args, **kwargs):
         try:
             func(*args, **kwargs)
         except:
             pass
+    return run_again()
