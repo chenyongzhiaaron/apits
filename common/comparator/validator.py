@@ -108,9 +108,11 @@ class Validator(object):
 
 
 if __name__ == '__main__':
-    validate_variables = [{"check": "result.user.name", "comparator": "eq", "expect": "chenyongzhi"}]
-
-    resp_obj = {"result": {"user": {"name": "ch33enyongzhi"}}}
+    validate_variables = [
+        {"check": "result.user.name", "comparator": "eq", "expect": "chen5yongzhi"},
+        {"check": "result.user", "comparator": "eq", "expect": "chen5yongzhi"}
+    ]
+    resp_obj = '{"result": {"user": {"name": "chenyongzhi"}}}'
     t = Validator()
     res = t.run_validate(validate_variables, resp_obj)
     print(res)

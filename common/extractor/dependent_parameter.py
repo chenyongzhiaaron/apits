@@ -23,8 +23,8 @@ class DependentParameter:
     PATTERN = getattr(Dependence, "PATTERN")
     pattern = getattr(Dependence, "pattern")
 
-    def __init__(self, key):
-        self.dependence = getattr(Dependence, key)
+    def __init__(self):
+        self.dependence = getattr(Dependence, "dependence")
 
     def get_dependent_value(self, key):
         return str(self.dependence[key]).replace("null", "None")

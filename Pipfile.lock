@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "22cbe5f42e6b541036cd4163f8cd4eb2ec000b3561391564312d93b574d1231f"
+            "sha256": "80f762ce3c80e45e3de234b4ac5a2bf30ae1b1d4f997e51785a21a25d93c9445"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -122,6 +122,14 @@
             "index": "pip_conf_index_global",
             "version": "==1.4.1"
         },
+        "ddt": {
+            "hashes": [
+                "sha256:e3c93b961a108b4f4d5a6c7f2263513d928baf3bb5b32af8e1c804bfb041141d",
+                "sha256:f71b348731b8c78c3100bffbd951a769fbd439088d1fdbb3841eee019af80acd"
+            ],
+            "index": "pip_conf_index_global",
+            "version": "==1.6.0"
+        },
         "decorator": {
             "hashes": [
                 "sha256:637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330",
@@ -178,12 +186,36 @@
             "index": "pip_conf_index_global",
             "version": "==1.5.3"
         },
+        "markdown-it-py": {
+            "hashes": [
+                "sha256:5a35f8d1870171d9acc47b99612dc146129b631baf04970128b568f190d0cc30",
+                "sha256:7c9a5e412688bc771c67432cbfebcdd686c93ce6484913dccf06cb5a0bea35a1"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==2.2.0"
+        },
+        "mdurl": {
+            "hashes": [
+                "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+                "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==0.1.2"
+        },
         "naked": {
             "hashes": [
                 "sha256:ea3d7eeada6b89bd8464ba0cfaa631867aaa68a3e2d5d6a6800cbe74f8941e5f",
                 "sha256:f81015107e3aefdc801d7144fbae214bdf3cb179c0020a1dc6d5acb3659d5d5c"
             ],
             "version": "==0.1.32"
+        },
+        "natsort": {
+            "hashes": [
+                "sha256:517595492dde570a4fd6b6a76f644440c1ba51e2338c8a671d7f0475fda8f9fd",
+                "sha256:d583bc9050dd10538de36297c960b93f873f0cd01671a3c50df5bd86dd391dcb"
+            ],
+            "index": "pip_conf_index_global",
+            "version": "==8.3.1"
         },
         "openpyxl": {
             "hashes": [
@@ -343,6 +375,14 @@
             ],
             "index": "pip_conf_index_global",
             "version": "==2.0.1"
+        },
+        "pygments": {
+            "hashes": [
+                "sha256:b3ed06a9e8ac9a9aae5a6f5dbe78a8a58655d17b43b93c078f094ddc476ae297",
+                "sha256:fa7bd7bd2771287c0de303af8bfdfc731f51bd2c6a47ab69d117138893b82717"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==2.14.0"
         },
         "pymongo": {
             "hashes": [
@@ -517,6 +557,14 @@
             ],
             "markers": "python_version >= '3.7' and python_version < '4'",
             "version": "==2.28.2"
+        },
+        "rich": {
+            "hashes": [
+                "sha256:540c7d6d26a1178e8e8b37e9ba44573a3cd1464ff6348b99ee7061b95d1c6333",
+                "sha256:dc84400a9d842b3a9c5ff74addd8eb798d155f36c1c91303888e0a66850d2a15"
+            ],
+            "index": "pip_conf_index_global",
+            "version": "==13.3.3"
         },
         "rsa": {
             "hashes": [

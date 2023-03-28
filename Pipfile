@@ -17,6 +17,9 @@ pymysql = "*"
 openpyxl = "*"
 faker = "*"
 pypinyin = "*"
+ddt = "*"
+rich = "*"
+natsort = "*"
 
 [dev-packages]
 

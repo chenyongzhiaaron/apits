@@ -74,9 +74,9 @@ class Extractor(object):
         Returns:
 
         """
-        # logger.info('正在执行数据提取：提取数据源内容：{resp_obj}'.format(resp_obj=resp_obj))
+        logger.my_log(f'正在执行数据提取：提取数据源内容：{resp_obj},{type(resp_obj)}', "info")
         logger.my_log('正在执行数据提取：提取表达式：{expr}'.format(expr=expr), "info")
-        result = jsonpath.jsonpath(resp_obj, expr)
+        result = jsonpath.jsonpath(resp_obj if isinstance(resp_obj, (dict, list)) else json.dumps(resp_obj), expr)
         if result is False:
             # jsonpath没有匹配到数据
             result = []

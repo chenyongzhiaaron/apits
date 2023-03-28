@@ -9,7 +9,7 @@ class BaseDates:
     # *****************************************************************
     # 测试数据所在路径
     # *****************************************************************
-    test_api = os.path.join(base_path, "data", "module_1", "test_cases", "test_api.xlsx")
+    test_api = os.path.join(base_path, "data", "moduleA", "test_cases", "test_api.xlsx")
     # *****************************************************************
 
     # 测试用例脚本目录

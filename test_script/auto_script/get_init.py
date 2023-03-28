@@ -22,8 +22,11 @@ def get_init():
     excel_handle = DoExcel(test_file)  # 实例化对象
     try:
         excel_handle.clear_date()  # 清空 excel 中实际结果列的数据
-        test_case = excel_handle.do_excel_yield()  # 获取 excel 中的测试用例
+        test_case = excel_handle.do_excel()  # 获取 excel 中的测试用例
+        # test_case = excel_handle.do_excel_yield()  # 获取 excel 中的测试用例
         init_data = excel_handle.get_excel_init()  # 获取初始化基本数据
+        print("====", type(init_data))
+        print("====", type(init_data))
         MyLog().my_log(f"如下是初始化得到得数据：{init_data}", "info")
     except Exception as e:
         raise e

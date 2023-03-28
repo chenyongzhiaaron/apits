@@ -4,7 +4,7 @@
 # @Email : 262667641@qq.com
 # @File : do_mysql.py
 # @Project : risk_project
-
+import json
 import sys
 import pymysql.cursors
 
@@ -16,7 +16,7 @@ from common.tools.logger import MyLog
 
 class DoMysql:
 
-    def __init__(self, db_base: dict):
+    def __init__(self, db_base):
         """
 
         Args:
@@ -32,6 +32,7 @@ class DoMysql:
 
         # self.sql = sql
         try:
+            db_base = db_base if isinstance(db_base, dict) else json.loads(db_base)
             self.conn = pymysql.connect(**db_base)  # 传入字典，连接数据库
             self.cur = self.conn.cursor(pymysql.cursors.DictCursor)  # 操作结果为字典的游标
         except Exception as e:
@@ -49,6 +50,7 @@ class DoMysql:
         :sql:
         :return: 返回操作结果，以字典形式返回
         """
+        print(f"type:{type(sql)}")
         if not sql:
             return
         result = None

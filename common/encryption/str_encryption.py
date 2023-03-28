@@ -14,7 +14,7 @@ import binascii
 import rsa
 
 from pyDes import des, CBC, PAD_PKCS5
-from Crypto.Cipher import AES
+# from Crypto.Cipher import AES
 
 
 def bs64_data_encode(st):
@@ -131,67 +131,67 @@ def add_to_16(text: str):
     return b_text + b'\0' * add
 
 
-class AesEcb:
+# class AesEcb:
+#
+#     def __init__(self, text: str, key: str):
+#         self.text = text
+#         self.KEY = key
+#
+#     def encrypt_by_aes(self):
+#         """
+#         加密函数
+#         Returns:加密后字符串，base64 编码输出
+#
+#         """
+#         key = self.KEY.encode("utf-8")
+#         text = add_to_16(self.text)  # 补位：16位
+#         cryptos = AES.new(key, AES.MODE_ECB)  # 加密模式 ECB
+#         cipher_text = cryptos.encrypt(text)  # 加密
+#         return base64.standard_b64encode(cipher_text).decode("utf-8")  # 加密结果 base64 编码输出
+#
+#     def decrypt_by_aes(self):
+#         """
+#         解密函数
+#         Returns:
+#
+#         """
+#         key = self.KEY.encode("utf-8")
+#         text = self.text.encode("utf-8")
+#         text = base64.b64decode(text)  # 先用base64 解密
+#         cryptos = AES.new(key, AES.MODE_ECB)
+#         cipher_text = cryptos.decrypt(text)  # 解密
+#         return cipher_text.decode("utf-8").strip("\0")  # 解密，去掉补位的0
 
-    def __init__(self, text: str, key: str):
-        self.text = text
-        self.KEY = key
 
-    def encrypt_by_aes(self):
-        """
-        加密函数
-        Returns:加密后字符串，base64 编码输出
-
-        """
-        key = self.KEY.encode("utf-8")
-        text = add_to_16(self.text)  # 补位：16位
-        cryptos = AES.new(key, AES.MODE_ECB)  # 加密模式 ECB
-        cipher_text = cryptos.encrypt(text)  # 加密
-        return base64.standard_b64encode(cipher_text).decode("utf-8")  # 加密结果 base64 编码输出
-
-    def decrypt_by_aes(self):
-        """
-        解密函数
-        Returns:
-
-        """
-        key = self.KEY.encode("utf-8")
-        text = self.text.encode("utf-8")
-        text = base64.b64decode(text)  # 先用base64 解密
-        cryptos = AES.new(key, AES.MODE_ECB)
-        cipher_text = cryptos.decrypt(text)  # 解密
-        return cipher_text.decode("utf-8").strip("\0")  # 解密，去掉补位的0
-
-
-class AesCbc:
-
-    def __init__(self, key: str, iv: str):
-        self.key = key.encode("utf-8")  # 初始化密钥
-        self.iv = iv.encode("utf-8")  # 初始化偏移量
-        self.length = 16  # 初始化数据快大小
-        self.aes = AES.new(self.key, AES.MODE_CBC, self.iv)  # 初始化AES,ECB 模式的实例
-        self.unpad = lambda s: s[0:-s[-1]]  # 截断函数，去除填充的字符
-
-    def pad(self, text):
-        """
-        填充函数，使被加密数据的字节码长度是block_size的整数倍
-        """
-        count = len(text.encode('utf-8'))
-        add = self.length - (count % self.length)
-        entext = text + (chr(add) * add)
-        return entext
-
-    def encrypt(self, encr_data):  # 加密函数
-        a = self.pad(encr_data)
-        res = self.aes.encrypt(a.encode("utf-8"))
-        msg = str(base64.b64encode(res), encoding="utf8")
-        return msg
-
-    def decrypt(self, decr_data):  # 解密函数
-        res = base64.decodebytes(decr_data.encode("utf-8"))
-        msg_text = self.aes.decrypt(res)
-        decrypt_text = self.unpad(msg_text).decode('utf8')
-        return decrypt_text
+# class AesCbc:
+#
+#     def __init__(self, key: str, iv: str):
+#         self.key = key.encode("utf-8")  # 初始化密钥
+#         self.iv = iv.encode("utf-8")  # 初始化偏移量
+#         self.length = 16  # 初始化数据快大小
+#         self.aes = AES.new(self.key, AES.MODE_CBC, self.iv)  # 初始化AES,ECB 模式的实例
+#         self.unpad = lambda s: s[0:-s[-1]]  # 截断函数，去除填充的字符
+#
+#     def pad(self, text):
+#         """
+#         填充函数，使被加密数据的字节码长度是block_size的整数倍
+#         """
+#         count = len(text.encode('utf-8'))
+#         add = self.length - (count % self.length)
+#         entext = text + (chr(add) * add)
+#         return entext
+#
+#     def encrypt(self, encr_data):  # 加密函数
+#         a = self.pad(encr_data)
+#         res = self.aes.encrypt(a.encode("utf-8"))
+#         msg = str(base64.b64encode(res), encoding="utf8")
+#         return msg
+#
+#     def decrypt(self, decr_data):  # 解密函数
+#         res = base64.decodebytes(decr_data.encode("utf-8"))
+#         msg_text = self.aes.decrypt(res)
+#         decrypt_text = self.unpad(msg_text).decode('utf8')
+#         return decrypt_text
 
 
 class Rsa:

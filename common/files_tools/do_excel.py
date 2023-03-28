@@ -75,7 +75,7 @@ class DoExcel:
                     sub_data["sheet"] = sheet_name
                 yield sub_data
 
-    def write_back(self, sheet_name, i, response_value, test_result, assert_log):
+    def write_back(self, sheet_name, i, **kwargs):
         """
 
         Args:
@@ -86,6 +86,9 @@ class DoExcel:
             assert_log: 报错结果
         Returns:
         """
+        response_value = kwargs.get("response_value")
+        test_result = kwargs.get("test_result")
+        assert_log = kwargs.get("assert_log")
         sheet = self.wb[sheet_name]
         sheet.cell(i + 1, 19).value = response_value
         sheet.cell(i + 1, 20).value = test_result
@@ -120,7 +123,6 @@ class DoExcel:
         first_head = []  # 存储标题的 list
         for i in range(max_column):
             first_head.append(self.init_sheet.cell(1, i + 1).value)
-        # init = []
         init = {}
         for k in range(2, max_row + 1):
             for i, v in enumerate(first_head):
@@ -130,8 +132,8 @@ class DoExcel:
         return init
 
     def __del__(self):
-        # self.wb.close()
-        pass
+        self.wb.close()
+        # pass
 
 
 if __name__ == '__main__':

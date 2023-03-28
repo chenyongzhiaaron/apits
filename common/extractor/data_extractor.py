@@ -22,17 +22,21 @@ REPLACE_DICT = {
     "false": False
 }
 
+dependence = Dependence()
+
 
 @singleton
 class DataExtractor:
 
     def __init__(self, response=None):
-        self.dependence = getattr(Dependence, "dependence")
+        self.dependence = dependence.dependence
+        # self.dependence = getattr(Dependence, "dependence")
         self.response = response
         self.PATTERN = getattr(Dependence, "PATTERN")  # 预编译正则表达式
 
-    def update_dependence(self, key, value):
-        self.dependence[f"{{{{{key}}}}}"] = value
+    # def update_dependence(self, key, value):
+    #     # self.dependence[f"{{{{{key}}}}}"] = value
+    #     dependence.update_dependence(key, value)
 
     def substitute_data(self, regex=None, keys=None, deps=None, jp_dict=None):
         """
@@ -58,7 +62,8 @@ class DataExtractor:
             self.substitute_route(deps)
         if jp_dict:
             self.substitute_jsonpath(jp_dict)
-        setattr(Dependence, "dependence", self.dependence)
+        dependence.set_dep(self.dependence)
+        # setattr(Dependence, "dependence", self.dependence)
         return self.dependence
 
     def substitute_regex(self, regex, keys):
@@ -76,9 +81,11 @@ class DataExtractor:
         groups = match.groups()
         for i, key in enumerate(keys):
             try:
-                self.update_dependence(key, groups[i])
+                dependence.update_dep(key, groups[i])
+                # self.update_dependence(key, groups[i])
             except:
-                self.update_dependence(key, None)
+                dependence.update_dep(key, None)
+                # self.update_dependence(key, None)
 
     def substitute_route(self, route_str):
         deps_list = re.sub(f"[\r\n]+", "", route_str).split(";")
@@ -108,7 +115,8 @@ class DataExtractor:
                 else:
                     break
             if temp is not None:
-                self.update_dependence(key, temp)
+                dependence.update_dep(key, temp)
+                # self.update_dependence(key, temp)
 
     def substitute_jsonpath(self, json_path_dict):
         """
@@ -124,9 +132,10 @@ class DataExtractor:
                 parsed_expression = parse(expression)
                 data = self.response
                 match = parsed_expression.find(data)
-                print(match)
+                # print(match)
                 result = [m.value for m in match]
-                self.update_dependence(key, result[0]) if len(result) == 1 else self.update_dependence(key, result)
+                dependence.update_dep(key, result[0]) if len(result) == 1 else dependence.update_dep(key, result)
+                # self.update_dependence(key, result[0]) if len(result) == 1 else self.update_dependence(key, result)
             except Exception as e:
                 MyLog().my_log(f"jsonpath表达式错误'{expression}': {e}")
 
@@ -141,7 +150,7 @@ if __name__ == '__main__':
     lists = {"k": "$..code", "x": "$.data[0].age[3].a"}
     dep_str = "name=data[0].name;ok=data[0].id;an=data[0].age"
     regex_str = r'"id": (\d+), "name": "(\w+)",'
-    # j_list = {"{{a}}": ["$..city"], "{{b}}": ["$..b", 1]}
+    regex_key = ["a", "b"]
     t = DataExtractor(res)
-    t.substitute_data(deps=dep_str)
+    t.substitute_data(regex=regex_str, keys=regex_key, deps=dep_str, jp_dict=lists)
     print(t.dependence)
