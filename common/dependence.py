@@ -11,22 +11,27 @@ class Dependence:
     PATTERN = re.compile(r"{{(.*?)}}")  # 预编译正则表达式
     pattern = re.compile(r'({)')
 
-    def update_dep(self, key, value):
+    @classmethod
+    def update_dep(cls, key, value):
         """更新依赖表"""
-        self.dependence[f"{{{{{key}}}}}"] = value
+        cls.dependence[f"{{{{{key}}}}}"] = value
 
-    def get_dep(self, key=None):
+    @classmethod
+    def get_dep(cls, key=None):
         """获取依赖表 或 依赖表中key对应的值"""
-        return self.dependence if key else self.dependence.get(key)
+        return cls.dependence if not key else cls.dependence.get(key)
 
-    def set_dep(self, value):
+    @classmethod
+    def set_dep(cls, value):
         """设置依赖表"""
-        self.dependence = value
+        cls.dependence = value
 
 
 if __name__ == '__main__':
-    dependence = getattr(Dependence, "dependence")
-    print(dependence)
-    setattr(Dependence, "dependence", {"123": "32"})
-    dependence = getattr(Dependence, "dependence")
-    print(dependence)
+    from test_script.auto_script.get_init import get_init
+
+    excel_handle, init_data, test_case = get_init()
+    initialize_data = eval(init_data.get("initialize_data"))
+    print(initialize_data)
+    Dependence.set_dep(initialize_data)  # 初始化依赖表
+    print("--------------------->", Dependence.get_dep())

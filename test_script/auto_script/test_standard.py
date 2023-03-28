@@ -25,18 +25,15 @@ warnings.simplefilter('ignore', ResourceWarning)
 excel_handle, init_data, test_case = get_init()
 databases = init_data.get('databases')  # 获取数据库配置信息
 mysql = DoMysql(databases)  # 初始化 mysql 链接
-dep = Dependence()  # 依赖表实例化
-setattr(Dependence, "dependence", eval(init_data.get("initialize_data")))  # 初始化依赖表
-# dep.set_dep(eval(init_data.get("initialize_data")))  # 初始化依赖表
-print("--------------------->", getattr(Dependence, "dependence"))
-deper = DependentParameter()  # 参数提取类实例化
+dep = Dependence
+dep.set_dep(eval(init_data.get("initialize_data")))  # 初始化依赖表
+dep_par = DependentParameter()  # 参数提取类实例化
 logger = MyLog()
 
-validator = Validator() \
- \
-            @ ddt
+validator = Validator()
 
 
+@ddt
 class TestProjectApi(unittest.TestCase):
     maxDiff = None
 
@@ -52,7 +49,7 @@ class TestProjectApi(unittest.TestCase):
         # 加载内置方法
         for k, v in load_built_in_functions().items():
             dep.update_dep(k, v)
-        print(dep.get_dep())
+        print("----->", dep.get_dep())
 
     def setUp(self) -> None:
         logger.my_log("-----------------------------------start_test_api-----------------------------------", "info")
@@ -60,7 +57,6 @@ class TestProjectApi(unittest.TestCase):
     @logger.decorator_log()
     @data(*test_case)  # {"":""}
     def test_api(self, item):  # item = {測試用例}
-        # print(self.host, self.headers)
         sheet = item.get("sheet_name")
         item_id = item.get("Id")
         name = item.get("name")
@@ -94,7 +90,7 @@ class TestProjectApi(unittest.TestCase):
                 MyLog().my_log(f'暂停时间必须是数字')
                 raise e
         # 首先执行sql替换,将sql替换为正确的sql语句
-        sql = deper.replace_dependent_parameter(sqlps)
+        sql = dep_par.replace_dependent_parameter(sqlps)
         print("2334241234", sql)
         if method == "SQL":
             try:
@@ -111,11 +107,11 @@ class TestProjectApi(unittest.TestCase):
         # 执行sql数据提取
         DataExtractor(sql_res).substitute_data(jp_dict=sql_key)
         # 替换 URL, PARAMETERS, HEADER,期望值
-        url = deper.replace_dependent_parameter(url)
-        parameters = deper.replace_dependent_parameter(parameters)
-        item_headers = deper.replace_dependent_parameter(item_headers)
+        url = dep_par.replace_dependent_parameter(url)
+        parameters = dep_par.replace_dependent_parameter(parameters)
+        item_headers = dep_par.replace_dependent_parameter(item_headers)
         headers = {**headers, **item_headers}
-        expected = deper.replace_dependent_parameter(expect)
+        expected = dep_par.replace_dependent_parameter(expect)
         # 提取请求参数信息
         DataExtractor(parameters).substitute_data(deps=parameters_key)
         # 执行参数替换
@@ -123,39 +119,46 @@ class TestProjectApi(unittest.TestCase):
         # 判断是否执行加密
         if encryption:
             parameters = do_encrypt(encryption, parameters)  # 数据加密：MD5 ｏｒ　ｓｈａ１
+        print("--URL-- ", url)
+        print("--HEADER-- ", headers)
+        print("--BODY-- ", parameters)
+        print("--SQL-- ", sql)
+        print("--SQL_RESULT-- ", sql_res)
+        print("--EXPECTED-- ", expected)
         try:
-            print("--URL-- ", url)
-            print("--HEADER-- ", headers)
-            print("--BODY-- ", parameters)
-            print("--SQL--", sql)
-            print("--SQL_RESULT--", sql_res)
             # 执行请求操作
-            host = host + path
-            response = req(host, method, url, data=parameters, headers=headers)
-            # pprint(url, indent=2, width=300)
-            # pprint(headers, indent=2, width=300)
+            response = req(host + path, method, url, data=parameters, headers=headers)
+            result_tuple = validator.run_validate(expected, response.json())  # 执行断言 返回结果元组
             print("--RESPONSE-- ", response.text)
-            print("--EXPECTED-- ", expected)
         except Exception as e:
-            logger.my_log(f'{item_id}-->{name}_{description},异常:{e}')
-            # excel_handle.write_back(sheet, item_id, response.text, result)
-            raise e
-        # 执行断言
-        result_tuple = validator.run_validate(expected, response.json())  # 返回结果元组
-        if "FAIL" in result_tuple:
             result = "失败"
-            excel_handle.write_back(sheet, item_id, response.text, result)
+            logger.my_log(f'{item_id}-->{name}_{description},异常:{e}')
+            raise e
         else:
-            result = "通过"
+            if "FAIL" in result_tuple:
+                result = "失败"
+                raise
+            else:
+                result = "通过"
+        finally:
             # 响应结果及测试结果回写 excel
-            excel_handle.write_back(sheet, item_id, response.text, result)
-            raise result_tuple
+            excel_handle.write_back(
+                sheet_name=sheet,
+                i=item_id,
+                response_value=response,
+                test_result=result,
+                assert_log=result_tuple
+            )
         try:
             # 提取响应
             DataExtractor(response.json()).substitute_data(regex=regex, keys=keys, deps=deps, jp_dict=jp_dict)
         except:
             logger.my_log(
-                f"提取响应失败：{name}_{description}:regex={regex}, keys={keys}, deps={deps}, jp_dict={jp_dict}")
+                f"提取响应失败：{name}_{description}:"
+                f"\nregex={regex},"
+                f" \nkeys={keys}, "
+                f"\ndeps={deps}, "
+                f"\njp_dict={jp_dict}")
 
     def tearDown(self) -> None:
         logger.my_log("-----------------------------------end_test_api-----------------------------------", "info")
