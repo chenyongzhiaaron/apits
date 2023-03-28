@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="Doki Master Themes">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Doki Master Themes" />
+              <option name="relativePathToSchema" value="$APPLICATION_PLUGINS_DIR$/doki-theme-jetbrains/lib/doki-theme-jetbrains-18.0.0.jar!/theme-schema/master.theme.schema.json" />
+              <option name="applicationDefined" value="true" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="data/bgy/json_file/assert_date_upload.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>

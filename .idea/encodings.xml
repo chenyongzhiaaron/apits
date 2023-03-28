@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="" charset="UTF-8" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/dd327101-360a-4ce3-a39e-0a30a298d5cf/console.sql" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/OutPut/Log/api_2020-05-31.log" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/common/comparator/comparators.py" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/common/comparator/extractor.py" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/common/comparator/loaders.py" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/common/comparator/validator.py" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/config/questionnaire_sql.sql" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/data/booking/json_file/ai/ai_sql.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data/booking/json_file/safe.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data/booking/json_file/wifi/clear_wifi_data.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data/moduleA/db_config/db_config.json" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/data/moduleA/sql_file/safe.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/html_script/javas.js" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/temp/sjk.py" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/test_d/day_four.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/test_d/t" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test_script/auto_script/login.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test_script/bgy/AI_comparison_data.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test_script/bgy/AI_data_comparison.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test_script/bgy/__init__.py" charset="US-ASCII" />
+    <file url="file://$PROJECT_DIR$/test_script/bgy/get_security_check_type_info.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test_script/bgy/run_sql.py" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,5 @@
+2023-03-27 17:12:54,345-INFO-logger.py-[ line:65 ] - 日志信息:读取测试用例excel文件：D:\apk_api\api-test-project\data\module_1\test_cases\test_api.xlsx
+2023-03-27 17:13:16,482-INFO-logger.py-[ line:65 ] - 日志信息:读取测试用例excel文件：D:\apk_api\api-test-project\data\module_1\test_cases\test_api.xlsx
+2023-03-27 17:20:32,642-INFO-logger.py-[ line:65 ] - 日志信息:读取测试用例excel文件：D:\apk_api\api-test-project\data\module_1\test_cases\test_api.xlsx
+2023-03-27 17:23:07,522-INFO-logger.py-[ line:65 ] - 日志信息:读取测试用例excel文件：D:\apk_api\api-test-project\data\module_1\test_cases\test_api.xlsx
+2023-03-27 17:31:27,217-INFO-logger.py-[ line:65 ] - 日志信息:读取测试用例excel文件：D:\apk_api\api-test-project\data\module_1\test_cases\test_api.xlsx
