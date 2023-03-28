@@ -54,7 +54,7 @@ class TestProjectApi(unittest.TestCase):
     def setUp(self) -> None:
         logger.my_log("-----------------------------------start_test_api-----------------------------------", "info")
 
-    @logger.decorator_log()
+    # @logger.decorator_log()
     @data(*test_case)  # {"":""}
     def test_api(self, item):  # item = {測試用例}
         sheet = item.get("sheet_name")
