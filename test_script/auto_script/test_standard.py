@@ -8,15 +8,15 @@ from ddt import ddt, data
 
 sys.path.append("../../")
 sys.path.append("../../common")
-from .login import login
-from .get_init import get_init
+from test_script.auto_script.login import login
+from test_script.auto_script.get_init import get_init
 from common.extractor.dependent_parameter import DependentParameter
 from common.extractor.data_extractor import DataExtractor
 from common.encryption.do_encryption import do_encrypt
 from common.do_sql.do_mysql import DoMysql
 from common.tools.req import req
 from common.tools.logger import MyLog
-from common.comparator.loaders import load_built_in_functions
+from common.comparator import loaders
 from common.dependence import Dependence
 from common.comparator.validator import Validator
 
@@ -39,34 +39,32 @@ class TestProjectApi(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
+        loaders.set_bif_fun()  # 加载内置方法
         # 获取初始化基础数据
         cls.host = init_data.get('host')
         cls.path = init_data.get("path")
         username = dep.get_dep("{{account}}")
-        password = dep.get_dep("{{password}}")
+        password = dep.get_dep("{{passwd}}")
         cls.headers = login(cls.host + cls.path, username, password)
         dep.update_dep("headers", cls.headers)
         # 加载内置方法
-        for k, v in load_built_in_functions().items():
-            dep.update_dep(k, v)
-        print("----->", dep.get_dep())
+        logger.my_log(f"内置方法：{dep.get_dep()}", "info")
 
     def setUp(self) -> None:
         logger.my_log("-----------------------------------start_test_api-----------------------------------", "info")
 
-    # @logger.decorator_log()
     @data(*test_case)  # {"":""}
+    @logger.decorator_log()
     def test_api(self, item):  # item = {測試用例}
-        sheet = item.get("sheet_name")
+        sheet = item.get("sheet")
         item_id = item.get("Id")
         name = item.get("name")
         description = item.get("description")
         host = self.host
         path = self.path
         headers = self.headers
-        url = item.get("url")
+        url = item.get("Url")
         run = item.get("Run")
-        print("123111", run)
         method = item.get("Method")
         sql_variable = item.get("sql变量")
         sqlps = item.get("SQL")
@@ -85,19 +83,22 @@ class TestProjectApi(unittest.TestCase):
         if method == "TIME":
             try:
                 time.sleep(int(url))
+                logger.my_log(f"暂存成功:{url}", "info")
                 return
             except Exception as e:
                 MyLog().my_log(f'暂停时间必须是数字')
                 raise e
         # 首先执行sql替换,将sql替换为正确的sql语句
         sql = dep_par.replace_dependent_parameter(sqlps)
-        print("2334241234", sql)
         if method == "SQL":
             try:
                 execute_sql_results = mysql.do_mysql(sql)
+                logger.my_log(f'sql执行成功:{execute_sql_results}', "info")
                 if execute_sql_results and sql_variable:
                     # 执行sql数据提取
                     DataExtractor(execute_sql_results).substitute_data(jp_dict=sql_variable)
+                    logger.my_log(f'sql 提取成功', "info")
+                    return
             except Exception as e:
                 logger.my_log(f'sql:{sql},异常:{e}')
                 raise e
@@ -114,38 +115,38 @@ class TestProjectApi(unittest.TestCase):
         expected = dep_par.replace_dependent_parameter(expect)
         # 提取请求参数信息
         DataExtractor(parameters).substitute_data(deps=parameters_key)
-        # 执行参数替换
-        # 替换预期结果
         # 判断是否执行加密
         if encryption:
             parameters = do_encrypt(encryption, parameters)  # 数据加密：MD5 ｏｒ　ｓｈａ１
-        print("--URL-- ", url)
-        print("--HEADER-- ", headers)
-        print("--BODY-- ", parameters)
-        print("--SQL-- ", sql)
-        print("--SQL_RESULT-- ", sql_res)
-        print("--EXPECTED-- ", expected)
+        logger.my_log(f"--sheet-- {sheet}", "info")
+        logger.my_log(f"--URL--{host + path + url}", "info")
+        logger.my_log(f"--HEADER-- {headers}", "info")
+        logger.my_log(f"--BODY-- {parameters}", "info")
+        logger.my_log(f"--SQL-- {sql}", "info")
+        logger.my_log(f"--SQL_RESULT-- {sql_res}", "info")
+        logger.my_log(f"--EXPECTED-- {expected}", "info")
         try:
             # 执行请求操作
             response = req(host + path, method, url, data=parameters, headers=headers)
-            result_tuple = validator.run_validate(expected, response.json())  # 执行断言 返回结果元组
-            print("--RESPONSE-- ", response.text)
+            logger.my_log(f"--RESPONSE-- {response.text}", "info")
         except Exception as e:
             result = "失败"
-            logger.my_log(f'{item_id}-->{name}_{description},异常:{e}')
+            logger.my_log(f'{result}:{item_id}-->{name}_{description},异常:{e}')
             raise e
-        else:
-            if "FAIL" in result_tuple:
-                result = "失败"
-                raise
-            else:
-                result = "通过"
+
+        result_tuple = validator.run_validate(expected, response.json())  # 执行断言 返回结果元组
+        result = "PASS"
+        try:
+            self.assertNotIn("FAIL", result_tuple)
+        except:
+            result = "FAIL"
+            raise
         finally:
             # 响应结果及测试结果回写 excel
             excel_handle.write_back(
                 sheet_name=sheet,
                 i=item_id,
-                response_value=response,
+                response_value=response.text,
                 test_result=result,
                 assert_log=result_tuple
             )

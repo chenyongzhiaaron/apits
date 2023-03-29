@@ -25,16 +25,16 @@ def req(hosts, methods, url, **kwargs):
     # 关闭 https 警告信息
 
     urllib3.disable_warnings()
-    if re.match(r"https?", url):
-        url = url
-    else:
-        url = hosts + url
+    if not url:
+        raise "URL 不能为None"
+    url = url if re.match(r"https?", url) else hosts + url
     res = None
     data = kwargs.get("data", None)
     headers = kwargs.get("headers")
     if methods.lower() == 'post':
         try:
             if "application/x-www-form-urlencoded" in headers.values():
+
                 res = requests.post(url=url, data=data, headers=headers, verify=False, timeout=30)
             else:
                 res = requests.post(url=url, json=data, headers=headers, verify=False, timeout=30)

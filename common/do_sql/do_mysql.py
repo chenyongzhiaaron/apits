@@ -50,7 +50,7 @@ class DoMysql:
         :sql:
         :return: 返回操作结果，以字典形式返回
         """
-        print(f"type:{type(sql)}")
+        # print(f"type:{type(sql)}")
         if not sql:
             return
         result = None

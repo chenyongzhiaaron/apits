@@ -14,12 +14,12 @@ class BaseDates:
 
     # 测试用例脚本目录
     # *****************************************************************
-    script = os.path.join(base_path, "script", "bgy")
+    script = os.path.join(base_path, "test_script", "auto_script")
     # *****************************************************************
 
     # 测试报告及 log 所在路径
     # *****************************************************************
-    test_report = os.path.join(base_path, "OutPut", "reports")
+    test_report = os.path.join(base_path, "OutPut", "Reports")
     log_path = os.path.join(base_path, "OutPut", "Log")
 
     wx_send_url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key="

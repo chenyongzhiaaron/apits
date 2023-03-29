@@ -9,18 +9,19 @@
 # -------------------------------------------------------------------------------
 import types
 
-from common import functions
+from common import bif_functions
 from common.comparator import comparators
+from common.dependence import Dependence
 
 
 def load_built_in_functions():
     """
-    加载builtin包中的内建方法
+    加载bif_functions包中的内建方法
     Returns:
     """
     built_in_functions = {}
 
-    for name, item in vars(functions).items():
+    for name, item in vars(bif_functions).items():
         if isinstance(item, types.FunctionType):
             built_in_functions[name] = item
     return built_in_functions
@@ -48,7 +49,6 @@ def load_model_fun(model):
     """
     model_fun = {}
     for name, item in vars(model).items():
-        # print("-----", name, item)
         if isinstance(item, types.FunctionType):
             model_fun[name] = item
 
@@ -79,10 +79,22 @@ def load_model_fun(model):
 #     return ext_method_online_module, ext_methods_online
 
 
+def set_bif_fun():
+    """
+    将所有内置方法加载到依赖表中
+    Returns:
+
+    """
+    for k, v in load_built_in_functions().items():
+        Dependence.update_dep(f"{k}()", v)
+
+
 if __name__ == '__main__':
-    from common.functions import random_tools
+    from common.bif_functions import random_tools
 
     # func = load_model_fun(random_tools)
     # print(func)
     # print(load_built_in_functions())
     print(load_built_in_comparators())
+    print(set_bif_fun())
+    print(Dependence.get_dep())

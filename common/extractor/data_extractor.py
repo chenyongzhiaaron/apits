@@ -22,21 +22,16 @@ REPLACE_DICT = {
     "false": False
 }
 
-dependence = Dependence()
+dependence = Dependence
 
 
 @singleton
 class DataExtractor:
 
     def __init__(self, response=None):
-        self.dependence = dependence.dependence
-        # self.dependence = getattr(Dependence, "dependence")
+        self.dependence = dependence.get_dep()
         self.response = response
         self.PATTERN = getattr(Dependence, "PATTERN")  # 预编译正则表达式
-
-    # def update_dependence(self, key, value):
-    #     # self.dependence[f"{{{{{key}}}}}"] = value
-    #     dependence.update_dependence(key, value)
 
     def substitute_data(self, regex=None, keys=None, deps=None, jp_dict=None):
         """
@@ -52,6 +47,7 @@ class DataExtractor:
         Returns:
 
         """
+
         if not isinstance(self.response, (dict, str, list)):
             return {}
         if regex and keys:
@@ -63,7 +59,6 @@ class DataExtractor:
         if jp_dict:
             self.substitute_jsonpath(jp_dict)
         dependence.set_dep(self.dependence)
-        # setattr(Dependence, "dependence", self.dependence)
         return self.dependence
 
     def substitute_regex(self, regex, keys):
@@ -82,10 +77,8 @@ class DataExtractor:
         for i, key in enumerate(keys):
             try:
                 dependence.update_dep(key, groups[i])
-                # self.update_dependence(key, groups[i])
             except:
                 dependence.update_dep(key, None)
-                # self.update_dependence(key, None)
 
     def substitute_route(self, route_str):
         deps_list = re.sub(f"[\r\n]+", "", route_str).split(";")

@@ -91,6 +91,3 @@ if __name__ == '__main__':
     @MyLog().decorator_log
     def add():
         raise
-
-
-    print(add())

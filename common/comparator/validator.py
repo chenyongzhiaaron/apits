@@ -101,6 +101,8 @@ class Validator(object):
         Returns:返回校验结果
 
         """
+        if not validate_variables:
+            return ""
         self.uniform_validate(validate_variables)
         if not self.validate_variables_list:
             raise "uniform_validate 执行失败，无法进行 validate 校验"

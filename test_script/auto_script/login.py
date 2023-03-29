@@ -13,9 +13,10 @@ def login(host, username, password):
     headers = {"Content-Type": "application/json"}
     try:
         res = req(host, 'POST', url, data=data, headers=headers).json()
-        MyLog().my_log(f"登录成功:{res}", "info")
-        token = res.get("token")
-        return {**headers, **{"token": token}}
+        MyLog().my_log(f"======================登录成功======================", "info")
+        token = res.get("data").get("bspToken")
+        current_tenant_id = res.get("data").get("currentTenantId")
+        return {**headers, **{"BSP_TOKEN": token, "BSP_USER_TENANT": current_tenant_id}}
     except:
         raise
 

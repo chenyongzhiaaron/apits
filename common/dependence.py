@@ -10,6 +10,7 @@ class Dependence:
     dependence = {}  # 定义依赖表
     PATTERN = re.compile(r"{{(.*?)}}")  # 预编译正则表达式
     pattern = re.compile(r'({)')
+    pattern_fun = re.compile(r"{{(\w+\(\))}}")
 
     @classmethod
     def update_dep(cls, key, value):
