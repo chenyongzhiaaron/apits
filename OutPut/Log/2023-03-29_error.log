@@ -1,0 +1,502 @@
+2023-03-29 08:57:09,775-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_f}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-03-29 08:57:23,305-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_g}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-03-29 09:10:05,571-ERROR-logger.py-[ line:63 ] - 日志信息:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 09:10:05,589-ERROR-logger.py-[ line:63 ] - 日志信息:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 09:10:05,645-ERROR-logger.py-[ line:63 ] - 日志信息:9-->安全大屏_大盘-隐患类型数据,异常:expected string or bytes-like object
+2023-03-29 09:10:37,093-ERROR-logger.py-[ line:63 ] - 日志信息:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 09:10:37,104-ERROR-logger.py-[ line:63 ] - 日志信息:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 09:10:37,139-ERROR-logger.py-[ line:63 ] - 日志信息:9-->安全大屏_大盘-隐患类型数据,异常:expected string or bytes-like object
+2023-03-29 09:15:43,128-ERROR-logger.py-[ line:63 ] - 日志信息:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 09:15:43,140-ERROR-logger.py-[ line:63 ] - 日志信息:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 09:15:43,185-ERROR-logger.py-[ line:63 ] - 日志信息:9-->安全大屏_大盘-隐患类型数据,异常:expected string or bytes-like object
+2023-03-29 09:21:19,659-ERROR-logger.py-[ line:63 ] - 日志信息:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 09:21:19,670-ERROR-logger.py-[ line:63 ] - 日志信息:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 09:22:18,442-ERROR-logger.py-[ line:63 ] - 日志信息:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 09:22:18,452-ERROR-logger.py-[ line:63 ] - 日志信息:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 09:28:30,670-ERROR-logger.py-[ line:63 ] - 日志信息:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 09:28:30,680-ERROR-logger.py-[ line:63 ] - 日志信息:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 09:40:42,063-ERROR-logger.py-[ line:63 ] - 日志信息:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 09:41:06,451-ERROR-logger.py-[ line:63 ] - 日志信息:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 09:41:06,462-ERROR-logger.py-[ line:63 ] - 日志信息:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 09:46:32,434-ERROR-logger.py-[ line:63 ] - 日志信息:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 09:46:32,444-ERROR-logger.py-[ line:63 ] - 日志信息:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 09:47:34,614-ERROR-logger.py-[ line:63 ] - 日志信息:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 09:47:34,626-ERROR-logger.py-[ line:63 ] - 日志信息:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 09:50:59,320-ERROR-logger.py-[ line:63 ] - 日志信息:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 09:50:59,330-ERROR-logger.py-[ line:63 ] - 日志信息:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 09:58:50,125-ERROR-logger.py-[ line:63 ] - 日志信息:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 09:59:23,659-ERROR-logger.py-[ line:63 ] - 日志信息:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 10:59:39,253-ERROR-logger.py-[ line:63 ] - 日志信息:失败:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 10:59:39,288-ERROR-logger.py-[ line:63 ] - 日志信息:失败:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 11:03:04,210-ERROR-logger.py-[ line:63 ] - 日志信息:失败:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 11:03:04,222-ERROR-logger.py-[ line:63 ] - 日志信息:失败:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 11:03:51,043-ERROR-logger.py-[ line:63 ] - 日志信息:失败:2-->安全大屏_查询项目基本信息,异常:expected string or bytes-like object
+2023-03-29 11:03:51,054-ERROR-logger.py-[ line:63 ] - 日志信息:失败:3-->安全大屏_查询楼栋模型所有数据,异常:expected string or bytes-like object
+2023-03-29 11:07:25,879-ERROR-logger.py-[ line:63 ] - 日志信息:读取excel中初始化数据异常: [Errno 13] Permission denied: 'D:\\apk_api\\api-test-project\\data\\moduleA\\test_cases\\test_api.xlsx'
+2023-03-29 11:09:08,126-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{timestamp}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-03-29 11:09:08,127-ERROR-logger.py-[ line:63 ] - 日志信息:JSONDecodeError:/ibs/api/ibs-classification/base/project/info?t={{timestamp}}&id={{projectId}}:Expecting value: line 1 column 1 (char 0)
+2023-03-29 11:09:08,250-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{timestamp}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-03-29 11:09:08,251-ERROR-logger.py-[ line:63 ] - 日志信息:JSONDecodeError:/ibs/api/ibs-security/screen/hiddenLeverNum?t={{timestamp}}&projectId={{projectId}}:Expecting value: line 1 column 1 (char 0)
+2023-03-29 11:16:16,044-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{timestamp}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-03-29 11:16:16,044-ERROR-logger.py-[ line:63 ] - 日志信息:JSONDecodeError:/ibs/api/ibs-classification/base/project/info?t={{timestamp}}&id={{projectId}}:Expecting value: line 1 column 1 (char 0)
+2023-03-29 11:16:16,224-ERROR-logger.py-[ line:63 ] - 日志信息:参数格式错误！
+2023-03-29 11:16:16,379-ERROR-logger.py-[ line:63 ] - 日志信息:失败:2-->安全大屏_查询项目基本信息,异常:exceptions must derive from BaseException
+2023-03-29 11:16:16,380-ERROR-logger.py-[ line:63 ] - 日志信息:None: exceptions must derive from BaseException
+2023-03-29 11:16:16,382-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{timestamp}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-03-29 11:16:16,383-ERROR-logger.py-[ line:63 ] - 日志信息:JSONDecodeError:/ibs/api/ibs-security/screen/hiddenLeverNum?t={{timestamp}}&projectId={{projectId}}:Expecting value: line 1 column 1 (char 0)
+2023-03-29 11:16:16,588-ERROR-logger.py-[ line:63 ] - 日志信息:参数格式错误！
+2023-03-29 11:16:16,589-ERROR-logger.py-[ line:63 ] - 日志信息:失败:3-->安全大屏_查询楼栋模型所有数据,异常:exceptions must derive from BaseException
+2023-03-29 11:16:16,590-ERROR-logger.py-[ line:63 ] - 日志信息:None: exceptions must derive from BaseException
+2023-03-29 11:16:16,594-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 11:26:09,302-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:26:09,302-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:26:09,303-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:26:09,304-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{timestamp}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-03-29 11:26:09,305-ERROR-logger.py-[ line:63 ] - 日志信息:JSONDecodeError:/ibs/api/ibs-classification/base/project/info?t={{timestamp}}&id={{projectId}}:Expecting value: line 1 column 1 (char 0)
+2023-03-29 11:26:09,508-ERROR-logger.py-[ line:63 ] - 日志信息:参数格式错误！
+2023-03-29 11:26:09,510-ERROR-logger.py-[ line:63 ] - 日志信息:失败:2-->安全大屏_查询项目基本信息,异常:exceptions must derive from BaseException
+2023-03-29 11:26:10,768-ERROR-logger.py-[ line:63 ] - 日志信息:None: local variable 'result_tuple' referenced before assignment
+2023-03-29 11:26:10,769-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:26:10,770-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:26:10,770-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{timestamp}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-03-29 11:26:10,771-ERROR-logger.py-[ line:63 ] - 日志信息:JSONDecodeError:/ibs/api/ibs-security/screen/hiddenLeverNum?t={{timestamp}}&projectId={{projectId}}:Expecting value: line 1 column 1 (char 0)
+2023-03-29 11:26:10,937-ERROR-logger.py-[ line:63 ] - 日志信息:参数格式错误！
+2023-03-29 11:26:10,938-ERROR-logger.py-[ line:63 ] - 日志信息:失败:3-->安全大屏_查询楼栋模型所有数据,异常:exceptions must derive from BaseException
+2023-03-29 11:26:10,938-ERROR-logger.py-[ line:63 ] - 日志信息:None: local variable 'result_tuple' referenced before assignment
+2023-03-29 11:26:10,939-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:26:10,941-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:26:10,944-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 11:26:10,945-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:26:10,946-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:26:10,946-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:26:10,947-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:26:10,951-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:26:10,952-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:26:10,953-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:26:10,954-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:26:10,955-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:26:10,956-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:26:10,957-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:27:44,571-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:27:44,572-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:27:44,573-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:27:44,575-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{timestamp}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-03-29 11:27:44,576-ERROR-logger.py-[ line:63 ] - 日志信息:JSONDecodeError:/ibs/api/ibs-classification/base/project/info?t={{timestamp}}&id={{projectId}}:Expecting value: line 1 column 1 (char 0)
+2023-03-29 11:27:44,702-ERROR-logger.py-[ line:63 ] - 日志信息:参数格式错误！
+2023-03-29 11:27:44,704-ERROR-logger.py-[ line:63 ] - 日志信息:失败:2-->安全大屏_查询项目基本信息,异常:exceptions must derive from BaseException
+2023-03-29 11:27:44,706-ERROR-logger.py-[ line:63 ] - 日志信息:None: local variable 'result_tuple' referenced before assignment
+2023-03-29 11:27:44,707-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:27:44,708-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:27:44,710-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{timestamp}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-03-29 11:27:44,711-ERROR-logger.py-[ line:63 ] - 日志信息:JSONDecodeError:/ibs/api/ibs-security/screen/hiddenLeverNum?t={{timestamp}}&projectId={{projectId}}:Expecting value: line 1 column 1 (char 0)
+2023-03-29 11:27:44,892-ERROR-logger.py-[ line:63 ] - 日志信息:参数格式错误！
+2023-03-29 11:27:44,893-ERROR-logger.py-[ line:63 ] - 日志信息:失败:3-->安全大屏_查询楼栋模型所有数据,异常:exceptions must derive from BaseException
+2023-03-29 11:27:44,893-ERROR-logger.py-[ line:63 ] - 日志信息:None: local variable 'result_tuple' referenced before assignment
+2023-03-29 11:27:44,894-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:27:44,895-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:27:44,899-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 11:27:44,901-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:27:44,902-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:27:44,902-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:27:44,903-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:27:44,904-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:27:44,905-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:27:44,906-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:27:44,908-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:27:44,910-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 11:27:44,911-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 11:27:44,912-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 14:25:07,276-ERROR-logger.py-[ line:63 ] - 日志信息:key:get_current_time(),在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-03-29 14:26:07,519-ERROR-logger.py-[ line:63 ] - 日志信息:key:get_current_time(),在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-03-29 14:26:47,343-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{get_current_time()}},替换成功：<function get_current_time at 0x000002E05F548430>
+2023-03-29 14:26:47,344-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_a}},替换成功：foo
+2023-03-29 14:26:47,345-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_c}},替换成功：123
+2023-03-29 14:26:47,346-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_d}},替换成功：None
+2023-03-29 14:26:47,346-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_e_1}},替换成功：True
+2023-03-29 14:26:47,347-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_e_2}},替换成功：bar
+2023-03-29 14:26:47,348-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_f}},替换成功：['baz', False]
+2023-03-29 14:26:47,348-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_g}},替换成功：{'g': 'gg', 'g1': 'gg', 'g2': 'gg2'}
+2023-03-29 14:28:44,911-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{get_current_time()}},替换成功：<function get_current_time at 0x0000019C0CE1BF70>
+2023-03-29 14:28:44,912-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_a}},替换成功：foo
+2023-03-29 14:28:44,913-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_c}},替换成功：123
+2023-03-29 14:28:44,914-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_d}},替换成功：None
+2023-03-29 14:28:44,917-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_e_1}},替换成功：True
+2023-03-29 14:28:44,919-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_e_2}},替换成功：bar
+2023-03-29 14:28:44,921-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_f}},替换成功：['baz', False]
+2023-03-29 14:28:44,923-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_g}},替换成功：{'g': 'gg', 'g1': 'gg', 'g2': 'gg2'}
+2023-03-29 14:29:27,293-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{get_current_time()}},替换成功：<function get_current_time at 0x000001D9C8A78430>
+2023-03-29 14:29:27,295-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_a}},替换成功：foo
+2023-03-29 14:29:27,296-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_c}},替换成功：123
+2023-03-29 14:29:27,297-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_d}},替换成功：None
+2023-03-29 14:29:27,297-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_e_1}},替换成功：True
+2023-03-29 14:29:27,298-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_e_2}},替换成功：bar
+2023-03-29 14:29:27,298-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_f}},替换成功：['baz', False]
+2023-03-29 14:29:27,299-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_g}},替换成功：{'g': 'gg', 'g1': 'gg', 'g2': 'gg2'}
+2023-03-29 14:29:40,790-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{get_current_time()}},替换成功：<function get_current_time at 0x0000013B50908430>
+2023-03-29 14:29:40,791-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_a}},替换成功：foo
+2023-03-29 14:29:40,792-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_c}},替换成功：123
+2023-03-29 14:29:40,793-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_d}},替换成功：None
+2023-03-29 14:29:40,793-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_e_1}},替换成功：True
+2023-03-29 14:29:40,794-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_e_2}},替换成功：bar
+2023-03-29 14:29:40,794-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_f}},替换成功：['baz', False]
+2023-03-29 14:29:40,795-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_g}},替换成功：{'g': 'gg', 'g1': 'gg', 'g2': 'gg2'}
+2023-03-29 14:41:54,898-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_a}},替换成功：foo
+2023-03-29 14:57:52,661-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_a}},替换成功：foo
+2023-03-29 14:58:14,831-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_a}},替换成功：foo
+2023-03-29 14:58:22,492-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_a}},替换成功：foo
+2023-03-29 15:09:39,985-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_a}},替换成功：foo
+2023-03-29 15:09:39,986-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_c}},替换成功：123
+2023-03-29 15:09:39,987-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_d}},替换成功：None
+2023-03-29 15:09:40,012-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_e_1}},替换成功：True
+2023-03-29 15:09:40,012-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_e_2}},替换成功：bar
+2023-03-29 15:09:40,013-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_f}},替换成功：['baz', False]
+2023-03-29 15:09:40,014-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_g}},替换成功：{'g': 'gg', 'g1': 'gg', 'g2': 'gg2'}
+2023-03-29 15:48:08,028-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_a}},替换成功：foo
+2023-03-29 15:48:08,028-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_c}},替换成功：123
+2023-03-29 15:48:08,029-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_d}},替换成功：None
+2023-03-29 15:48:08,029-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_e_1}},替换成功：True
+2023-03-29 15:48:08,030-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_e_2}},替换成功：bar
+2023-03-29 15:48:08,031-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_f}},替换成功：['baz', False]
+2023-03-29 15:48:08,032-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{var_g}},替换成功：{'g': 'gg', 'g1': 'gg', 'g2': 'gg2'}
+2023-03-29 15:51:47,804-ERROR-logger.py-[ line:63 ] - 日志信息:post 请求异常:HTTPSConnectionPool(host='bimdc.bzlrobot.com', port=443): Max retries exceeded with url: /bsp/test/user/ugs/auth/loginByNotBip (Caused by ProxyError('Cannot connect to proxy.', FileNotFoundError(2, 'No such file or directory')))
+URL:https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
+参数:{'account': '18127813600', 'password': 'Kzw8YyLO/vSnkS9j+IKnuDYWc6cEO6Pea45fK4prd4LJz34Pu6HFUWVFhOcNsn4ExxkBfP3685QHRCTS/SyaIFmkPP+K4hvxcWyTbZdzKVXeoovhOxFvtvl79qqXTjqFhBmIPnNLdGSd8tqfdrOOfsqq7HdillrpkbLtEiBMHPM='}
+2023-03-29 15:51:47,805-ERROR-logger.py-[ line:63 ] - 日志信息:登录失败: 'NoneType' object has no attribute 'json'
+2023-03-29 15:51:47,931-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:51:47,932-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:51:47,933-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:51:47,935-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 15:51:47,936-ERROR-logger.py-[ line:63 ] - 日志信息:None: 'NoneType' object is not a mapping
+2023-03-29 15:51:47,937-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:51:47,938-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:51:47,940-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 15:51:47,940-ERROR-logger.py-[ line:63 ] - 日志信息:None: 'NoneType' object is not a mapping
+2023-03-29 15:51:47,941-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:51:47,943-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:51:47,950-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 15:51:47,950-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:51:47,951-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:51:47,952-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:51:47,953-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:51:47,953-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:51:47,954-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:51:47,955-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:51:47,956-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:51:47,957-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:51:47,958-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:51:47,959-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:52:34,363-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:52:34,378-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:52:34,379-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:52:34,381-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 15:52:34,511-ERROR-logger.py-[ line:63 ] - 日志信息:参数格式错误！
+2023-03-29 15:52:34,512-ERROR-logger.py-[ line:63 ] - 日志信息:失败:2-->安全大屏_查询项目基本信息,异常:exceptions must derive from BaseException
+2023-03-29 15:52:34,513-ERROR-logger.py-[ line:63 ] - 日志信息:None: local variable 'result_tuple' referenced before assignment
+2023-03-29 15:52:34,513-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:52:34,514-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:52:34,517-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 15:52:34,739-ERROR-logger.py-[ line:63 ] - 日志信息:参数格式错误！
+2023-03-29 15:52:34,740-ERROR-logger.py-[ line:63 ] - 日志信息:失败:3-->安全大屏_查询楼栋模型所有数据,异常:exceptions must derive from BaseException
+2023-03-29 15:52:34,741-ERROR-logger.py-[ line:63 ] - 日志信息:None: local variable 'result_tuple' referenced before assignment
+2023-03-29 15:52:34,742-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:52:34,743-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:52:34,747-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 15:52:34,747-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:52:34,748-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:52:34,749-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:52:34,750-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:52:34,751-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:52:34,752-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:52:34,753-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:52:34,754-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:52:34,755-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:52:34,756-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:52:34,756-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:54:35,442-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:54:35,444-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:54:35,447-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:54:35,449-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 15:54:35,584-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:54:35,585-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:54:35,587-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 15:54:35,793-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:54:35,794-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:54:35,798-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 15:54:35,799-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:54:35,800-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:54:35,801-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:54:35,801-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:54:35,802-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:54:35,803-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:54:35,804-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:54:35,805-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:54:35,806-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:54:35,807-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:54:35,808-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:56:34,869-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:56:34,869-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:56:34,870-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:56:34,872-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 15:56:35,015-ERROR-logger.py-[ line:63 ] - 日志信息:参数格式错误！
+2023-03-29 15:56:35,015-ERROR-logger.py-[ line:63 ] - 日志信息:失败:2-->安全大屏_查询项目基本信息,异常:exceptions must derive from BaseException
+2023-03-29 15:56:35,016-ERROR-logger.py-[ line:63 ] - 日志信息:None: exceptions must derive from BaseException
+2023-03-29 15:56:35,017-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:56:35,018-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:56:35,020-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 15:56:35,236-ERROR-logger.py-[ line:63 ] - 日志信息:参数格式错误！
+2023-03-29 15:56:35,237-ERROR-logger.py-[ line:63 ] - 日志信息:失败:3-->安全大屏_查询楼栋模型所有数据,异常:exceptions must derive from BaseException
+2023-03-29 15:56:35,238-ERROR-logger.py-[ line:63 ] - 日志信息:None: exceptions must derive from BaseException
+2023-03-29 15:56:35,238-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:56:35,239-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:56:35,243-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 15:56:35,244-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:56:35,244-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:56:35,245-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:56:35,246-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:56:35,247-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:56:35,249-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:56:35,250-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:56:35,251-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:56:35,252-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:56:35,253-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:56:35,254-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:58:17,355-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:58:17,356-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:58:17,360-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:58:17,362-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 15:58:17,497-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:58:17,498-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:58:17,499-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 15:58:17,692-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:58:17,693-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:58:17,696-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 15:58:17,697-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:58:17,698-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:58:17,699-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:58:17,700-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:58:17,703-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:58:17,704-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:58:17,705-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:58:17,706-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:58:17,706-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 15:58:17,707-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 15:58:17,708-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:05:33,736-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:05:33,737-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:05:33,742-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:05:33,744-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:05:34,066-ERROR-logger.py-[ line:63 ] - 日志信息:None: 'Worksheet None does not exist.'
+2023-03-29 16:05:34,067-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:05:34,068-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:05:34,069-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:05:34,265-ERROR-logger.py-[ line:63 ] - 日志信息:None: 'Worksheet None does not exist.'
+2023-03-29 16:05:34,266-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:05:34,267-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:05:34,271-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 16:05:34,272-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:05:34,272-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:05:34,273-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:05:34,274-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:05:34,275-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:05:34,276-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:05:34,277-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:05:34,279-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:05:34,280-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:05:34,280-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:05:34,281-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:20:53,128-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:20:53,129-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:20:53,131-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:20:53,133-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:20:53,259-ERROR-logger.py-[ line:63 ] - 日志信息:None: 'Worksheet None does not exist.'
+2023-03-29 16:20:53,259-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:20:53,260-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:20:53,262-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:20:53,455-ERROR-logger.py-[ line:63 ] - 日志信息:None: 'Worksheet None does not exist.'
+2023-03-29 16:20:53,456-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:20:53,457-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:20:53,467-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 16:20:53,468-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:20:53,469-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:20:53,469-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:20:53,470-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:20:53,470-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:20:53,471-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:20:53,472-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:20:53,472-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:20:53,473-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:20:53,474-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:20:53,474-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:22:12,323-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:22:12,324-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:22:12,325-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:22:12,327-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:22:12,461-ERROR-logger.py-[ line:63 ] - 日志信息:None: 'Worksheet None does not exist.'
+2023-03-29 16:22:12,462-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:22:12,463-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:22:12,466-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:22:12,702-ERROR-logger.py-[ line:63 ] - 日志信息:None: 'Worksheet None does not exist.'
+2023-03-29 16:22:12,702-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:22:12,703-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:22:12,706-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 16:22:12,707-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:22:12,708-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:22:12,708-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:22:12,709-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:22:12,710-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:22:12,711-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:22:12,711-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:22:12,712-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:22:12,713-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:22:12,715-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:22:12,716-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:23:05,453-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:23:05,453-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:23:05,454-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:23:05,455-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:23:42,710-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:23:42,711-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:23:42,712-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:23:42,713-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:23:42,858-ERROR-logger.py-[ line:63 ] - 日志信息:None: Cannot convert <Response [200]> to Excel
+2023-03-29 16:23:42,859-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:23:42,859-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:23:42,861-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:23:43,068-ERROR-logger.py-[ line:63 ] - 日志信息:None: Cannot convert <Response [200]> to Excel
+2023-03-29 16:23:43,068-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:23:43,069-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:23:43,072-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 16:23:43,072-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:23:43,073-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:23:43,074-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:23:43,075-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:23:43,076-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:23:43,076-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:23:43,077-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:23:43,078-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:23:43,079-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:23:43,080-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:23:43,080-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:27:24,638-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:27:24,639-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:27:24,640-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:27:24,641-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:27:24,778-ERROR-logger.py-[ line:63 ] - 日志信息:None: Cannot convert <Response [200]> to Excel
+2023-03-29 16:27:24,778-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:27:24,779-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:27:24,780-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:27:25,006-ERROR-logger.py-[ line:63 ] - 日志信息:None: Cannot convert <Response [200]> to Excel
+2023-03-29 16:27:25,007-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:27:25,007-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:27:25,014-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 16:27:25,015-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:27:25,016-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:27:25,016-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:27:25,017-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:27:25,018-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:27:25,018-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:27:25,019-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:27:25,019-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:27:25,020-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:27:25,021-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:27:25,021-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:08,339-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:08,340-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:08,340-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:08,341-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:29:08,473-ERROR-logger.py-[ line:63 ] - 日志信息:None: can only concatenate str (not "int") to str
+2023-03-29 16:29:08,474-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:08,475-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:08,476-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:29:08,699-ERROR-logger.py-[ line:63 ] - 日志信息:None: can only concatenate str (not "int") to str
+2023-03-29 16:29:08,700-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:08,700-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:08,702-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 16:29:08,704-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:08,704-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:08,705-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:08,706-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:08,707-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:08,708-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:08,709-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:08,709-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:08,710-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:08,711-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:08,711-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:43,367-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:43,368-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:43,369-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:43,370-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:29:43,876-ERROR-logger.py-[ line:63 ] - 日志信息:None: argument of type 'NoneType' is not iterable
+2023-03-29 16:29:43,876-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:43,877-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:43,878-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:29:44,496-ERROR-logger.py-[ line:63 ] - 日志信息:None: argument of type 'NoneType' is not iterable
+2023-03-29 16:29:44,497-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:44,497-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:44,500-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 16:29:44,501-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:44,502-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:44,502-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:44,503-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:44,504-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:44,504-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:44,505-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:44,506-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:44,507-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:29:44,508-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:29:44,508-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:30:33,096-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:30:33,097-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:30:33,098-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:30:33,099-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:30:33,655-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:30:33,656-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:30:33,659-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 16:30:34,232-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:30:34,233-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:30:34,235-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 16:30:34,236-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:30:34,236-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:30:34,237-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:30:34,238-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:30:34,238-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:30:34,239-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:30:34,240-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:30:34,241-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:30:34,242-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 16:30:34,242-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 16:30:34,243-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 17:10:56,588-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 17:10:56,589-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 17:10:56,589-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 17:10:56,591-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 17:10:57,127-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 17:10:57,128-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 17:10:57,130-ERROR-logger.py-[ line:63 ] - 日志信息:key:{{projectId}},替换成功：104966
+2023-03-29 17:10:57,702-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 17:10:57,703-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 17:10:57,705-ERROR-logger.py-[ line:63 ] - 日志信息:None: (1054, "Unknown column 't.projectId' in 'where clause'")
+2023-03-29 17:10:57,706-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 17:10:57,707-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 17:10:57,707-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 17:10:57,708-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 17:10:57,709-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 17:10:57,709-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 17:10:57,710-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 17:10:57,711-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 17:10:57,711-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------
+2023-03-29 17:10:57,712-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------start_test_api-----------------------------------
+2023-03-29 17:10:57,713-ERROR-logger.py-[ line:63 ] - 日志信息:-----------------------------------end_test_api-----------------------------------

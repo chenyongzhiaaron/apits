@@ -84,5 +84,5 @@ class Extractor(object):
         elif isinstance(result, list):
             if len(result) == 1:
                 result = result[0]
-            logger.my_log(f'输出变量，提取表达式：{expr}，提取结果：{result}', "info")
+            logger.my_log(f'提取成功，输出变量，提取表达式：{expr}，提取结果：{result}', "info")
         return result

@@ -51,10 +51,11 @@ class TestProjectApi(unittest.TestCase):
         logger.my_log(f"内置方法：{dep.get_dep()}", "info")
 
     def setUp(self) -> None:
+        logger.my_log(f"获取当前依赖参数表：{dep.get_dep()}")
         logger.my_log("-----------------------------------start_test_api-----------------------------------", "info")
 
     @data(*test_case)  # {"":""}
-    @logger.decorator_log()
+    # @logger.decorator_log()
     def test_api(self, item):  # item = {測試用例}
         sheet = item.get("sheet")
         item_id = item.get("Id")
@@ -114,21 +115,22 @@ class TestProjectApi(unittest.TestCase):
         headers = {**headers, **item_headers}
         expected = dep_par.replace_dependent_parameter(expect)
         # 提取请求参数信息
-        DataExtractor(parameters).substitute_data(deps=parameters_key)
+        DataExtractor(parameters).substitute_data(jp_dict=parameters_key)
         # 判断是否执行加密
         if encryption:
             parameters = do_encrypt(encryption, parameters)  # 数据加密：MD5 ｏｒ　ｓｈａ１
-        logger.my_log(f"--sheet-- {sheet}", "info")
-        logger.my_log(f"--URL--{host + path + url}", "info")
-        logger.my_log(f"--HEADER-- {headers}", "info")
-        logger.my_log(f"--BODY-- {parameters}", "info")
-        logger.my_log(f"--SQL-- {sql}", "info")
-        logger.my_log(f"--SQL_RESULT-- {sql_res}", "info")
-        logger.my_log(f"--EXPECTED-- {expected}", "info")
+        logger.my_log(f"当前用例所在的sheet--> {sheet}", "info")
+        logger.my_log(f"请求地址--> {host + path + url}", "info")
+        logger.my_log(f"请求头--> {headers}", "info")
+        logger.my_log(f"请求body--> {parameters}", "info")
+        logger.my_log(f"执行SQL语句--> {sql}", "info")
+        logger.my_log(f"执行sql结果--> {sql_res}", "info")
+        logger.my_log(f"预期结果--> {expected}", "info")
         try:
             # 执行请求操作
             response = req(host + path, method, url, data=parameters, headers=headers)
-            logger.my_log(f"--RESPONSE-- {response.text}", "info")
+            logger.my_log(f"接口响应--> {response.text}", "info")
+            logger.my_log(f"接口耗时--> {response.elapsed}", "info")
         except Exception as e:
             result = "失败"
             logger.my_log(f'{result}:{item_id}-->{name}_{description},异常:{e}')
@@ -137,10 +139,10 @@ class TestProjectApi(unittest.TestCase):
         result_tuple = validator.run_validate(expected, response.json())  # 执行断言 返回结果元组
         result = "PASS"
         try:
-            self.assertNotIn("FAIL", result_tuple)
-        except:
+            self.assertNotIn("FAIL", result_tuple, "FAIL 存在结果元组中")
+        except Exception as e:
             result = "FAIL"
-            raise
+            raise e
         finally:
             # 响应结果及测试结果回写 excel
             excel_handle.write_back(
@@ -148,7 +150,7 @@ class TestProjectApi(unittest.TestCase):
                 i=item_id,
                 response_value=response.text,
                 test_result=result,
-                assert_log=result_tuple
+                assert_log=str(result_tuple)
             )
         try:
             # 提取响应

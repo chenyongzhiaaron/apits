@@ -41,6 +41,7 @@ class DependentParameter:
             jst: 包含接口参数的字符串
         Returns:转换后的字典或原始字符串
         """
+        # logger.my_log(f"正在执行数据替换：提取数据源内容:{jst}", "info")
         if not jst:
             return jst
         jst = json.dumps(jst) if isinstance(jst, (dict, list)) else jst
@@ -57,7 +58,7 @@ class DependentParameter:
                 # 字符串替换
                 if key in self.dependence.keys():
                     jst = jst.replace(key, str(self.get_dependent_value(key)))
-                    logger.my_log(f"key:{key},替换成功：{self.get_dependent_value(key)}")
+                    logger.my_log(f"key:{key},替换结果为--> {self.get_dependent_value(key)}")
                 else:
                     logger.my_log(f"key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
@@ -67,7 +68,7 @@ class DependentParameter:
                 jst = json.loads(jst)
             except json.JSONDecodeError as e:
                 logger.my_log(f"JSONDecodeError:{jst}:{e}")
-
+        # logger.my_log(f"输出替换参数结果：{jst}")
         return jst
 
 

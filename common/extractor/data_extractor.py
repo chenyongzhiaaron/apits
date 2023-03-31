@@ -24,6 +24,8 @@ REPLACE_DICT = {
 
 dependence = Dependence
 
+logger = MyLog()
+
 
 @singleton
 class DataExtractor:
@@ -50,15 +52,20 @@ class DataExtractor:
 
         if not isinstance(self.response, (dict, str, list)):
             return {}
+        # logger.my_log(f"正在执行数据替换，替换数据源：{self.response}")
         if regex and keys:
+            # logger.my_log(f"正在执行正则替换：{self.response}")
             self.response = json.dumps(self.response) if isinstance(self.response, (dict, list)) else self.response
             self.substitute_regex(regex, keys)
         self.response = self.response if isinstance(self.response, (dict, list)) else json.loads(self.response)
         if deps:
+            # logger.my_log(f"正在执行路径表达式替换：{self.response}")
             self.substitute_route(deps)
         if jp_dict:
+            # logger.my_log(f"正在执行jsonpath替换：{self.response}")
             self.substitute_jsonpath(jp_dict)
         dependence.set_dep(self.dependence)
+        # logger.my_log(f"输出依赖参数表：{self.dependence}", "info")
         return self.dependence
 
     def substitute_regex(self, regex, keys):
