@@ -31,6 +31,8 @@ class DoMysql:
         """
 
         # self.sql = sql
+        if not db_base:
+            return
         try:
             db_base = db_base if isinstance(db_base, dict) else json.loads(db_base)
             self.conn = pymysql.connect(**db_base)  # 传入字典，连接数据库

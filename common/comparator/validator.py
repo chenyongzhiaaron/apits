@@ -6,6 +6,7 @@
 # EMAIL:        262667641@qq.com
 # Date:         2023/03/24 17:32
 # -------------------------------------------------------------------------------
+import json
 
 from common.comparator.comparator_dict import comparator_dict
 from common.comparator.extractor import Extractor
@@ -110,11 +111,15 @@ class Validator(object):
 
 
 if __name__ == '__main__':
-    validate_variables = [
-        {"check": "result.user.name", "comparator": "eq", "expect": "chen5yongzhi"},
-        {"check": "result.user", "comparator": "eq", "expect": "chen5yongzhi"}
+    validate_variables1 = {"check": "$.result.user.name", "comparator": "eq", "expect": "chenyongzhi"}
+        # {"check": "result.user", "comparator": "eq", "expect": "chen5yongzhi"}
+
+    validate_variables2 = [
+        {"check": "code", "comparator": "eq", "expect": "200"}
+        # {"check": "result.user", "comparator": "eq", "expect": "chen5yongzhi"}
     ]
-    resp_obj = '{"result": {"user": {"name": "chenyongzhi"}}}'
-    t = Validator()
-    res = t.run_validate(validate_variables, resp_obj)
-    print(res)
+    resp_obj = {"code":200,"result": {"user": {"name": "chenyongzhi"}}}
+    # t = Validator()
+    for i in range(10):
+        res = Validator().run_validate(validate_variables1, resp_obj)
+        print(res)

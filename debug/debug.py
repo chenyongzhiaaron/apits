@@ -11,6 +11,8 @@ import random
 import re
 import types
 
+import jsonpath
+
 from common.dependence import Dependence
 from common.comparator import loaders
 
@@ -27,5 +29,8 @@ from common.comparator import loaders
 #         jst = jst.replace(jst, di.get(jst)())
 # print(jst)
 
+#
+# print([name for name in dir(random) if callable(getattr(random, name))])
 
-print([name for name in dir(random) if callable(getattr(random, name))])
+# result = jsonpath.jsonpath(resp_obj if isinstance(resp_obj, (dict, list)) else json.dumps(resp_obj), expr)
+

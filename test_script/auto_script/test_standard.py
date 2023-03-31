@@ -30,7 +30,6 @@ dep.set_dep(eval(init_data.get("initialize_data")))  # 初始化依赖表
 dep_par = DependentParameter()  # 参数提取类实例化
 logger = MyLog()
 
-validator = Validator()
 
 
 @ddt
@@ -91,7 +90,7 @@ class TestProjectApi(unittest.TestCase):
                 raise e
         # 首先执行sql替换,将sql替换为正确的sql语句
         sql = dep_par.replace_dependent_parameter(sqlps)
-        if method == "SQL":
+        if method == "SQL" and mysql:
             try:
                 execute_sql_results = mysql.do_mysql(sql)
                 logger.my_log(f'sql执行成功:{execute_sql_results}', "info")
@@ -104,10 +103,14 @@ class TestProjectApi(unittest.TestCase):
                 logger.my_log(f'sql:{sql},异常:{e}')
                 raise e
 
-        # 执行 sql 操作
-        sql_res = mysql.do_mysql(sql)
-        # 执行sql数据提取
-        DataExtractor(sql_res).substitute_data(jp_dict=sql_key)
+        try:
+            # 执行 sql 操作
+            sql_res = mysql.do_mysql(sql)
+            # 执行sql数据提取
+            DataExtractor(sql_res).substitute_data(jp_dict=sql_key)
+        except:
+            sql_res = "想啥呢？数据库都没有配置还想执行数据库操作？"
+            logger.my_log(sql_res)
         # 替换 URL, PARAMETERS, HEADER,期望值
         url = dep_par.replace_dependent_parameter(url)
         parameters = dep_par.replace_dependent_parameter(parameters)
@@ -136,7 +139,7 @@ class TestProjectApi(unittest.TestCase):
             logger.my_log(f'{result}:{item_id}-->{name}_{description},异常:{e}')
             raise e
 
-        result_tuple = validator.run_validate(expected, response.json())  # 执行断言 返回结果元组
+        result_tuple = Validator().run_validate(expected, response.json())  # 执行断言 返回结果元组
         result = "PASS"
         try:
             self.assertNotIn("FAIL", result_tuple, "FAIL 存在结果元组中")
@@ -144,14 +147,15 @@ class TestProjectApi(unittest.TestCase):
             result = "FAIL"
             raise e
         finally:
+            pass
             # 响应结果及测试结果回写 excel
-            excel_handle.write_back(
-                sheet_name=sheet,
-                i=item_id,
-                response_value=response.text,
-                test_result=result,
-                assert_log=str(result_tuple)
-            )
+            # excel_handle.write_back(
+            #     sheet_name=sheet,
+            #     i=item_id,
+            #     response_value=response.text,
+            #     test_result=result,
+            #     assert_log=str(result_tuple)
+            # )
         try:
             # 提取响应
             DataExtractor(response.json()).substitute_data(regex=regex, keys=keys, deps=deps, jp_dict=jp_dict)
