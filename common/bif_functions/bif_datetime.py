@@ -3,8 +3,8 @@
 # -------------------------------------------------------------------------------
 # Name:         bif_datetime.py
 # Description:
-# Author:       XiangjunZhao
-# EMAIL:        2419352654@qq.com
+# Author:       chenyongzhi
+# EMAIL:        262667641@qq.com
 # Date:         2021/1/12 14:03
 # -------------------------------------------------------------------------------
 from datetime import datetime, timedelta
