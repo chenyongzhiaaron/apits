@@ -47,12 +47,9 @@ def load_model_fun(model):
     Returns:
 
     """
-    model_fun = {}
     for name, item in vars(model).items():
         if isinstance(item, types.FunctionType):
-            model_fun[name] = item
-
-    return model_fun
+            Dependence.update_dep(f"{name}()", item)
 
 
 # def load_ext_method_online():

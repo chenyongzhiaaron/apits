@@ -80,6 +80,6 @@ def parsing_postman(path):
 
 
 if __name__ == '__main__':
-    pat = r'C:\Users\chenyongzhi11\Desktop\address.postman_collection.json'
+    pat = r'C:\Users\chenyongzhi11\Desktop\市调情报系统.postman_collection.json'
     res = parsing_postman(pat)
     print('结果：', res)

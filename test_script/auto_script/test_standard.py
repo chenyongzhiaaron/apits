@@ -2,17 +2,18 @@ import sys
 import time
 import unittest
 import warnings
-from rich import print
 
 from ddt import ddt, data
+
+from common.base_datas import BaseDates
 
 sys.path.append("../../")
 sys.path.append("../../common")
 from test_script.auto_script.login import login
-from test_script.auto_script.get_init import get_init
+from common.files_tools.get_excel_init import get_init
 from common.extractor.dependent_parameter import DependentParameter
 from common.extractor.data_extractor import DataExtractor
-from common.encryption.do_encryption import do_encrypt
+from common.encryption.encryption_main import do_encrypt
 from common.do_sql.do_mysql import DoMysql
 from common.tools.req import req
 from common.tools.logger import MyLog
@@ -22,14 +23,14 @@ from common.comparator.validator import Validator
 
 warnings.simplefilter('ignore', ResourceWarning)
 
-excel_handle, init_data, test_case = get_init()
+test_file = BaseDates.test_api  # 获取 excel 文件路径
+excel_handle, init_data, test_case = get_init(test_file)
 databases = init_data.get('databases')  # 获取数据库配置信息
 mysql = DoMysql(databases)  # 初始化 mysql 链接
 dep = Dependence
 dep.set_dep(eval(init_data.get("initialize_data")))  # 初始化依赖表
 dep_par = DependentParameter()  # 参数提取类实例化
 logger = MyLog()
-
 
 
 @ddt
@@ -169,6 +170,10 @@ class TestProjectApi(unittest.TestCase):
 
     def tearDown(self) -> None:
         logger.my_log("-----------------------------------end_test_api-----------------------------------", "info")
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        pass
 
 
 if __name__ == '__main__':

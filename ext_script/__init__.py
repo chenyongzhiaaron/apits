@@ -7,3 +7,4 @@
 @time: 2023/3/14 16:21
 @desc:
 """
+from .ext_method_online import *

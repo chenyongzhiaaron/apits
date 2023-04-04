@@ -1,0 +1,4 @@
+2023-04-03 11:21:25,901-ERROR-logger.py-[ line:63 ] - 日志信息:读取excel中初始化数据异常: get_init() missing 1 required positional argument: 'test_file'
+2023-04-03 17:48:36,574-ERROR-logger.py-[ line:63 ] - 日志信息:数据库链接失败: (2003, "Can't connect to MySQL server on 'localhost' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)")
+2023-04-03 17:48:36,578-ERROR-logger.py-[ line:63 ] - 日志信息:关闭数据库失败: 'DoMysql' object has no attribute 'cur'
+2023-04-03 18:12:14,214-ERROR-logger.py-[ line:63 ] - 日志信息:jsonpath表达式错误'.select_sale[0].total': Parse error at 1:0 near token . (.)

@@ -13,12 +13,13 @@ import os
 import importlib.util
 
 
-def load_modules_from_folder(folder_path):
+def load_modules_from_folder(folder_path,):
     functions = {}  # 创建一个空字典，用于存储读取到的函数
 
     # 遍历指定文件夹下的所有文件
     for file_name in os.listdir(folder_path):
         module_name, ext = os.path.splitext(file_name)  # 分离文件名和扩展名
+        # if module_name != "": # 判断文件名 == 用例指定扩展脚本名
         if ext == '.py':  # 如果是 Python 模块文件
             module_path = os.path.join(folder_path, file_name)  # 获取模块文件的完整路径
             spec = importlib.util.spec_from_file_location(module_name, module_path)  # 根据模块文件路径创建一个模块规范

@@ -29,7 +29,7 @@ class Dependence:
 
 
 if __name__ == '__main__':
-    from test_script.auto_script.get_init import get_init
+    from common.files_tools.get_excel_init import get_init
 
     excel_handle, init_data, test_case = get_init()
     initialize_data = eval(init_data.get("initialize_data"))

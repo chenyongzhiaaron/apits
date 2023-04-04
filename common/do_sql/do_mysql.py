@@ -74,14 +74,13 @@ class DoMysql:
             else:
                 sql_result = {}
                 for sql_data in sql.values():
-                    for sql_dat in sql_data:
-                        for sql_name, sql_ in sql_dat.items():
-                            try:
-                                self.cur.execute(sql_)  # 执行查询 sql_file
-                                sql_result[f"{sql_name}"] = self.cur.fetchall()  # 返回所有查询结果
-                            except Exception as err:
-                                print(f"--->查询异常 sql: {sql_}")
-                                raise err
+                    for sql_name, sql_ in sql_data.items():
+                        try:
+                            self.cur.execute(sql_)  # 执行查询 sql_file
+                            sql_result[f"{sql_name}"] = self.cur.fetchall()  # 返回所有查询结果
+                        except Exception as err:
+                            print(f"--->查询异常 sql: {sql_}")
+                            raise err
                     result = sql_result
             return result
 
@@ -95,19 +94,25 @@ class DoMysql:
 
 if __name__ == '__main__':
     sql_2 = {
-        "select": [
+        "select":
             {
-                "select_sale": "select sale from do_mysql.sales"
+                "select_sale": "select count(1) total, (case when t1.status = 1 then '待整改' when t1.status = 2 then '待复查' when t1.status = 3 then '整改完成' else '未知类型' end) orderStatus from ibs_ai_iot.ai_rectification_main t1 left join ibs_ai_iot.work_order t3 on t1.id = t3.rectification_id where t1.project_id = 103672 and t1.delete_flag = 0 and t3.is_delete = 0 group by t1.status order by orderStatus desc;",
+                "select_sale_1": "select count(1) total, (case when t1.status = 1 then '待整改' when t1.status = 2 then '待复查' when t1.status = 3 then '整改完成' else '未知类型' end) orderStatus from ibs_ai_iot.ai_rectification_main t1 left join ibs_ai_iot.work_order t3 on t1.id = t3.rectification_id where t1.project_id = 103672 and t1.delete_flag = 0 and t3.is_delete = 0 group by t1.status order by orderStatus desc;"
             }
-        ]
+
     }
     database_2 = {
-        "host": "localhost",
+        "host": "10.8.203.25",
         "port": 3306,
-        "database": "do_mysql",
+        "database": "ibs_lms_base",
         "user": "root",
-        "password": "admin"
+        "password": "gd1234"
     }
-
     res = DoMysql(database_2).do_mysql(sql_2)
     print(res)
+    from common.extractor.data_extractor import DataExtractor
+    from common.extractor.dependent_parameter import DependentParameter
+    from common.dependence import Dependence
+
+    DataExtractor(res).substitute_data(jp_dict={"total": "$.select_sale[0].total", "total_1": "$..total"})
+    print(Dependence.get_dep())

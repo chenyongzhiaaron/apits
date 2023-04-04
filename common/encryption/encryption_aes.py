@@ -12,7 +12,7 @@ import base64
 import os
 
 
-class FileAES:
+class DoAES:
     """
     AES 加密
     """
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     # key = os.urandom(16)   #随即产生n个字节的字符串，可以作为随机加密key使用
     key = '2l4LoWczlWxlMZJAAp5N0g6EygZZd9A6'  # 随即产生n个字节的字符串，可以作为随机加密key使用
     text = '4534'  # 需要加密的内容
-    aes_test = FileAES(key)
+    aes_test = DoAES(key)
     cipher_text = aes_test.encrypt(text)
     init_text = aes_test.decrypt(cipher_text)
     print('加密后：' + cipher_text)

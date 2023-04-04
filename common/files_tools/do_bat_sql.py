@@ -6,7 +6,7 @@ import os
 """
 sql_path = "/backend/sql"
 files = os.listdir(sql_path)
-connection = pymysql.connect(host='172.17.0.1', user='root', password='root', db='QAPlatform', port=3308)
+connection = pymysql.connect(host='127.0.0.1', user='root', password='root', db='QAPlatform', port=3308)
 cur = connection.cursor()
 for file in files:
     with open(file, "r", encoding="utf-8") as f:

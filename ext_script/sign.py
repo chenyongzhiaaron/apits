@@ -15,7 +15,7 @@ from natsort import natsorted
 
 __all__ = ["md5_sign", "sha1_sign"]
 
-from common.encryption.str_encryption import sha1_secret_str, md5
+from common.encryption.encryption_str import sha1_secret_str, md5
 
 
 def md5_sign(data: dict):
