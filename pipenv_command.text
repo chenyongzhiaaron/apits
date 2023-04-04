@@ -1,0 +1,12 @@
+pipenv --where                 列出本地工程路径
+pipenv --venv                  列出虚拟环境路径
+pipenv --py                    列出虚拟环境的Python可执行文件
+pipenv install                 创建虚拟环境
+pipenv isntall [moduel]        安装包
+pipenv install [moduel] --dev  安装包到开发环境
+pipenv uninstall[module]       卸载包
+pipenv uninstall --all         卸载所有包
+pipenv graph                   查看包依赖
+pipenv lock                    生成lockfile
+pipenv run python [pyfile]     运行py文件
+pipenv --rm                    删除虚拟环境
