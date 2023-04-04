@@ -380,7 +380,8 @@ PS D:\api-test-project> python .\main_personal_information.py                   
 
 ## 赞赏
 如果这个库有帮助到你并且你很想支持库的后续开发和维护，那么你可以扫描下方二维码随意打赏我，我将不胜感激
-![img.jpg](/image/revice.jpg)
+![img.jpg](/image/wx.jpg)
+![img.jpg](/image/zfb.jpg)
 
 
 
