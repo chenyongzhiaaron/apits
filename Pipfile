@@ -21,6 +21,7 @@ ddt = "*"
 rich = "*"
 natsort = "*"
 ddddocr = "*"
+unittestreport = "*"
 
 [dev-packages]
 

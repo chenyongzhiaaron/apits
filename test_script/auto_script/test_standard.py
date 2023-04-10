@@ -55,8 +55,8 @@ class TestProjectApi(unittest.TestCase):
         logger.my_log("-----------------------------------start_test_api-----------------------------------", "info")
 
     @data(*test_case)  # {"":""}
-    # @logger.decorator_log()
     def test_api(self, item):  # item = {測試用例}
+        # f"""用例描述：{item.get("name")}_{item.get("desc")}"""
         sheet = item.get("sheet")
         item_id = item.get("Id")
         name = item.get("name")
@@ -132,7 +132,7 @@ class TestProjectApi(unittest.TestCase):
         logger.my_log(f"预期结果--> {expected}", "info")
         try:
             # 执行请求操作
-            response = req(host + path, method, url, data=parameters, headers=headers)
+            response = req(host + path, url, method, headers=headers, data=parameters)
             logger.my_log(f"接口响应--> {response.text}", "info")
             logger.my_log(f"接口耗时--> {response.elapsed}", "info")
         except Exception as e:

@@ -15,20 +15,21 @@ sys.path.append("./")
 
 from common.base_datas import BaseDates
 from HTMLTestRunnerNew import HTMLTestRunner
+from unittestreport import TestRunner
 
 
 # @decorator_send_info()
 def run_test_case(case_name, url_key=None):
     test_report = BaseDates.test_report
-    print(test_report, BaseDates.script, case_name)
+    print(f"当前测试报告路劲: {test_report}，测试脚本路劲: {BaseDates.script}，测试用例脚本名称: {case_name}")
     t_case = unittest.defaultTestLoader.discover(BaseDates.script, pattern=f"{case_name}.py")
-    with open(BaseDates.test_report + f"/{case_name} 测试报告.html", "wb") as fb:
-        runner = HTMLTestRunner(stream=fb, verbosity=2, title=f"{case_name} 接口自动化测试报告",
-                                description="接口自动化测试")
-        # 失败重跑
-        # runner.run(test_case, 0, False)
-        runner.run(t_case)
-        # data = [url_key, test_report]
+    runner = TestRunner(t_case, title="接口自动化测试报告", templates=2, tester="kira", desc="自动化测试")
+    runner.run()
+    # with open(BaseDates.test_report + f"/{case_name} 测试报告.html", "wb") as fb:
+    #     runner = HTMLTestRunner(stream=fb, verbosity=2, title=f"{case_name} 接口自动化测试报告",
+    #                             description="接口自动化测试")
+    #     runner.run(t_case)
+    # data = [url_key, test_report]
     # return data
 
 
