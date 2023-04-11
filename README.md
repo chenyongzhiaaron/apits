@@ -2,12 +2,12 @@
 
 #### 项目介绍
 
-接口自动化测试项目
+接口自动化测试项目1.0
 
 #### 软件架构
 
 本框架主要是基于 Python + unittest + ddt + HTMLTestRunner + log + excel + mysql + 企业微信通知 + Jenkins 实现的接口自动化框架。
-
+##### 想要`2.0`版本尚未开源的小伙伴，可以私聊勇哥哈。
 * 项目参与者: 陈勇志
 * 技术支持邮箱: 262667641@qq.com
 * 个人微信: blue-blue-lemon
