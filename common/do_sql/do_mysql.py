@@ -12,8 +12,10 @@ sys.path.append("../")
 sys.path.append("./common")
 
 from common.tools.logger import MyLog
+from common.tools.singleton import singleton
 
 
+@singleton
 class DoMysql:
 
     def __init__(self, db_base):
