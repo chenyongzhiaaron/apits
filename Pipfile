@@ -22,6 +22,7 @@ rich = "*"
 natsort = "*"
 ddddocr = "*"
 unittestreport = "*"
+prettytable = "*"
 
 [dev-packages]
 
