@@ -113,7 +113,6 @@ if __name__ == '__main__':
     res = DoMysql(database_2).do_mysql(sql_2)
     print(res)
     from common.extractor.data_extractor import DataExtractor
-    from common.extractor.dependent_parameter import DependentParameter
     from common.dependence import Dependence
 
     DataExtractor(res).substitute_data(jp_dict={"total": "$.select_sale[0].total", "total_1": "$..total"})
