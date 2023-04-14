@@ -20,6 +20,7 @@ from common.tools.logger import MyLog
 from common.comparator import loaders
 from common.dependence import Dependence
 from common.comparator.validator import Validator
+from common import bif_functions
 
 warnings.simplefilter('ignore', ResourceWarning)
 
@@ -39,7 +40,7 @@ class TestProjectApi(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        loaders.set_bif_fun()  # 加载内置方法
+        loaders.set_bif_fun(bif_functions)  # 加载内置方法
         # 获取初始化基础数据
         cls.host = init_data.get('host')
         cls.path = init_data.get("path")
@@ -63,8 +64,8 @@ class TestProjectApi(unittest.TestCase):
         description = item.get("description")
         host = self.host
         path = self.path
-        headers = self.headers
         url = item.get("Url")
+        headers = self.headers
         run = item.get("Run")
         method = item.get("Method")
         sql_variable = item.get("sql变量")

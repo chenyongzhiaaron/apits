@@ -1,13 +1,3 @@
-#!/usr/bin/env python
-# encoding: utf-8
-"""
-@author: kira
-@contact: 262667641@qq.com
-@file: base.py
-@time: 2023/4/14 11:19
-@desc:
-"""
-
 import json
 import unittest
 from jsonpath import jsonpath

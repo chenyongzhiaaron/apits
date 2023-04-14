@@ -14,14 +14,14 @@ from common.comparator import comparators
 from common.dependence import Dependence
 
 
-def load_built_in_functions():
+def load_built_in_functions(model):
     """
     加载bif_functions包中的内建方法
     Returns:
     """
     built_in_functions = {}
 
-    for name, item in vars(bif_functions).items():
+    for name, item in vars(model).items():
         if isinstance(item, types.FunctionType):
             built_in_functions[name] = item
     return built_in_functions
@@ -41,15 +41,15 @@ def load_built_in_comparators() -> object:
     return built_in_comparators
 
 
-def load_model_fun(model):
-    """
-    加载指定模块中的所有函数
-    Returns:
-
-    """
-    for name, item in vars(model).items():
-        if isinstance(item, types.FunctionType):
-            Dependence.update_dep(f"{name}()", item)
+# def load_model_fun(model):
+#     """
+#     加载指定模块中的所有函数
+#     Returns:
+#
+#     """
+#     for name, item in vars(model).items():
+#         if isinstance(item, types.FunctionType):
+#             Dependence.update_dep(f"{name}()", item)
 
 
 # def load_ext_method_online():
@@ -76,13 +76,13 @@ def load_model_fun(model):
 #     return ext_method_online_module, ext_methods_online
 
 
-def set_bif_fun():
+def set_bif_fun(model):
     """
     将所有内置方法加载到依赖表中
     Returns:
 
     """
-    for k, v in load_built_in_functions().items():
+    for k, v in load_built_in_functions(model).items():
         Dependence.update_dep(f"{k}()", v)
 
 
