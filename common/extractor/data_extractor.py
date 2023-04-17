@@ -22,7 +22,7 @@ REPLACE_DICT = {
     "false": False
 }
 
-dependence = Dependence
+d = Dependence()
 
 logger = MyLog()
 
@@ -31,7 +31,6 @@ logger = MyLog()
 class DataExtractor:
 
     def __init__(self, response=None):
-        self.dependence = dependence.get_dep()
         self.response = response
         self.PATTERN = getattr(Dependence, "PATTERN")  # 预编译正则表达式
 
@@ -45,9 +44,7 @@ class DataExtractor:
             keys:  接收正则表达式返回结果的key： ["a", "b"]
             deps: "name=data[0].name;ok=data[0].id;an=data[0].age[3].a"
             jp_dict: jsonpath 提取方式入参：{"k": "$.data", "x": "$.data[0].age[3].a"}
-
         Returns:
-
         """
 
         if not isinstance(self.response, (dict, str, list)):
@@ -64,9 +61,8 @@ class DataExtractor:
         if jp_dict:
             # logger.my_log(f"正在执行jsonpath替换：{self.response}")
             self.substitute_jsonpath(jp_dict)
-        dependence.set_dep(self.dependence)
-        # logger.my_log(f"输出依赖参数表：{self.dependence}", "info")
-        return self.dependence
+        d.set_dep(d.get_dep())
+        return d.get_dep()
 
     def substitute_regex(self, regex, keys):
         """
@@ -83,9 +79,9 @@ class DataExtractor:
         groups = match.groups()
         for i, key in enumerate(keys):
             try:
-                dependence.update_dep(key, groups[i])
+                d.update_dep(key, groups[i])
             except:
-                dependence.update_dep(key, None)
+                d.update_dep(key, None)
 
     def substitute_route(self, route_str):
         deps_list = re.sub(f"[\r\n]+", "", route_str).split(";")
@@ -115,7 +111,7 @@ class DataExtractor:
                 else:
                     break
             if temp is not None:
-                dependence.update_dep(key, temp)
+                d.update_dep(key, temp)
                 # self.update_dependence(key, temp)
 
     def substitute_jsonpath(self, json_path_dict):
@@ -134,7 +130,7 @@ class DataExtractor:
                 match = parsed_expression.find(data)
                 # print(match)
                 result = [m.value for m in match]
-                dependence.update_dep(key, result[0]) if len(result) == 1 else dependence.update_dep(key, result)
+                d.update_dep(key, result[0]) if len(result) == 1 else d.update_dep(key, result)
                 # self.update_dependence(key, result[0]) if len(result) == 1 else self.update_dependence(key, result)
             except Exception as e:
                 MyLog().my_log(f"jsonpath表达式错误'{expression}': {e}")
@@ -152,5 +148,5 @@ if __name__ == '__main__':
     regex_str = r'"id": (\d+), "name": "(\w+)",'
     regex_key = ["a", "b"]
     t = DataExtractor(res)
-    t.substitute_data(regex=regex_str, keys=regex_key, deps=dep_str, jp_dict=lists)
-    print(t.dependence)
+    res = t.substitute_data(regex=regex_str, keys=regex_key, deps=dep_str, jp_dict=lists)
+    print(res)

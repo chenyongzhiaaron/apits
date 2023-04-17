@@ -62,10 +62,11 @@ class TestProjectApi(unittest.TestCase):
         item_id = item.get("Id")
         name = item.get("name")
         description = item.get("description")
-        host = self.host
-        path = self.path
+        host = self.__class__.host
+        path = self.__class__.path
         url = item.get("Url")
-        headers = self.headers
+        headers = self.__class__.headers
+        print("---------》", headers)
         run = item.get("Run")
         method = item.get("Method")
         sql_variable = item.get("sql变量")

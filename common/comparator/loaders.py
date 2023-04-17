@@ -93,5 +93,5 @@ if __name__ == '__main__':
     # print(func)
     # print(load_built_in_functions())
     print(load_built_in_comparators())
-    print(set_bif_fun())
+    print(set_bif_fun(random_tools))
     print(Dependence.get_dep())

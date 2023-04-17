@@ -2,10 +2,13 @@
 import re
 import sys
 
+from dataclasses import dataclass
+
 sys.path.append("./")
 sys.path.append("./common")
 
 
+@dataclass
 class Dependence:
     dependence = {}  # 定义依赖表
     PATTERN = re.compile(r"{{(.*?)}}")  # 预编译正则表达式
@@ -30,9 +33,12 @@ class Dependence:
 
 if __name__ == '__main__':
     from common.files_tools.get_excel_init import get_init
+    from common.base_datas import BaseDates
 
-    excel_handle, init_data, test_case = get_init()
+    test_file = BaseDates.test_api
+    excel_handle, init_data, test_case = get_init(test_file)
     initialize_data = eval(init_data.get("initialize_data"))
     print(initialize_data)
-    Dependence.set_dep(initialize_data)  # 初始化依赖表
-    print("--------------------->", Dependence.get_dep())
+    d = Dependence
+    d.set_dep(initialize_data)  # 初始化依赖表
+    print("--------------------->", d.get_dep())

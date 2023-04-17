@@ -16,6 +16,7 @@ import jsonpath
 from common.dependence import Dependence
 from common.comparator import loaders
 
+
 # lo = loaders.set_bif_fun()
 # pa = Dependence.PATTERN
 # di = Dependence.get_dep()
@@ -34,3 +35,14 @@ from common.comparator import loaders
 
 # result = jsonpath.jsonpath(resp_obj if isinstance(resp_obj, (dict, list)) else json.dumps(resp_obj), expr)
 
+class T:
+    @classmethod
+    def t1(cls):
+        cls.h = "1234"
+
+    def t2(self):
+        print(self.h)
+
+
+t = T()
+print(t.t2())

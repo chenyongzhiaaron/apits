@@ -11,28 +11,22 @@ import json
 
 from common.dependence import Dependence
 from common.tools.logger import MyLog
+from common.tools.singleton import singleton
 
 logger = MyLog()
 
 
+# @singleton
 class DependentParameter:
     """
        该类用于替换接口参数。它会从字符串中寻找需要替换的参数，并将其替换为关联参数表中对应的值。
        然后，它将替换后的字符串转化为字典并返回。如果找不到需要替换的参数，则直接返回原始字符串。
     """
 
-    #  PATTERN = re.compile(r"{{(.*?)}}")  # 预编译正则表达式
-    #     pattern = re.compile(r'({)')
-    # S = re.compile(r"{{(.*?)/(/)}}")
-    PATTERN = getattr(Dependence, "PATTERN")
-    pattern = getattr(Dependence, "pattern")
-    pattern_fun = getattr(Dependence, "pattern_fun")
-
     def __init__(self):
-        self.dependence = Dependence.get_dep()
-
-    def get_dependent_value(self, key):
-        return self.dependence[key]
+        self.P = Dependence.PATTERN
+        self.p = Dependence.pattern
+        self.pf = Dependence.pattern_fun
 
     def replace_dependent_parameter(self, jst):
         """
@@ -46,24 +40,25 @@ class DependentParameter:
             return jst
         jst = json.dumps(jst) if isinstance(jst, (dict, list)) else jst
         # 替换
-        while self.PATTERN.search(jst):
-            if self.pattern_fun.search(jst):
+        while self.P.search(jst):
+            if self.pf.search(jst):
                 # 函数替换
-                key = self.pattern_fun.search(jst).group()
-                if key in self.dependence.keys():
-                    value_ = self.get_dependent_value(key)()
+                key = self.pf.search(jst).group()
+                if key in Dependence.get_dep().keys():
+                    value_ = Dependence.get_dep(key)()
                     jst = jst.replace(key, str(value_))
             else:
-                key = self.PATTERN.search(jst).group()
+                key = self.P.search(jst).group()
                 # 字符串替换
-                if key in self.dependence.keys():
-                    jst = jst.replace(key, str(self.get_dependent_value(key)))
-                    logger.my_log(f"key:{key},替换结果为--> {self.get_dependent_value(key)}")
+                print(key, "---\n", Dependence.get_dep(), "----\n", Dependence.get_dep().keys())
+                if key in Dependence.get_dep().keys():
+                    jst = jst.replace(key, str(Dependence.get_dep(key)))
+                    logger.my_log(f"key:{key},替换结果为--> {Dependence.get_dep(key)}")
                 else:
                     logger.my_log(f"key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
             jst = jst.replace("True", "true").replace("False", "false")
-        if self.pattern.search(jst):
+        if self.p.search(jst):
             try:
                 jst = json.loads(jst)
             except json.JSONDecodeError as e:
@@ -83,10 +78,13 @@ if __name__ == '__main__':
         "{{var_g}}": {'g': 'gg', 'g1': 'gg', 'g2': 'gg2'}
     }
     from common.comparator import loaders
+    from common import bif_functions
 
-    Dependence.set_dep(dps)
-    loaders.set_bif_fun()
-    print(Dependence.get_dep())
+    d = Dependence
+    d.set_dep(dps)
+    print(1, d.get_dep())
+    loaders.set_bif_fun(bif_functions)
+    print(2, d.get_dep())
     dat = {
         "a": "{{var_a}}",
         "b": {"c": "{{var_c}}", "d": "{{var_d}}", "e": ["{{var_e_1}}", "{{var_e_2}}"]},
