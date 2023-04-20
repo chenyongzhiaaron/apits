@@ -26,6 +26,16 @@ class MyLog:
     }  # 日志级别关系映射
 
     def my_log(self, msg, level="error", when="D", back_count=10):
+        """
+        实例化 TimeRotatingFileHandler
+        interval 是时间间隔， backupCount 是备份文件的个数，如果超过这个个数，就会自动删除，when 是间隔的时间单位，单位有以下几种
+        S 秒
+        M 分
+        H 小时
+        D 天
+        每星期（interval == 0 时代表星期一
+        midnight 每天凌晨
+        """
         file_name = BaseDates.log_path
 
         my_logger = logging.getLogger()  # 定义日志收集器 my_logger
@@ -44,19 +54,11 @@ class MyLog:
             th = handlers.TimedRotatingFileHandler(filename=file_name + "/{}_info.log".format(current), when=when,
                                                    backupCount=back_count,
                                                    encoding="utf-8")  # 往文件里写日志
-        """
-        实例化 TimeRotatingFileHandler 
-        interval 是时间间隔， backupCount 是备份文件的个数，如果超过这个个数，就会自动删除，when 是间隔的时间单位，单位有以下几种
-        S 秒
-        M 分
-        H 小时
-        D 天
-        每星期（interval == 0 时代表星期一
-        midnight 每天凌晨
-        """
+
         th.setFormatter(format_str)  # 设置文件里写入的格式
         my_logger.addHandler(sh)  # 将对象加入logger里
         my_logger.addHandler(th)
+
         if level == "debug":
             my_logger.debug(msg)
         elif level == "error":

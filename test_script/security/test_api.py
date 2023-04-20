@@ -1,6 +1,7 @@
 import sys
 import time
 import unittest
+import warnings
 
 from ddt import ddt, data
 
@@ -21,6 +22,7 @@ from common.dependence import Dependence
 from common.comparator.validator import Validator
 from common import bif_functions
 
+warnings.simplefilter('ignore', ResourceWarning)
 
 test_file = BaseDates.test_api  # 获取 excel 文件路径
 excel_handle, init_data, test_case = get_init(test_file)
@@ -45,7 +47,6 @@ class TestProjectApi(unittest.TestCase):
         username = dep.get_dep("{{account}}")
         password = dep.get_dep("{{passwd}}")
         cls.headers = login(cls.host + cls.path, username, password)
-        # print(cls.headers)
         dep.update_dep("headers", cls.headers)
         # 加载内置方法
         logger.my_log(f"内置方法：{dep.get_dep()}", "info")
@@ -64,12 +65,12 @@ class TestProjectApi(unittest.TestCase):
         host = self.__class__.host
         path = self.__class__.path
         url = item.get("Url")
-        headers = self.__class__.headers if self.__class__.headers else {}
+        headers = self.__class__.headers
         run = item.get("Run")
         method = item.get("Method")
         sql_variable = item.get("sql变量")
         sqlps = item.get("SQL")
-        item_headers = item.get("Headers", {})
+        item_headers = item.get("Headers") if item.get("Headers") else {}
         parameters = item.get("请求参数")
         parameters_key = item.get("提取请求参数")
         encryption = item.get("参数加密方式")
@@ -77,7 +78,6 @@ class TestProjectApi(unittest.TestCase):
         keys = item.get("正则变量")
         deps = item.get("绝对路径表达式")
         jp_dict = item.get("Jsonpath")
-        sql_key = item.get("sql变量")
         expect = item.get("预期结果")
         if run.upper() != "YES":
             return
@@ -91,27 +91,17 @@ class TestProjectApi(unittest.TestCase):
                 raise e
         # 首先执行sql替换,将sql替换为正确的sql语句
         sql = dep_par.replace_dependent_parameter(sqlps)
-        if method == "SQL" and mysql:
-            try:
-                execute_sql_results = mysql.do_mysql(sql)
-                logger.my_log(f'sql执行成功:{execute_sql_results}', "info")
-                if execute_sql_results and sql_variable:
-                    # 执行sql数据提取
-                    DataExtractor(execute_sql_results).substitute_data(jp_dict=sql_variable)
-                    logger.my_log(f'sql 提取成功', "info")
-                    return
-            except Exception as e:
-                logger.my_log(f'sql:{sql},异常:{e}')
-                raise e
-
         try:
             # 执行 sql 操作
-            sql_res = mysql.do_mysql(sql)
-            # 执行sql数据提取
-            DataExtractor(sql_res).substitute_data(jp_dict=sql_key)
-        except:
-            sql_res = "想啥呢？数据库都没有配置还想执行数据库操作？"
-            logger.my_log(sql_res)
+            execute_sql_results = mysql.do_mysql(sql)
+            if execute_sql_results and sql_variable:
+                # 执行sql数据提取
+                DataExtractor(execute_sql_results).substitute_data(jp_dict=sql_variable)
+                if method == "SQL" and mysql:
+                    return
+        except Exception as e:
+            logger.my_log(f'sql:{sql},异常:{e}')
+            raise e
         # 替换 URL, PARAMETERS, HEADER,期望值
         url = dep_par.replace_dependent_parameter(url)
         parameters = dep_par.replace_dependent_parameter(parameters)
@@ -128,7 +118,7 @@ class TestProjectApi(unittest.TestCase):
         logger.my_log(f"请求头--> {headers}", "info")
         logger.my_log(f"请求body--> {parameters}", "info")
         logger.my_log(f"执行SQL语句--> {sql}", "info")
-        logger.my_log(f"执行sql结果--> {sql_res}", "info")
+        logger.my_log(f"执行sql结果--> {execute_sql_results}", "info")
         logger.my_log(f"预期结果--> {expected}", "info")
         try:
             # 执行请求操作

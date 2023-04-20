@@ -47,10 +47,13 @@ class DependentParameter:
                 if key in Dependence.get_dep().keys():
                     value_ = Dependence.get_dep(key)()
                     jst = jst.replace(key, str(value_))
+                    logger.my_log(f"key:{key},替换结果为--> {Dependence.get_dep(key)()}")
+                else:
+                    logger.my_log(f"key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
+                    break
             else:
                 key = self.P.search(jst).group()
                 # 字符串替换
-                print(key, "---\n", Dependence.get_dep(), "----\n", Dependence.get_dep().keys())
                 if key in Dependence.get_dep().keys():
                     jst = jst.replace(key, str(Dependence.get_dep(key)))
                     logger.my_log(f"key:{key},替换结果为--> {Dependence.get_dep(key)}")
@@ -58,12 +61,11 @@ class DependentParameter:
                     logger.my_log(f"key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
             jst = jst.replace("True", "true").replace("False", "false")
-        if self.p.search(jst):
+        if self.p.search(jst) and not self.pf.search(jst):
             try:
                 jst = json.loads(jst)
             except json.JSONDecodeError as e:
                 logger.my_log(f"JSONDecodeError:{jst}:{e}")
-        # logger.my_log(f"输出替换参数结果：{jst}")
         return jst
 
 
@@ -82,9 +84,7 @@ if __name__ == '__main__':
 
     d = Dependence
     d.set_dep(dps)
-    print(1, d.get_dep())
     loaders.set_bif_fun(bif_functions)
-    print(2, d.get_dep())
     dat = {
         "a": "{{var_a}}",
         "b": {"c": "{{var_c}}", "d": "{{var_d}}", "e": ["{{var_e_1}}", "{{var_e_2}}"]},

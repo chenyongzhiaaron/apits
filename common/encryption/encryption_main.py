@@ -26,6 +26,8 @@ def do_encrypt(method, data):
             return res
         except Exception as e:
             MyLog().my_log(f"sha1加密失败参数:{e},{data}", "error")
+    else:
+        return data
 
 
 if __name__ == '__main__':

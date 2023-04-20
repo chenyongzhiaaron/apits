@@ -23,6 +23,7 @@ natsort = "*"
 ddddocr = "*"
 unittestreport = "*"
 prettytable = "*"
+pytest = "*"
 
 [dev-packages]
 

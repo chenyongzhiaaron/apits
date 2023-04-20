@@ -37,7 +37,7 @@ class DoMysql:
             return
         try:
             db_base = db_base if isinstance(db_base, dict) else json.loads(db_base)
-            self.conn = pymysql.connect(**db_base)  # 传入字典，连接数据库
+            self.conn = pymysql.connect(**db_base, connect_timeout=15)  # 传入字典，连接数据库
             self.cur = self.conn.cursor(pymysql.cursors.DictCursor)  # 操作结果为字典的游标
         except Exception as e:
             MyLog().my_log(f"数据库链接失败: {e}")
