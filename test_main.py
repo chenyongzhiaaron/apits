@@ -23,7 +23,9 @@ def run_test_case(case_name, url_key=None):
     test_report = BaseDates.test_report
     print(f"当前测试报告路劲: {test_report}，测试脚本路劲: {BaseDates.script}，测试用例脚本名称: {case_name}")
     t_case = unittest.defaultTestLoader.discover(BaseDates.script, pattern=f"{case_name}.py")
-    runner = TestRunner(t_case, title="接口自动化测试报告", templates=2, tester="kira", desc="自动化测试")
+    runner = TestRunner(t_case, report_dir=test_report, filename=case_name, title="接口自动化测试报告", templates=2,
+                        tester="kira",
+                        desc="自动化测试")
     runner.run()
     # with open(BaseDates.test_report + f"/{case_name} 测试报告.html", "wb") as fb:
     #     runner = HTMLTestRunner(stream=fb, verbosity=2, title=f"{case_name} 接口自动化测试报告",
@@ -38,7 +40,6 @@ def run():
             }
     # 获取测试用例脚本文件夹下所有文件
     test_case_names = os.listdir(BaseDates.script)
-    print(test_case_names)
     for name in test_case_names:
         if re.match(r"test_.+?py", name):
             test_case = re.match(r"test_.+?py", name).group()

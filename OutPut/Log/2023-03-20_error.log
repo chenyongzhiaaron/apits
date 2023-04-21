@@ -1,4 +1,0 @@
-2023-03-20 15:26:21,276-ERROR-logger.py-[ line:66 ] - 日志信息:None: unsupported operand type(s) for +: 'int' and 'str'
-2023-03-20 15:26:48,216-ERROR-logger.py-[ line:66 ] - 日志信息:None: exceptions must derive from BaseException
-2023-03-20 15:27:03,824-ERROR-logger.py-[ line:66 ] - 日志信息:None: No active exception to reraise
-2023-03-20 15:51:03,455-ERROR-logger.py-[ line:66 ] - 日志信息:读取excel中初始化数据: [Errno 2] No such file or directory: 'D:\\apk_api\\api-test-project\\data\\bgy\\excel_file\\test_api.xlsx'

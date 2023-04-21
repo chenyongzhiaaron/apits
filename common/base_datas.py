@@ -14,7 +14,8 @@ class BaseDates:
 
     # 测试用例脚本目录
     # *****************************************************************
-    script = os.path.join(base_path, "test_script", "auto_script")
+    # script = os.path.join(base_path, "test_script", "auto_script")
+    script = os.path.join(base_path, "test_script")
     # *****************************************************************
 
     # 测试报告及 log 所在路径

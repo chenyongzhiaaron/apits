@@ -16,14 +16,6 @@ from common.tools.singleton import singleton
 
 @singleton
 class DoExcel:
-    # _instance = None
-    #
-    # def __new__(cls, *args, **kwargs):
-    #     if not cls._instance:
-    #         cls._instance = object.__new__(cls)
-    #     else:
-    #         pass
-    #     return cls._instance
 
     def __init__(self, file_name):
         self.file_name = file_name

@@ -1,6 +1,0 @@
-2023-03-27 12:01:41,162-ERROR-logger.py-[ line:63 ] - 日志信息:关闭数据库失败: 'DoMysql' object has no attribute 'cur'
-2023-03-27 17:12:56,494-ERROR-logger.py-[ line:63 ] - 日志信息:读取excel中初始化数据异常: Value does not match pattern ^[$]?([A-Za-z]{1,3})[$]?(\d+)(:[$]?([A-Za-z]{1,3})[$]?(\d+)?)?$|^[A-Za-z]{1,3}:[A-Za-z]{1,3}$
-2023-03-27 17:13:18,428-ERROR-logger.py-[ line:63 ] - 日志信息:读取excel中初始化数据异常: Value does not match pattern ^[$]?([A-Za-z]{1,3})[$]?(\d+)(:[$]?([A-Za-z]{1,3})[$]?(\d+)?)?$|^[A-Za-z]{1,3}:[A-Za-z]{1,3}$
-2023-03-27 17:20:34,535-ERROR-logger.py-[ line:63 ] - 日志信息:读取excel中初始化数据异常: Value does not match pattern ^[$]?([A-Za-z]{1,3})[$]?(\d+)(:[$]?([A-Za-z]{1,3})[$]?(\d+)?)?$|^[A-Za-z]{1,3}:[A-Za-z]{1,3}$
-2023-03-27 17:23:09,571-ERROR-logger.py-[ line:63 ] - 日志信息:读取excel中初始化数据异常: Value does not match pattern ^[$]?([A-Za-z]{1,3})[$]?(\d+)(:[$]?([A-Za-z]{1,3})[$]?(\d+)?)?$|^[A-Za-z]{1,3}:[A-Za-z]{1,3}$
-2023-03-27 17:31:29,036-ERROR-logger.py-[ line:63 ] - 日志信息:读取excel中初始化数据异常: Value does not match pattern ^[$]?([A-Za-z]{1,3})[$]?(\d+)(:[$]?([A-Za-z]{1,3})[$]?(\d+)?)?$|^[A-Za-z]{1,3}:[A-Za-z]{1,3}$

@@ -13,9 +13,6 @@ from logging import handlers
 from common.base_datas import BaseDates
 
 
-# filename = BaseDates.log_path
-
-
 class MyLog:
     level_relations = {
         "debug": logging.DEBUG,
@@ -72,6 +69,7 @@ class MyLog:
 
         my_logger.removeHandler(sh)
         my_logger.removeHandler(th)
+        logging.shutdown()
 
     def decorator_log(self, msg=None):
         def warp(fun):

@@ -9,7 +9,7 @@ import sys
 import pymysql.cursors
 
 sys.path.append("../")
-sys.path.append("./common")
+sys.path.append("../../common")
 
 from common.tools.logger import MyLog
 from common.tools.singleton import singleton
@@ -57,9 +57,9 @@ class DoMysql:
         # print(f"type:{type(sql)}")
         if not sql:
             return
-        result = None
+        result = {}
         for method in sql.keys():
-            if method not in ["delete", "update", "insert", "select"]:
+            if method not in ("delete", "update", "insert", "select",):
                 MyLog().my_log("sql字典集编写格式不符合规范")
                 raise
             if method in ["delete", "update", "insert"]:
@@ -83,15 +83,22 @@ class DoMysql:
                         except Exception as err:
                             print(f"--->查询异常 sql: {sql_}")
                             raise err
-                    result = sql_result
-            return result
+                    result.update(sql_result)
 
-    def __del__(self):
         try:
             self.cur.close()  # 关闭游标
             self.conn.close()  # 关闭链接
         except Exception as e:
-            MyLog().my_log(f"关闭数据库失败: {e}")
+            MyLog().my_log(f"关闭数据库失败")
+        finally:
+            return result
+
+    # def __del__(self):
+    #     try:
+    #         self.cur.close()  # 关闭游标
+    #         self.conn.close()  # 关闭链接
+    #     except Exception as e:
+    #         MyLog().my_log(f"关闭数据库失败")
 
 
 if __name__ == '__main__':
