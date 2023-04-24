@@ -24,6 +24,8 @@ ddddocr = "*"
 unittestreport = "*"
 prettytable = "*"
 pytest = "*"
+pika = "*"
+paho-mqtt = "*"
 
 [dev-packages]
 
