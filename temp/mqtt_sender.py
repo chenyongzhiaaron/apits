@@ -67,12 +67,12 @@ msg = {
         {
             "index": "13",
             "type": "string",
-            "value": "http://10.8.84.59/document/fileStore/viewPicture/08188228a79b42ffa6b32a85f08b38ba"
+            "value": "http://192.1.14.19/document/fileStore/viewPicture/08188228a79b42ffa6b32a85f08b38ba"
         },
         {
             "index": "14",
             "type": "string",
-            "value": "https://ibs-test.bzlrobot.com/api/ibs-file/dfs/get?fileName=In-rear-pic.jpg&group=group1&path=M00/0A/4F/CgjLoWDiwteEBoWJAAAAANRLO4A310.jpg"
+            "value": "https://ibs-test.bzlrobot.com/dfs/get?fileName=In-rear-pic.jpg&group=group1&path=M00/0A/4F/CgjLoWDiwteEBoWJAAAAANRLO4A310.jpg"
         },
         {
             "index": "18",
@@ -85,5 +85,5 @@ msg = {
     "time": "2023-04-23T19:48:33.128Z",
     "type": "SYNC"
 }
-rab = MQTTSender(broker_address='10.8.84.59', topic='dev/weighbridge/492875336/rtdata')
+rab = MQTTSender(broker_address='192.2.3.59', topic='weigh/492875336/rtdata')
 rab.send_message(msg)

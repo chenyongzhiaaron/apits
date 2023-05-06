@@ -9,7 +9,6 @@ from common.base_datas import BaseDates
 
 sys.path.append("../../")
 sys.path.append("../../common")
-from test_script.auto_script.login import login
 from common.files_tools.get_excel_init import get_init
 from common.extractor.dependent_parameter import DependentParameter
 from common.extractor.data_extractor import DataExtractor

@@ -103,16 +103,7 @@ if __name__ == '__main__':
                 "type": "string",
                 "value": "1"
             },
-            {
-                "index": "13",
-                "type": "string",
-                "value": "http://10.8.84.59/document/fileStore/viewPicture/08188228a79b42ffa6b32a85f08b38ba"
-            },
-            {
-                "index": "14",
-                "type": "string",
-                "value": "https://ibs-test.bzlrobot.com/api/ibs-file/dfs/get?fileName=In-rear-pic.jpg&group=group1&path=M00/0A/4F/CgjLoWDiwteEBoWJAAAAANRLO4A310.jpg"
-            },
+
             {
                 "index": "18",
                 "type": "string",
@@ -124,7 +115,7 @@ if __name__ == '__main__':
         "time": "2023-04-23T17:48:33.128Z",
         "type": "SYNC"
     }
-    rab = RabbitMQSender(host='10.8.84.59:1883', exchange_name='/dev/weighbridge/492875336/rtdata',
+    rab = RabbitMQSender(host='192.1.1.59:1883', exchange_name='/bridge/492/rtdata',
                          # exchange_type='topic',
                          # routing_key='connected'
                          )

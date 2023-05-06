@@ -6,6 +6,14 @@ result = []
 
 
 def parsing_postman(path):
+    """
+    解析postman到处的json文件
+    Args:
+        path:
+
+    Returns:
+
+    """
     data = read_file(path)
 
     # print("元數據", data)
@@ -72,11 +80,10 @@ def parsing_postman(path):
                                                                  ensure_ascii=False)
                             # print('Body------>2:', api['Request Data'])
                 result.append(api)
+
     for d in data:
         _parse_api(content=data)
     return result
-
-
 
 
 if __name__ == '__main__':

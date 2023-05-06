@@ -26,6 +26,7 @@ prettytable = "*"
 pytest = "*"
 pika = "*"
 paho-mqtt = "*"
+requests-html = "*"
 
 [dev-packages]
 
