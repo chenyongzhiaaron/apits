@@ -8,6 +8,7 @@
 @desc:
 """
 import json
+import re
 
 from common.dependence import Dependence
 from common.tools.logger import MyLog
@@ -24,9 +25,10 @@ class DependentParameter:
     """
 
     def __init__(self):
-        self.P = Dependence.PATTERN
-        self.p = Dependence.pattern
-        self.pf = Dependence.pattern_fun
+        self.P = Dependence.pattern_l  # re.compile(r"{{\s*([^}\s]+)\s*}}(?:\[(\d+)\])?")
+        self.pp = Dependence.PATTERN  # re.compile(r"{{(.*?)}}")
+        self.p = Dependence.pattern  # re.compile(r'({)')
+        self.pf = Dependence.pattern_fun  # re.compile(r"{{(\w+\(\))}}")
 
     def replace_dependent_parameter(self, jst):
         """
@@ -38,27 +40,41 @@ class DependentParameter:
         if not jst:
             return jst
         jst = json.dumps(jst) if isinstance(jst, (dict, list)) else jst
-        # 替换
+        # 循环替换参数
         while self.P.search(jst):
             if self.pf.search(jst):
                 # 函数替换
                 key = self.pf.search(jst).group()
                 if key in Dependence.get_dep().keys():
+                    # 如果参数名称存在于关联参数表中，则调用相应的函数获取返回值，并替换字符串中的参数
                     value_ = Dependence.get_dep(key)()
                     jst = jst.replace(key, str(value_))
-                    # logger.my_log(f"key:{key},替换结果为--> {Dependence.get_dep(key)()}")
+                    # logger.my_log(f"key:{key},替换结果为--> {str(value_)}")
                 else:
                     logger.my_log(f"key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
             else:
-                key = self.P.search(jst).group()
-                # 字符串替换
-                if key in Dependence.get_dep().keys():
-                    jst = jst.replace(key, str(Dependence.get_dep(key)))
-                    # logger.my_log(f"key:{key},替换结果为--> {Dependence.get_dep(key)}")
+                key = self.P.search(jst)
+                # 字符串替换，判断需要替换的字符串是{{key}}还是{{key}}[index]
+                if "[" and "]" in key.group():
+                    # 如果需要替换的是数组参数，则获取数组下标
+                    index = int(key.group(2))
+                    k = self.pp.search(key.group()).group()
+                else:
+                    index = ""
+                    k = key.group()
+                # 如果参数名称存在于关联参数表中，则获取相应的值，并替换字符串中的参数
+                if k in Dependence.get_dep().keys():
+                    if isinstance(index, int):
+                        value_ = Dependence.get_dep(k)[index]
+                    else:
+                        value_ = Dependence.get_dep(k)
+                    jst = jst.replace(key.group(), str(value_))
+                    # logger.my_log(f"key:{key},替换结果为--> {str(value_)}")
                 else:
                     logger.my_log(f"key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
+            # 将 True 和 False 转换为小写，并继续循环替换参数
             jst = jst.replace("True", "true").replace("False", "false")
         if self.p.search(jst) and not self.pf.search(jst):
             try:
@@ -87,7 +103,7 @@ if __name__ == '__main__':
     dat = {
         "a": "{{var_a}}",
         "b": {"c": "{{var_c}}", "d": "{{var_d}}", "e": ["{{var_e_1}}", "{{var_e_2}}"]},
-        "f": "{{var_f}}",
+        "f": "{{var_f}}[0]",
         "g": "{{var_g}}",
         "t": "{{get_timestamp()}}"
     }

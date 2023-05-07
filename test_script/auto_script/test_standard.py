@@ -119,6 +119,7 @@ class TestProjectApi(unittest.TestCase):
         result_tuple = Validator().run_validate(expected, response.json())  # 执行断言 返回结果元组
         result = "PASS"
         try:
+
             self.assertNotIn("FAIL", result_tuple, "FAIL 存在结果元组中")
         except Exception as e:
             result = "FAIL"

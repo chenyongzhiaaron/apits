@@ -8,6 +8,7 @@ from common.encryption.encryption_rsa import Rsa
 
 
 def do_encrypt(method, data):
+
     if method == "MD5":
         try:
             res = sign.md5_sign(data)

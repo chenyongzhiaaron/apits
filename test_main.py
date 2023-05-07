@@ -24,8 +24,7 @@ def run_test_case(case_name, url_key=None):
     print(f"当前测试报告路劲: {test_report}，测试脚本路劲: {BaseDates.script}，测试用例脚本名称: {case_name}")
     t_case = unittest.defaultTestLoader.discover(BaseDates.script, pattern=f"{case_name}.py")
     runner = TestRunner(t_case, report_dir=test_report, filename=case_name, title="接口自动化测试报告", templates=2,
-                        tester="kira",
-                        desc="自动化测试")
+                        tester="kira", desc="自动化测试")
     runner.run()
     # with open(BaseDates.test_report + f"/{case_name} 测试报告.html", "wb") as fb:
     #     runner = HTMLTestRunner(stream=fb, verbosity=2, title=f"{case_name} 接口自动化测试报告",
@@ -44,6 +43,7 @@ def run():
         if re.match(r"test_.+?py", name):
             test_case = re.match(r"test_.+?py", name).group()
             case = test_case.split(".")[0]
+            # run_test_case(case)
             for key, value in keys.items():
                 if key in case:
                     print(f"當前運行的用例：{case}; 對應的機器人key： {value}")

@@ -11,6 +11,7 @@ sys.path.append("./common")
 @dataclass
 class Dependence:
     dependence = {}  # 定义依赖表
+    pattern_l = re.compile(r"{{\s*([^}\s]+)\s*}}(?:\[(\d+)\])?")
     PATTERN = re.compile(r"{{(.*?)}}")  # 预编译正则表达式
     pattern = re.compile(r'({)')
     pattern_fun = re.compile(r"{{(\w+\(\))}}")
