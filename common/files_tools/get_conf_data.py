@@ -31,15 +31,6 @@ class GetConfigData:
 
 
 if __name__ == '__main__':
-    pat = r"D:\api-test-project\data\bgy\ai_sql.json"
+    pat = r""
     t = GetConfigData.get_json_data(pat)
-    database_2 = {
-        "host": "10.8.203.25",
-        "port": 3306,
-        "database": "ibs_ai_iot",
-        "user": "root",
-        "password": "gd1234"
-    }
-    data = DoMysql(database_2, **t).do_mysql()
-    # print(t)
-    print(data)
+    print(t)

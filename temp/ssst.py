@@ -1,37 +1,15 @@
-import threading
+import copy
 
-num = 0
+lit = [1, 2, 3, [4, 5, 6, [7, 8, 9]]]
 
-mutex = threading.Lock()
+cl = copy.copy(lit)
 
+lit.append("new")
+print(cl)
 
-def add1():
-    global num
-    for i in range(10000000):
-        mutex.acquire()
-        num += 1
-        mutex.release()
-
-    print(f"add1:{num}")
-
-
-def add2():
-    global num
-    for i in range(10000000):
-        mutex.acquire()
-        num += 1
-        mutex.release()
-
-    print(f"add2:{num}")
-
-
-if __name__ == '__main__':
-    import threading
-
-    t1 = threading.Thread(target=add1)
-    t2 = threading.Thread(target=add2)
-    t1.start()
-    t2.start()
-    t1.join()
-    t2.join()
-    print(num)
+a = 1
+while a <= 9:
+    for i in range(1, a + 1):
+        print(f"{a}*{i}\t", end="")
+    print("")
+    a += 1
