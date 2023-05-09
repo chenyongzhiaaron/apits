@@ -152,9 +152,10 @@ def main(folder_path, url):
 if __name__ == "__main__":
     import os
     from common.files_tools.read_file import read_file
-
-    js = read_file('index.json')
-    for folder, url in js.items():
-        if not os.path.exists(folder):
-            os.mkdir(folder)
-        main(folder, url)
+    #
+    # js = read_file('index.json')
+    # for folder, url in js.items():
+    #     if not os.path.exists(folder):
+    #         os.mkdir(folder)
+    #     main(folder, url)
+    get_url_list()
