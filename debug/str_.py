@@ -151,24 +151,36 @@ print(msg)
  # 请补充代码
 ```
 """
-num1 = input("请输入：")
-num2 = input("请输入：")
-if not num1.strip() or not num2.strip():
-    print("不允许输入纯空格字符串")
-    exit()
+# num1 = input("请输入：")
+# num2 = input("请输入：")
+# if not num1.strip() or not num2.strip():
+#     print("不允许输入纯空格字符串")
+#     exit()
+#
+# s1 = ""
+# for i in num1:
+#     if i.isdigit():
+#         s1 += i
+#
+# s2 = ""
+# for j in num2:
+#     if j.isdigit():
+#         s2 += j
+# if not s1 or not s2:
+#     print("存在输入的字符串中没有数字，无法继续")
+#     exit()
+#
+# print(s1, s2)
+# print("相加结果：", int(s1) + int(s2))
 
-s1 = ""
-for i in num1:
-    if i.isdigit():
-        s1 += i
+# s = "123sk"
+# print(s[::2])
+# print(s[-3:2:-1])
+# print(s[4:2:-1])
 
-s2 = ""
-for j in num2:
-    if j.isdigit():
-        s2 += j
-if not s1 or not s2:
-    print("存在输入的字符串中没有数字，无法继续")
-    exit()
+lst = [1, 2, 3, 4, 5]
+new_lst = lst[1:3]  # 切片得到新的列表 [2, 3]
+lst.insert(2, 12)
+print(lst)
+print(new_lst)
 
-print(s1, s2)
-print("相加结果：", int(s1) + int(s2))

@@ -1,54 +1,9 @@
+# `使用一行代码实现将字符串 v = “k1|v1,k2|v2,k3|v3…” 转换成字典 {‘k1’:’v1’,’k2’:’v2’,’k3’:’v3’..}`
+# 方法一
+v = "k1|v1,k2|v2,k3|v3"
+d = {i.split("|")[0]: i.split("|")[1] for i in v.split(",")}
+print(d)
 
-class RootModel:
-    _mapping_info = {}
-
-    def __init__(self, **kwargs):
-        """
-        定义最基本的初始化方式
-        :param kwargs: 参数字典
-        """
-        for k, v in kwargs.items():
-            key = self.__class__._load_mapping_info(k)
-            if key in self.__dict__.keys():
-                self.__setattr__(key, v)
-
-    @classmethod
-    def _load_mapping_info(cls, key):
-        """
-        获取字段映射
-        :param key: 键
-        :return: 映射后的键
-        """
-        if key in cls._mapping_info.keys():
-            return cls._mapping_info.get(key)
-        else:
-            return key
-
-
-class A(RootModel):
-    def __init__(self, **kwargs):
-        self.a = []
-        super().__init__(**kwargs)
-
-
-class B(A):
-    def __init__(self, **kwargs):
-        self.b = []
-        super().__init__(**kwargs)
-
-
-class C(A):
-    def __init__(self, **kwargs):
-        self.c = []
-        super().__init__(**kwargs)
-
-
-class D(B, C):
-    def __init__(self, **kwargs):
-        # self.d = []
-        super().__init__(**kwargs)
-
-
-if __name__ == '__main__':
-    d = D(**{"b": 4})
-    print(d)
+# 方法二
+d = dict(i.split("|") for i in v.split(","))
+print(d)
