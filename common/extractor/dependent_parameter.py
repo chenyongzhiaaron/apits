@@ -8,16 +8,13 @@
 @desc:
 """
 import json
-import re
 
 from common.dependence import Dependence
 from common.tools.logger import MyLog
-from common.tools.singleton import singleton
 
 logger = MyLog()
 
 
-# @singleton
 class DependentParameter:
     """
        该类用于替换接口参数。它会从字符串中寻找需要替换的参数，并将其替换为关联参数表中对应的值。
@@ -103,9 +100,10 @@ if __name__ == '__main__':
     dat = {
         "a": "{{var_a}}",
         "b": {"c": "{{var_c}}", "d": "{{var_d}}", "e": ["{{var_e_1}}", "{{var_e_2}}"]},
-        "f": "{{var_f}}[0]",
+        "f": "{{var_f}}[1]",
         "g": "{{var_g}}",
         "t": "{{get_timestamp()}}"
     }
     t = DependentParameter().replace_dependent_parameter(dat)
     print(t)
+    print(type(t))
