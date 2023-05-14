@@ -16,12 +16,6 @@ sys.path.append('venv/Lib/site-packages')
 from openpyxl import load_workbook, Workbook
 
 
-# from common.base_path import BasePath
-
-
-# BASE_PATH = os.path.dirname(os.path.abspath(__file__))  # 获取当前文件所在的文件夹路径
-
-
 class DoExcel:
     """
     excel操作类
@@ -167,19 +161,9 @@ class DoExcel:
 
 
 if __name__ == '__main__':
-    # 示例1：
-    # 1. 创建新文件在左边A1中写入数据
-    # 2. 文件名为test
     ex = DoExcel()
-    # ex.set_value_by_table("A1", '微信关注-给点知识公众号')
-    # ex.save('test')
-    # 示例2
-    # 1. 打开文件test：
-    # 1. 获取A1中的数据
-    # ex = DoExcel(path=r"test.xlsx")
-    # a1 = ex.get_value_by_table("A1")
-    # print(a1)
+    BASE_PATH = os.path.dirname(os.path.abspath(__file__))  # 获取当前文件所在的文件夹路径
     data = [{"url": "1234", "header": "2134", "method": "get", "body": "hhh", "ok": 12345},
             {"url": "1234", "header": "2134"},
             {"url": "1234", "header": "2134", "method": "{}sss", "body": json.dumps({})}]
-    # ex.do_main(BasePath.ApiTestReport_xlsx, *data)
+    ex.do_main("excel.xlsx", *data)

@@ -129,9 +129,8 @@ class DoExcel:
 
 
 if __name__ == '__main__':
-    # file_n = BaseDates.test_api
-    # print(file_n)
-    file_n = r'D:\apk_api\api-test-project\data\moduleA\test_cases\test_api.xlsx'
+    file_n = BaseDates.test_api
+    print(file_n)
     test_init = DoExcel(file_n).get_excel_init()
     print(test_init)
     excel = DoExcel(file_n)

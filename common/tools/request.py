@@ -1,29 +1,17 @@
-# -*- coding: utf-8 -*-
-
 import re
-import sys
 
 import requests
 import urllib3
 
-sys.path.append("../")
-sys.path.append("./common")
-
-from common.tools.logger import MyLog
-
-# 初始化全局session
-session = None
+from common.tools.hooks import hooks
 
 
-@MyLog().decorator_log("请求异常")
 def req(host, url, method, **kwargs):
     """
     发送 http 请求
     @param host: 域名
     @param url: 接口 url
     @param method: http 请求方法
-    # @param request_data_type: 请求数据类型
-    # @param headers: 请求头部信息，默认为 None
     @param kwargs: 接受 requests 原生的关键字参数
     @return: 响应对象
     """
@@ -35,9 +23,16 @@ def req(host, url, method, **kwargs):
     if not url:
         raise ValueError("URL 不能为 None")
     url = f'{host}{url}' if not re.match(r"https?", url) else url
-    func = getattr(session, method.lower())
-    return func(url, verify=True, timeout=30, **kwargs)
 
+    # 执行 before_request 钩子函数
+    request = requests.Request(method, url, **kwargs)
+    request = hooks.run_before_request_funcs(request)
 
-if __name__ == '__main__':
-    ...
+    # 发送请求
+    prepared_request = session.prepare_request(request)
+    response = session.send(prepared_request)
+
+    # 执行 after_request 钩子函数
+    response = hooks.run_after_request_funcs(response)
+
+    return response

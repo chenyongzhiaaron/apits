@@ -8,7 +8,6 @@
 @desc:
 """
 import unittest
-import warnings
 
 from common import bif_functions
 from common.extractor.dependent_parameter import DependentParameter as DP
@@ -39,7 +38,6 @@ class BaseClass(unittest.TestCase):
         loaders.set_bif_fun(bif_functions)  # 加载内置方法
         logger.my_log("内置方法加载完成", "info")
         logger.my_log(f"所有用例执行开始...", "info")
-        # warnings.simplefilter('ignore', ResourceWarning)
         super().setUpClass()
 
     @classmethod
@@ -74,10 +72,11 @@ class BaseClass(unittest.TestCase):
         self.description = self._case.get("description")
         self.url = self._case.get("Url")
         self.method = self._case.get("Method")
+        self.request_data_type = self._case.get("request_data_type", "json")
         self.sql_variable = self._case.get("sql变量")
         self.sqlps = self._case.get("SQL")
         self.headers = self._case.get("Headers", {})
-        self.parameters = self._case.get("请求参数")
+        self.parameters = self._case.get("Request Data")
         self.parameters_key = self._case.get("提取请求参数")
         self.encryption = self._case.get("参数加密方式")
         self.regex = self._case.get("正则表达式")
@@ -112,10 +111,14 @@ class BaseClass(unittest.TestCase):
     def do_request(self):
         """发送http请求"""
         try:
-            logger.my_log(f"请求 URL --> {self.url}", "info")
-            logger.my_log(f"请求 HEADERS --> {self.headers}", "info")
-            logger.my_log(f"请求 BODY --> {self.parameters}", "info")
-            self._response = req(self.host, self.url, self.method, headers=self.headers, data=self.parameters)
+            kwargs = {
+                "headers": self.headers,
+                self.request_data_type: self.parameters
+            }
+            self._response = req(self.host, self.url, self.method, **kwargs)
+            logger.my_log(f"请求 URL --> {self._response.request.url}", "info")
+            logger.my_log(f"请求 HEADERS --> {self._response.request.headers}", "info")
+            logger.my_log(f"请求 BODY --> {self._response.request.body}", "info")
             logger.my_log(f"接口耗时--> 【{self._response.elapsed}】", "info")
             logger.my_log(f"接口状态--> 【{self._response.status_code}】", "info")
             logger.my_log(f"接口响应--> {self._response.text}", "info")
@@ -155,7 +158,7 @@ class BaseClass(unittest.TestCase):
             if execute_sql_results and self.sql_variable:
                 # 执行sql数据提取
                 DataExtractor(execute_sql_results).substitute_data(jp_dict=self.sql_variable)
-                if method == "SQL" and self.mysql:
+                if self.method == "SQL" and self.mysql:
                     return
         except Exception as e:
             logger.my_log(f'执行 sql 失败:{self.sql},异常:{e}')

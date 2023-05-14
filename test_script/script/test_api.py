@@ -3,13 +3,13 @@ import unittest
 
 from ddt import ddt, data
 
-sys.path.append("../../")
+sys.path.append("../")
 sys.path.append("../../common")
 from common.files_tools.get_excel_init import get_init
 from common.tools.logger import MyLog
 from common.dependence import Dependence
 from common.base_datas import BaseDates
-from test_script.baseclass import BaseClass
+from test_script.script.baseclass import BaseClass
 
 test_file = BaseDates.test_api  # 获取 excel 文件路径
 excel_handle, init_data, test_case = get_init(test_file)
