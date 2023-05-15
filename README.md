@@ -7,7 +7,9 @@
 #### 软件架构
 
 本框架主要是基于 Python + unittest + ddt + HTMLTestRunner + log + excel + mysql + 企业微信通知 + Jenkins 实现的接口自动化框架。
+
 ##### 想要`2.0`版本尚未开源的小伙伴，可以私聊勇哥哈。
+
 * 项目参与者: 陈勇志
 * 技术支持邮箱: 262667641@qq.com
 * 个人微信: blue-blue-lemon
@@ -48,185 +50,183 @@
 
 ## 目录结构
 
-    ├─common                                    // 功能配置及核心功能函数
-    │  │  base_datas.py                         // 公共基础环境路径存放位置：如日志，测试测试脚本路径
-    │  │  dependence.py                         // 数据依赖类
-    │  │  __init__.py
-    │  │
-    │  ├─bif_functions                          // 内置一些函数工具
-    │  │     bif_datetime.py                    // 内置日期时间函数
-    │  │     bif_hashlib.py                     // 内置hash 函数
-    │  │     bif_json.py                        // 内置json解析函数
-    │  │     bif_list.py                        // 内置列表操作函数
-    │  │     bif_random.py                      // 内置随机函数
-    │  │     bif_re.py                          // 内置正则函数
-    │  │     bif_str.py                         // 内置字符串函数
-    │  │     bif_time.py                        // 内置时间函数
-    │  │     random_tools.py                    // 内置其他随机函数
-    │  │     __init__.py
-    │  │  
-    │  │
-    │  ├─comparator                             // 断言及加载动条函数工具包
-    │  │     comparators.py                     // 自定义比较器
-    │  │     comparator_dict.py                 // 自定义比较器名词释义
-    │  │     extractor.py                       // 提取器
-    │  │     loaders.py                         // 动态加载函数及加载内置比较器等工具包
-    │  │     load_modules_from_folder.py        // 动态从模块中加载函数（暂未使用）
-    │  │     validator.py                       // 断言校验器
-    │  │     __init__.py
-    │  │
-    │  ├─do_sql                                 // 数据库操作工具
-    │  │     do_mongo.py                        // mongoDB 操作工具
-    │  │     do_mysql.py                        // mysql 操作工具
-    │  │     do_psycopg.py                      // presto 操作工具
-    │  │     do_redis.py                        // redis 操作工具
-    │  │     __init__.py
-    │  │
-    │  ├─encryption                             // 加密工具
-    │  │     encryption_aes.py                  // aes 加密
-    │  │     encryption_base64_to_image.py      // base64 转图片工具
-    │  │     encryption_main.py                 // 执行加入函数入口，对应excel中的加密方法选项，结合 ext_script 中的 sign 可自定义加密规则 
-    │  │     encryption_str.py                  // 常用的字符串加密工具函数
-    |  |     encryption_rsa.py                  // rsa 加密
-    │  │     __init__.py
-    │  │
-    │  ├─extractor                              // 提取器
-    │  │     analysis_json.py                   // json 字典分析函数，类似 jsonpath
-    │  │     assert_dict.py                     // 旧断言字段函数 （暂时舍弃）
-    │  │     data_extractor.py                  // 数据提取函数
-    │  │     dependent_parameter.py             // 数据替换函数
-    │  │     dict_get.py                        // 旧路径提取函数
-    │  │     __init__.py
-    │  │
-    │  ├─files_tools                            // 文件操作
-    │  │     do_bat_sql.py                      // 批量读取文件下的 sql 文件并打开文件执行文件内的每条 sql 
-    │  │     do_excel.py                        // excel 处理
-    │  │     excel.py                           // excel 处理(旧)
-    │  │     get_all_path.py                    // 递归获取目录下所有的文件的路径
-    │  │     get_conf_data.py                   // 读取配置文件(不使用，更改为 pytest 模式时，可能 pytest 需要)
-    │  │     get_excel_init.py                  // 读取 excel 中初始化 init 表 的数据     
-    │  │     get_file.py                        // 获取指定目录内的所有文件(没卵用)
-    │  │     get_folder.py                      // 获取指定路径下的所有文件夹及文件（没卵用）
-    │  │     read_file.py                       // 文件读取（没卵用）
-    │  │     __init__.py
-    │  │
-    │  ├─random_tools                           // 独立的随机工具类，主要用于自动创建一些测试数据给收工测试使用
-    │  │  │  __init__.py
-    │  │  │
-    │  │  ├─random_bankcard                     // 随机银行卡
-    │  │  │     bankcard.py
-    │  │  │     cardbin.csv
-    │  │  │     __init__.py
-    │  │  │
-    │  │  ├─random_email                        // 速记邮件
-    │  │  │     email.py
-    │  │  │     free_email.csv
-    │  │  │     __init__.py
-    │  │  │
-    │  │  ├─random_idcard                       // 随机身份证
-    │  │  │     area.csv
-    │  │  │     id_card.py
-    │  │  │     __init__.py
-    │  │  │
-    │  │  ├─random_name                         // 随机中国人姓名
-    │  │  │     first_name_boy.csv
-    │  │  │     first_name_girl.csv
-    │  │  │     last_name.csv
-    │  │  │     name.py
-    │  │  │     __init__.py
-    │  │  │  
-    │  │  │
-    │  │  ├─random_phone                        // 随机手机号
-    │  │  │     phone.py
-    │  │  │     phone_area.csv
-    │  │  │     __init__.py
-    │  │  │
-    │  │  ├─random_unified_sicuak_credit_identifier // 随机企业唯一信用代码
-    │  │        address.json
-    │  │        credit_identifier.py
-    │  │        unified_social_credit_identifier.py
-    │  │        __init__.py
-    │  │
-    │  ├─tmp
-    │  ├─tools                                      // 杂七杂八的工具包
-    │        captcha.py                             // 识别图片转字符串，常用于验证码登录
-    │        function_run_time.py                   // 运行时间装饰器（没卵用）
-    │        logger.py                              // 日志记录文件
-    │        req.py                                 // http get\post 请求封装，可以扩展请求方法
-    │        retry.py                               // 重试装饰器（在接口测试中实际上没卵用）
-    │        singleton.py                           // 单例模式装饰器
-    │        WxworkSms.py                           // 企业微信，需要使用其他工具，可以在这个模块下扩展增加脚本
-    │        __init__.py
-    │
-    ├─data                                          // 测试用例数据文件夹
-    │  ├─booking                                    // 预定系统
-    │  │  ├─json_file                               // 扩展json文件，用于自定义测试脚本使用
-    │  │  │      booking_upload_assert.json         // 断言文件
-    │  │  │
-    │  │  └─upload                                  // 放置需要上传文件的文件夹
-    │  │      ├─booking_upload_file                 // A系统中需要上传文件的文件夹堆放位置
-    │  │      │      gzpszx-门店分货模版.xlsx         // 实际上传的文件
-    │  │      │
-    │  │      └─wifi_import_file                    // B系统中需要上传文件文件夹
-    │  │              WiFi安全教育默认题库.xlsx        // 实际上传的文件
-    │  │
-    │  ├─moduleA                                    // 测试模块A
-    │  │  └─test_cases                              // 测试模块A下面的测试用例
-    │  │          test_api.xlsx                     // 测试用例
-    │  │
-    │  └─other                                      // 其他一些杂七杂八的图片存在位置
-    │          Snipaste_2020-11-06_17-47-55.png
-    │
-    ├─debug                                         // 调试使用，与实际程序没啥关系
-    │      debug.py                                 
-    │      identify_results.txt                     
-    │
-    ├─ext_script                                    // 动态扩展程序文件包
-    │  │  ext_method_online.py                      // 在线扩展方法
-    │  │  sign.py                                   // 自定义签名规则，与签名的加密方式配合使用
-    │  │  __init__.py
-    │
-    ├─image                                         // 图片
-    │      origina388l.png
-    │      tests.gif
-    │
-    ├─OutPut                                        // 脚本日志及报告输出文件夹
-    │  │  __init__.py
-    │  │
-    │  ├─Log                                        // 日志输出
-    │  │      2023-03-31_error.log
-    │  │      2023-03-31_info.log
-    │  │
-    │  ├─Reports                                    // 报告输出
-    │         test_api 测试报告.html
-    │         test_standard 测试报告.html
-    │
-    ├─temp                                          // 临时文件夹，与程序无关
-    │     parsing_postman.py                        // postman 数据解析函数，后续增强脚本可能使用到
-    │
-    ├─test_script                                   // 测试脚本
-    │  │  __init__.py
-    │  │
-    │  ├─auto_script                                // 自动化测试脚本
-    │        login.py                               // 常规系统登录，主要获取 token 组装 header，方便后续 excel 中不需要重复写 header
-    │        test_standard.py                       // 标准测试脚本入口
-    │        __init__.py
-    │
-    ├─upload_server                                 // 文件上传服务（主要为自己本地存文件方便使用）
-    │   │  upload.py                                 // 文化上传服务 
-    │   │  __init__.py
-    │   │
-    │   └─templates                                  // 文件上传 html 
-    │           index.html
-    │─HTMLTestRunnerN.py                            // html 报告模板文件，可以自己试一下
-    │—HTMLTestRunnerNew.py                          // html 报告模板文件，可以自己试一下
-    │─main_personal_information.py                  // 个人信息独立执行入口函数
-    │─test_main                                     // 程序执行main函数
-
+├─common                                    // 功能配置及核心功能函数
+│  │  base_datas.py                         // 公共基础环境路径存放位置：如日志，测试测试脚本路径
+│  │  dependence.py                         // 数据依赖类
+│  │  __init__.py
+│  │
+│  ├─bif_functions                          // 内置一些函数工具
+│  │     bif_datetime.py                    // 内置日期时间函数
+│  │     bif_hashlib.py                     // 内置hash 函数
+│  │     bif_json.py                        // 内置json解析函数
+│  │     bif_list.py                        // 内置列表操作函数
+│  │     bif_random.py                      // 内置随机函数
+│  │     bif_re.py                          // 内置正则函数
+│  │     bif_str.py                         // 内置字符串函数
+│  │     bif_time.py                        // 内置时间函数
+│  │     random_tools.py                    // 内置其他随机函数
+│  │     __init__.py
+│  │  
+│  │
+│  ├─comparator                             // 断言及加载动条函数工具包
+│  │     comparators.py                     // 自定义比较器
+│  │     comparator_dict.py                 // 自定义比较器名词释义
+│  │     extractor.py                       // 提取器
+│  │     loaders.py                         // 动态加载函数及加载内置比较器等工具包
+│  │     load_modules_from_folder.py        // 动态从模块中加载函数（暂未使用）
+│  │     validator.py                       // 断言校验器
+│  │     __init__.py
+│  │
+│  ├─do_sql                                 // 数据库操作工具
+│  │     do_mongo.py                        // mongoDB 操作工具
+│  │     do_mysql.py                        // mysql 操作工具
+│  │     do_psycopg.py                      // presto 操作工具
+│  │     do_redis.py                        // redis 操作工具
+│  │     __init__.py
+│  │
+│  ├─encryption                             // 加密工具
+│  │     encryption_aes.py                  // aes 加密
+│  │     encryption_base64_to_image.py      // base64 转图片工具
+│  │     encryption_main.py                 // 执行加入函数入口，对应excel中的加密方法选项，结合 ext_script 中的 sign 可自定义加密规则 
+│  │     encryption_str.py                  // 常用的字符串加密工具函数
+|  |     encryption_rsa.py                  // rsa 加密
+│  │     __init__.py
+│  │
+│  ├─extractor                              // 提取器
+│  │     analysis_json.py                   // json 字典分析函数，类似 jsonpath
+│  │     assert_dict.py                     // 旧断言字段函数 （暂时舍弃）
+│  │     data_extractor.py                  // 数据提取函数
+│  │     dependent_parameter.py             // 数据替换函数
+│  │     dict_get.py                        // 旧路径提取函数
+│  │     __init__.py
+│  │
+│  ├─files_tools                            // 文件操作
+│  │     do_bat_sql.py                      // 批量读取文件下的 sql 文件并打开文件执行文件内的每条 sql 
+│  │     do_excel.py                        // excel 处理
+│  │     excel.py                           // excel 处理(旧)
+│  │     get_all_path.py                    // 递归获取目录下所有的文件的路径
+│  │     get_conf_data.py                   // 读取配置文件(不使用，更改为 pytest 模式时，可能 pytest 需要)
+│  │     get_excel_init.py                  // 读取 excel 中初始化 init 表 的数据   
+│  │     get_file.py                        // 获取指定目录内的所有文件(没卵用)
+│  │     get_folder.py                      // 获取指定路径下的所有文件夹及文件（没卵用）
+│  │     read_file.py                       // 文件读取（没卵用）
+│  │     __init__.py
+│  │
+│  ├─random_tools                           // 独立的随机工具类，主要用于自动创建一些测试数据给收工测试使用
+│  │  │  __init__.py
+│  │  │
+│  │  ├─random_bankcard                     // 随机银行卡
+│  │  │     bankcard.py
+│  │  │     cardbin.csv
+│  │  │     __init__.py
+│  │  │
+│  │  ├─random_email                        // 速记邮件
+│  │  │     email.py
+│  │  │     free_email.csv
+│  │  │     __init__.py
+│  │  │
+│  │  ├─random_idcard                       // 随机身份证
+│  │  │     area.csv
+│  │  │     id_card.py
+│  │  │     __init__.py
+│  │  │
+│  │  ├─random_name                         // 随机中国人姓名
+│  │  │     first_name_boy.csv
+│  │  │     first_name_girl.csv
+│  │  │     last_name.csv
+│  │  │     name.py
+│  │  │     __init__.py
+│  │  │  
+│  │  │
+│  │  ├─random_phone                        // 随机手机号
+│  │  │     phone.py
+│  │  │     phone_area.csv
+│  │  │     __init__.py
+│  │  │
+│  │  ├─random_unified_sicuak_credit_identifier // 随机企业唯一信用代码
+│  │        address.json
+│  │        credit_identifier.py
+│  │        unified_social_credit_identifier.py
+│  │        __init__.py
+│  │
+│  ├─tmp
+│  ├─tools                                      // 杂七杂八的工具包
+│        captcha.py                             // 识别图片转字符串，常用于验证码登录
+│        function_run_time.py                   // 运行时间装饰器（没卵用）
+│        logger.py                              // 日志记录文件
+│        req.py                                 // http get\post 请求封装，可以扩展请求方法
+│        retry.py                               // 重试装饰器（在接口测试中实际上没卵用）
+│        singleton.py                           // 单例模式装饰器
+│        WxworkSms.py                           // 企业微信，需要使用其他工具，可以在这个模块下扩展增加脚本
+│        __init__.py
+│
+├─data                                          // 测试用例数据文件夹
+│  ├─booking                                    // 预定系统
+│  │  ├─json_file                               // 扩展json文件，用于自定义测试脚本使用
+│  │  │      booking_upload_assert.json         // 断言文件
+│  │  │
+│  │  └─upload                                  // 放置需要上传文件的文件夹
+│  │      ├─booking_upload_file                 // A系统中需要上传文件的文件夹堆放位置
+│  │      │      gzpszx-门店分货模版.xlsx         // 实际上传的文件
+│  │      │
+│  │      └─wifi_import_file                    // B系统中需要上传文件文件夹
+│  │              WiFi安全教育默认题库.xlsx        // 实际上传的文件
+│  │
+│  ├─moduleA                                    // 测试模块A
+│  │  └─test_cases                              // 测试模块A下面的测试用例
+│  │          test_api.xlsx                     // 测试用例
+│  │
+│  └─other                                      // 其他一些杂七杂八的图片存在位置
+│          Snipaste_2020-11-06_17-47-55.png
+│
+├─debug                                         // 调试使用，与实际程序没啥关系
+│      debug.py                               
+│      identify_results.txt                   
+│
+├─ext_script                                    // 动态扩展程序文件包
+│  │  ext_method_online.py                      // 在线扩展方法
+│  │  sign.py                                   // 自定义签名规则，与签名的加密方式配合使用
+│  │  __init__.py
+│
+├─image                                         // 图片
+│      origina388l.png
+│      tests.gif
+│
+├─OutPut                                        // 脚本日志及报告输出文件夹
+│  │  __init__.py
+│  │
+│  ├─Log                                        // 日志输出
+│  │      2023-03-31_error.log
+│  │      2023-03-31_info.log
+│  │
+│  ├─Reports                                    // 报告输出
+│         test_api 测试报告.html
+│         test_standard 测试报告.html
+│
+├─temp                                          // 临时文件夹，与程序无关
+│     parsing_postman.py                        // postman 数据解析函数，后续增强脚本可能使用到
+│
+├─test_script                                   // 测试脚本
+│  │  __init__.py
+│  │
+│  ├─auto_script                                // 自动化测试脚本
+│        login.py                               // 常规系统登录，主要获取 token 组装 header，方便后续 excel 中不需要重复写 header
+│        test_standard.py                       // 标准测试脚本入口
+│        __init__.py
+│
+├─upload_server                                 // 文件上传服务（主要为自己本地存文件方便使用）
+│   │  upload.py                                 // 文化上传服务 
+│   │  __init__.py
+│   │
+│   └─templates                                  // 文件上传 html 
+│           index.html
+│─HTMLTestRunnerN.py                            // html 报告模板文件，可以自己试一下
+│—HTMLTestRunnerNew.py                          // html 报告模板文件，可以自己试一下
+│─main_personal_information.py                  // 个人信息独立执行入口函数
+│─test_main                                     // 程序执行main函数
 ## 依赖库
 
-    参考 pipenv --Pipfile 虚拟环境文件，不一一列出
-
+参考 pipenv --Pipfile 虚拟环境文件，不一一列出
 ## 安装教程
 
 首先，执行本框架之后，需要搭建好 python 环境，python 环境搭建自行百度
@@ -268,7 +268,6 @@
 - 下发截图为 init 初始化基础数据填写用例
   ![img.png](image/init表填写.png)
 - init 中 sheets 内的列表排序是有作用的，执行用例是按照列表内值排序执行的。
-
 - 下方截图就是 excel 用例 每个字段是否必填的描述
   ![img.png](image/excel用例填写.png)
 - 每条测试用例都可以自定义是否开启，开启则执行，不开启则跳过，默认执行结果是通过
@@ -277,7 +276,6 @@
 - 目前使用的生成器的方式读取excel，主要是防止一次性内存被撑爆
 - 测试报告是按照excel来生成的，测试报告的样式没有按模块区分，实际上直接打开excel就可以看到报告结果了。
 - 其他一些没有多大作用的，通过率，跳过条数，通过条数，失败条数等，没有另外处理，全部由html的报告自动处理
-
 - 下方截图为关联参数填写示例
   ![img.png](image/img_6.png)
 
@@ -287,6 +285,7 @@
 None，貌似没有对 None 特殊处理
 以下是一些内置函数讲解
 ![img.png](/image/img_1.png)
+
 
 - 这个MD5方法，一般都没有使用，一般都是直接excel中是否使用【参数加密方式字段开关】来处理加密
   ![img.png](/image/img.png)
@@ -354,9 +353,7 @@ html 或者 excel 中 都有，直接自行使用查看吧
 - 本框架为2.0升级版本，升级之后的功能，现在基本上都是在 excel 中维护用例，无需测试人员编写代码，
 - 和 1.0版本的区别在于，1.0版本也不需要测试人员写代码，但是断言的方式比较生硬。
 - 1.0版本已经集成到测试开发平台，可以去平台使用，具体gitee
-地址：[https://gitee.com/chenyongzhiaaron/ApiTestPlatform.git](https://gitee.com/chenyongzhiaaron/ApiTestPlatform.git)
-
-
+  地址：[https://gitee.com/chenyongzhiaaron/ApiTestPlatform.git](https://gitee.com/chenyongzhiaaron/ApiTestPlatform.git)
 
 ## 独立个人信息工具介绍
 
@@ -378,11 +375,8 @@ PS D:\api-test-project> python .\main_personal_information.py                   
 |  陈锦  |  女  |  29  | 1993-02-12 | 452123199302128568 |  62260020819291645   | 0915-7410180 | 17509030433 |    chenjin@icloud.com   |    重庆市西安市沙湾广州街G座 531384    | 92445302298701343Q |
 +--------+------+------+------------+--------------------+----------------------+--------------+-------------+-------------------------+----------------------------------------+--------------------+
 ```
-
 ## 赞赏
+
 如果这个库有帮助到你并且你很想支持库的后续开发和维护，那么你可以扫描下方二维码随意打赏我，我将不胜感激
 ![img.jpg](/image/wx.jpg)
 ![img.jpg](/image/zfb.jpg)
-
-
-

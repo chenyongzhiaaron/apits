@@ -6,9 +6,9 @@ Email:262667641@qq.com
 Project:api_project
 """
 import time
-import urllib3
 
 import requests
+import urllib3
 
 from common.files_tools.get_all_path import get_all_path
 
@@ -79,12 +79,13 @@ class WxWorkSms:
         for fp in file_path:
             with open(fp, "rb") as f:
                 send_data = {"media": f}
-            res_html = requests.post(self.up_url, files=send_data, verify=False).json()
-            media_id = res_html.get("media_id")
-            media_ids.append(media_id)
+                res_html = requests.post(self.up_url, files=send_data, verify=False).json()
+                media_id = res_html.get("media_id")
+                media_ids.append(media_id)
         return media_ids
 
-    def send_main(self, dirs, project_name, project_port, total_cases, pass_rate, success_cases, fail_cases, skip_cases,
+    def send_main(self, folder_path, project_name, project_port, total_cases, pass_rate, success_cases, fail_cases,
+                  skip_cases,
                   error_cases, report_url):
         """
         发送markdown及上传文件
@@ -98,10 +99,13 @@ class WxWorkSms:
             project_name, project_port, total_cases, pass_rate, success_cases, fail_cases, skip_cases,
             error_cases, report_url
         )
-        file_path = get_all_path(dirs)
+        file_path = get_all_path(folder_path)
         self.send_file(file_path)
 
 
+
+
 if __name__ == '__main__':
-    p = r'E:\Program Project\api-test-project\OutPut\Reports'
-    WxWorkSms('8b1647d4-dc32-447c-b524-548acf18a938').send_markdown(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    dirs = r'D:\apk_api\api-test-project\OutPut\Reports'
+    WxWorkSms('8b1647d4-dc32-447c-b524-548acf18a938').send_main(dirs, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    # WxWorkSms('8b1647d4-dc32-447c-b524-548acf18a938').send_markdown(1, 2, 3, 4, 5, 6, 7, 8, 9)

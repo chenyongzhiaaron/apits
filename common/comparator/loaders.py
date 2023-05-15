@@ -20,7 +20,6 @@ def load_built_in_functions(model):
     Returns:
     """
     built_in_functions = {}
-
     for name, item in vars(model).items():
         if isinstance(item, types.FunctionType):
             built_in_functions[name] = item

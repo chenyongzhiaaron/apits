@@ -125,7 +125,6 @@ class DoExcel:
 
     def __del__(self):
         self.wb.close()
-        # pass
 
 
 if __name__ == '__main__':
