@@ -1,0 +1,348 @@
+[
+  {
+    'url': '/auth/loginByNotBip',
+    'headers': {
+      'Content-Type': 'application/json',
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'post',
+    'params': {},
+    'requestType': 'json',
+    'body': {
+      'account': '{{uname}}',
+      'password': '{{pwd}}'
+    }
+  },
+  {
+    'url': '/auth/refreshTokenByTenant',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'get',
+    'params': {
+      'bspToken': '{{token}}',
+      'tenantId': '{{bsp_user_tenant}}',
+      'userId': '{{bsp_user_id}}'
+    },
+    'requestType': '',
+    'body': {}
+  },
+  {
+    'url': '/auth/getUserInfoByBspToken',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'get',
+    'params': {
+      'bspToken': '{{token}}'
+    },
+    'requestType': '',
+    'body': {}
+  },
+  {
+    'url': '/ums/v1/feign/omp/user/getUserDeptByUserAccount',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'post',
+    'params': {},
+    'requestType': 'json',
+    'body': {}
+  },
+  {
+    'url': '/ums/v1/user/project/findUserProjectList',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'get',
+    'params': {},
+    'requestType': '',
+    'body': {}
+  },
+  {
+    'url': '/opi/developer/applogin',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'post',
+    'params': {
+      't': '1655973371000'
+    },
+    'requestType': 'json',
+    'body': {}
+  },
+  {
+    'url': '/ums/v1/feign/omp/user/getMobile',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'get',
+    'params': {
+      'userId': '60531066'
+    },
+    'requestType': '',
+    'body': {}
+  },
+  {
+    'url': '/ums/v1/feign/omp/org/getDirectCompanyOrgNode',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'post',
+    'params': {},
+    'requestType': 'json',
+    'body': {}
+  },
+  {
+    'url': '/ums/v1/user/org/getUserOrg',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'get',
+    'params': {},
+    'requestType': '',
+    'body': {}
+  },
+  {
+    'url': '/ums/v1/user/app/findUserAppListByOrg',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'get',
+    'params': {
+      'orgId': '22071803251232000'
+    },
+    'requestType': '',
+    'body': {}
+  },
+  {
+    'url': '/ums/v1/feign/omp/org/findOrgListByProjectId',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'post',
+    'params': {
+      't': '1663666068000'
+    },
+    'requestType': 'json',
+    'body': {}
+  },
+  {
+    'url': '/ums/v1/tenant/projectOrg/roster/pageNotMerge',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'get',
+    'params': {
+      'curPage': '1',
+      'pageSize': '10'
+    },
+    'requestType': '',
+    'body': {}
+  },
+  {
+    'url': '/ibs/api/ibs-material/material/jobRequire/pages',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'post',
+    'params': {
+      't': '1642056569000'
+    },
+    'requestType': 'json',
+    'body': {}
+  },
+  {
+    'url': '/ibs/api/ibs-file/upload/permanent',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'post',
+    'params': {},
+    'requestType': 'files',
+    'body': {
+      'file': 'file://C:\\Users\\chenyongzhi11\\Pictures\\测试图片\\DSC_0224.JPG'
+    }
+  },
+  {
+    'url': '/bsp/platform/pgs/auth/platform/common/login',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'post',
+    'params': {},
+    'requestType': 'json',
+    'body': {
+      'account': '13709685270',
+      'password': 'dehTueriLaVYLw2+2gUwPxcRuXP30RX5w0yh7T5o1a00dXv/munE8e573TPsDP4DdwdjdHrfHBlGQOA8+Ppzzbrgy7mHEvnrv3F2urBflbFvU8Hc4TqljxIh+6fDzhtgdgeDYwi6Hnw13iv+36wfnJ8jFH4ygxHEphlEntMBk3A='
+    }
+  },
+  {
+    'url': '/ibs/api/ibs-material/material/jobRequire/doAudit',
+    'headers': {
+      'BSP_TOKEN': '{{token}}',
+      'BSP_USER_ENV_ID': '{{BSP_USER_ENV_ID}}',
+      'BSP_USER_ID': '{{bsp_user_id}}',
+      'BSP_USER_TENANT': '{{BSP_USER_TENANT}}',
+      'bzlrobot-authorization': '{{bzlrobot_authorization}}',
+      'projectId': '{{cl_projectId}}',
+      'projectName': '{{projectName|encodeURIComponent}}',
+      'BSP_COMPANY_NAME': '{{orgName|encodeURIComponent}}',
+      'BSP_COMPANY_ID': '{{orgId}}',
+      'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36',
+      'Bsp_user_app_id': '{{Bsp_user_app_id}}'
+    },
+    'method': 'post',
+    'params': {},
+    'requestType': 'json',
+    'body': {}
+  }
+]
