@@ -56,7 +56,8 @@ class TestProjectApi(unittest.TestCase):
         item_headers = item.get("Headers", {})
         request_data = item.get("Request Data")
         parameters_key = item.get("提取请求参数")
-        encryption = item.get("参数加密方式")
+        is_request_data_encryption = item.get("请求参数是否加密")
+        is_headers_encryption = item.get("Headers是否加密")
         regex = item.get("正则表达式")
         keys = item.get("正则变量")
         deps = item.get("绝对路径表达式")
@@ -98,8 +99,11 @@ class TestProjectApi(unittest.TestCase):
         # 提取请求参数信息
         DataExtractor(request_data).substitute_data(jp_dict=parameters_key)
         # 判断是否执行加密
-        if encryption:
-            request_data = do_encrypt(encryption, request_data)  # 数据加密：MD5 ｏｒ　ｓｈａ１
+        if is_headers_encryption:
+            headers = do_encrypt(is_headers_encryption, headers)  # 请求头参数加密:md5,sha1,sha256...
+
+        if is_request_data_encryption:
+            request_data = do_encrypt(is_request_data_encryption, request_data)  # 请求参数加密:md5,sha1,sha256...
         logger.my_log(f"当前用例所在的 sheet --> {sheet}", "info")
         logger.my_log(f"执行 SQL 语句 --> {sql}", "info")
         logger.my_log(f"预期结果 --> {expected}", "info")
