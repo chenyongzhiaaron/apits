@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>T 接口自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 120%; }
+table       { font-size: 100%; }
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='heading'>
+<h1 style="font-family: Microsoft YaHei">T 接口自动化测试报告</h1>
+<p class='attribute'><strong>测试人员 : </strong> 陈勇志</p>
+<p class='attribute'><strong>开始时间 : </strong> 2023-05-14 23:55:35</p>
+<p class='attribute'><strong>结束时间 : </strong> 2023-05-14 23:55:38.648995</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:03.095035</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 7，通过 6，错误 1，通过率= 85.71%</p>
+
+<p class='description'>接口自动化测试</p>
+</div>
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 85.71% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 6 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 7 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 16px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>unittest.loader._FailedTest</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+<tr id='ft1_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_api</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_1'>错误</button>
+    <div id='div_ft1_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_1' type="button"  class="btn btn btn-info btn-xs" data-toggle="collapse" data-target='#div_ft1_1'>错误</button>
+    <div id='div_ft1_1' class="collapse" align="left">
+    <pre>
+    
+ft1_1: ImportError: Failed to import test module: script.test_api
+Traceback (most recent call last):
+  File "D:\python\lib\unittest\loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "D:\python\lib\unittest\loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "E:\apitest\test_script\script\test_api.py", line 12, in &lt;module&gt;
+    from test_script.script.baseclass import BaseClass
+ModuleNotFoundError: No module named 'test_script.script'
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_script.test_standard.TestProjectApi</td>
+    <td class="text-center">6</td>
+    <td class="text-center">6</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',6)" class="detail" id='c2'>详细</a></td>
+</tr>
+
+<tr id='pt2_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_api_1</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_1' type="button"  class="btn btn btn-info btn-xs" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse" align="left">
+    <pre>
+    
+pt2_1: 2023-05-14 23:55:35,556-ERROR-logger.py-[ line:62 ] - 日志信息:测试用例:1 不执行，跳过!!!
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_api_2</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
+    <div id='div_pt2_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_2' type="button"  class="btn btn btn-info btn-xs" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
+    <div id='div_pt2_2' class="collapse" align="left">
+    <pre>
+    
+pt2_2: 2023-05-14 23:55:35,557-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:55:35,558-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --&gt; 安全纯净大屏
+2023-05-14 23:55:35,559-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --&gt; None
+2023-05-14 23:55:35,559-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --&gt; 
+2023-05-14 23:55:35,646-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --&gt; https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
+2023-05-14 23:55:35,648-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --&gt; {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '214'}
+2023-05-14 23:55:35,649-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --&gt; b'{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8="}'
+2023-05-14 23:55:35,651-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--&gt; 200
+2023-05-14 23:55:35,653-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--&gt; 0:00:00.077493
+2023-05-14 23:55:35,684-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--&gt; {"code":"0","type":"success","data":{"id":"216840797353495059","userId":"216483504447804297","ibsUserId":7884,"mobile":"18127813600","bspToken":"3e879e608a47fe7252a34f08e60f27f1","type":"user","avatar":null,"ncAccount":null,"timestamp":1684079735,"idpTokenId":null,"loginChannel":null,"clientType":null,"name":"陈勇志","btpToken":null,"account":"18127813600","accountType":"C","currentEnvId":null,"currentTenantId":"216317749963825419","currentAppId":"8d1f5bdc9c6648af84a98e2c017846c5","currentProjectId":"104966","currentOrgId":null,"currentMenuId":null,"currentOrgMenuId":null,"currentSelectedTab":"org","currentUrl":"/ibs/material/order","tenants":[{"id":"1623811301356297657","code":"1623811301356297657","fullName":"广东博嘉拓建筑测试租户","shortName":"广东博嘉拓建筑测试租户","envId":"6296f5e3960c4fdfb9c9357b581c853b","envName":"默认环境","tenantEnvs":null},{"id":"216572673247394736","code":"9C8D5715AAA44D4B8530AB2B7F627E1A","fullName":"安徽腾越建筑工程有限公司","shortName":"安徽腾越建筑工程有限公司","envId":"d1b4f959495f433fb1dd5400a78bce2c","envName":"默认环境","tenantEnvs":null},{"id":"216317749963825419","code":"C2C35D2543B34CA99366D9C76E45D01B","fullName":"沈阳腾越建筑测试租户","shortName":"沈阳腾越建筑测试租户","envId":"c4a70c0a1f5c4aaa83fcd390dcd898c6","envName":"默认环境","tenantEnvs":null},{"id":"216260762345772077","code":"216260762345772077","fullName":"广东腾越建筑工程有限公司","shortName":"广东腾越建筑工程有限公司","envId":"210712034943271000","envName":"默认环境","tenantEnvs":null},{"id":"216328986981406025","code":"TENANT_TEST","fullName":"智慧工地测试租户9","shortName":"智慧工地测试租户9","envId":"e7682a3876a343b483645b0c20da93a3","envName":"默认环境","tenantEnvs":null},{"id":"216365124588606373","code":"TENANT_TEST","fullName":"计划排程自动化测试","shortName":"计划排程自动化测试","envId":"80ce8eb5a7c941f8a6f57b8ecb61ec17","envName":"默认环境","tenantEnvs":null},{"id":"216674624791091228","code":"232E9186B1BE494E966F27BA7CF33AE2","fullName":"cyq测试","shortName":"cyq测试","envId":"ef3f8ed4792f4ef0a5e7d92af394d29c","envName":"默认环境","tenantEnvs":null},{"id":"216687529947792866","code":"9769454E01304245AEE83CE7E99537A8","fullName":"成本总控报表测试租户","shortName":"成本总控报表测试租户","envId":"5125917072884123bf9fe3966ffa4af2","envName":"默认环境","tenantEnvs":null},{"id":"216661417159402453","code":"216661417159402453","fullName":"科技建筑集团","shortName":"科技建筑集团","envId":"b23d88da977e467cb81dd7fb57de97d0","envName":"默认环境","tenantEnvs":null},{"id":"216281557054332425","code":"216281557054332425","fullName":"BIM材料用量计算","shortName":"BIM材料用量计算","envId":"7501c77b0ccd4b4d912451e5f74c1ba7","envName":"默认环境","tenantEnvs":null},{"id":"1320970534539886592","code":"1320970534539886592","fullName":"碧桂园集团","shortName":"碧桂园集团","envId":"1320970534539886592","envName":"默认环境","tenantEnvs":null}],"loginAppDto":null},"msg":null,"succeed":true}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_api_3</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_3' type="button"  class="btn btn btn-info btn-xs" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse" align="left">
+    <pre>
+    
+pt2_3: 2023-05-14 23:55:36,661-ERROR-logger.py-[ line:62 ] - 日志信息:测试用例:3 不执行，跳过!!!
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_api_4</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_4'>通过</button>
+    <div id='div_pt2_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_4' type="button"  class="btn btn btn-info btn-xs" data-toggle="collapse" data-target='#div_pt2_4'>通过</button>
+    <div id='div_pt2_4' class="collapse" align="left">
+    <pre>
+    
+pt2_4: 2023-05-14 23:55:36,662-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:55:36,663-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:55:36,705-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --&gt; 安全纯净大屏
+2023-05-14 23:55:36,706-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --&gt; None
+2023-05-14 23:55:36,707-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --&gt; 
+2023-05-14 23:55:36,779-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --&gt; https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684079736663
+2023-05-14 23:55:36,781-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --&gt; {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '3e879e608a47fe7252a34f08e60f27f1', 'BSP_USER_TENANT': '216317749963825419', 'Content-Length': '61'}
+2023-05-14 23:55:36,782-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --&gt; b'{"projectId": "104966", "tvSequence": "nNNGLktZIGgeRgwzkjAX"}'
+2023-05-14 23:55:36,784-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--&gt; 200
+2023-05-14 23:55:36,786-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--&gt; 0:00:00.069166
+2023-05-14 23:55:36,788-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--&gt; {"code":200,"success":true,"data":null,"msg":"添加成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_api_5</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_5'>通过</button>
+    <div id='div_pt2_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_5' type="button"  class="btn btn btn-info btn-xs" data-toggle="collapse" data-target='#div_pt2_5'>通过</button>
+    <div id='div_pt2_5' class="collapse" align="left">
+    <pre>
+    
+pt2_5: 2023-05-14 23:55:37,710-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:55:37,711-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:55:37,711-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:55:37,713-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --&gt; 安全纯净大屏
+2023-05-14 23:55:37,715-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --&gt; None
+2023-05-14 23:55:37,716-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --&gt; 
+2023-05-14 23:55:37,749-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --&gt; https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684079737711&amp;projectId=104966
+2023-05-14 23:55:37,750-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --&gt; {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '3e879e608a47fe7252a34f08e60f27f1', 'BSP_USER_TENANT': '216317749963825419'}
+2023-05-14 23:55:37,751-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --&gt; None
+2023-05-14 23:55:37,751-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--&gt; 200
+2023-05-14 23:55:37,752-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--&gt; 0:00:00.028120
+2023-05-14 23:55:37,753-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--&gt; {"code":200,"success":true,"data":{"id":"1637650408413749249","projectId":"104966","shortInfo":"博智林提醒您：一切不能保证安全、质量的施工都要停工！进入工地，请佩戴安全帽，穿着反光衣，文明作业！","qrCode":"https://ibs-test.bzlrobot.com/api/ibs-file/document/get/MjAyMS0xMC0xOCxQSE9UT18yMDIxMTAxOF8wOTMxMDExMDIuanBnLDA0ZGQxOWU5YzA3MjQ0YjE5OTIwNzZjOTUxNzY4YzQ1","manageDeparts":[]},"msg":"操作成功"}
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_api_6</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_6'>通过</button>
+    <div id='div_pt2_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_6' type="button"  class="btn btn btn-info btn-xs" data-toggle="collapse" data-target='#div_pt2_6'>通过</button>
+    <div id='div_pt2_6' class="collapse" align="left">
+    <pre>
+    
+pt2_6: 2023-05-14 23:55:38,647-ERROR-logger.py-[ line:62 ] - 日志信息:测试用例:None 不执行，跳过!!!
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>7</td>
+    <td>6</td>
+    <td>0</td>
+    <td>1</td>
+    <td>通过率：85.71%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+</body>
+</html>

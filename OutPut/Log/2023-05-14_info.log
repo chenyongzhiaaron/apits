@@ -1,0 +1,433 @@
+2023-05-14 00:47:17,523-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 00:47:31,506-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 22:01:33,071-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 22:01:52,235-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 22:54:58,255-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 22:54:59,676-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql_base",\n "user":"root",\n "password":"root1234"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n"{{passwd}}":"KQX89QKceHEpywkR6uQCB+3Ul7PiIdsKGSg2vl54MIy5LpMGs1oQxDHlo9/qTStjMCxaSVL9LD6MINwpz0ArarOfsNQPtOTEVBFtgilESMQhmVXa/7kQo9Z9utfqyXRpv+ewITh2S6+SpQWP6LSt265T5Lx1Dt1NaKcAVG7eaO0=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 22:54:59,689-INFO-logger.py-[ line:64 ] - 日志信息:开始加载内置方法...
+2023-05-14 22:54:59,691-INFO-logger.py-[ line:64 ] - 日志信息:内置方法加载完成
+2023-05-14 22:54:59,692-INFO-logger.py-[ line:64 ] - 日志信息:所有用例执行开始...
+2023-05-14 22:54:59,701-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 22:54:59,703-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 22:54:59,705-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
+2023-05-14 22:54:59,707-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'Content-Type': 'application/json'}
+2023-05-14 22:54:59,709-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> {'account': '18127813600', 'password': 'KQX89QKceHEpywkR6uQCB+3Ul7PiIdsKGSg2vl54MIy5LpMGs1oQxDHlo9/qTStjMCxaSVL9LD6MINwpz0ArarOfsNQPtOTEVBFtgilESMQhmVXa/7kQo9Z9utfqyXRpv+ewITh2S6+SpQWP6LSt265T5Lx1Dt1NaKcAVG7eaO0='}
+2023-05-14 22:54:59,711-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 22:54:59,712-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 22:54:59,830-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 22:54:59,833-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.110742
+2023-05-14 22:54:59,839-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_500","type":null,"data":null,"msg":"服务器内部错误.","showType":2,"formMsg":null,"succeed":false}
+2023-05-14 22:55:00,757-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 22:55:00,759-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 22:55:00,791-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 22:55:00,792-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684076100760
+2023-05-14 22:55:00,793-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 22:55:00,794-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> {'projectId': '104966', 'tvSequence': 'KuaeHTBCyZNUqpOqGjXe'}
+2023-05-14 22:55:00,795-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 22:55:00,796-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 22:55:00,829-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 22:55:00,831-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.030757
+2023-05-14 22:55:00,832-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 22:55:01,736-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 22:55:01,737-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 22:55:01,738-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 22:55:01,739-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 22:55:01,740-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684076101737&projectId=104966
+2023-05-14 22:55:01,741-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 22:55:01,742-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> None
+2023-05-14 22:55:01,743-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 22:55:01,744-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 22:55:01,777-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 22:55:01,778-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.030783
+2023-05-14 22:55:01,779-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:04:46,735-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:04:54,299-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:04:55,816-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{password}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8="\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:05:30,090-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:05:31,552-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{password}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:05:31,557-INFO-logger.py-[ line:64 ] - 日志信息:开始加载内置方法...
+2023-05-14 23:05:31,558-INFO-logger.py-[ line:64 ] - 日志信息:内置方法加载完成
+2023-05-14 23:05:31,559-INFO-logger.py-[ line:64 ] - 日志信息:所有用例执行开始...
+2023-05-14 23:05:31,562-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:05:31,564-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:05:31,565-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
+2023-05-14 23:05:31,566-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'Content-Type': 'application/json'}
+2023-05-14 23:05:31,567-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> {'account': '18127813600', 'password': '{{passwd}}'}
+2023-05-14 23:05:31,568-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:05:31,569-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:05:31,689-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> account=18127813600&password=%7B%7Bpasswd%7D%7D
+2023-05-14 23:05:31,692-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:05:31,694-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.111893
+2023-05-14 23:05:31,700-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_500","type":null,"data":null,"msg":"服务器内部错误.","showType":2,"formMsg":null,"succeed":false}
+2023-05-14 23:05:32,599-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:05:32,600-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:05:32,613-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:05:32,614-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684076732600
+2023-05-14 23:05:32,615-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 23:05:32,616-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> {'projectId': '104966', 'tvSequence': 'CnrncNcVEDyVQEqlDGic'}
+2023-05-14 23:05:32,617-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:05:32,618-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:05:32,651-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> projectId=104966&tvSequence=CnrncNcVEDyVQEqlDGic
+2023-05-14 23:05:32,654-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:05:32,656-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.029301
+2023-05-14 23:05:32,658-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:05:33,577-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:05:33,578-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:05:33,579-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:05:33,581-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:05:33,582-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684076733579&projectId=104966
+2023-05-14 23:05:33,583-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 23:05:33,584-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> None
+2023-05-14 23:05:33,585-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:05:33,586-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:05:33,617-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> None
+2023-05-14 23:05:33,619-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:05:33,621-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.026444
+2023-05-14 23:05:33,623-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:06:35,288-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:06:36,769-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:06:36,785-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:06:37,641-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:07:32,269-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:07:33,797-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:07:33,802-INFO-logger.py-[ line:64 ] - 日志信息:开始加载内置方法...
+2023-05-14 23:07:33,803-INFO-logger.py-[ line:64 ] - 日志信息:内置方法加载完成
+2023-05-14 23:07:33,804-INFO-logger.py-[ line:64 ] - 日志信息:所有用例执行开始...
+2023-05-14 23:07:33,808-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:07:33,809-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:07:33,810-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
+2023-05-14 23:07:33,811-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'Content-Type': 'application/json'}
+2023-05-14 23:07:33,812-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> {'account': '18127813600', 'password': 'WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8='}
+2023-05-14 23:07:33,813-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:07:33,814-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:07:33,895-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> account=18127813600&password=WD6Y0%2BLJLHXuFaplzUtSCnwktA7KgXCpjCS%2BOVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY%2FNLnDwB%2Fbyl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8%3D
+2023-05-14 23:07:33,896-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:07:33,897-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.074451
+2023-05-14 23:07:33,900-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_500","type":null,"data":null,"msg":"服务器内部错误.","showType":2,"formMsg":null,"succeed":false}
+2023-05-14 23:07:34,825-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:07:34,826-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:07:34,840-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:07:34,841-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684076854827
+2023-05-14 23:07:34,842-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 23:07:34,843-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> {'projectId': '104966', 'tvSequence': 'WZkQZbsSRLYUZxINusEf'}
+2023-05-14 23:07:34,844-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:07:34,845-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:07:34,874-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> projectId=104966&tvSequence=WZkQZbsSRLYUZxINusEf
+2023-05-14 23:07:34,875-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:07:34,876-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.026358
+2023-05-14 23:07:34,877-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:07:35,825-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:07:35,826-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:07:35,827-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:07:35,828-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:07:35,829-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684076855827&projectId=104966
+2023-05-14 23:07:35,830-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 23:07:35,831-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> None
+2023-05-14 23:07:35,832-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:07:35,833-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:07:35,864-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> None
+2023-05-14 23:07:35,865-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:07:35,866-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.028128
+2023-05-14 23:07:35,867-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:11:02,118-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:11:03,695-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:11:03,700-INFO-logger.py-[ line:64 ] - 日志信息:开始加载内置方法...
+2023-05-14 23:11:03,701-INFO-logger.py-[ line:64 ] - 日志信息:内置方法加载完成
+2023-05-14 23:11:03,702-INFO-logger.py-[ line:64 ] - 日志信息:所有用例执行开始...
+2023-05-14 23:11:03,706-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:11:03,707-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:11:03,708-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:11:03,709-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:11:03,822-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
+2023-05-14 23:11:03,824-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '214'}
+2023-05-14 23:11:03,827-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> b'{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8="}'
+2023-05-14 23:11:03,829-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:11:03,831-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.105046
+2023-05-14 23:11:03,861-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"0","type":"success","data":{"id":"216840770636206531","userId":"216483504447804297","ibsUserId":7884,"mobile":"18127813600","bspToken":"6b49d4c8e824779ee0744ac4b6f91e01","type":"user","avatar":null,"ncAccount":null,"timestamp":1684077063,"idpTokenId":null,"loginChannel":null,"clientType":null,"name":"陈勇志","btpToken":null,"account":"18127813600","accountType":"C","currentEnvId":null,"currentTenantId":"216317749963825419","currentAppId":"8d1f5bdc9c6648af84a98e2c017846c5","currentProjectId":"104966","currentOrgId":null,"currentMenuId":null,"currentOrgMenuId":null,"currentSelectedTab":"org","currentUrl":"/ibs/material/order","tenants":[{"id":"1623811301356297657","code":"1623811301356297657","fullName":"广东博嘉拓建筑测试租户","shortName":"广东博嘉拓建筑测试租户","envId":"6296f5e3960c4fdfb9c9357b581c853b","envName":"默认环境","tenantEnvs":null},{"id":"216572673247394736","code":"9C8D5715AAA44D4B8530AB2B7F627E1A","fullName":"安徽腾越建筑工程有限公司","shortName":"安徽腾越建筑工程有限公司","envId":"d1b4f959495f433fb1dd5400a78bce2c","envName":"默认环境","tenantEnvs":null},{"id":"216317749963825419","code":"C2C35D2543B34CA99366D9C76E45D01B","fullName":"沈阳腾越建筑测试租户","shortName":"沈阳腾越建筑测试租户","envId":"c4a70c0a1f5c4aaa83fcd390dcd898c6","envName":"默认环境","tenantEnvs":null},{"id":"216260762345772077","code":"216260762345772077","fullName":"广东腾越建筑工程有限公司","shortName":"广东腾越建筑工程有限公司","envId":"210712034943271000","envName":"默认环境","tenantEnvs":null},{"id":"216328986981406025","code":"TENANT_TEST","fullName":"智慧工地测试租户9","shortName":"智慧工地测试租户9","envId":"e7682a3876a343b483645b0c20da93a3","envName":"默认环境","tenantEnvs":null},{"id":"216365124588606373","code":"TENANT_TEST","fullName":"计划排程自动化测试","shortName":"计划排程自动化测试","envId":"80ce8eb5a7c941f8a6f57b8ecb61ec17","envName":"默认环境","tenantEnvs":null},{"id":"216674624791091228","code":"232E9186B1BE494E966F27BA7CF33AE2","fullName":"cyq测试","shortName":"cyq测试","envId":"ef3f8ed4792f4ef0a5e7d92af394d29c","envName":"默认环境","tenantEnvs":null},{"id":"216687529947792866","code":"9769454E01304245AEE83CE7E99537A8","fullName":"成本总控报表测试租户","shortName":"成本总控报表测试租户","envId":"5125917072884123bf9fe3966ffa4af2","envName":"默认环境","tenantEnvs":null},{"id":"216661417159402453","code":"216661417159402453","fullName":"科技建筑集团","shortName":"科技建筑集团","envId":"b23d88da977e467cb81dd7fb57de97d0","envName":"默认环境","tenantEnvs":null},{"id":"216281557054332425","code":"216281557054332425","fullName":"BIM材料用量计算","shortName":"BIM材料用量计算","envId":"7501c77b0ccd4b4d912451e5f74c1ba7","envName":"默认环境","tenantEnvs":null},{"id":"1320970534539886592","code":"1320970534539886592","fullName":"碧桂园集团","shortName":"碧桂园集团","envId":"1320970534539886592","envName":"默认环境","tenantEnvs":null}],"loginAppDto":null},"msg":null,"succeed":true}
+2023-05-14 23:11:04,844-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:11:04,845-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:11:04,859-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:11:04,860-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:11:04,861-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:11:04,925-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684077064845
+2023-05-14 23:11:04,928-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '6b49d4c8e824779ee0744ac4b6f91e01', 'BSP_USER_TENANT': '216317749963825419', 'Content-Length': '61'}
+2023-05-14 23:11:04,930-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> b'{"projectId": "104966", "tvSequence": "CeFeMBGbAwyAdDdZDHIr"}'
+2023-05-14 23:11:04,932-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:11:04,934-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.060567
+2023-05-14 23:11:04,937-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":200,"success":true,"data":null,"msg":"添加成功"}
+2023-05-14 23:11:05,870-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:11:05,871-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:11:05,872-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:11:05,873-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:11:05,874-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:11:05,875-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:11:05,910-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684077065871&projectId=104966
+2023-05-14 23:11:05,911-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '6b49d4c8e824779ee0744ac4b6f91e01', 'BSP_USER_TENANT': '216317749963825419'}
+2023-05-14 23:11:05,912-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> None
+2023-05-14 23:11:05,913-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:11:05,914-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.032372
+2023-05-14 23:11:05,915-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":200,"success":true,"data":{"id":"1637650408413749249","projectId":"104966","shortInfo":"博智林提醒您：一切不能保证安全、质量的施工都要停工！进入工地，请佩戴安全帽，穿着反光衣，文明作业！","qrCode":"https://ibs-test.bzlrobot.com/api/ibs-file/document/get/MjAyMS0xMC0xOCxQSE9UT18yMDIxMTAxOF8wOTMxMDExMDIuanBnLDA0ZGQxOWU5YzA3MjQ0YjE5OTIwNzZjOTUxNzY4YzQ1","manageDeparts":[]},"msg":"操作成功"}
+2023-05-14 23:12:25,745-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:12:27,266-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:19:06,979-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:19:08,453-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:21:35,992-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:21:37,524-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:21:37,531-INFO-logger.py-[ line:64 ] - 日志信息:开始加载内置方法...
+2023-05-14 23:21:37,531-INFO-logger.py-[ line:64 ] - 日志信息:内置方法加载完成
+2023-05-14 23:21:37,532-INFO-logger.py-[ line:64 ] - 日志信息:所有用例执行开始...
+2023-05-14 23:21:37,534-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:21:37,535-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> /auth/loginByNotBip
+2023-05-14 23:21:37,536-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'Content-Type': 'application/json'}
+2023-05-14 23:21:37,536-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:21:37,637-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.092243】
+2023-05-14 23:21:37,639-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:21:37,644-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_500","type":null,"data":null,"msg":"服务器内部错误.","showType":2,"formMsg":null,"succeed":false}
+2023-05-14 23:21:37,646-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:21:37,688-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:21:37,689-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:21:37,690-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> /ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684077697688
+2023-05-14 23:21:37,690-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 23:21:37,691-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:21:37,722-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.028835】
+2023-05-14 23:21:37,723-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:21:37,724-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:21:37,725-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:21:37,726-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:21:37,726-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:21:37,727-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> /ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684077697726&projectId=104966
+2023-05-14 23:21:37,728-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 23:21:37,729-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:21:37,757-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.025872】
+2023-05-14 23:21:37,758-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:21:37,759-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:21:37,760-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:23:23,875-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:23:25,276-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:23:25,282-INFO-logger.py-[ line:64 ] - 日志信息:开始加载内置方法...
+2023-05-14 23:23:25,283-INFO-logger.py-[ line:64 ] - 日志信息:内置方法加载完成
+2023-05-14 23:23:25,284-INFO-logger.py-[ line:64 ] - 日志信息:所有用例执行开始...
+2023-05-14 23:23:25,285-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:23:25,286-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> /auth/loginByNotBip
+2023-05-14 23:23:25,287-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'Content-Type': 'application/json'}
+2023-05-14 23:23:25,288-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:23:25,372-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.075746】
+2023-05-14 23:23:25,374-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:23:25,380-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_500","type":null,"data":null,"msg":"服务器内部错误.","showType":2,"formMsg":null,"succeed":false}
+2023-05-14 23:23:25,381-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:23:25,432-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:23:25,433-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:23:25,434-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> /ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684077805432
+2023-05-14 23:23:25,435-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 23:23:25,436-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:23:25,469-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.030830】
+2023-05-14 23:23:25,470-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:23:25,471-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:23:25,471-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:23:25,472-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:23:25,473-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:23:25,474-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> /ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684077805473&projectId=104966
+2023-05-14 23:23:25,475-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 23:23:25,475-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:23:25,509-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.030687】
+2023-05-14 23:23:25,509-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:23:25,510-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:23:25,511-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:30:23,579-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:30:25,146-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:30:25,152-INFO-logger.py-[ line:64 ] - 日志信息:开始加载内置方法...
+2023-05-14 23:30:25,153-INFO-logger.py-[ line:64 ] - 日志信息:内置方法加载完成
+2023-05-14 23:30:25,154-INFO-logger.py-[ line:64 ] - 日志信息:所有用例执行开始...
+2023-05-14 23:30:25,156-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:30:25,217-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
+2023-05-14 23:30:25,218-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'}
+2023-05-14 23:30:25,219-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:30:25,220-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.054099】
+2023-05-14 23:30:25,221-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:30:25,223-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_500","type":null,"data":null,"msg":"服务器内部错误.","showType":2,"formMsg":null,"succeed":false}
+2023-05-14 23:30:25,224-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:30:25,256-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:30:25,257-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:30:25,310-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684078225257
+2023-05-14 23:30:25,310-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]', 'Content-Length': '0'}
+2023-05-14 23:30:25,311-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:30:25,312-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.049025】
+2023-05-14 23:30:25,313-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:30:25,314-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:30:25,314-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:30:25,315-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:30:25,316-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:30:25,349-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684078225316&projectId=104966
+2023-05-14 23:30:25,350-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 23:30:25,351-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:30:25,351-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.030915】
+2023-05-14 23:30:25,352-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:30:25,353-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:30:25,354-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:33:17,388-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:33:18,910-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:33:18,915-INFO-logger.py-[ line:64 ] - 日志信息:开始加载内置方法...
+2023-05-14 23:33:18,916-INFO-logger.py-[ line:64 ] - 日志信息:内置方法加载完成
+2023-05-14 23:33:18,917-INFO-logger.py-[ line:64 ] - 日志信息:所有用例执行开始...
+2023-05-14 23:33:18,921-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:33:18,986-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
+2023-05-14 23:33:18,987-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'}
+2023-05-14 23:33:18,988-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:33:18,989-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.056612】
+2023-05-14 23:33:18,990-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:33:18,993-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_500","type":null,"data":null,"msg":"服务器内部错误.","showType":2,"formMsg":null,"succeed":false}
+2023-05-14 23:33:18,994-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:33:19,028-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:33:19,029-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:33:19,071-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684078399028
+2023-05-14 23:33:19,073-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]', 'Content-Length': '0'}
+2023-05-14 23:33:19,075-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:33:19,077-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.038223】
+2023-05-14 23:33:19,080-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:33:19,082-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:33:19,084-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:33:19,087-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:33:19,089-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:33:19,121-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684078399088&projectId=104966
+2023-05-14 23:33:19,122-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 23:33:19,124-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:33:19,127-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.026898】
+2023-05-14 23:33:19,129-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:33:19,131-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:33:19,133-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:36:34,906-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:36:36,447-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:36:36,454-INFO-logger.py-[ line:64 ] - 日志信息:开始加载内置方法...
+2023-05-14 23:36:36,456-INFO-logger.py-[ line:64 ] - 日志信息:内置方法加载完成
+2023-05-14 23:36:36,458-INFO-logger.py-[ line:64 ] - 日志信息:所有用例执行开始...
+2023-05-14 23:36:36,466-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:36:36,542-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
+2023-05-14 23:36:36,544-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'}
+2023-05-14 23:36:36,545-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:36:36,546-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.059495】
+2023-05-14 23:36:36,547-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:36:36,549-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_500","type":null,"data":null,"msg":"服务器内部错误.","showType":2,"formMsg":null,"succeed":false}
+2023-05-14 23:36:36,551-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:36:36,584-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:36:36,585-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:36:36,620-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684078596584
+2023-05-14 23:36:36,622-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]', 'Content-Length': '0'}
+2023-05-14 23:36:36,624-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:36:36,627-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.030973】
+2023-05-14 23:36:36,629-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:36:36,631-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:36:36,633-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:36:36,636-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:36:36,638-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:36:36,676-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684078596637&projectId=104966
+2023-05-14 23:36:36,679-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '[]', 'BSP_USER_TENANT': '[]'}
+2023-05-14 23:36:36,681-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:36:36,683-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.031335】
+2023-05-14 23:36:36,685-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:36:36,687-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"AG_100003","msg":"您的登陆状态已过期，请重新登陆。","showType":2,"succeed":false}
+2023-05-14 23:36:36,690-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:38:32,764-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:38:34,256-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:38:34,262-INFO-logger.py-[ line:64 ] - 日志信息:开始加载内置方法...
+2023-05-14 23:38:34,262-INFO-logger.py-[ line:64 ] - 日志信息:内置方法加载完成
+2023-05-14 23:38:34,263-INFO-logger.py-[ line:64 ] - 日志信息:所有用例执行开始...
+2023-05-14 23:38:34,352-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
+2023-05-14 23:38:34,353-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '214'}
+2023-05-14 23:38:34,354-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> b'{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8="}'
+2023-05-14 23:38:34,355-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.076494】
+2023-05-14 23:38:34,356-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:38:34,379-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"0","type":"success","data":{"id":"216840787140923119","userId":"216483504447804297","ibsUserId":7884,"mobile":"18127813600","bspToken":"0c23af88fcb1196d11ab098f9678ff07","type":"user","avatar":null,"ncAccount":null,"timestamp":1684078714,"idpTokenId":null,"loginChannel":null,"clientType":null,"name":"陈勇志","btpToken":null,"account":"18127813600","accountType":"C","currentEnvId":null,"currentTenantId":"216317749963825419","currentAppId":"8d1f5bdc9c6648af84a98e2c017846c5","currentProjectId":"104966","currentOrgId":null,"currentMenuId":null,"currentOrgMenuId":null,"currentSelectedTab":"org","currentUrl":"/ibs/material/order","tenants":[{"id":"1623811301356297657","code":"1623811301356297657","fullName":"广东博嘉拓建筑测试租户","shortName":"广东博嘉拓建筑测试租户","envId":"6296f5e3960c4fdfb9c9357b581c853b","envName":"默认环境","tenantEnvs":null},{"id":"216572673247394736","code":"9C8D5715AAA44D4B8530AB2B7F627E1A","fullName":"安徽腾越建筑工程有限公司","shortName":"安徽腾越建筑工程有限公司","envId":"d1b4f959495f433fb1dd5400a78bce2c","envName":"默认环境","tenantEnvs":null},{"id":"216317749963825419","code":"C2C35D2543B34CA99366D9C76E45D01B","fullName":"沈阳腾越建筑测试租户","shortName":"沈阳腾越建筑测试租户","envId":"c4a70c0a1f5c4aaa83fcd390dcd898c6","envName":"默认环境","tenantEnvs":null},{"id":"216260762345772077","code":"216260762345772077","fullName":"广东腾越建筑工程有限公司","shortName":"广东腾越建筑工程有限公司","envId":"210712034943271000","envName":"默认环境","tenantEnvs":null},{"id":"216328986981406025","code":"TENANT_TEST","fullName":"智慧工地测试租户9","shortName":"智慧工地测试租户9","envId":"e7682a3876a343b483645b0c20da93a3","envName":"默认环境","tenantEnvs":null},{"id":"216365124588606373","code":"TENANT_TEST","fullName":"计划排程自动化测试","shortName":"计划排程自动化测试","envId":"80ce8eb5a7c941f8a6f57b8ecb61ec17","envName":"默认环境","tenantEnvs":null},{"id":"216674624791091228","code":"232E9186B1BE494E966F27BA7CF33AE2","fullName":"cyq测试","shortName":"cyq测试","envId":"ef3f8ed4792f4ef0a5e7d92af394d29c","envName":"默认环境","tenantEnvs":null},{"id":"216687529947792866","code":"9769454E01304245AEE83CE7E99537A8","fullName":"成本总控报表测试租户","shortName":"成本总控报表测试租户","envId":"5125917072884123bf9fe3966ffa4af2","envName":"默认环境","tenantEnvs":null},{"id":"216661417159402453","code":"216661417159402453","fullName":"科技建筑集团","shortName":"科技建筑集团","envId":"b23d88da977e467cb81dd7fb57de97d0","envName":"默认环境","tenantEnvs":null},{"id":"216281557054332425","code":"216281557054332425","fullName":"BIM材料用量计算","shortName":"BIM材料用量计算","envId":"7501c77b0ccd4b4d912451e5f74c1ba7","envName":"默认环境","tenantEnvs":null},{"id":"1320970534539886592","code":"1320970534539886592","fullName":"碧桂园集团","shortName":"碧桂园集团","envId":"1320970534539886592","envName":"默认环境","tenantEnvs":null}],"loginAppDto":null},"msg":null,"succeed":true}
+2023-05-14 23:38:34,380-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:38:34,414-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:38:34,480-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684078714414
+2023-05-14 23:38:34,482-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '0c23af88fcb1196d11ab098f9678ff07', 'BSP_USER_TENANT': '216317749963825419', 'Content-Length': '61'}
+2023-05-14 23:38:34,483-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> b'{"projectId": "104966", "tvSequence": "NSrZBTWKYEBtURtNvOkN"}'
+2023-05-14 23:38:34,485-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.050607】
+2023-05-14 23:38:34,487-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:38:34,489-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":200,"success":true,"data":null,"msg":"添加成功"}
+2023-05-14 23:38:34,491-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:38:34,494-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:38:34,497-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:38:34,533-INFO-logger.py-[ line:64 ] - 日志信息:请求 URL --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684078714495&projectId=104966
+2023-05-14 23:38:34,535-INFO-logger.py-[ line:64 ] - 日志信息:请求 HEADERS --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '0c23af88fcb1196d11ab098f9678ff07', 'BSP_USER_TENANT': '216317749963825419'}
+2023-05-14 23:38:34,536-INFO-logger.py-[ line:64 ] - 日志信息:请求 BODY --> None
+2023-05-14 23:38:34,537-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 【0:00:00.031670】
+2023-05-14 23:38:34,539-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 【200】
+2023-05-14 23:38:34,540-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":200,"success":true,"data":{"id":"1637650408413749249","projectId":"104966","shortInfo":"博智林提醒您：一切不能保证安全、质量的施工都要停工！进入工地，请佩戴安全帽，穿着反光衣，文明作业！","qrCode":"https://ibs-test.bzlrobot.com/api/ibs-file/document/get/MjAyMS0xMC0xOCxQSE9UT18yMDIxMTAxOF8wOTMxMDExMDIuanBnLDA0ZGQxOWU5YzA3MjQ0YjE5OTIwNzZjOTUxNzY4YzQ1","manageDeparts":[]},"msg":"操作成功"}
+2023-05-14 23:38:34,541-INFO-logger.py-[ line:64 ] - 日志信息:断言结果组：
+2023-05-14 23:55:34,029-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:55:35,547-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:55:35,554-INFO-logger.py-[ line:64 ] - 日志信息:开始加载内置方法...
+2023-05-14 23:55:35,554-INFO-logger.py-[ line:64 ] - 日志信息:内置方法加载完成
+2023-05-14 23:55:35,555-INFO-logger.py-[ line:64 ] - 日志信息:所有用例执行开始...
+2023-05-14 23:55:35,557-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:55:35,558-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:55:35,559-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:55:35,559-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:55:35,646-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
+2023-05-14 23:55:35,648-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '214'}
+2023-05-14 23:55:35,649-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> b'{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8="}'
+2023-05-14 23:55:35,651-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:55:35,653-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.077493
+2023-05-14 23:55:35,684-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"0","type":"success","data":{"id":"216840797353495059","userId":"216483504447804297","ibsUserId":7884,"mobile":"18127813600","bspToken":"3e879e608a47fe7252a34f08e60f27f1","type":"user","avatar":null,"ncAccount":null,"timestamp":1684079735,"idpTokenId":null,"loginChannel":null,"clientType":null,"name":"陈勇志","btpToken":null,"account":"18127813600","accountType":"C","currentEnvId":null,"currentTenantId":"216317749963825419","currentAppId":"8d1f5bdc9c6648af84a98e2c017846c5","currentProjectId":"104966","currentOrgId":null,"currentMenuId":null,"currentOrgMenuId":null,"currentSelectedTab":"org","currentUrl":"/ibs/material/order","tenants":[{"id":"1623811301356297657","code":"1623811301356297657","fullName":"广东博嘉拓建筑测试租户","shortName":"广东博嘉拓建筑测试租户","envId":"6296f5e3960c4fdfb9c9357b581c853b","envName":"默认环境","tenantEnvs":null},{"id":"216572673247394736","code":"9C8D5715AAA44D4B8530AB2B7F627E1A","fullName":"安徽腾越建筑工程有限公司","shortName":"安徽腾越建筑工程有限公司","envId":"d1b4f959495f433fb1dd5400a78bce2c","envName":"默认环境","tenantEnvs":null},{"id":"216317749963825419","code":"C2C35D2543B34CA99366D9C76E45D01B","fullName":"沈阳腾越建筑测试租户","shortName":"沈阳腾越建筑测试租户","envId":"c4a70c0a1f5c4aaa83fcd390dcd898c6","envName":"默认环境","tenantEnvs":null},{"id":"216260762345772077","code":"216260762345772077","fullName":"广东腾越建筑工程有限公司","shortName":"广东腾越建筑工程有限公司","envId":"210712034943271000","envName":"默认环境","tenantEnvs":null},{"id":"216328986981406025","code":"TENANT_TEST","fullName":"智慧工地测试租户9","shortName":"智慧工地测试租户9","envId":"e7682a3876a343b483645b0c20da93a3","envName":"默认环境","tenantEnvs":null},{"id":"216365124588606373","code":"TENANT_TEST","fullName":"计划排程自动化测试","shortName":"计划排程自动化测试","envId":"80ce8eb5a7c941f8a6f57b8ecb61ec17","envName":"默认环境","tenantEnvs":null},{"id":"216674624791091228","code":"232E9186B1BE494E966F27BA7CF33AE2","fullName":"cyq测试","shortName":"cyq测试","envId":"ef3f8ed4792f4ef0a5e7d92af394d29c","envName":"默认环境","tenantEnvs":null},{"id":"216687529947792866","code":"9769454E01304245AEE83CE7E99537A8","fullName":"成本总控报表测试租户","shortName":"成本总控报表测试租户","envId":"5125917072884123bf9fe3966ffa4af2","envName":"默认环境","tenantEnvs":null},{"id":"216661417159402453","code":"216661417159402453","fullName":"科技建筑集团","shortName":"科技建筑集团","envId":"b23d88da977e467cb81dd7fb57de97d0","envName":"默认环境","tenantEnvs":null},{"id":"216281557054332425","code":"216281557054332425","fullName":"BIM材料用量计算","shortName":"BIM材料用量计算","envId":"7501c77b0ccd4b4d912451e5f74c1ba7","envName":"默认环境","tenantEnvs":null},{"id":"1320970534539886592","code":"1320970534539886592","fullName":"碧桂园集团","shortName":"碧桂园集团","envId":"1320970534539886592","envName":"默认环境","tenantEnvs":null}],"loginAppDto":null},"msg":null,"succeed":true}
+2023-05-14 23:55:36,662-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:55:36,663-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:55:36,705-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:55:36,706-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:55:36,707-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:55:36,779-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684079736663
+2023-05-14 23:55:36,781-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '3e879e608a47fe7252a34f08e60f27f1', 'BSP_USER_TENANT': '216317749963825419', 'Content-Length': '61'}
+2023-05-14 23:55:36,782-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> b'{"projectId": "104966", "tvSequence": "nNNGLktZIGgeRgwzkjAX"}'
+2023-05-14 23:55:36,784-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:55:36,786-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.069166
+2023-05-14 23:55:36,788-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":200,"success":true,"data":null,"msg":"添加成功"}
+2023-05-14 23:55:37,710-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:55:37,711-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:55:37,711-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:55:37,713-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:55:37,715-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:55:37,716-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:55:37,749-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684079737711&projectId=104966
+2023-05-14 23:55:37,750-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '3e879e608a47fe7252a34f08e60f27f1', 'BSP_USER_TENANT': '216317749963825419'}
+2023-05-14 23:55:37,751-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> None
+2023-05-14 23:55:37,751-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:55:37,752-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.028120
+2023-05-14 23:55:37,753-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":200,"success":true,"data":{"id":"1637650408413749249","projectId":"104966","shortInfo":"博智林提醒您：一切不能保证安全、质量的施工都要停工！进入工地，请佩戴安全帽，穿着反光衣，文明作业！","qrCode":"https://ibs-test.bzlrobot.com/api/ibs-file/document/get/MjAyMS0xMC0xOCxQSE9UT18yMDIxMTAxOF8wOTMxMDExMDIuanBnLDA0ZGQxOWU5YzA3MjQ0YjE5OTIwNzZjOTUxNzY4YzQ1","manageDeparts":[]},"msg":"操作成功"}
+2023-05-14 23:58:11,723-INFO-logger.py-[ line:64 ] - 日志信息:读取测试用例excel文件：E:\apitest\data\moduleA\test_cases\test_api.xlsx
+2023-05-14 23:58:13,235-INFO-logger.py-[ line:64 ] - 日志信息:如下是初始化得到得数据：{'id': 1, 'environment': 'TEST', 'host': 'https://bimdc.bzlrobot.com', 'path': '/bsp/test/user/ugs', 'databases': '{\n "host": "127.0.0.1",\n "port": 3306,\n "database": "mysql",\n "user":"root",\n "password":"root@3306"\n}', 'sheets': '["安全纯净大屏"]', 'initialize_data': '{\n"{{account}}":"18127813600",\n     "{{passwd}}": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8=",\n"{{projectId}}":"104966",\n"{{tenant}}":"216317749963825419"\n}', 'run': 'YES'}
+2023-05-14 23:58:13,241-INFO-logger.py-[ line:64 ] - 日志信息:开始加载内置方法...
+2023-05-14 23:58:13,241-INFO-logger.py-[ line:64 ] - 日志信息:内置方法加载完成
+2023-05-14 23:58:13,242-INFO-logger.py-[ line:64 ] - 日志信息:所有用例执行开始...
+2023-05-14 23:58:13,244-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:58:13,245-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:58:13,245-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:58:13,246-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:58:13,329-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
+2023-05-14 23:58:13,331-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '214'}
+2023-05-14 23:58:13,332-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> b'{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8="}'
+2023-05-14 23:58:13,334-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:58:13,336-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.076234
+2023-05-14 23:58:13,367-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"0","type":"success","data":{"id":"216840798930303067","userId":"216483504447804297","ibsUserId":7884,"mobile":"18127813600","bspToken":"792894303e8a4b433062ad65733ee751","type":"user","avatar":null,"ncAccount":null,"timestamp":1684079893,"idpTokenId":null,"loginChannel":null,"clientType":null,"name":"陈勇志","btpToken":null,"account":"18127813600","accountType":"C","currentEnvId":null,"currentTenantId":"216317749963825419","currentAppId":"8d1f5bdc9c6648af84a98e2c017846c5","currentProjectId":"104966","currentOrgId":null,"currentMenuId":null,"currentOrgMenuId":null,"currentSelectedTab":"org","currentUrl":"/ibs/material/order","tenants":[{"id":"1623811301356297657","code":"1623811301356297657","fullName":"广东博嘉拓建筑测试租户","shortName":"广东博嘉拓建筑测试租户","envId":"6296f5e3960c4fdfb9c9357b581c853b","envName":"默认环境","tenantEnvs":null},{"id":"216572673247394736","code":"9C8D5715AAA44D4B8530AB2B7F627E1A","fullName":"安徽腾越建筑工程有限公司","shortName":"安徽腾越建筑工程有限公司","envId":"d1b4f959495f433fb1dd5400a78bce2c","envName":"默认环境","tenantEnvs":null},{"id":"216317749963825419","code":"C2C35D2543B34CA99366D9C76E45D01B","fullName":"沈阳腾越建筑测试租户","shortName":"沈阳腾越建筑测试租户","envId":"c4a70c0a1f5c4aaa83fcd390dcd898c6","envName":"默认环境","tenantEnvs":null},{"id":"216260762345772077","code":"216260762345772077","fullName":"广东腾越建筑工程有限公司","shortName":"广东腾越建筑工程有限公司","envId":"210712034943271000","envName":"默认环境","tenantEnvs":null},{"id":"216328986981406025","code":"TENANT_TEST","fullName":"智慧工地测试租户9","shortName":"智慧工地测试租户9","envId":"e7682a3876a343b483645b0c20da93a3","envName":"默认环境","tenantEnvs":null},{"id":"216365124588606373","code":"TENANT_TEST","fullName":"计划排程自动化测试","shortName":"计划排程自动化测试","envId":"80ce8eb5a7c941f8a6f57b8ecb61ec17","envName":"默认环境","tenantEnvs":null},{"id":"216674624791091228","code":"232E9186B1BE494E966F27BA7CF33AE2","fullName":"cyq测试","shortName":"cyq测试","envId":"ef3f8ed4792f4ef0a5e7d92af394d29c","envName":"默认环境","tenantEnvs":null},{"id":"216687529947792866","code":"9769454E01304245AEE83CE7E99537A8","fullName":"成本总控报表测试租户","shortName":"成本总控报表测试租户","envId":"5125917072884123bf9fe3966ffa4af2","envName":"默认环境","tenantEnvs":null},{"id":"216661417159402453","code":"216661417159402453","fullName":"科技建筑集团","shortName":"科技建筑集团","envId":"b23d88da977e467cb81dd7fb57de97d0","envName":"默认环境","tenantEnvs":null},{"id":"216281557054332425","code":"216281557054332425","fullName":"BIM材料用量计算","shortName":"BIM材料用量计算","envId":"7501c77b0ccd4b4d912451e5f74c1ba7","envName":"默认环境","tenantEnvs":null},{"id":"1320970534539886592","code":"1320970534539886592","fullName":"碧桂园集团","shortName":"碧桂园集团","envId":"1320970534539886592","envName":"默认环境","tenantEnvs":null}],"loginAppDto":null},"msg":null,"succeed":true}
+2023-05-14 23:58:14,353-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:58:14,354-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:58:14,397-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:58:14,397-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:58:14,398-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:58:14,453-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684079894354
+2023-05-14 23:58:14,454-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '792894303e8a4b433062ad65733ee751', 'BSP_USER_TENANT': '216317749963825419', 'Content-Length': '61'}
+2023-05-14 23:58:14,456-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> b'{"projectId": "104966", "tvSequence": "WjWcHdcDqcMTYiCXJFie"}'
+2023-05-14 23:58:14,458-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:58:14,460-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.050228
+2023-05-14 23:58:14,461-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":200,"success":true,"data":null,"msg":"添加成功"}
+2023-05-14 23:58:15,320-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
+2023-05-14 23:58:15,321-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
+2023-05-14 23:58:15,322-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-05-14 23:58:15,323-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
+2023-05-14 23:58:15,324-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
+2023-05-14 23:58:15,324-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
+2023-05-14 23:58:15,355-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684079895321&projectId=104966
+2023-05-14 23:58:15,357-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': '792894303e8a4b433062ad65733ee751', 'BSP_USER_TENANT': '216317749963825419'}
+2023-05-14 23:58:15,358-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> None
+2023-05-14 23:58:15,360-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
+2023-05-14 23:58:15,362-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.026488
+2023-05-14 23:58:15,364-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":200,"success":true,"data":{"id":"1637650408413749249","projectId":"104966","shortInfo":"博智林提醒您：一切不能保证安全、质量的施工都要停工！进入工地，请佩戴安全帽，穿着反光衣，文明作业！","qrCode":"https://ibs-test.bzlrobot.com/api/ibs-file/document/get/MjAyMS0xMC0xOCxQSE9UT18yMDIxMTAxOF8wOTMxMDExMDIuanBnLDA0ZGQxOWU5YzA3MjQ0YjE5OTIwNzZjOTUxNzY4YzQ1","manageDeparts":[]},"msg":"操作成功"}
