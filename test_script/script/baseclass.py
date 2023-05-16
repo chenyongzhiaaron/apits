@@ -78,7 +78,7 @@ class BaseClass(unittest.TestCase):
         self.headers = self._case.get("Headers", {})
         self.parameters = self._case.get("Request Data")
         self.parameters_key = self._case.get("提取请求参数")
-        self.encryption = self._case.get("参数加密方式")
+        self.encryption = self._case.get("请求参数是否加密")
         self.regex = self._case.get("正则表达式")
         self.keys = self._case.get("正则变量")
         self.deps = self._case.get("绝对路径表达式")

@@ -9,7 +9,8 @@ class BaseDates:
     # *****************************************************************
     # 测试数据所在路径
     # *****************************************************************
-    test_api = os.path.join(base_path, "data", "moduleA", "test_api.xlsx")
+    templates = os.path.join(base_path, "data", "templates", "template.xlsx")
+    test_api = os.path.join(base_path, "data", "test_cases", "test_api.xlsx")
     # *****************************************************************
 
     # 测试用例脚本目录
@@ -21,8 +22,6 @@ class BaseDates:
     # *****************************************************************
     test_report = os.path.join(base_path, "OutPut", "Reports")
     log_path = os.path.join(base_path, "OutPut", "Log")
-
-
 
 
 if __name__ == '__main__':

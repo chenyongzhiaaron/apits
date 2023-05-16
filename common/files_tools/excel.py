@@ -121,6 +121,15 @@ class DoExcel:
             row_data.append(cell_value)
         return row_data
 
+    def create_sheet(self, title):
+        return self.wb.create_sheet(title=title)
+
+    def copy_sheet(self, source_sheet, destination_sheet):
+        source = self.wb[source_sheet]
+        destination = self.wb[destination_sheet]
+        for row in source.iter_rows(values_only=True):
+            destination.append(row)
+
     def save(self, filename=None):
         """
         获取文件名
@@ -142,12 +151,20 @@ class DoExcel:
         if self.get_max_row():
             pass
 
-    def do_main(self, filename, *d):
+    def do_main(self, filename, *d, output_filename=None, copy_sheets=True):
         """
         动态保存列表嵌套字典的数据到 excel 中
         :param:*d(list):传入的数据列表
+        :param copy_sheets: 是否复制源文件的其他 sheet，默认为 True
+        :param *d: 传入的数据列表
         :return:bool
         """
+        # 复制源文件的其他 sheet 到新的 Excel 文件
+        if copy_sheets:
+            for sheet_name in self.wb.sheetnames:
+                if sheet_name != self.wb.active.title:
+                    self.create_sheet(sheet_name)
+                    self.copy_sheet(sheet_name, sheet_name)
 
         for i, val in enumerate(d):
             c = 0
@@ -157,6 +174,9 @@ class DoExcel:
                 # value 作为每一条数据写入
                 self.set_value_by_cell(i + 2, c + 1, v)
                 c += 1
+        if output_filename:
+            self.save(output_filename)
+            return
         self.save(filename)
 
 
