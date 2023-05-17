@@ -112,8 +112,8 @@ def parsing_postman(path):
 if __name__ == '__main__':
     pat = r'D:\apk_api\api-test-project\temp\postman.json'
     res = parsing_postman(pat)
-    from temp.tests import DoExcel
-
-    templates = BaseDates.templates  # 使用标准模板
-    ex = DoExcel(templates)
-    ex.do_main("postman.xlsx", *res)
+    # from temp.tests import DoExcel
+    #
+    # templates = BaseDates.templates  # 使用标准模板
+    # ex = DoExcel(templates)
+    # ex.do_main("postman.xlsx", *res)

@@ -3,17 +3,6 @@
 """
 @author: kira
 @contact: 262667641@qq.com
-@file: openapi_to_excel.py
-@time: 2023/5/17 11:15
-@desc:
-"""
-from temp.tests import DoExcel
-
-# !/usr/bin/env python
-# encoding: utf-8
-"""
-@author: kira
-@contact: 262667641@qq.com
 @file: postman_to_excel.py
 @time: 2023/5/16 16:35
 @desc:
@@ -21,8 +10,7 @@ from temp.tests import DoExcel
 import os.path
 
 from common.base_datas import BaseDates
-# from common.files_tools.excel import DoExcel
-
+from common.files_tools.excel import DoExcel
 from common.tools.parsing_openapi import parsing_openapi
 
 
