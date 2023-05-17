@@ -1,23 +1,43 @@
 import json
 
-def process_openapi_file(file_path):
+
+def parsing_openapi(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
-
+    count = 1
     test_cases = []
     paths = data.get('paths')
     for path, methods in paths.items():
         for method, details in methods.items():
-            test_case = {}
-            test_case['url'] = path
-            test_case['headers'] = extract_parameters(details.get('parameters', []), 'header')
-            test_case['method'] = method
-            test_case['params'] = extract_parameters(details.get('parameters', []), 'query')
-            test_case['requestType'] = determine_request_type(details.get('requestBody'))
-            test_case['body'] = extract_request_body(details.get('requestBody'))
+            test_case = {
+                "id": count,
+                "name": "openapi",
+                "description": details.get("summary"),
+                "Run": "yes",
+                'method': method,
+                'url': path,
+                'headers': json.dumps(extract_parameters(details.get('parameters', []), 'header')),
+                'Headers是否加密': "",
+                'params': json.dumps(extract_parameters(details.get('parameters', []), 'query')),
+                'request_data_type': determine_request_type(details.get('requestBody')),
+                'request_data': json.dumps(extract_request_body(details.get('requestBody'))),
+                '请求参数是否加密': '',
+                '提取请求参数': '',
+                'Jsonpath': '',
+                '正则表达式': '',
+                '正则变量': '',
+                '绝对路径表达式': '',
+                'SQL': '',
+                'sql变量': '',
+                '预期结果': '',
+                '响应结果': '',
+                '断言结果': '',
+                '报错日志': ''}
             test_cases.append(test_case)
+            count += 1
 
     return test_cases
+
 
 def extract_parameters(parameters, parameter_location):
     extracted_parameters = {}
@@ -29,6 +49,7 @@ def extract_parameters(parameters, parameter_location):
                 extracted_parameters[param_name] = param_example
     return extracted_parameters
 
+
 def determine_request_type(request_body):
     if request_body:
         content = request_body.get('content', {})
@@ -39,6 +60,7 @@ def determine_request_type(request_body):
         elif 'application/x-www-form-urlencoded' in content:
             return 'data'
     return ''
+
 
 def extract_request_body(request_body):
     if request_body:
@@ -71,6 +93,8 @@ def extract_request_body(request_body):
                 return extracted_body
     return {}
 
-file = f'openapi.json'
-res = process_openapi_file(file)
-print(res)
+
+if __name__ == '__main__':
+    file = f'../../temp/openapi.json'
+    res = parsing_openapi(file)
+    print(res)

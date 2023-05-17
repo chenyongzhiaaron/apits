@@ -1,7 +1,9 @@
 import json
 
+from common.base_datas import BaseDates
 from common.files_tools.read_file import read_file
 
+id_count = 0
 result = []
 
 
@@ -18,6 +20,7 @@ def parsing_postman(path):
 
     def _parse_api(content):
         global result
+        global id_count
         api = {}
         if isinstance(content, list):
             for item in content:
@@ -26,6 +29,8 @@ def parsing_postman(path):
             if 'item' in content.keys():
                 _parse_api(content=content.get('item'))
             elif 'request' in content.keys():
+                id_count += 1
+                api['id'] = id_count
                 api['name'] = 'postman'
                 api['description'] = content.get('name')
                 request = content.get('request')
@@ -57,6 +62,7 @@ def parsing_postman(path):
                     # api请求头
                     api['Headers'] = json.dumps(header, ensure_ascii=False)
                     api['Headers是否加密'] = ''
+                    api['params'] = ''
                     body = request.get('body')
                     if body:
                         # api接口请求参数类型
@@ -106,9 +112,8 @@ def parsing_postman(path):
 if __name__ == '__main__':
     pat = r'D:\apk_api\api-test-project\temp\postman.json'
     res = parsing_postman(pat)
-    print('结果：', res)
-    print("类型", type(res))
-    from common.files_tools.excel import DoExcel
+    from temp.tests import DoExcel
 
-    ex = DoExcel()
+    templates = BaseDates.templates  # 使用标准模板
+    ex = DoExcel(templates)
     ex.do_main("postman.xlsx", *res)

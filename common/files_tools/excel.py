@@ -23,7 +23,7 @@ class DoExcel:
 
     def __init__(self, path=None, index_table=0):
         """
-        :param: path(str):文件路径，
+        :param: path(str):需要打开的文件（模板文件/源文件），
         1. 为None时：调用save()方法时需要传入filename
         2. 如果不为空表示打开已有文件
         :param: index_table(int):excel中的那个单元
@@ -33,21 +33,23 @@ class DoExcel:
         else:
             self.wb = Workbook()
         self.path = path
-        sheets = self.wb.sheetnames
-        sheet = sheets[index_table]
-        self.sheet = self.wb[sheet]
-        self.cell = self.sheet.cell
+        self.index_table = index_table
+        # sheets = self.wb.sheetnames
+        # sheet = sheets[self.index_table]
+        # self.sheet = self.wb[sheet]
+        # self.cell = self.sheet.cell
 
-    def set_value_by_cell(self, row, column, value):
+    def set_value_by_cell(self, sheet, row, column, value):
         """
         通过cell设置值
         :param: row(int):行
         :param: column(int):列
         :param: value(str):设置值
        """
-        self.cell(row, column).value = value
+        ws = self.wb[sheet]
+        ws.cell(row, column).value = value
 
-    def set_value_by_table(self, tag, value):
+    def set_value_by_table(self, sheet, tag, value):
         """
         通过A1坐标设置值
         例如：设置A1的值为hello
@@ -55,9 +57,10 @@ class DoExcel:
         :param: tag(str):具体坐标
         :param: value(str):值
         """
-        self.sheet[tag] = value
+        ws = self.wb[sheet]
+        ws.sheet[tag] = value
 
-    def get_value_by_table(self, tag):
+    def get_value_by_table(self, sheet, tag):
         """
         通过A1坐标获取值
         例如：获取A1的值为hello
@@ -66,9 +69,10 @@ class DoExcel:
         :param: value(str):值
         :return <Cell 'Sheet'.A1>对象
         """
-        return self.sheet[tag].value
+        ws = self.wb[sheet]
+        return ws.sheet[tag].value
 
-    def get_value_by_cell(self, row, column):
+    def get_value_by_cell(self, sheet, row, column):
         """
         通过cell坐标设置值 row行 column 列
         例如：获取第一行第一列的值
@@ -76,17 +80,20 @@ class DoExcel:
         :param: row(str):行
         :param: column(str):列
         """
-        return self.cell(row, column).value
+        ws = self.wb[sheet]
+        return ws.cell(row, column).value
 
-    def get_max_row(self):
+    def get_max_row(self, sheet):
         """获取最大行数 """
-        return self.sheet.max_row
+        ws = self.wb[sheet]
+        return ws.sheet.max_row
 
-    def get_max_col(self):
+    def get_max_col(self, sheet):
         """获取最大列数 """
-        return self.sheet.max_column
+        ws = self.wb[sheet]
+        return ws.sheet.max_column
 
-    def get_col_value(self, column, row_start=1, row_end=None):
+    def get_col_value(self, sheet, column, row_start=1, row_end=None):
         """
         获取某列多少行的值，默认为所有
         introduce
@@ -95,16 +102,17 @@ class DoExcel:
         :param: row_end(int):结束的行，默认获取全部
         :return list()
         """
+        ws = self.wb[sheet]
         if not row_end:
-            row_end = self.get_max_row()
+            row_end = self.get_max_row(sheet)
         column_data = []
         for i in range(row_start, row_end + 1):
-            cell_value = self.cell(row=i, column=column).value
+            cell_value = ws.cell(row=i, column=column).value
             column_data.append(cell_value)
         return column_data
 
     # 获取某行所有值
-    def get_row_value(self, row, col_start=1, col_end=None):
+    def get_row_value(self, sheet, row, col_start=1, col_end=None):
         """
         获取某行多少列的值，默认为所有
         introduce
@@ -113,22 +121,14 @@ class DoExcel:
         :param: col_end(int):结束的列，默认获取全部
         :return list()
         """
+        ws = self.wb[sheet]
         if not col_end:
-            col_end = self.get_max_col()
+            col_end = self.get_max_col(sheet)
         row_data = []
         for i in range(col_start, col_end + 1):
-            cell_value = self.cell(row=row, column=i).value
+            cell_value = ws.cell(row=row, column=i).value
             row_data.append(cell_value)
         return row_data
-
-    def create_sheet(self, title):
-        return self.wb.create_sheet(title=title)
-
-    def copy_sheet(self, source_sheet, destination_sheet):
-        source = self.wb[source_sheet]
-        destination = self.wb[destination_sheet]
-        for row in source.iter_rows(values_only=True):
-            destination.append(row)
 
     def save(self, filename=None):
         """
@@ -136,54 +136,49 @@ class DoExcel:
         :param: filename(str):保存的文件名
         :return:bool
         """
-        if filename is None and self.path is None:
+        if filename:
+            self.wb.save(filename)
+        elif self.path:
+            self.wb.save(self.path)
+        else:
             print("保存失败：没有设置文件名")
             return False
-        self.wb.save((filename if filename.endswith(".xlsx") else filename + ".xlsx") if filename else self.path)
         print("保存成功")
         return True
 
-    def other_sheet_save(self, filename=None):
-        if filename is None and self.path is None:
-            print("保存失败：没有设置文件名")
-            return False
-        # 如果当前sheet有值，则另开一个sheet保存数据
-        if self.get_max_row():
-            pass
-
-    def do_main(self, filename, *d, output_filename=None, copy_sheets=True):
+    def do_main(self, output_filename=None, *data):
         """
         动态保存列表嵌套字典的数据到 excel 中
-        :param:*d(list):传入的数据列表
-        :param copy_sheets: 是否复制源文件的其他 sheet，默认为 True
-        :param *d: 传入的数据列表
-        :return:bool
+        :param: output_filename(str):另存为的文件名
+        :param: *data(list):传入的数据列表
+        :return: bool
         """
-        # 复制源文件的其他 sheet 到新的 Excel 文件
-        if copy_sheets:
-            for sheet_name in self.wb.sheetnames:
-                if sheet_name != self.wb.active.title:
-                    self.create_sheet(sheet_name)
-                    self.copy_sheet(sheet_name, sheet_name)
+        sheet_names = self.wb.sheetnames
+        target_sheet = sheet_names[self.index_table]
+        ws = self.wb[target_sheet]
 
-        for i, val in enumerate(d):
+        # 清空目标sheet除第一行外的数据
+        ws.delete_rows(2, ws.max_row)
+
+        for i, val in enumerate(data):
             c = 0
             for k, v in val.items():
                 # key 作为第一行标题写入
-                self.set_value_by_cell(1, c + 1, k)
+                self.set_value_by_cell(target_sheet, 1, c + 1, k)
                 # value 作为每一条数据写入
-                self.set_value_by_cell(i + 2, c + 1, v)
+                self.set_value_by_cell(target_sheet, i + 2, c + 1, v)
                 c += 1
-        if output_filename:
-            self.save(output_filename)
-            return
-        self.save(filename)
+
+        self.save(output_filename)
 
 
 if __name__ == '__main__':
-    ex = DoExcel()
-    BASE_PATH = os.path.dirname(os.path.abspath(__file__))  # 获取当前文件所在的文件夹路径
     data = [{"url": "1234", "header": "2134", "method": "get", "body": "hhh", "ok": 12345},
             {"url": "1234", "header": "2134"},
             {"url": "1234", "header": "2134", "method": "{}sss", "body": json.dumps({})}]
-    ex.do_main("excel.xlsx", *data)
+    from common.base_datas import BaseDates
+
+    template_file = BaseDates.templates
+    excel = DoExcel(path=template_file)
+    out_file = '另存为的文件.xlsx'
+    excel.do_main(out_file, *data)

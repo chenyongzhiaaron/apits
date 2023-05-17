@@ -97,6 +97,23 @@ if __name__ == '__main__':
         "weekDate": "2021-04-19",
         "saleRatio": "14.29"
     }], "status": 200}
-    print(AssertDict().is_contain(second, first))
+
+    expect = {
+        "status": "success",
+        "code": 200,
+        "message": "OK"
+    }
+
+    response = {
+        "status": "success",
+        "code": 200,
+        "message": "OK",
+        "data": {
+            "id": 123,
+            "name": "John"
+        }
+    }
+    print(AssertDict().assert_value(second, first))
     # print(len(second))
     # pass
+    print(AssertDict().assert_value(expect,response))
