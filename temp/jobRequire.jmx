@@ -1,0 +1,1617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="【(test\uat)需求采购】&gt; 暂存 &gt; 提交 &gt; 提交中 &gt; 审批中 &gt;固定资产补填 &gt; 审批通过 &gt; 作废（自建）--  &lt;沈腾/北滘&gt;" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="【(test\uat)需求采购】&gt; 暂存 &gt; 提交 &gt; 提交中 &gt; 审批中 &gt;固定资产补填 &gt; 审批通过 &gt; 作废（自建）--  &lt;沈腾/北滘&gt;" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="loginByNotBip(bim)(成功-不要改动这个接口)" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;account&quot;: &quot;${uname}&quot;,&#xd;
+    &quot;password&quot;: &quot;${pwd}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/auth/loginByNotBip</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="refreshTokenByTenant(bim)(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/auth/refreshTokenByTenant?bspToken=$%7Btoken%7D&amp;tenantId=$%7BBSP_USER_TENANT%7D&amp;userId=$%7Bbsp_user_id%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">BSP_TOKEN</stringProp>
+                <stringProp name="Header.value">${token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">BSP_USER_ID</stringProp>
+                <stringProp name="Header.value">${bsp_user_id}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">bzlrobot-authorization</stringProp>
+                <stringProp name="Header.value">${bzlrobot_authorization}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getUserInfoByBspToken(bim)(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/auth/getUserInfoByBspToken?bspToken=$%7Btoken%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getUserDeptByUserAccount(bim)(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+    &quot;projectId&quot;: &quot;${cl_projectId}&quot;,
+    &quot;appCode&quot;: &quot;I-CSoI&quot;,
+    &quot;accountType&quot;: &quot;B&quot;,
+    &quot;content&quot;: &quot;&quot;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ums/v1/feign/omp/user/getUserDeptByUserAccount</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="findUserProjectList(bim)(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ums/v1/user/project/findUserProjectList</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取楼栋楼层树结构(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/project/v1/robot/open/getProjectDetail?t=1648961710000&amp;bdcProjectCode=$%7Bcl_projectId%7D&amp;isCombine=false&amp;dataLevel=2</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PC材料查询-通过关键字(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+    &quot;query&quot;:&quot;web&quot;,
+    &quot;pageNum&quot;:1,
+    &quot;pageSize&quot;:2
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/py/mmds/v1/materialSearchServer/pc/query</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">BSP_PROJECT_ID</stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">BSP_TOKEN</stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="新增跳转(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/forwardToAdd?projectId=$%7Bcl_projectId%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取材料库存量和开累量(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/getStoreNumberAndInMaterialTotal?materialCode=$%7BmaterialCode[0]%7CencodeURIComponent%7D&amp;projectId=$%7Bcl_projectId%7D&amp;materialClass=$%7BmaterialClass[0]%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="新增页面——暂存(必填参数填写完整且符合要求，暂存成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+	&quot;applyDate&quot;: &quot;${applyDate}&quot;,
+	&quot;applyUserId&quot;: &quot;${account}&quot;,
+	&quot;applyUserName&quot;: &quot;${userName}&quot;,
+	&quot;attachments&quot;: [
+		{
+			&quot;name&quot;: &quot;驾驶舱接口测试用例.xlsx&quot;,
+			&quot;uploadUserId&quot;: &quot;1502286282593832961&quot;,
+			&quot;uploadUserName&quot;: &quot;${UNAME}&quot;,
+			&quot;url&quot;: &quot;https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-file/download/common?dfsId=1502286282593832961&quot;
+		}
+	],
+	&quot;auditStatus&quot;: -1,
+	&quot;buildingName&quot;: &quot;${buildings}&quot;,
+	&quot;costAttach&quot;: &quot;成本归属&quot;,
+	&quot;items&quot;: ${item},
+	&quot;orderCode&quot;: &quot;${orderCode}&quot;,
+	&quot;planMonth&quot;: &quot;${today}~${today}&quot;,
+	&quot;planName&quot;: &quot;验证暂存-提交-审批补填-通过_${total}个材料&quot;,
+	&quot;projectId&quot;: &quot;${cl_projectId}&quot;,
+	&quot;purchaseType&quot;: &quot;20-Cxx-002&quot;,
+	&quot;purchaseTypeName&quot;: &quot;成本类请购&quot;,
+	&quot;remark&quot;: &quot;申请说明随意填写：{% mock &apos;csentence&apos;|substr(0 , 10) %}&quot;,
+	&quot;requireDept&quot;: &quot;申请部门&quot;,
+	&quot;subcontractCompany&quot;: &quot;博软科技外包公司&quot;,
+	&quot;typeCode&quot;: &quot;0&quot;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/addTemp</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取需求采购列表(订单编号查询，验证暂存请购单成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+    &quot;code&quot;: &quot;${orderCode}&quot;,
+    &quot;size&quot;: 10,
+    &quot;current&quot;: 1,
+    &quot;projectId&quot;: &quot;${cl_projectId}&quot;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/pages?t=1642056569000</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取需求采购单详情(验证暂存详情数据准确)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/detail?t=%7B%%20mock%20%27timestamp%27%20%%7D&amp;isEdit=true&amp;requireId=$%7BrequireId%7D&amp;projectId=$%7Bcl_projectId%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="提交/重新发起(提交请购单)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${request_body}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/save</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取需求采购列表(编号精确查询-成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+
+    &quot;code&quot;: &quot;${orderCode}&quot;,
+    &quot;size&quot;: 10,
+    &quot;current&quot;: 1,
+    &quot;projectId&quot;: &quot;${cl_projectId}&quot;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/pages?t=1642056569000</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取需求采购单详情(验证提交后详情数据准确)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/detail?t=%7B%%20mock%20%27timestamp%27%20%%7D&amp;isEdit=false&amp;requireId=$%7BrequireId%7D&amp;projectId=$%7Bcl_projectId%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="启动流程K2(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+    &quot;bizId&quot;: &quot;${requireId}&quot;,
+    &quot;bizType&quot;: &quot;${bizType}&quot;,
+    &quot;processTitle&quot;: &quot;自动提交的计划审批。。。初次发起流程。。&quot;,
+    &quot;startUserCode&quot;: &quot;${startUserCode}&quot;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api//ibs-material/process/startProcess</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="保存 K2 返回的 URL 地址(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+    &quot;requireId&quot;: &quot;${requireId}&quot;,
+    &quot;formUrl&quot;: &quot;${formUrl}&quot;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/saveK2FormUrl?t=1645331134000</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="K2提交确认操作(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/confirmCommit?t=%7B%%20mock%20%27timestamp%27%20%%7D&amp;requireId=$%7BrequireId%7D&amp;processInstanceId=$%7Bk2Id%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="流程状态回写(点击提交-回写状态为审批中)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+    &quot;esbInfo&quot;: {
+        &quot;instId&quot;: null,
+        &quot;requestTime&quot;: &quot;${NOW}&quot;,
+        &quot;attr1&quot;: null,
+        &quot;attr2&quot;: null,
+        &quot;attr3&quot;: null
+    },
+    &quot;requestInfo&quot;: {
+        &quot;processCode&quot;: &quot;BZL100136-000_001&quot;,
+        &quot;approverUserCode&quot;: &quot;${startUserCode}&quot;,
+        &quot;status&quot;: 1,
+        &quot;activityName&quot;: &quot;开始&quot;,
+        &quot;actionName&quot;: 0,
+        &quot;bizModel&quot;: null,
+        &quot;approveDate&quot;: &quot;${NOW}&quot;,
+        &quot;commentType&quot;: &quot;&quot;,
+        &quot;comment&quot;: null,
+        &quot;attr1&quot;: null,
+        &quot;attr2&quot;: null,
+        &quot;attr3&quot;: null,
+        &quot;k2Id&quot;: &quot;${k2Id}&quot;,
+        &quot;sourceId&quot;: &quot;IB-IN-2020-012&quot;,
+        &quot;bizId&quot;: &quot;${requireId}&quot;,
+        &quot;bizDataFields&quot;: {&quot;bizType&quot;:&quot;${bizType}&quot;},
+        &quot;formUrl&quot;: &quot;${formUrl}&quot;,
+        &quot;isRetry&quot;: 0,
+        &quot;formData&quot;: &quot;&quot;
+    }
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/process/updateProcessStatus</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="K2页面查询材料详情(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/getDetail?t=1644801267000&amp;isEdit=false&amp;token=$%7BrequireId_token%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询人员设置——仓库负责人及部门负责人(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api//ibs-material/material/projectConfig/storageManagerDetail?projectId=$%7Bcl_projectId%7D&amp;tenantId=$%7BBSP_USER_TENANT%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询NC映射关系(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">ibs-test.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/ibs-material/material/projectConfig/ncMappingDetail?projectId=$%7Bcl_projectId%7D&amp;tenantId=$%7BBSP_USER_TENANT%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NC基础数据查询(查询费用类型-成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api//ibs-material/material/nc/queryNCBaseData?current=1&amp;keyword=&amp;pkOrg=&amp;size=10&amp;type=2</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NC基础数据查询(查询仓库档案-成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api//ibs-material/material/nc/queryNCBaseData?current=1&amp;keyword=&amp;pkOrg=$%7BstorageOrgList_configItem%7D&amp;size=10&amp;type=5</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NC基础数据查询(查询项目档案-成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api//ibs-material/material/nc/queryNCBaseData?current=1&amp;keyword=&amp;pkOrg=$%7BstorageOrgList_configItem%7D&amp;size=10&amp;type=6</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NC基础数据查询(查询部门档案-成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api//ibs-material/material/nc/queryNCBaseData?current=1&amp;keyword=&amp;pkOrg=$%7BstorageOrgList_configItem%7D&amp;size=10&amp;type=3</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="审批节点补填信息保存(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+    &quot;requireId&quot;: &quot;${requireId}&quot;,
+    &quot;storageManagerBip&quot;: &quot;${storageManagerBip}&quot;,
+    &quot;storageManagerName&quot;: &quot;${storageManagerName}&quot;,
+    &quot;deptManagerName&quot;: &quot;${deptManagerName}&quot;,
+    &quot;deptManagerBip&quot;: &quot;${deptManagerBip}&quot;,
+    &quot;storageOrg&quot;: &quot;${storageOrg}&quot;,
+    &quot;storageOrgPk&quot;: &quot;${storageOrgPk}&quot;,
+    &quot;storageOrgName&quot;: &quot;${storageOrgName}&quot;,
+    &quot;assetUse&quot;: &quot;{% mock &apos;pick&apos;,[1,2] %}&quot;,
+    &quot;costName&quot;: &quot;${costName}&quot;,
+    &quot;costType&quot;: &quot;${costType}&quot;,
+    &quot;purchaseOrg&quot;: &quot;${purchaseOrg}&quot;,
+    &quot;purchaseOrgName&quot;: &quot;${purchaseOrgName}&quot;,
+    &quot;purchaseType&quot;: &quot;${purchaseType}&quot;,
+    &quot;purchaseTypeName&quot;: &quot;${purchaseTypeName}&quot;,
+    &quot;ncDept&quot;: &quot;${ncDept}&quot;,
+    &quot;ncDeptCode&quot;: &quot;${ncDeptCode}&quot;,
+    &quot;storageName&quot;: &quot;${storageName}&quot;,
+    &quot;storageCode&quot;: &quot;${storageCode}&quot;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/auditFillSave?t=1644834918000</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="审批节点补填信息参数校验(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+    &quot;esbInfo&quot;: {},
+    &quot;requestInfo&quot;: {
+        &quot;bizId&quot;: &quot;${requireId}&quot;
+    }
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/auditFillParamValid</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="K2页面查询材料详情(验证K2页面保存数据准确-成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/getDetail?t=1644801267000&amp;isEdit=false&amp;token=$%7BrequireId_token%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="流程状态回写(审批中点击审批通过-回写状态为审批通过)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+    &quot;esbInfo&quot;: {
+        &quot;instId&quot;: null,
+        &quot;requestTime&quot;: &quot;${NOW}&quot;,
+        &quot;attr1&quot;: null,
+        &quot;attr2&quot;: null,
+        &quot;attr3&quot;: null
+    },
+    &quot;requestInfo&quot;: {
+        &quot;processCode&quot;: &quot;BZL100136&quot;,
+        &quot;approverUserCode&quot;: &quot;${startUserCode}&quot;,
+        &quot;status&quot;: 2,
+        &quot;activityName&quot;: &quot;已终审&quot;,
+        &quot;actionName&quot;: 0,
+        &quot;bizModel&quot;: null,
+        &quot;approveDate&quot;: &quot;${NOW}&quot;,
+        &quot;commentType&quot;: &quot;&quot;,
+        &quot;comment&quot;: &quot;同意&quot;,
+        &quot;Attr1&quot;: null,
+        &quot;Attr2&quot;: null,
+        &quot;Attr3&quot;: null,
+        &quot;k2Id&quot;: &quot;${k2Id}&quot;,
+        &quot;sourceId&quot;: &quot;IB-IN-2020-012&quot;,
+        &quot;bizId&quot;: &quot;${requireId}&quot;,
+        &quot;bizDataFields&quot;: {
+            &quot;bizType&quot;: &quot;material_job_require&quot;
+        },
+        &quot;formUrl&quot;: &quot;${formUrl}&quot;,
+        &quot;isRetry&quot;: 0,
+        &quot;formData&quot;: &quot;&quot;
+    }
+};
+
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/process/updateProcessStatus</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取需求采购列表(等待10秒后，编号精确查询-验证推送NC成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+
+    &quot;code&quot;: &quot;${orderCode}&quot;,
+    &quot;size&quot;: 10,
+    &quot;current&quot;: 1,
+    &quot;projectId&quot;: &quot;${cl_projectId}&quot;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/pages?t=1642056569000</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="请购单作废(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/cancel?t=1652174496000&amp;requireId=$%7BrequireId%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取需求采购列表(编号精确查询,验证单据状态为作废)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{
+
+    &quot;code&quot;: &quot;${orderCode}&quot;,
+    &quot;size&quot;: 10,
+    &quot;current&quot;: 1,
+    &quot;projectId&quot;: &quot;${cl_projectId}&quot;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/pages?t=1642056569000</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="复制请购单(成功)" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bimdc.bzlrobot.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bsp/test/user/ugs/ibs/api/ibs-material/material/jobRequire/copyRequire?t=1652174439000&amp;id=$%7BrequireId%7D</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers"/>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="查看结果树" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="汇总报告" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义变量" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="appToken" elementType="Argument">
+            <stringProp name="Argument.name">appToken</stringProp>
+            <stringProp name="Argument.value">D25E8D5BFA8A459D9D1340A98198CB66</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="captcha" elementType="Argument">
+            <stringProp name="Argument.name">captcha</stringProp>
+            <stringProp name="Argument.value">6f5w
+</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="gt_token" elementType="Argument">
+            <stringProp name="Argument.name">gt_token</stringProp>
+            <stringProp name="Argument.value">7ba5c45d-52ec-4840-98bf-2d6b0b301ccc</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="uname" elementType="Argument">
+            <stringProp name="Argument.name">uname</stringProp>
+            <stringProp name="Argument.value">chenyongzhi11</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pwd" elementType="Argument">
+            <stringProp name="Argument.name">pwd</stringProp>
+            <stringProp name="Argument.value">V8Jpiny3V3VSzW9HTiYGRT6IBAV/XY8OxJEwKIcMxrQ5JCkk44zUg0qKhfM98Bnx6Tvq1jMWn44AlHXwGi7D3Qu7No9hhyVDgeuCz0fgyBwizlsR6dno8TlHZMGioPHEjsPIXn4qpsu7mJVFRJ1KZJ/UrA/28hLhiZ8Idi51gsIhObbaRgs3iHHLJtKkNzDDibOXAYF3G3UBErYGs/d/EJZOvkdYnr35c1Qi0mWXGpuKwMHSdzYgsNlRt34+adB52+JUObQf8MxQ28Vql5dvryjtyPUfI0CfUFnakVjxihJlnqIZOiMzrm0QjMHyUgVgyGJkNnpKxYUh3mA5xFaJcg==</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cl_projectId" elementType="Argument">
+            <stringProp name="Argument.name">cl_projectId</stringProp>
+            <stringProp name="Argument.value">104703</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="token" elementType="Argument">
+            <stringProp name="Argument.name">token</stringProp>
+            <stringProp name="Argument.value">31af6c46676c9f5eb19d0d01691ac065</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="bsp_user_id" elementType="Argument">
+            <stringProp name="Argument.name">bsp_user_id</stringProp>
+            <stringProp name="Argument.value">60629040</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="BSP_USER_TENANT" elementType="Argument">
+            <stringProp name="Argument.name">BSP_USER_TENANT</stringProp>
+            <stringProp name="Argument.value">216317749963825419</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="BSP_USER_ENV_ID" elementType="Argument">
+            <stringProp name="Argument.name">BSP_USER_ENV_ID</stringProp>
+            <stringProp name="Argument.value">c4a70c0a1f5c4aaa83fcd390dcd898c6</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="bzlrobot_authorization" elementType="Argument">
+            <stringProp name="Argument.name">bzlrobot_authorization</stringProp>
+            <stringProp name="Argument.value">bearer 31af6c46676c9f5eb19d0d01691ac065</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UNAME" elementType="Argument">
+            <stringProp name="Argument.name">UNAME</stringProp>
+            <stringProp name="Argument.value">陈勇志</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ibsUserId" elementType="Argument">
+            <stringProp name="Argument.name">ibsUserId</stringProp>
+            <stringProp name="Argument.value">2441</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="companyCode" elementType="Argument">
+            <stringProp name="Argument.name">companyCode</stringProp>
+            <stringProp name="Argument.value">216317749963825419</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="projectName" elementType="Argument">
+            <stringProp name="Argument.name">projectName</stringProp>
+            <stringProp name="Argument.value">佛山顺德区北滘镇碧桂园</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="account" elementType="Argument">
+            <stringProp name="Argument.name">account</stringProp>
+            <stringProp name="Argument.value">lijie331</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="userName" elementType="Argument">
+            <stringProp name="Argument.name">userName</stringProp>
+            <stringProp name="Argument.value">李洁</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="userId" elementType="Argument">
+            <stringProp name="Argument.name">userId</stringProp>
+            <stringProp name="Argument.value">60466796</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="deptName" elementType="Argument">
+            <stringProp name="Argument.name">deptName</stringProp>
+            <stringProp name="Argument.value">施工数字化产品研究所 / BIM智慧工地组</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="positionName" elementType="Argument">
+            <stringProp name="Argument.name">positionName</stringProp>
+            <stringProp name="Argument.value">助理软件测试工程师（二级）</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="needPrice" elementType="Argument">
+            <stringProp name="Argument.name">needPrice</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="headerInvoice" elementType="Argument">
+            <stringProp name="Argument.name">headerInvoice</stringProp>
+            <stringProp name="Argument.value">发票抬头</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="orderCode" elementType="Argument">
+            <stringProp name="Argument.name">orderCode</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="supplierName" elementType="Argument">
+            <stringProp name="Argument.name">supplierName</stringProp>
+            <stringProp name="Argument.value">[&quot;安码商务软件系统(上海)有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;惠达卫浴股份有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广州市仙碧房地产开发有限公司&quot;,&quot;广东中南人防防护设备工程有限公司&quot;]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="records" elementType="Argument">
+            <stringProp name="Argument.name">records</stringProp>
+            <stringProp name="Argument.value">{&quot;orderCode&quot;:&quot;CD220726000002&quot;,&quot;supplierCode&quot;:&quot;1000071699&quot;,&quot;supplierName&quot;:&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;supplierPhone&quot;:&quot;梁健樟0757-26654359&quot;,&quot;recordDate&quot;:&quot;2022-07-26 09:33&quot;,&quot;status&quot;:&quot;&quot;,&quot;orderStatus&quot;:null,&quot;orderOutStatus&quot;:0,&quot;orderStatusSelf&quot;:null,&quot;remark&quot;:&quot;&quot;,&quot;previousOrderId&quot;:&quot;104703202207260004&quot;,&quot;sourceSystemCode&quot;:&quot;NC&quot;,&quot;purchaseDept&quot;:&quot;长沙城市公司&quot;,&quot;applyUserName&quot;:&quot;&quot;,&quot;processStartUserName&quot;:&quot;&quot;,&quot;storageName&quot;:&quot;&quot;,&quot;storageOrgName&quot;:&quot;&quot;,&quot;projectNameNc&quot;:&quot;辛集市合盛房地产开发有限公司&quot;,&quot;purchaseUserRealName&quot;:&quot;李钊&quot;,&quot;remarkNc&quot;:&quot;&quot;,&quot;checkButton&quot;:null,&quot;orderDetails&quot;:[{&quot;orderCode&quot;:&quot;CD220726000002&quot;,&quot;rowNo&quot;:2,&quot;outOrderDetailId&quot;:&quot;&quot;,&quot;projectId&quot;:&quot;104703&quot;,&quot;orderStatus&quot;:null,&quot;orderOutStatus&quot;:0,&quot;materialTypeCode&quot;:&quot;BB02004001&quot;,&quot;materialTypeName&quot;:&quot;手喷漆&quot;,&quot;materialCode&quot;:&quot;B000064242&quot;,&quot;materialName&quot;:&quot;手喷漆；web测试材料-25kg/桶&quot;,&quot;materialUnit&quot;:&quot;桶&quot;,&quot;norm&quot;:&quot;规格说明随意填写：打且存并阶化广办代任&quot;,&quot;orderNumber&quot;:9574.972,&quot;materialNumber&quot;:null,&quot;checkNumber&quot;:2598.463,&quot;canBeNumber&quot;:7455.2576,&quot;receiveStorageName&quot;:&quot;&quot;,&quot;realUnitPrice&quot;:20,&quot;taxPercent&quot;:1},{&quot;orderCode&quot;:&quot;CD220726000002&quot;,&quot;rowNo&quot;:1,&quot;outOrderDetailId&quot;:&quot;&quot;,&quot;projectId&quot;:&quot;104703&quot;,&quot;orderStatus&quot;:null,&quot;orderOutStatus&quot;:0,&quot;materialTypeCode&quot;:&quot;BA02001&quot;,&quot;materialTypeName&quot;:&quot;阳台栏杆&quot;,&quot;materialCode&quot;:&quot;B000130957&quot;,&quot;materialName&quot;:&quot;阳台栏杆；43；web手动新增测试&quot;,&quot;materialUnit&quot;:&quot;片&quot;,&quot;norm&quot;:&quot;规格说明随意填写：细道九明证事时记须集&quot;,&quot;orderNumber&quot;:6689.774,&quot;materialNumber&quot;:null,&quot;checkNumber&quot;:1818.03,&quot;canBeNumber&quot;:5206.2327,&quot;receiveStorageName&quot;:&quot;&quot;,&quot;realUnitPrice&quot;:10,&quot;taxPercent&quot;:1}]}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="inStockIds" elementType="Argument">
+            <stringProp name="Argument.name">inStockIds</stringProp>
+            <stringProp name="Argument.value">1dbd659178205362048b44a4512b59a8</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="checkOrderId" elementType="Argument">
+            <stringProp name="Argument.name">checkOrderId</stringProp>
+            <stringProp name="Argument.value">380c67e584458a4090830308409c0add</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="supplierCode" elementType="Argument">
+            <stringProp name="Argument.name">supplierCode</stringProp>
+            <stringProp name="Argument.value">1000071699</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="materialName" elementType="Argument">
+            <stringProp name="Argument.name">materialName</stringProp>
+            <stringProp name="Argument.value">阳台栏杆；43；web手动新增测试</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="brandName" elementType="Argument">
+            <stringProp name="Argument.name">brandName</stringProp>
+            <stringProp name="Argument.value">[&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;dssa&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;web&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;yui&quot;,&quot;yy&quot;,&quot;1&quot;,&quot;1&quot;,&quot;q&quot;,&quot;1&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;123&quot;,&quot;123&quot;,&quot;123&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;123&quot;,&quot;123&quot;,&quot;123&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;品牌:红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;1&quot;,&quot;2&quot;,&quot;还在继续嫁鸡随鸡&quot;,&quot;互相监督几点到几点看&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;继续看辛苦辛苦先看看&quot;,&quot;都能见到快点快点快点&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;不想那些你先忙羡慕我&quot;,&quot;继续继续觉得没什么&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;111&quot;,&quot;222&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;11&quot;,&quot;22&quot;,&quot;33&quot;,&quot;订单的&quot;,&quot;三四十&quot;,&quot;1&quot;,&quot;范德萨发&quot;,&quot;123&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;11&quot;,&quot;一切&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;这些&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓品牌修改一下，单据变待验收&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;,&quot;红蜻蜓&quot;]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="checkAcceptTime" elementType="Argument">
+            <stringProp name="Argument.name">checkAcceptTime</stringProp>
+            <stringProp name="Argument.value">[&quot;2022-07-21&quot;,&quot;2022-07-21&quot;,&quot;2022-07-21&quot;,&quot;2022-07-21&quot;,&quot;2022-07-21&quot;,&quot;2022-07-21&quot;,&quot;2022-07-21&quot;,&quot;2022-07-21&quot;,&quot;2022-07-20&quot;,&quot;2022-07-20&quot;,&quot;2022-07-20&quot;,&quot;2022-07-20&quot;,&quot;2022-07-20&quot;,&quot;2022-07-20&quot;,&quot;2022-07-20&quot;,&quot;2022-07-20&quot;,&quot;2022-07-20&quot;,&quot;2022-07-20&quot;,&quot;2022-07-20&quot;,&quot;2022-07-20&quot;,&quot;2022-07-20&quot;,&quot;2022-07-19&quot;,&quot;2022-07-18&quot;,&quot;2022-07-15&quot;,&quot;2022-06-29&quot;,&quot;2022-06-29&quot;,&quot;2022-06-28&quot;,&quot;2022-06-28&quot;,&quot;2022-06-24&quot;,&quot;2022-06-24&quot;,&quot;2022-06-24&quot;,&quot;2022-06-23&quot;,&quot;2022-06-23&quot;,&quot;2022-06-23&quot;,&quot;2022-06-23&quot;,&quot;2022-06-23&quot;,&quot;2022-06-23&quot;,&quot;2022-06-20&quot;,&quot;2022-06-20&quot;,&quot;2022-06-20&quot;,&quot;2022-06-20&quot;,&quot;2022-06-20&quot;,&quot;2022-06-20&quot;,&quot;2022-06-20&quot;,&quot;2022-06-20&quot;,&quot;2022-06-20&quot;,&quot;2022-06-20&quot;,&quot;2022-06-17&quot;,&quot;2022-06-17&quot;,&quot;2022-06-17&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-16&quot;,&quot;2022-06-15&quot;,&quot;2022-06-15&quot;,&quot;2022-06-15&quot;,&quot;2022-06-15&quot;,&quot;2022-06-15&quot;,&quot;2022-06-10&quot;,&quot;2022-06-09&quot;,&quot;2022-06-09&quot;,&quot;2022-06-09&quot;,&quot;2022-06-09&quot;,&quot;2022-06-06&quot;,&quot;2022-06-06&quot;,&quot;2022-06-06&quot;,&quot;2022-06-06&quot;,&quot;2022-06-06&quot;,&quot;2022-06-06&quot;,&quot;2022-06-06&quot;,&quot;2022-05-16&quot;,&quot;2022-05-30&quot;,&quot;2022-06-01&quot;,&quot;2022-06-01&quot;,&quot;2022-06-01&quot;,&quot;2022-06-01&quot;,&quot;2022-06-01&quot;,&quot;2022-06-01&quot;,&quot;2022-06-01&quot;,&quot;2022-06-01&quot;,&quot;2022-06-01&quot;,&quot;2022-06-01&quot;,&quot;2022-05-26&quot;,&quot;2022-05-26&quot;,&quot;2022-05-26&quot;,&quot;2022-05-27&quot;,&quot;2022-05-27&quot;,&quot;2022-05-27&quot;]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="baseUrl" elementType="Argument">
+            <stringProp name="Argument.name">baseUrl</stringProp>
+            <stringProp name="Argument.value">https://bimdc.bzlrobot.com/bsp/test/user/ugs</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="materialNames" elementType="Argument">
+            <stringProp name="Argument.name">materialNames</stringProp>
+            <stringProp name="Argument.value">[&quot;漏电塑壳断路器；DZ20L-160T/4300 160A 100mA 0.1透明；德力西&quot;]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="brandNames" elementType="Argument">
+            <stringProp name="Argument.name">brandNames</stringProp>
+            <stringProp name="Argument.value">[&quot;uy&quot;]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="checkAcceptStatus" elementType="Argument">
+            <stringProp name="Argument.name">checkAcceptStatus</stringProp>
+            <stringProp name="Argument.value">[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="supplierNames" elementType="Argument">
+            <stringProp name="Argument.name">supplierNames</stringProp>
+            <stringProp name="Argument.value">[&quot;广东新中南电缆有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;深圳博建智慧建造科技有限公司山西分公司长子项目&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;惠达卫浴股份有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;惠达卫浴股份有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;惠达卫浴股份有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;广东新中南电缆有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广州市仙碧房地产开发有限公司&quot;,&quot;广州市仙碧房地产开发有限公司&quot;,&quot;广州市仙碧房地产开发有限公司&quot;,&quot;广州市仙碧房地产开发有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广州市仙碧房地产开发有限公司&quot;,&quot;广州市仙碧房地产开发有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东中南人防防护设备工程有限公司&quot;,&quot;广东中南人防防护设备工程有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东中南人防防护设备工程有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东中南人防防护设备工程有限公司&quot;,&quot;广东中南人防防护设备工程有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东电缆厂有限公司&quot;,&quot;广东中南人防防护设备工程有限公司&quot;,&quot;广东中南人防防护设备工程有限公司&quot;,&quot;广东中南人防防护设备工程有限公司&quot;,&quot;惠达卫浴股份有限公司&quot;,&quot;广东中南人防防护设备工程有限公司&quot;,&quot;广东中南人防防护设备工程有限公司&quot;]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="supplierN" elementType="Argument">
+            <stringProp name="Argument.name">supplierN</stringProp>
+            <stringProp name="Argument.value">广东新中南电缆有限公司</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="checkId" elementType="Argument">
+            <stringProp name="Argument.name">checkId</stringProp>
+            <stringProp name="Argument.value">13444</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="body" elementType="Argument">
+            <stringProp name="Argument.name">body</stringProp>
+            <stringProp name="Argument.value">[object Object]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="data" elementType="Argument">
+            <stringProp name="Argument.name">data</stringProp>
+            <stringProp name="Argument.value">{&quot;id&quot;:13447,&quot;checkAcceptType&quot;:2,&quot;checkAcceptStatus&quot;:4,&quot;checkAcceptCode&quot;:&quot;YS2022072700191&quot;,&quot;orderCode&quot;:&quot;&quot;,&quot;signatureNeed&quot;:1,&quot;engineeringPosition&quot;:&quot;工程部位：XXXX&quot;,&quot;checkAcceptTime&quot;:&quot;2022-07-27 00:00:00&quot;,&quot;deliveryCode&quot;:&quot;**送货单号**&quot;,&quot;requisitionDept&quot;:&quot;&quot;,&quot;requisitionName&quot;:&quot;&quot;,&quot;applyUserName&quot;:&quot;&quot;,&quot;orderTime&quot;:&quot;&quot;,&quot;arrivalTime&quot;:&quot;2022-07-27 00:00:00&quot;,&quot;arrivalAddress&quot;:&quot;***收货地址***&quot;,&quot;projectName&quot;:&quot;&quot;,&quot;invoiceHeader&quot;:&quot;发票抬头&quot;,&quot;buyerName&quot;:&quot;&quot;,&quot;supplierCode&quot;:&quot;1000071699&quot;,&quot;supplierName&quot;:&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;supplierPhone&quot;:&quot;&quot;,&quot;receivingStorage&quot;:&quot;&quot;,&quot;projectId&quot;:&quot;104703&quot;,&quot;weightNum&quot;:null,&quot;weightUnit&quot;:&quot;&quot;,&quot;remark&quot;:&quot;&quot;,&quot;abandon&quot;:0,&quot;createBy&quot;:&quot;216483504447804297&quot;,&quot;bindOrder&quot;:0,&quot;details&quot;:[{&quot;materialTypeCode&quot;:&quot;BA02001&quot;,&quot;materialTypeName&quot;:&quot;阳台栏杆&quot;,&quot;materialCode&quot;:&quot;B000130957&quot;,&quot;materialName&quot;:&quot;阳台栏杆；43；web手动新增测试&quot;,&quot;brandCode&quot;:&quot;&quot;,&quot;brandName&quot;:&quot;品牌：红蜻蜓&quot;,&quot;purchaseNum&quot;:null,&quot;deliveryNum&quot;:487.174,&quot;weighNum&quot;:null,&quot;checkAcceptNum&quot;:487.174,&quot;checkAcceptUnit&quot;:&quot;片&quot;,&quot;qualityRating&quot;:1,&quot;norm&quot;:&quot;&quot;,&quot;rowNo&quot;:null},{&quot;materialTypeCode&quot;:&quot;BB02004001&quot;,&quot;materialTypeName&quot;:&quot;手喷漆&quot;,&quot;materialCode&quot;:&quot;B000064242&quot;,&quot;materialName&quot;:&quot;手喷漆；web测试材料-25kg/桶&quot;,&quot;brandCode&quot;:&quot;&quot;,&quot;brandName&quot;:&quot;品牌：红蜻蜓&quot;,&quot;purchaseNum&quot;:null,&quot;deliveryNum&quot;:697.651,&quot;weighNum&quot;:null,&quot;checkAcceptNum&quot;:697.651,&quot;checkAcceptUnit&quot;:&quot;桶&quot;,&quot;qualityRating&quot;:2,&quot;norm&quot;:&quot;&quot;,&quot;rowNo&quot;:null}],&quot;acceptanceSitePics&quot;:[&quot;https://bimdc.bzlrobot.com/bsp/test/opi/document/v1/document/fileStore/viewPicture/e1ffddf6e8c04392a526d4821cb18515&quot;],&quot;deliveryPics&quot;:[&quot;https://bimdc.bzlrobot.com/bsp/test/opi/document/v1/document/fileStore/viewPicture/e1ffddf6e8c04392a526d4821cb18515&quot;],&quot;pounds&quot;:[],&quot;orderTypeCode&quot;:&quot;PurchaseOwner&quot;,&quot;poundInputType&quot;:1,&quot;deliveryVO&quot;:[{&quot;deliverySn&quot;:&quot;**送货单号**&quot;,&quot;carNum&quot;:&quot;&quot;,&quot;deliveryPeople&quot;:&quot;&quot;,&quot;contactPhone&quot;:&quot;&quot;,&quot;deliveryTime&quot;:&quot;&quot;}],&quot;deliveryType&quot;:null,&quot;signatures&quot;:[{&quot;signatureType&quot;:3,&quot;checkAcceptResult&quot;:1,&quot;checkAcceptOpinion&quot;:&quot;验收意见通过---&gt;0215-5194284-088&quot;,&quot;signatureStatus&quot;:0,&quot;phone&quot;:&quot;18127813600&quot;,&quot;userId&quot;:&quot;60629040&quot;,&quot;userName&quot;:&quot;陈勇志&quot;,&quot;roleName&quot;:&quot;&quot;,&quot;contractId&quot;:&quot;&quot;,&quot;signTime&quot;:&quot;&quot;,&quot;checkAcceptTime&quot;:&quot;2022-07-27 18:51:18&quot;,&quot;bip&quot;:&quot;chenyongzhi11&quot;},{&quot;signatureType&quot;:2,&quot;checkAcceptResult&quot;:1,&quot;checkAcceptOpinion&quot;:&quot;验收意见通过---&gt;0215-5194284-088&quot;,&quot;signatureStatus&quot;:0,&quot;phone&quot;:&quot;18127813600&quot;,&quot;userId&quot;:&quot;60629040&quot;,&quot;userName&quot;:&quot;陈勇志&quot;,&quot;roleName&quot;:&quot;&quot;,&quot;contractId&quot;:&quot;&quot;,&quot;signTime&quot;:&quot;&quot;,&quot;checkAcceptTime&quot;:&quot;2022-07-27 18:51:18&quot;,&quot;bip&quot;:&quot;chenyongzhi11&quot;},{&quot;signatureType&quot;:0,&quot;checkAcceptResult&quot;:1,&quot;checkAcceptOpinion&quot;:&quot;通过--：http://cjvyevc.td/ktqq&quot;,&quot;signatureStatus&quot;:0,&quot;phone&quot;:&quot;18127813600&quot;,&quot;userId&quot;:&quot;216483504447804297&quot;,&quot;userName&quot;:&quot;陈勇志&quot;,&quot;roleName&quot;:&quot;&quot;,&quot;contractId&quot;:&quot;&quot;,&quot;signTime&quot;:&quot;&quot;,&quot;checkAcceptTime&quot;:&quot;2022-07-27 18:51:14&quot;,&quot;bip&quot;:&quot;18127813600&quot;}]}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="user_id" elementType="Argument">
+            <stringProp name="Argument.name">user_id</stringProp>
+            <stringProp name="Argument.value">[&quot;60629040&quot;]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="user_name" elementType="Argument">
+            <stringProp name="Argument.name">user_name</stringProp>
+            <stringProp name="Argument.value">[&quot;陈勇志&quot;]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="bip" elementType="Argument">
+            <stringProp name="Argument.name">bip</stringProp>
+            <stringProp name="Argument.value">[&quot;chenyongzhi11&quot;]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="user_phone" elementType="Argument">
+            <stringProp name="Argument.name">user_phone</stringProp>
+            <stringProp name="Argument.value">18127813600</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="accept_body" elementType="Argument">
+            <stringProp name="Argument.name">accept_body</stringProp>
+            <stringProp name="Argument.value">[object Object]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="fillIn" elementType="Argument">
+            <stringProp name="Argument.name">fillIn</stringProp>
+            <stringProp name="Argument.value">[object Object]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="checkAcceptId" elementType="Argument">
+            <stringProp name="Argument.name">checkAcceptId</stringProp>
+            <stringProp name="Argument.value">13447</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="checkDetail" elementType="Argument">
+            <stringProp name="Argument.name">checkDetail</stringProp>
+            <stringProp name="Argument.value">{&quot;id&quot;:13447,&quot;checkAcceptType&quot;:2,&quot;checkAcceptStatus&quot;:2,&quot;checkAcceptCode&quot;:&quot;YS2022072700191&quot;,&quot;orderCode&quot;:&quot;&quot;,&quot;signatureNeed&quot;:1,&quot;engineeringPosition&quot;:&quot;工程部位：XXXX&quot;,&quot;checkAcceptTime&quot;:&quot;2022-07-27 00:00:00&quot;,&quot;deliveryCode&quot;:&quot;**送货单号**&quot;,&quot;requisitionDept&quot;:&quot;&quot;,&quot;requisitionName&quot;:&quot;&quot;,&quot;applyUserName&quot;:&quot;&quot;,&quot;orderTime&quot;:&quot;&quot;,&quot;arrivalTime&quot;:&quot;2022-07-27 00:00:00&quot;,&quot;arrivalAddress&quot;:&quot;***收货地址***&quot;,&quot;projectName&quot;:&quot;&quot;,&quot;invoiceHeader&quot;:&quot;发票抬头&quot;,&quot;buyerName&quot;:&quot;&quot;,&quot;supplierCode&quot;:&quot;1000071699&quot;,&quot;supplierName&quot;:&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;supplierPhone&quot;:&quot;&quot;,&quot;receivingStorage&quot;:&quot;&quot;,&quot;projectId&quot;:&quot;104703&quot;,&quot;weightNum&quot;:null,&quot;weightUnit&quot;:&quot;&quot;,&quot;remark&quot;:&quot;&quot;,&quot;abandon&quot;:0,&quot;createBy&quot;:&quot;216483504447804297&quot;,&quot;bindOrder&quot;:0,&quot;details&quot;:[{&quot;materialTypeCode&quot;:&quot;BA02001&quot;,&quot;materialTypeName&quot;:&quot;阳台栏杆&quot;,&quot;materialCode&quot;:&quot;B000130957&quot;,&quot;materialName&quot;:&quot;阳台栏杆；43；web手动新增测试&quot;,&quot;brandCode&quot;:&quot;&quot;,&quot;brandName&quot;:&quot;品牌：红蜻蜓&quot;,&quot;purchaseNum&quot;:null,&quot;deliveryNum&quot;:487.174,&quot;weighNum&quot;:null,&quot;checkAcceptNum&quot;:487.174,&quot;checkAcceptUnit&quot;:&quot;片&quot;,&quot;qualityRating&quot;:1,&quot;norm&quot;:&quot;&quot;,&quot;rowNo&quot;:null},{&quot;materialTypeCode&quot;:&quot;BB02004001&quot;,&quot;materialTypeName&quot;:&quot;手喷漆&quot;,&quot;materialCode&quot;:&quot;B000064242&quot;,&quot;materialName&quot;:&quot;手喷漆；web测试材料-25kg/桶&quot;,&quot;brandCode&quot;:&quot;&quot;,&quot;brandName&quot;:&quot;品牌：红蜻蜓&quot;,&quot;purchaseNum&quot;:null,&quot;deliveryNum&quot;:697.651,&quot;weighNum&quot;:null,&quot;checkAcceptNum&quot;:697.651,&quot;checkAcceptUnit&quot;:&quot;桶&quot;,&quot;qualityRating&quot;:2,&quot;norm&quot;:&quot;&quot;,&quot;rowNo&quot;:null}],&quot;acceptanceSitePics&quot;:[&quot;https://bimdc.bzlrobot.com/bsp/test/opi/document/v1/document/fileStore/viewPicture/e1ffddf6e8c04392a526d4821cb18515&quot;],&quot;deliveryPics&quot;:[&quot;https://bimdc.bzlrobot.com/bsp/test/opi/document/v1/document/fileStore/viewPicture/e1ffddf6e8c04392a526d4821cb18515&quot;],&quot;pounds&quot;:[],&quot;orderTypeCode&quot;:&quot;PurchaseOwner&quot;,&quot;poundInputType&quot;:1,&quot;deliveryVO&quot;:[{&quot;deliverySn&quot;:&quot;**送货单号**&quot;,&quot;carNum&quot;:&quot;&quot;,&quot;deliveryPeople&quot;:&quot;&quot;,&quot;contactPhone&quot;:&quot;&quot;,&quot;deliveryTime&quot;:&quot;&quot;}],&quot;deliveryType&quot;:null,&quot;signatures&quot;:[{&quot;signatureType&quot;:0,&quot;checkAcceptResult&quot;:1,&quot;checkAcceptOpinion&quot;:&quot;通过--：http://cjvyevc.td/ktqq&quot;,&quot;signatureStatus&quot;:0,&quot;phone&quot;:&quot;18127813600&quot;,&quot;userId&quot;:&quot;216483504447804297&quot;,&quot;userName&quot;:&quot;陈勇志&quot;,&quot;roleName&quot;:&quot;&quot;,&quot;contractId&quot;:&quot;&quot;,&quot;signTime&quot;:&quot;&quot;,&quot;checkAcceptTime&quot;:&quot;2022-07-27 18:51:14&quot;,&quot;bip&quot;:&quot;18127813600&quot;},{&quot;signatureType&quot;:3,&quot;checkAcceptResult&quot;:2,&quot;checkAcceptOpinion&quot;:&quot;&quot;,&quot;signatureStatus&quot;:0,&quot;phone&quot;:&quot;18127813600&quot;,&quot;userId&quot;:&quot;60629040&quot;,&quot;userName&quot;:&quot;陈勇志&quot;,&quot;roleName&quot;:&quot;&quot;,&quot;contractId&quot;:&quot;&quot;,&quot;signTime&quot;:&quot;&quot;,&quot;checkAcceptTime&quot;:&quot;&quot;,&quot;bip&quot;:&quot;chenyongzhi11&quot;},{&quot;signatureType&quot;:2,&quot;checkAcceptResult&quot;:2,&quot;checkAcceptOpinion&quot;:&quot;&quot;,&quot;signatureStatus&quot;:0,&quot;phone&quot;:&quot;18127813600&quot;,&quot;userId&quot;:&quot;60629040&quot;,&quot;userName&quot;:&quot;陈勇志&quot;,&quot;roleName&quot;:&quot;&quot;,&quot;contractId&quot;:&quot;&quot;,&quot;signTime&quot;:&quot;&quot;,&quot;checkAcceptTime&quot;:&quot;&quot;,&quot;bip&quot;:&quot;chenyongzhi11&quot;}]}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="inStockId" elementType="Argument">
+            <stringProp name="Argument.name">inStockId</stringProp>
+            <stringProp name="Argument.value">10311</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="formIdentifier" elementType="Argument">
+            <stringProp name="Argument.name">formIdentifier</stringProp>
+            <stringProp name="Argument.value">CLD20220727000037</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="instockDetail" elementType="Argument">
+            <stringProp name="Argument.name">instockDetail</stringProp>
+            <stringProp name="Argument.value">{&quot;id&quot;:10311,&quot;title&quot;:&quot;07月27日-2种&quot;,&quot;orderTypeCode&quot;:&quot;PurchaseOwner&quot;,&quot;orderType&quot;:&quot;&quot;,&quot;outOrderId&quot;:&quot;&quot;,&quot;orderId&quot;:null,&quot;orderCode&quot;:&quot;CD220726000002&quot;,&quot;supplierId&quot;:null,&quot;supplierCode&quot;:&quot;1000071699&quot;,&quot;supplierName&quot;:&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;sendUserRealName&quot;:&quot;&quot;,&quot;sendPhone&quot;:&quot;&quot;,&quot;vehicleNo&quot;:&quot;&quot;,&quot;receiveUserName&quot;:&quot;&quot;,&quot;receiveUserCode&quot;:&quot;&quot;,&quot;receiveUserId&quot;:&quot;&quot;,&quot;receiveDate&quot;:&quot;2022-07-27 00:00:00&quot;,&quot;planReachTime&quot;:&quot;2022-07-27 00:00:00&quot;,&quot;recordNo&quot;:&quot;**送货单号**&quot;,&quot;orderAttachmentId&quot;:&quot;&quot;,&quot;checkSituationAttachmentId&quot;:&quot;&quot;,&quot;materialQualitalAttachmentId&quot;:&quot;&quot;,&quot;formIdentifier&quot;:&quot;CLD20220727000037&quot;,&quot;status&quot;:1,&quot;result&quot;:null,&quot;resultDesc&quot;:&quot;&quot;,&quot;remark&quot;:&quot;{\&quot;code\&quot;:200,\&quot;data\&quot;:\&quot;2989863880899232387\&quot;,\&quot;msg\&quot;:\&quot;已发起电子签章流程，请留意短信！\&quot;,\&quot;success\&quot;:true}&quot;,&quot;remarkAttachId&quot;:&quot;&quot;,&quot;deleted&quot;:false,&quot;updateDate&quot;:&quot;2022-07-27 18:51:38&quot;,&quot;createDate&quot;:&quot;2022-07-27 18:51:19&quot;,&quot;serialNo&quot;:null,&quot;storageId&quot;:1190,&quot;dataId&quot;:&quot;&quot;,&quot;formType&quot;:null,&quot;measureTypeId&quot;:null,&quot;updateUserId&quot;:&quot;216483504447804297&quot;,&quot;updateUserName&quot;:&quot;陈勇志&quot;,&quot;isRelationWeigh&quot;:0,&quot;orderSourceCode&quot;:&quot;NC&quot;,&quot;projectId&quot;:&quot;104703&quot;,&quot;tenantId&quot;:&quot;216317749963825419&quot;,&quot;newFlag&quot;:1,&quot;inStockTime&quot;:&quot;&quot;,&quot;straightFlag&quot;:0,&quot;straightParam&quot;:&quot;&quot;,&quot;storageName&quot;:&quot;流程类普通仓库&quot;,&quot;storageType&quot;:&quot;0&quot;,&quot;items&quot;:[{&quot;id&quot;:16285,&quot;inId&quot;:10311,&quot;materialClassCode&quot;:&quot;BA02001&quot;,&quot;materialClassName&quot;:&quot;阳台栏杆&quot;,&quot;materialCode&quot;:&quot;B000130957&quot;,&quot;materialName&quot;:&quot;阳台栏杆；43；web手动新增测试&quot;,&quot;materialNumber&quot;:487.174,&quot;convertNumber&quot;:null,&quot;weighNumber&quot;:null,&quot;convertMaterialNumber&quot;:null,&quot;deviationStatus&quot;:null,&quot;deviationMin&quot;:null,&quot;deviationMax&quot;:null,&quot;realDeviation&quot;:null,&quot;deviationType&quot;:null,&quot;realUnitPrice&quot;:10,&quot;transferCost&quot;:null,&quot;taxPercent&quot;:1,&quot;totalNoTaxValue&quot;:4823.5,&quot;totalValue&quot;:4871.74,&quot;orderNumber&quot;:null,&quot;weighUnit&quot;:&quot;&quot;,&quot;materialUnit&quot;:&quot;片&quot;,&quot;status&quot;:0,&quot;materialAdvice&quot;:&quot;&quot;,&quot;qualityRating&quot;:1,&quot;remark&quot;:&quot;&quot;,&quot;deleted&quot;:false,&quot;createDate&quot;:&quot;2022-07-27 18:51:19&quot;,&quot;updateDate&quot;:&quot;2022-07-27 18:51:19&quot;,&quot;sendType&quot;:null,&quot;usePos&quot;:&quot;&quot;,&quot;recordDate&quot;:&quot;&quot;,&quot;isNoWeight&quot;:0,&quot;carNo&quot;:&quot;&quot;,&quot;sourceMateCode&quot;:&quot;&quot;,&quot;projectId&quot;:&quot;104703&quot;,&quot;tenantId&quot;:&quot;216317749963825419&quot;,&quot;acceptDetailId&quot;:26915,&quot;norm&quot;:&quot;规格说明随意填写：细道九明证事时记须集&quot;,&quot;rowNo&quot;:1},{&quot;id&quot;:16286,&quot;inId&quot;:10311,&quot;materialClassCode&quot;:&quot;BB02004001&quot;,&quot;materialClassName&quot;:&quot;手喷漆&quot;,&quot;materialCode&quot;:&quot;B000064242&quot;,&quot;materialName&quot;:&quot;手喷漆；web测试材料-25kg/桶&quot;,&quot;materialNumber&quot;:697.651,&quot;convertNumber&quot;:null,&quot;weighNumber&quot;:null,&quot;convertMaterialNumber&quot;:null,&quot;deviationStatus&quot;:null,&quot;deviationMin&quot;:null,&quot;deviationMax&quot;:null,&quot;realDeviation&quot;:null,&quot;deviationType&quot;:null,&quot;realUnitPrice&quot;:20,&quot;transferCost&quot;:null,&quot;taxPercent&quot;:1,&quot;totalNoTaxValue&quot;:13814.87,&quot;totalValue&quot;:13953.02,&quot;orderNumber&quot;:null,&quot;weighUnit&quot;:&quot;&quot;,&quot;materialUnit&quot;:&quot;桶&quot;,&quot;status&quot;:0,&quot;materialAdvice&quot;:&quot;&quot;,&quot;qualityRating&quot;:2,&quot;remark&quot;:&quot;&quot;,&quot;deleted&quot;:false,&quot;createDate&quot;:&quot;2022-07-27 18:51:19&quot;,&quot;updateDate&quot;:&quot;2022-07-27 18:51:19&quot;,&quot;sendType&quot;:null,&quot;usePos&quot;:&quot;&quot;,&quot;recordDate&quot;:&quot;&quot;,&quot;isNoWeight&quot;:0,&quot;carNo&quot;:&quot;&quot;,&quot;sourceMateCode&quot;:&quot;&quot;,&quot;projectId&quot;:&quot;104703&quot;,&quot;tenantId&quot;:&quot;216317749963825419&quot;,&quot;acceptDetailId&quot;:26916,&quot;norm&quot;:&quot;规格说明随意填写：打且存并阶化广办代任&quot;,&quot;rowNo&quot;:2}],&quot;checkDetailUrl&quot;:&quot;&quot;}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="storageDate" elementType="Argument">
+            <stringProp name="Argument.name">storageDate</stringProp>
+            <stringProp name="Argument.value">[object Object]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="storageId" elementType="Argument">
+            <stringProp name="Argument.name">storageId</stringProp>
+            <stringProp name="Argument.value">1190</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="materialCode" elementType="Argument">
+            <stringProp name="Argument.name">materialCode</stringProp>
+            <stringProp name="Argument.value">B000130957</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="materialStorage" elementType="Argument">
+            <stringProp name="Argument.name">materialStorage</stringProp>
+            <stringProp name="Argument.value">[object Object]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="inBody" elementType="Argument">
+            <stringProp name="Argument.name">inBody</stringProp>
+            <stringProp name="Argument.value">{&quot;orderCode&quot;:&quot;CD220726000002&quot;,&quot;projectId&quot;:&quot;104703&quot;,&quot;projectName&quot;:&quot;佛山顺德区北滘镇碧桂园&quot;,&quot;tenantId&quot;:&quot;216317749963825419&quot;,&quot;userId&quot;:&quot;60629040&quot;,&quot;userName&quot;:&quot;陈勇志&quot;,&quot;id&quot;:10311,&quot;storageId&quot;:1190,&quot;storage&quot;:{&quot;id&quot;:1190,&quot;name&quot;:&quot;流程类普通仓库&quot;,&quot;address&quot;:&quot;&quot;,&quot;createDate&quot;:&quot;2022-03-04 19:24:25&quot;,&quot;createUserId&quot;:&quot;3461&quot;,&quot;createUserRealName&quot;:&quot;lijie&quot;,&quot;projectId&quot;:&quot;104703&quot;,&quot;tenantId&quot;:&quot;&quot;,&quot;sectionId&quot;:&quot;&quot;,&quot;storageCode&quot;:&quot;CK2022030413&quot;,&quot;type&quot;:0,&quot;deleted&quot;:0},&quot;sendPhone&quot;:&quot;18127813600&quot;,&quot;sendUserRealName&quot;:&quot;陈勇志&quot;,&quot;details&quot;:[{&quot;detailId&quot;:16285,&quot;materialCode&quot;:&quot;B000130957&quot;,&quot;materialName&quot;:&quot;阳台栏杆；43；web手动新增测试&quot;,&quot;materialNumber&quot;:487.174,&quot;materialTypeCode&quot;:&quot;BA02001&quot;,&quot;materialTypeName&quot;:&quot;阳台栏杆&quot;,&quot;materialUnit&quot;:&quot;片&quot;,&quot;rowNo&quot;:1,&quot;canBeNumber&quot;:5206.2327,&quot;norm&quot;:&quot;规格说明随意填写：细道九明证事时记须集&quot;,&quot;realUnitPrice&quot;:10,&quot;taxPercent&quot;:1,&quot;totalValue&quot;:4871.74,&quot;totalNoTaxValue&quot;:4823.5},{&quot;detailId&quot;:16286,&quot;materialCode&quot;:&quot;B000064242&quot;,&quot;materialName&quot;:&quot;手喷漆；web测试材料-25kg/桶&quot;,&quot;materialNumber&quot;:697.651,&quot;materialTypeCode&quot;:&quot;BB02004001&quot;,&quot;materialTypeName&quot;:&quot;手喷漆&quot;,&quot;materialUnit&quot;:&quot;桶&quot;,&quot;rowNo&quot;:2,&quot;canBeNumber&quot;:7455.2576,&quot;norm&quot;:&quot;规格说明随意填写：打且存并阶化广办代任&quot;,&quot;realUnitPrice&quot;:20,&quot;taxPercent&quot;:1,&quot;totalValue&quot;:13953.02,&quot;totalNoTaxValue&quot;:13814.87}]}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="orderData_before" elementType="Argument">
+            <stringProp name="Argument.name">orderData_before</stringProp>
+            <stringProp name="Argument.value">{&quot;orderCode&quot;:&quot;CD220726000002&quot;,&quot;orderStatus&quot;:0,&quot;orderStatusSelf&quot;:0,&quot;orderOutStatus&quot;:0,&quot;purchaseCode&quot;:&quot;QG2207260003&quot;,&quot;sourceSystemCode&quot;:&quot;NC&quot;,&quot;supplierName&quot;:&quot;佛山市顺德区俊艺木业家具有限公司&quot;,&quot;supplierPhone&quot;:&quot;梁健樟0757-26654359&quot;,&quot;materialDetails&quot;:[{&quot;rowNo&quot;:&quot;1&quot;,&quot;materialCode&quot;:&quot;B000130957&quot;,&quot;materialName&quot;:&quot;阳台栏杆；43；web手动新增测试&quot;,&quot;materialTypeName&quot;:&quot;阳台栏杆&quot;,&quot;norm&quot;:&quot;规格说明随意填写：细道九明证事时记须集&quot;,&quot;orderNumber&quot;:6689.774,&quot;checkNumber&quot;:6.997,&quot;inStockNumber&quot;:1,&quot;materialUnit&quot;:&quot;片&quot;,&quot;unitPrice&quot;:&quot;10.00000000&quot;,&quot;taxPercent&quot;:1,&quot;orderOutStatus&quot;:0},{&quot;rowNo&quot;:&quot;2&quot;,&quot;materialCode&quot;:&quot;B000064242&quot;,&quot;materialName&quot;:&quot;手喷漆；web测试材料-25kg/桶&quot;,&quot;materialTypeName&quot;:&quot;手喷漆&quot;,&quot;norm&quot;:&quot;规格说明随意填写：打且存并阶化广办代任&quot;,&quot;orderNumber&quot;:9574.972,&quot;checkNumber&quot;:5,&quot;inStockNumber&quot;:1,&quot;materialUnit&quot;:&quot;桶&quot;,&quot;unitPrice&quot;:&quot;20.00000000&quot;,&quot;taxPercent&quot;:1,&quot;orderOutStatus&quot;:0}],&quot;linkIdentifierList&quot;:[{&quot;checkAcceptCode&quot;:&quot;YS2022072700076&quot;,&quot;checkAcceptId&quot;:13333,&quot;checkAcceptTime&quot;:&quot;2022-07-27&quot;,&quot;checkAcceptStatus&quot;:1,&quot;inStockCode&quot;:&quot;&quot;,&quot;inId&quot;:null,&quot;inStockTime&quot;:&quot;&quot;,&quot;inStockStatus&quot;:null},{&quot;checkAcceptCode&quot;:&quot;YS2022072600059&quot;,&quot;checkAcceptId&quot;:13234,&quot;checkAcceptTime&quot;:&quot;2022-07-26&quot;,&quot;checkAcceptStatus&quot;:4,&quot;inStockCode&quot;:&quot;CLD20220726000005&quot;,&quot;inId&quot;:10267,&quot;inStockTime&quot;:&quot;2022-07-26&quot;,&quot;inStockStatus&quot;:3},{&quot;checkAcceptCode&quot;:&quot;YS2022072600052&quot;,&quot;checkAcceptId&quot;:13227,&quot;checkAcceptTime&quot;:&quot;2022-07-26&quot;,&quot;checkAcceptStatus&quot;:0,&quot;inStockCode&quot;:&quot;&quot;,&quot;inId&quot;:null,&quot;inStockTime&quot;:&quot;&quot;,&quot;inStockStatus&quot;:null},{&quot;checkAcceptCode&quot;:&quot;YS2022072600054&quot;,&quot;checkAcceptId&quot;:13229,&quot;checkAcceptTime&quot;:&quot;2022-07-26&quot;,&quot;checkAcceptStatus&quot;:1,&quot;inStockCode&quot;:&quot;&quot;,&quot;inId&quot;:null,&quot;inStockTime&quot;:&quot;&quot;,&quot;inStockStatus&quot;:null},{&quot;checkAcceptCode&quot;:&quot;YS2022072600055&quot;,&quot;checkAcceptId&quot;:13230,&quot;checkAcceptTime&quot;:&quot;2022-07-26&quot;,&quot;checkAcceptStatus&quot;:1,&quot;inStockCode&quot;:&quot;&quot;,&quot;inId&quot;:null,&quot;inStockTime&quot;:&quot;&quot;,&quot;inStockStatus&quot;:null},{&quot;checkAcceptCode&quot;:&quot;YS2022072600050&quot;,&quot;checkAcceptId&quot;:13225,&quot;checkAcceptTime&quot;:&quot;2022-07-26&quot;,&quot;checkAcceptStatus&quot;:1,&quot;inStockCode&quot;:&quot;&quot;,&quot;inId&quot;:null,&quot;inStockTime&quot;:&quot;&quot;,&quot;inStockStatus&quot;:null},{&quot;checkAcceptCode&quot;:&quot;YS2022072600051&quot;,&quot;checkAcceptId&quot;:13226,&quot;checkAcceptTime&quot;:&quot;2022-07-26&quot;,&quot;checkAcceptStatus&quot;:1,&quot;inStockCode&quot;:&quot;&quot;,&quot;inId&quot;:null,&quot;inStockTime&quot;:&quot;&quot;,&quot;inStockStatus&quot;:null},{&quot;checkAcceptCode&quot;:&quot;YS2022072600044&quot;,&quot;checkAcceptId&quot;:13219,&quot;checkAcceptTime&quot;:&quot;2022-07-26&quot;,&quot;checkAcceptStatus&quot;:5,&quot;inStockCode&quot;:&quot;CLD20220726000002&quot;,&quot;inId&quot;:10264,&quot;inStockTime&quot;:&quot;&quot;,&quot;inStockStatus&quot;:4},{&quot;checkAcceptCode&quot;:&quot;YS2022072600043&quot;,&quot;checkAcceptId&quot;:13218,&quot;checkAcceptTime&quot;:&quot;2022-07-26&quot;,&quot;checkAcceptStatus&quot;:5,&quot;inStockCode&quot;:&quot;CLD20220726000001&quot;,&quot;inId&quot;:10263,&quot;inStockTime&quot;:&quot;&quot;,&quot;inStockStatus&quot;:4},{&quot;checkAcceptCode&quot;:&quot;YS2022072700166&quot;,&quot;checkAcceptId&quot;:13422,&quot;checkAcceptTime&quot;:&quot;2022-07-26&quot;,&quot;checkAcceptStatus&quot;:5,&quot;inStockCode&quot;:&quot;&quot;,&quot;inId&quot;:null,&quot;inStockTime&quot;:&quot;&quot;,&quot;inStockStatus&quot;:null},{&quot;checkAcceptCode&quot;:&quot;YS2022072700167&quot;,&quot;checkAcceptId&quot;:13423,&quot;checkAcceptTime&quot;:&quot;2022-07-26&quot;,&quot;checkAcceptStatus&quot;:3,&quot;inStockCode&quot;:&quot;&quot;,&quot;inId&quot;:null,&quot;inStockTime&quot;:&quot;&quot;,&quot;inStockStatus&quot;:null}]}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="fillOrderData" elementType="Argument">
+            <stringProp name="Argument.name">fillOrderData</stringProp>
+            <stringProp name="Argument.value">[object Object],[object Object]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="phone" elementType="Argument">
+            <stringProp name="Argument.name">phone</stringProp>
+            <stringProp name="Argument.value">18127813600</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="signature_accept" elementType="Argument">
+            <stringProp name="Argument.name">signature_accept</stringProp>
+            <stringProp name="Argument.value">[object Object]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="fillln" elementType="Argument">
+            <stringProp name="Argument.name">fillln</stringProp>
+            <stringProp name="Argument.value">[object Object]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="acceptSignatureNeed" elementType="Argument">
+            <stringProp name="Argument.name">acceptSignatureNeed</stringProp>
+            <stringProp name="Argument.value">[object Object]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="startDate" elementType="Argument">
+            <stringProp name="Argument.name">startDate</stringProp>
+            <stringProp name="Argument.value">2022-07-27 00:00:00</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="endDate" elementType="Argument">
+            <stringProp name="Argument.name">endDate</stringProp>
+            <stringProp name="Argument.value">2022-07-27 23:59:59</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="order_Codes" elementType="Argument">
+            <stringProp name="Argument.name">order_Codes</stringProp>
+            <stringProp name="Argument.value">[&quot;CD220727000001&quot;,&quot;CD220726000002&quot;,&quot;CD220726000001&quot;,&quot;CD220725000002&quot;,&quot;CD220722000003&quot;,&quot;CD220721000001&quot;,&quot;CD220718000004&quot;,&quot;CD220718000003&quot;,&quot;CD220708000002&quot;,&quot;CD220708000001&quot;,&quot;CD220706000005&quot;,&quot;CD220706000001&quot;,&quot;CD220621000001&quot;,&quot;CD500001985091&quot;,&quot;CD220617000002&quot;,&quot;CD220617000001&quot;,&quot;CD220616000001&quot;,&quot;CD220614000004&quot;,&quot;CD220609000003&quot;,&quot;CD220609000002&quot;,&quot;CD400001982122&quot;,&quot;CD220609000001&quot;,&quot;CD700001985111&quot;,&quot;CD400001987120&quot;,&quot;CD220608000002&quot;,&quot;CD220608000001&quot;,&quot;CD220607000001&quot;,&quot;CD220601000001&quot;,&quot;CD220216000001&quot;,&quot;CD220530000003&quot;,&quot;CD220512000001&quot;,&quot;CD220507000008&quot;,&quot;CD220424000937&quot;,&quot;CD220422000005&quot;,&quot;CD220422000004&quot;,&quot;CD220422000002&quot;,&quot;CD220422000001&quot;,&quot;CD220414000002&quot;,&quot;CD220414000001&quot;,&quot;CD220412000003&quot;,&quot;CD220329000004&quot;,&quot;CD220329000003&quot;,&quot;CD220329000001&quot;,&quot;CD220328000001&quot;,&quot;CD220323000001&quot;,&quot;CD220322000004&quot;,&quot;CD220321000015&quot;,&quot;CD220321000014&quot;,&quot;CD220317000002&quot;,&quot;6100003005&quot;,&quot;6100003004&quot;,&quot;6100003003&quot;,&quot;CD220218000001&quot;,&quot;CD220217000007&quot;,&quot;CD220217000006&quot;,&quot;CD220217000002&quot;,&quot;CD220217000001&quot;,&quot;CD220216000013&quot;,&quot;CD220216000012&quot;,&quot;CD220216000011&quot;,&quot;CD220216000010&quot;,&quot;CD220216000009&quot;,&quot;CD220216000007&quot;,&quot;CD220216000006&quot;,&quot;6100003002&quot;,&quot;CD220216000005&quot;,&quot;6100003001&quot;]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="orderLists" elementType="Argument">
+            <stringProp name="Argument.name">orderLists</stringProp>
+            <stringProp name="Argument.value">CD220708000001,CD700001985111,CD220609000001,CD400001987120,CD220608000001,CD220617000002,CD220722000003,CD220617000001,CD220708000002,6100003004,CD220608000002,CD500001985091,CD220609000003,CD220706000001,CD220424000937,CD220706000005,CD220621000001</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="checkTime" elementType="Argument">
+            <stringProp name="Argument.name">checkTime</stringProp>
+            <stringProp name="Argument.value">2022-07-27 18:50:13</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="order_Code" elementType="Argument">
+            <stringProp name="Argument.name">order_Code</stringProp>
+            <stringProp name="Argument.value">[&quot;CD220727000001&quot;,&quot;CD220726000002&quot;,&quot;CD220726000001&quot;,&quot;CD220725000002&quot;,&quot;CD220722000003&quot;,&quot;CD220721000001&quot;,&quot;CD220718000004&quot;,&quot;CD220718000003&quot;,&quot;CD220708000002&quot;,&quot;CD220708000001&quot;,&quot;CD220706000005&quot;,&quot;CD220706000001&quot;,&quot;CD220621000001&quot;,&quot;CD500001985091&quot;,&quot;CD220617000002&quot;,&quot;CD220617000001&quot;,&quot;CD220616000001&quot;,&quot;CD220614000004&quot;,&quot;CD220609000003&quot;,&quot;CD220609000002&quot;,&quot;CD400001982122&quot;,&quot;CD220609000001&quot;,&quot;CD700001985111&quot;,&quot;CD400001987120&quot;,&quot;CD220608000002&quot;,&quot;CD220608000001&quot;,&quot;CD220607000001&quot;,&quot;CD220601000001&quot;,&quot;CD220216000001&quot;,&quot;CD220530000003&quot;,&quot;CD220512000001&quot;,&quot;CD220507000008&quot;,&quot;CD220424000937&quot;,&quot;CD220422000005&quot;,&quot;CD220422000004&quot;,&quot;CD220422000002&quot;,&quot;CD220422000001&quot;,&quot;CD220414000002&quot;,&quot;CD220414000001&quot;,&quot;CD220412000003&quot;,&quot;CD220329000004&quot;,&quot;CD220329000003&quot;,&quot;CD220329000001&quot;,&quot;CD220328000001&quot;,&quot;CD220323000001&quot;,&quot;CD220322000004&quot;,&quot;CD220321000015&quot;,&quot;CD220321000014&quot;,&quot;CD220317000002&quot;,&quot;6100003005&quot;,&quot;6100003004&quot;,&quot;6100003003&quot;,&quot;CD220218000001&quot;,&quot;CD220217000007&quot;,&quot;CD220217000006&quot;,&quot;CD220217000002&quot;,&quot;CD220217000001&quot;,&quot;CD220216000013&quot;,&quot;CD220216000012&quot;,&quot;CD220216000011&quot;,&quot;CD220216000010&quot;,&quot;CD220216000009&quot;,&quot;CD220216000007&quot;,&quot;CD220216000006&quot;,&quot;6100003002&quot;,&quot;CD220216000005&quot;,&quot;6100003001&quot;]</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
