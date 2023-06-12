@@ -1,0 +1,111 @@
+2023-06-12 16:05:19 | INFO | -----------分割线-----------
+2023-06-12 16:05:19 | INFO | 调用 add args: (1, 2); kwargs:{}
+2023-06-12 16:05:19 | INFO | add 返回结果：3, 耗时：0.000001s
+2023-06-12 16:05:19 | INFO | -----------分割线-----------
+2023-06-12 16:05:19 | INFO | 调用 add args: (1, '2'); kwargs:{}
+2023-06-12 16:05:19 | ERROR | add: Something went wrong
+Traceback (most recent call last):
+
+  File "D:\application\PyCharm 2023.1.1\plugins\python\helpers\pycharm\_jb_unittest_runner.py", line 38, in <module>
+    sys.exit(main(argv=args, module=None, testRunner=unittestpy.TeamcityTestRunner,
+    │   │    │         │                             │          └ <class 'teamcity.unittestpy.TeamcityTestRunner'>
+    │   │    │         │                             └ <module 'teamcity.unittestpy' from 'D:\\application\\PyCharm 2023.1.1\\plugins\\python\\helpers\\pycharm\\teamcity\\unittestp...
+    │   │    │         └ ['python -m unittest', 'D:\\apk_api\\api-test-project\\temp\\test_log.py']
+    │   │    └ <class 'unittest.main.TestProgram'>
+    │   └ <built-in function exit>
+    └ <module 'sys' (built-in)>
+
+  File "D:\Program Files\python39\lib\unittest\main.py", line 101, in __init__
+    self.runTests()
+    │    └ <function TestProgram.runTests at 0x000001E4AE463A60>
+    └ <unittest.main.TestProgram object at 0x000001E4AE18DFA0>
+
+  File "D:\Program Files\python39\lib\unittest\main.py", line 271, in runTests
+    self.result = testRunner.run(self.test)
+    │             │          │   │    └ <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<test_log.TestLogDecorator...
+    │             │          │   └ <unittest.main.TestProgram object at 0x000001E4AE18DFA0>
+    │             │          └ <function TeamcityTestRunner.run at 0x000001E4AE524940>
+    │             └ <teamcity.unittestpy.TeamcityTestRunner object at 0x000001E4AE18D580>
+    └ <unittest.main.TestProgram object at 0x000001E4AE18DFA0>
+
+  File "D:\application\PyCharm 2023.1.1\plugins\python\helpers\pycharm\teamcity\unittestpy.py", line 310, in run
+    return super(TeamcityTestRunner, self).run(test)
+                 │                   │         └ <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<test_log.TestLogDecorator...
+                 │                   └ <teamcity.unittestpy.TeamcityTestRunner object at 0x000001E4AE18D580>
+                 └ <class 'teamcity.unittestpy.TeamcityTestRunner'>
+
+  File "D:\Program Files\python39\lib\unittest\runner.py", line 176, in run
+    test(result)
+    │    └ <teamcity.unittestpy.TeamcityTestResult run=1 errors=0 failures=0>
+    └ <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<test_log.TestLogDecorator...
+
+  File "D:\Program Files\python39\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+           │    │    │       └ {}
+           │    │    └ (<teamcity.unittestpy.TeamcityTestResult run=1 errors=0 failures=0>,)
+           │    └ <function TestSuite.run at 0x000001E4AE1EEAF0>
+           └ <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<test_log.TestLogDecorator...
+
+  File "D:\Program Files\python39\lib\unittest\suite.py", line 122, in run
+    test(result)
+    │    └ <teamcity.unittestpy.TeamcityTestResult run=1 errors=0 failures=0>
+    └ <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<test_log.TestLogDecorator testMethod=test_log_decorator>]>]>
+
+  File "D:\Program Files\python39\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+           │    │    │       └ {}
+           │    │    └ (<teamcity.unittestpy.TeamcityTestResult run=1 errors=0 failures=0>,)
+           │    └ <function TestSuite.run at 0x000001E4AE1EEAF0>
+           └ <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<test_log.TestLogDecorator testMethod=test_log_decorator>]>]>
+
+  File "D:\Program Files\python39\lib\unittest\suite.py", line 122, in run
+    test(result)
+    │    └ <teamcity.unittestpy.TeamcityTestResult run=1 errors=0 failures=0>
+    └ <unittest.suite.TestSuite tests=[<test_log.TestLogDecorator testMethod=test_log_decorator>]>
+
+  File "D:\Program Files\python39\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+           │    │    │       └ {}
+           │    │    └ (<teamcity.unittestpy.TeamcityTestResult run=1 errors=0 failures=0>,)
+           │    └ <function TestSuite.run at 0x000001E4AE1EEAF0>
+           └ <unittest.suite.TestSuite tests=[<test_log.TestLogDecorator testMethod=test_log_decorator>]>
+
+  File "D:\Program Files\python39\lib\unittest\suite.py", line 122, in run
+    test(result)
+    │    └ <teamcity.unittestpy.TeamcityTestResult run=1 errors=0 failures=0>
+    └ <test_log.TestLogDecorator testMethod=test_log_decorator>
+
+  File "D:\Program Files\python39\lib\unittest\case.py", line 653, in __call__
+    return self.run(*args, **kwds)
+           │    │    │       └ {}
+           │    │    └ (<teamcity.unittestpy.TeamcityTestResult run=1 errors=0 failures=0>,)
+           │    └ <function TestCase.run at 0x000001E4AE1E8AF0>
+           └ <test_log.TestLogDecorator testMethod=test_log_decorator>
+
+  File "D:\Program Files\python39\lib\unittest\case.py", line 593, in run
+    self._callTestMethod(testMethod)
+    │    │               └ <bound method TestLogDecorator.test_log_decorator of <test_log.TestLogDecorator testMethod=test_log_decorator>>
+    │    └ <function TestCase._callTestMethod at 0x000001E4AE1E8940>
+    └ <test_log.TestLogDecorator testMethod=test_log_decorator>
+
+  File "D:\Program Files\python39\lib\unittest\case.py", line 550, in _callTestMethod
+    method()
+    └ <bound method TestLogDecorator.test_log_decorator of <test_log.TestLogDecorator testMethod=test_log_decorator>>
+
+  File "D:\apk_api\api-test-project\temp\test_log.py", line 36, in test_log_decorator
+    add(1, "2")  # 传入不同类型的参数
+    └ <function TestLogDecorator.test_log_decorator.<locals>.add at 0x000001E4AE9DD0D0>
+
+> File "D:\apk_api\api-test-project\common\tools\mylogger.py", line 94, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ (1, '2')
+             └ <function TestLogDecorator.test_log_decorator.<locals>.add at 0x000001E4AE9DD1F0>
+
+  File "D:\apk_api\api-test-project\temp\test_log.py", line 28, in add
+    return a + b
+           │   └ '2'
+           └ 1
+
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+2023-06-12 16:05:19 | INFO | -----------分割线-----------

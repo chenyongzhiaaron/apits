@@ -27,6 +27,7 @@ pytest = "*"
 pika = "*"
 paho-mqtt = "*"
 requests-html = "*"
+loguru = "*"
 
 [dev-packages]
 

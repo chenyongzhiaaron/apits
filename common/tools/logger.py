@@ -88,8 +88,10 @@ if __name__ == '__main__':
     # for i in range(2):
     #     MyLog().my_log("hhhh{}".format(i), "info")
     #     time.sleep(0.04)
-    @MyLog().decorator_log()
+    @MyLog().decorator_log("知错了嘛？")
     def add():
-        print("add")
-        raise "sda"
+        print("试一下")
+        raise "不好使，异常了。"
 
+
+    add()
