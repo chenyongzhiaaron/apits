@@ -7,7 +7,7 @@
 # EMAIL:        262667641@qq.com
 # Date:         2021/1/12 15:12
 # -------------------------------------------------------------------------------
-from common.tools.logger import MyLog
+from common.utils.logger import MyLog
 
 __all__ = ['substr', 'str_join']
 

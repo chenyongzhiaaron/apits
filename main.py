@@ -10,11 +10,11 @@ import unittest
 
 sys.path.append("./common")
 sys.path.append("./")
-sys.path.append('./data')
+sys.path.append('cases')
 
-from common.base_datas import BaseDates
+from common.config import BaseDates
 from unittestreport import TestRunner
-from common.tools.WxworkSms import WxWorkSms
+from common.utils.WxworkSms import WxWorkSms
 
 
 def main():

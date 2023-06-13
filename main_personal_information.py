@@ -3,12 +3,12 @@ import random
 
 from prettytable import PrettyTable
 from faker import Faker
-from common.random_tools.random_name import name
-from common.random_tools.random_email import email
-from common.random_tools.random_phone import phone
-from common.random_tools.random_idcard import idcard
-from common.random_tools.random_bankcard import bankcard
-from common.random_tools.random_unified_sicuak_credit_identifier import credit_identifier
+from common.random_tools.names import name
+from common.random_tools.emails import email
+from common.random_tools.phone_numbers import phone
+from common.random_tools.identification import idcard
+from common.random_tools.credit_cards import bankcard
+from common.random_tools.credit_identifiers import credit_identifier
 
 if __name__ == "__main__":
     f = Faker(locale="zh_CN")

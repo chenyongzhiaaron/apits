@@ -9,7 +9,7 @@
 # -------------------------------------------------------------------------------
 import time
 
-from common.tools.logger import MyLog
+from common.utils.logger import MyLog
 
 logger = MyLog()
 

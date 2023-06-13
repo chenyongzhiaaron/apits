@@ -28,6 +28,7 @@ pika = "*"
 paho-mqtt = "*"
 requests-html = "*"
 loguru = "*"
+tree = "*"
 
 [dev-packages]
 

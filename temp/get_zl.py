@@ -151,7 +151,7 @@ def main(folder_path, url):
 
 if __name__ == "__main__":
     import os
-    from common.files_tools.read_file import read_file
+    from common.file_handling.read_file import read_file
     #
     # js = read_file('index.json')
     # for folder, url in js.items():

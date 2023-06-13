@@ -33,8 +33,8 @@ class Dependence:
 
 
 if __name__ == '__main__':
-    from common.files_tools.get_excel_init import get_init
-    from common.base_datas import BaseDates
+    from common.file_handling.get_excel_init import get_init
+    from common.config import BaseDates
 
     test_file = BaseDates.test_api
     excel_handle, init_data, test_case = get_init(test_file)

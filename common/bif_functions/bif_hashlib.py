@@ -9,7 +9,7 @@
 # -------------------------------------------------------------------------------
 import hashlib
 
-from common.tools.logger import MyLog
+from common.utils.logger import MyLog
 
 __all__ = ['md5_encryption']
 

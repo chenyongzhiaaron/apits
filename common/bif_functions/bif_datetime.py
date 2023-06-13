@@ -8,7 +8,7 @@
 # Date:         2021/1/12 14:03
 # -------------------------------------------------------------------------------
 from datetime import datetime, timedelta
-from common.tools.logger import MyLog
+from common.utils.logger import MyLog
 
 logger = MyLog()
 

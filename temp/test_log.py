@@ -11,7 +11,7 @@
 import unittest
 
 # 导入日志记录器类
-from common.tools.mylogger import MyLogger
+from common.utils.mylogger import MyLogger
 
 
 # 定义一个测试类，继承自 unittest.TestCase

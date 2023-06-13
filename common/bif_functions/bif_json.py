@@ -8,7 +8,7 @@
 # Date:         2021/1/12 14:02
 # -------------------------------------------------------------------------------
 import json
-from common.tools.logger import MyLog
+from common.utils.logger import MyLog
 
 __all__ = ['json_dumps', 'json_loads']
 

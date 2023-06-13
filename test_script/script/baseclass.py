@@ -10,14 +10,14 @@
 import unittest
 
 from common import bif_functions
-from common.extractor.dependent_parameter import DependentParameter as DP
-from common.extractor.data_extractor import DataExtractor
-from common.encryption.encryption_main import do_encrypt
-from common.do_sql.do_mysql import DoMysql
-from common.tools.req import req
-from common.tools.logger import MyLog
-from common.comparator import loaders
-from common.comparator.validator import Validator
+from common.data_extraction.dependent_parameter import DependentParameter as DP
+from common.data_extraction.data_extractor import DataExtractor
+from common.crypto.encryption_main import do_encrypt
+from common.database.do_mysql import DoMysql
+from common.utils.http_client import req
+from common.utils.logger import MyLog
+from common.validation import loaders
+from common.validation.validator import Validator
 
 dep_par = DP()  # 参数提取类实例化
 logger = MyLog()  # 日志
