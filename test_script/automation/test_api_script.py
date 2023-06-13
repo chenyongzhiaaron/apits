@@ -13,7 +13,7 @@ from common.data_extraction.dependent_parameter import DependentParameter
 from common.data_extraction.data_extractor import DataExtractor
 from common.crypto.encryption_main import do_encrypt
 from common.database.do_mysql import DoMysql
-from common.utils.http_client import req
+from common.utils.http_client import http_client
 from common.utils.logger import MyLog
 from common.validation import loaders
 from common.dependence import Dependence as dep
@@ -113,7 +113,7 @@ class TestProjectApi(unittest.TestCase):
                 request_data_type: request_data,
                 'headers': headers
             }
-            response = req(host, url, method, **kwargs)
+            response = http_client(host, url, method, **kwargs)
             logger.my_log(f"请求地址 --> {response.request.url}", "info")
             logger.my_log(f"请求头 --> {response.request.headers}", "info")
             logger.my_log(f"请求 body --> {response.request.body}", "info")

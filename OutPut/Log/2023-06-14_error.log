@@ -1,0 +1,8 @@
+2023-06-14 00:08:46,943-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2023-06-14 00:19:39,516-ERROR-logger.py-[ line:62 ] - 日志信息:读取excel中初始化数据异常: [Errno 13] Permission denied: 'E:\\apitest\\cases\\cases\\test_api.xlsx'
+2023-06-14 00:19:48,595-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2023-06-14 00:20:44,275-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2023-06-14 00:39:08,077-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2023-06-14 00:44:35,123-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2023-06-14 00:46:45,060-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2023-06-14 00:49:39,814-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods

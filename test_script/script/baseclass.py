@@ -14,7 +14,7 @@ from common.data_extraction.dependent_parameter import DependentParameter as DP
 from common.data_extraction.data_extractor import DataExtractor
 from common.crypto.encryption_main import do_encrypt
 from common.database.do_mysql import DoMysql
-from common.utils.http_client import req
+from common.utils.http_client import http_client
 from common.utils.logger import MyLog
 from common.validation import loaders
 from common.validation.validator import Validator
@@ -115,7 +115,7 @@ class BaseClass(unittest.TestCase):
                 "headers": self.headers,
                 self.request_data_type: self.parameters
             }
-            self._response = req(self.host, self.url, self.method, **kwargs)
+            self._response = http_client(self.host, self.url, self.method, **kwargs)
             logger.my_log(f"请求 URL --> {self._response.request.url}", "info")
             logger.my_log(f"请求 HEADERS --> {self._response.request.headers}", "info")
             logger.my_log(f"请求 BODY --> {self._response.request.body}", "info")

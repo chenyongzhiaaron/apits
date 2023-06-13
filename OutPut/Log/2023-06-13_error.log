@@ -1,0 +1,2 @@
+2023-06-13 23:49:22,021-ERROR-logger.py-[ line:62 ] - 日志信息:读取excel中初始化数据异常: [Errno 2] No such file or directory: 'E:\\apitest\\data\\test_cases\\test_api.xlsx'
+2023-06-13 23:50:47,006-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods

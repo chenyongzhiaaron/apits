@@ -9,8 +9,8 @@ class BaseDates:
     # *****************************************************************
     # 测试数据所在路径
     # *****************************************************************
-    templates = os.path.join(base_path, "data", "templates", "template.xlsx")  # 模板文件
-    test_api = os.path.join(base_path, "data", "test_cases", "test_api.xlsx")
+    templates = os.path.join(base_path, "cases", "templates", "template.xlsx")  # 模板文件
+    test_api = os.path.join(base_path, "cases", "cases", "test_api.xlsx")
     # *****************************************************************
 
     # 测试用例脚本目录

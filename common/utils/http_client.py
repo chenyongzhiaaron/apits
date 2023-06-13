@@ -9,14 +9,31 @@ import urllib3
 sys.path.append("../")
 sys.path.append("./common")
 
-from common.utils.logger import MyLog
+from common.utils.mylogger import MyLogger
 
 # 初始化全局session
 session = None
 
+log = MyLogger()
 
-@MyLog().decorator_log("请求异常")
-def req(host, url, method, **kwargs):
+
+def log_decorator(func):
+    def wrapper(*args, **kwargs):
+        response = func(*args, **kwargs)
+        log.info(f"请求地址 --> {response.request.url}")
+        log.info(f"请求头 --> {response.request.headers}")
+        log.info(f"请求 body --> {response.request.body}")
+        log.info(f"接口状态--> {response.status_code}")
+        log.info(f"接口耗时--> {response.elapsed}")
+        log.info(f"接口响应--> {response.text}")
+        return response
+
+    return wrapper
+
+
+@log.log_decorator("请求异常")
+@log_decorator
+def http_client(host, url, method, **kwargs):
     """
     发送 http 请求
     @param host: 域名

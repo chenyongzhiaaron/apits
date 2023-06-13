@@ -6,15 +6,15 @@
 @desc: 日志封装
 """
 import os
+
 from functools import wraps
 from time import perf_counter
 
 from loguru import logger
+from common.utils.singleton import singleton
 
 
-# from loguru._logger import Logger
-
-
+@singleton
 class MyLogger:
     """
     根据时间、文件大小切割日志
