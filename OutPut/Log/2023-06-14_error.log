@@ -6,3 +6,11 @@
 2023-06-14 00:44:35,123-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
 2023-06-14 00:46:45,060-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
 2023-06-14 00:49:39,814-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2023-06-14 08:45:56,530-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2023-06-14 08:49:55,988-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2023-06-14 09:07:34,476-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2023-06-14 09:20:41,220-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2023-06-14 09:22:15,890-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2023-06-14 09:22:43,314-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2023-06-14 09:29:22,724-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2023-06-14 10:02:15,360-ERROR-logger.py-[ line:62 ] - 日志信息:数据库链接失败: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")

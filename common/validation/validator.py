@@ -6,14 +6,13 @@
 # EMAIL:        262667641@qq.com
 # Date:         2023/03/24 17:32
 # -------------------------------------------------------------------------------
-import json
 
+from common.utils.mylogger import MyLogger
 from common.validation.comparator_dict import comparator_dict
 from common.validation.extractor import Extractor
 from common.validation.loaders import load_built_in_comparators
-from common.utils.logger import MyLog
 
-logger = MyLog()
+logger = MyLogger()
 
 
 class Validator(object):
@@ -56,7 +55,7 @@ class Validator(object):
                     "comparator": comparator
                 })
         else:
-            logger.my_log("参数格式错误！")
+            logger.error("参数格式错误！")
 
     def validate(self, resp_obj=None):
         """
@@ -112,15 +111,14 @@ class Validator(object):
 
 if __name__ == '__main__':
     validate_variables1 = {"check": "$.result.user.name", "comparator": "eq", "expect": "chenyongzhi"}
-        # {"check": "result.user", "comparator": "eq", "expect": "chen5yongzhi"}
+    # {"check": "result.user", "comparator": "eq", "expect": "chen5yongzhi"}
 
     validate_variables2 = [
         {"check": "code", "comparator": "eq", "expect": "200"}
         # {"check": "result.user", "comparator": "eq", "expect": "chen5yongzhi"}
     ]
-    resp_obj = {"code":200,"result": {"user": {"name": "chenyongzhi"}}}
+    resp_obj = {"code": 200, "result": {"user": {"name": "chenyongzhi"}}}
     # t = Validator()
     for i in range(10):
         res = Validator().run_validate(validate_variables1, resp_obj)
         print(res)
-

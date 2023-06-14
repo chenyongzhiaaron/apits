@@ -17,22 +17,28 @@ session = None
 log = MyLogger()
 
 
-def log_decorator(func):
-    def wrapper(*args, **kwargs):
-        response = func(*args, **kwargs)
-        log.info(f"请求地址 --> {response.request.url}")
-        log.info(f"请求头 --> {response.request.headers}")
-        log.info(f"请求 body --> {response.request.body}")
-        log.info(f"接口状态--> {response.status_code}")
-        log.info(f"接口耗时--> {response.elapsed}")
-        log.info(f"接口响应--> {response.text}")
-        return response
+def log_decorator(msg="请求异常"):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            try:
+                log.info(f"发送请求的参数： {kwargs}")
+                response = func(*args, **kwargs)
+                log.info(f"请求地址 --> {response.request.url}")
+                log.info(f"请求头 --> {response.request.headers}")
+                log.info(f"请求 body --> {response.request.body}")
+                log.info(f"接口状态--> {response.status_code}")
+                log.info(f"接口耗时--> {response.elapsed}")
+                log.info(f"接口响应--> {response.text}")
+                return response
+            except Exception as e:
+                log.error(f"发送请求失败")
 
-    return wrapper
+        return wrapper
+
+    return decorator
 
 
-@log.log_decorator("请求异常")
-@log_decorator
+@log_decorator()
 def http_client(host, url, method, **kwargs):
     """
     发送 http 请求
@@ -57,4 +63,9 @@ def http_client(host, url, method, **kwargs):
 
 
 if __name__ == '__main__':
-    ...
+    url = 'https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip'
+    method = 'post'
+    kwargs = {
+        'json': '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8="}',
+        'headers': '{"Content-Type": "application/json"}'}
+    http_client("", url, method, **kwargs)

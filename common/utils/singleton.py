@@ -7,6 +7,7 @@
 @time: 2023/3/21 17:41
 @desc:
 """
+from functools import wraps
 
 
 def singleton(cls):
@@ -20,6 +21,7 @@ def singleton(cls):
     """
     instance = {}
 
+    @wraps(cls)
     def get_instance(*args, **kwargs):
         if cls not in instance:
             instance[cls] = cls(*args, **kwargs)

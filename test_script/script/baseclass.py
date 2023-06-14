@@ -154,7 +154,7 @@ class BaseClass(unittest.TestCase):
     def get_sql_res(self):
         """执行sql"""
         try:
-            execute_sql_results = self.mysql.do_mysql(self.sql)
+            execute_sql_results = self.mysql.execute_sql(self.sql)
             if execute_sql_results and self.sql_variable:
                 # 执行sql数据提取
                 DataExtractor(execute_sql_results).substitute_data(jp_dict=self.sql_variable)

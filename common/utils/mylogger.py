@@ -6,12 +6,15 @@
 @desc: 日志封装
 """
 import os
-
 from functools import wraps
 from time import perf_counter
 
 from loguru import logger
+
+from common.config import Config
 from common.utils.singleton import singleton
+
+LOG_DIR = Config.log_path
 
 
 @singleton
@@ -20,7 +23,7 @@ class MyLogger:
     根据时间、文件大小切割日志
     """
 
-    def __init__(self, log_dir='logs', max_size=20, retention='7 days'):
+    def __init__(self, log_dir=LOG_DIR, max_size=20, retention='7 days'):
         self.log_dir = log_dir
         self.max_size = max_size
         self.retention = retention
@@ -36,9 +39,9 @@ class MyLogger:
         os.makedirs(self.log_dir, exist_ok=True)
 
         shared_config = {
-            "level": "DEBUG",
+            "level": "INFO",
             "enqueue": True,
-            "backtrace": True,
+            "backtrace": False,
             "format": "{time:YYYY-MM-DD HH:mm:ss} | {level} | {message}",
         }
 
@@ -97,7 +100,7 @@ class MyLogger:
                     self.logger.info(f"{func.__name__} 返回结果：{result}, 耗时：{duration:4f}s")
                     return result
                 except Exception as e:
-                    self.logger.exception(f"{func.__name__}: {msg}")
+                    self.logger.error(f"{func.__name__}: {msg}")
                     self.logger.info(f"-----------分割线-----------")
                     # raise e
 

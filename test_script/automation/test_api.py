@@ -1,3 +1,4 @@
+import json
 import sys
 import time
 import unittest
@@ -6,7 +7,7 @@ from ddt import ddt, data
 
 sys.path.append("../../../")
 sys.path.append("../../common")
-from common.config import BaseDates
+from common.config import Config
 
 from common.file_handling.get_excel_init import get_init
 from common.data_extraction.dependent_parameter import DependentParameter
@@ -21,7 +22,7 @@ from common.validation.validator import Validator
 from common import bif_functions
 from common.utils.load_and_execute_script import load_and_execute_script
 
-test_file = BaseDates.test_api  # 获取 excel 文件路径
+test_file = Config.test_api  # 获取 excel 文件路径
 excel_handle, init_data, test_case = get_init(test_file)
 databases = init_data.get('databases')  # 获取数据库配置信息
 mysql = DoMysql(databases)  # 初始化 mysql 链接
@@ -78,7 +79,7 @@ class TestProjectApi(unittest.TestCase):
         sql = dep_par.replace_dependent_parameter(sqlps)
 
         try:
-            execute_sql_results = mysql.do_mysql(sql)
+            execute_sql_results = mysql.execute_sql(sql)
             log.info(f'sql 执行成功:{execute_sql_results}')
             if execute_sql_results and sql_variable:
                 # 执行sql数据提取
@@ -92,7 +93,7 @@ class TestProjectApi(unittest.TestCase):
 
         # 拼接动态代码段文件
         prepost_script = f"prepost_script_{sheet}_{item_id}.py"
-        item = load_and_execute_script(BaseDates.SCRIPTS_DIR, prepost_script, "setup", item)
+        item = load_and_execute_script(Config.SCRIPTS_DIR, prepost_script, "setup", item)
         print(f"前置脚本后的:{item}")
         # 替换 URL, PARAMETERS, HEADER,期望值
         item = dep_par.replace_dependent_parameter(item)
@@ -117,19 +118,18 @@ class TestProjectApi(unittest.TestCase):
         response = None
 
         try:
-            # 执行请求操作
             kwargs = {
-                request_data_type: request_data,
-                'headers': headers
+                request_data_type: json.loads(request_data) if request_data is not None else {},
+                'headers': json.loads(headers) if headers is not None else {}
             }
             response = http_client(host, url, method, **kwargs)
             result_tuple = Validator().run_validate(expected, response.json())  # 执行断言 返回结果元组
             self.assertNotIn("FAIL", result_tuple, "FAIL 存在结果元组中")
+            # 执行后置代码片段
+            load_and_execute_script(Config.SCRIPTS_DIR, prepost_script, "teardown", response)
             try:
                 # 提取响应
                 DataExtractor(response.json()).substitute_data(regex=regex, keys=keys, deps=deps, jp_dict=jp_dict)
-                # 执行后置代码片段
-                load_and_execute_script(BaseDates.SCRIPTS_DIR, prepost_script, "teardown", response)
             except Exception as err:
                 log.error(f"提取响应失败：{sheet}_{item_id}_{name}_{description}"
                           f"\nregex={regex};"

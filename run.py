@@ -12,20 +12,20 @@ sys.path.append("./common")
 sys.path.append("./")
 sys.path.append('cases')
 
-from common.config import BaseDates
+from common.config import Config
 from unittestreport import TestRunner
 from common.utils.WxworkSms import WxWorkSms
 
 
-def main():
-    test_report = BaseDates.test_report
-    print(f"当前测试报告路劲: {test_report}，测试脚本路劲: {BaseDates.script}")
-    test_case = unittest.defaultTestLoader.discover(BaseDates.script, pattern="test_*.py")
+def run():
+    test_report = Config.test_report
+    print(f"当前测试报告路劲: {test_report}，测试脚本路劲: {Config.script}")
+    test_case = unittest.defaultTestLoader.discover(Config.script, pattern="test_*.py")
     runner = TestRunner(test_case, report_dir=test_report, title="接口自动化测试报告", templates=2,
                         tester="kira", desc="自动化测试")
-    runner.main()
+    runner.run()
     WxWorkSms('8b1647d4-dc32-447c-b524-548acf18a938').send_main(test_report, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 
 
 if __name__ == '__main__':
-    main()
+    run()

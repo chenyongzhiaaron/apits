@@ -1,5 +1,6 @@
-import pymysql
 import os
+
+import pymysql
 
 """
 批量读取文件下的 sql 文件并打开文件执行文件内的每条 sql

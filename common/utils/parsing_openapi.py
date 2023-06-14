@@ -14,6 +14,7 @@ def parsing_openapi(file_path):
                 "name": "openapi",
                 "description": details.get("summary"),
                 "Run": "yes",
+                "Time": "0.1",
                 'method': method,
                 'url': path,
                 'headers': json.dumps(extract_parameters(details.get('parameters', []), 'header')),

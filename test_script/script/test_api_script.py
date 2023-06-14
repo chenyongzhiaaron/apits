@@ -4,7 +4,7 @@ import unittest
 
 from ddt import ddt, data
 
-from common.config import BaseDates
+from common.config import Config
 
 sys.path.append("../../")
 sys.path.append("../../common")
@@ -20,7 +20,7 @@ from common.dependence import Dependence as dep
 from common.validation.validator import Validator
 from common import bif_functions
 
-test_file = BaseDates.test_api  # 获取 excel 文件路径
+test_file = Config.test_api  # 获取 excel 文件路径
 excel_handle, init_data, test_case = get_init(test_file)
 databases = init_data.get('databases')  # 获取数据库配置信息
 mysql = DoMysql(databases)  # 初始化 mysql 链接
@@ -78,7 +78,7 @@ class TestProjectApi(unittest.TestCase):
         # 首先执行sql替换,将sql替换为正确的sql语句
         sql = dep_par.replace_dependent_parameter(sqlps)
         try:
-            execute_sql_results = mysql.do_mysql(sql)
+            execute_sql_results = mysql.execute_sql(sql)
             logger.my_log(f'sql 执行成功:{execute_sql_results}', "info")
             if execute_sql_results and sql_variable:
                 # 执行sql数据提取

@@ -3,7 +3,7 @@ import re
 import requests
 import urllib3
 
-from common.utils.hooks import hooks
+from common.utils.hooks import Hooks
 
 
 def req(host, url, method, **kwargs):
@@ -26,13 +26,13 @@ def req(host, url, method, **kwargs):
 
     # 执行 before_request 钩子函数
     request = requests.Request(method, url, **kwargs)
-    request = hooks.run_before_request_funcs(request)
+    request = Hooks.run_before_request_funcs(request)
 
     # 发送请求
     prepared_request = session.prepare_request(request)
     response = session.send(prepared_request)
 
     # 执行 after_request 钩子函数
-    response = hooks.run_after_request_funcs(response)
+    response = Hooks.run_after_request_funcs(response)
 
     return response

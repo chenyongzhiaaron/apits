@@ -1,7 +1,7 @@
 import os
 
 
-class BaseDates:
+class Config:
     # 根目录路径
     # *****************************************************************
     base_path = os.path.dirname(os.path.dirname(__file__))
@@ -15,7 +15,7 @@ class BaseDates:
 
     # 测试用例脚本目录
     # *****************************************************************
-    script = os.path.join(base_path, "test_script", 'test_script')
+    script = os.path.join(base_path, "test_script", 'automation')
     # *****************************************************************
 
     # 测试报告及 log 所在路径
@@ -26,7 +26,7 @@ class BaseDates:
 
 
 if __name__ == '__main__':
-    test = BaseDates()
+    test = Config()
     print(test.base_path)
     print(test.test_api)
     print(test.test_report)

@@ -2,21 +2,23 @@
 # @Time : 2019/11/13 14:51
 # @Author : kira
 # @Email : 262667641@qq.com
-# @File : do_mysql.py
+# @File : execute_sql.py
 # @Project : risk_project
 import json
 import sys
+
 import pymysql.cursors
 
 sys.path.append("../")
 sys.path.append("../../common")
 
-from common.utils.logger import MyLog
+from common.utils.mylogger import MyLogger
 from common.utils.singleton import singleton
 
 
 @singleton
 class DoMysql:
+    log = MyLogger()
 
     def __init__(self, db_base):
         """
@@ -36,13 +38,20 @@ class DoMysql:
         if not db_base:
             return
         try:
-            db_base = db_base if isinstance(db_base, dict) else json.loads(db_base)
-            self.conn = pymysql.connect(**db_base, connect_timeout=15)  # 传入字典，连接数据库
+            self.db_base = db_base if isinstance(db_base, dict) else json.loads(db_base)
+            self.conn = pymysql.connect(**self.db_base, connect_timeout=15)  # 传入字典，连接数据库
             self.cur = self.conn.cursor(pymysql.cursors.DictCursor)  # 操作结果为字典的游标
         except Exception as e:
-            MyLog().my_log(f"数据库链接失败: {e}")
+            self.log.error(f"数据库链接失败: {e}")
 
-    def do_mysql(self, sql):
+    def close_connection(self):
+        try:
+            self.cur.close()
+            self.conn.close()
+        except Exception as e:
+            self.log.error(f"关闭数据库链接失败：{e}")
+
+    def execute_sql(self, sql):
         """
         执行 mysql 数据库操作
                     sql: sql字典嵌套字典嵌套列表集合{
@@ -60,7 +69,7 @@ class DoMysql:
         result = {}
         for method in sql.keys():
             if method not in ("delete", "update", "insert", "select",):
-                MyLog().my_log("sql字典集编写格式不符合规范")
+                self.log.error("sql字典集编写格式不符合规范")
                 raise
             if method in ["delete", "update", "insert"]:
                 for sql_list in sql.values():
@@ -69,7 +78,7 @@ class DoMysql:
                         try:
                             self.cur.execute(str(sql_))
                         except Exception as err:
-                            MyLog().my_log("执行 sql 异常: {}".format(sql_))
+                            self.log.error("执行 sql 异常: {}".format(sql_))
                             self.conn.rollback()  # 异常回滚
                             raise err
                     self.conn.commit()  # 提交事务
@@ -81,7 +90,7 @@ class DoMysql:
                             self.cur.execute(sql_)  # 执行查询 sql_file
                             sql_result[f"{sql_name}"] = self.cur.fetchall()  # 返回所有查询结果
                         except Exception as err:
-                            print(f"--->查询异常 sql: {sql_}")
+                            self.log.error(f"--->查询异常 sql: {sql_}")
                             raise err
                     result.update(sql_result)
 
@@ -89,16 +98,9 @@ class DoMysql:
             self.cur.close()  # 关闭游标
             self.conn.close()  # 关闭链接
         except Exception as e:
-            MyLog().my_log(f"关闭数据库失败")
+            self.log.error(f"关闭数据库失败")
         finally:
             return result
-
-    # def __del__(self):
-    #     try:
-    #         self.cur.close()  # 关闭游标
-    #         self.conn.close()  # 关闭链接
-    #     except Exception as e:
-    #         MyLog().my_log(f"关闭数据库失败")
 
 
 if __name__ == '__main__':
@@ -117,7 +119,7 @@ if __name__ == '__main__':
         "user": "root",
         "password": "gd1234"
     }
-    res = DoMysql(database_2).do_mysql(sql_2)
+    res = DoMysql(database_2).execute_sql(sql_2)
     print(res)
     from common.data_extraction.data_extractor import DataExtractor
     from common.dependence import Dependence
