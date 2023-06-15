@@ -44,7 +44,7 @@ def load_and_execute_script(script_directory, script_name, method_name, request)
 
 
 if __name__ == '__main__':
-    from common.config import BaseDates
+    from common.config import Config
 
-    SCRIPTS_DIR = BaseDates.SCRIPTS_DIR
+    SCRIPTS_DIR = Config.SCRIPTS_DIR
     load_and_execute_script(SCRIPTS_DIR, 'request_script_sheetname_id.py', 'setup', {"y": "z"})

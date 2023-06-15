@@ -19,8 +19,8 @@ def read_file(file_path):
 
 
 if __name__ == '__main__':
-    from common.config import BaseDates
+    from common.config import Config
 
-    test_case_path = os.path.join(BaseDates.base_path, "data", "bgy", "json_file", "user", "labor_register.json")
+    test_case_path = os.path.join(Config.base_path, "data", "bgy", "json_file", "user", "labor_register.json")
     test_case = read_file(test_case_path)
     print(test_case)

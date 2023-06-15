@@ -31,7 +31,7 @@ def get_init(test_file):
 
 
 if __name__ == '__main__':
-    from common.config import BaseDates
+    from common.config import Config
 
-    init = get_init(BaseDates.test_api)
+    init = get_init(Config.test_api)
     print(init)

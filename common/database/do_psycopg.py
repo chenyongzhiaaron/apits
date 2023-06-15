@@ -11,7 +11,7 @@
 # class DoPostgreSQL:
 #
 #     def __init__(self):
-#         postgre_config = BaseDates.postgreSql
+#         postgre_config = Config.postgreSql
 #         self.connection = psycopg2.connect(**postgre_config)
 #
 #     def do_postgre_sql(self, sql_file):

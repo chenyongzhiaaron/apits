@@ -1,6 +1,5 @@
 import json
 
-from common.config import BaseDates
 from common.file_handling.read_file import read_file
 
 id_count = 0
@@ -35,6 +34,7 @@ def parsing_postman(path):
                 api['description'] = content.get('name')
                 request = content.get('request')
                 api['Run'] = 'yes'
+                api['Time'] = 0.5
                 if request:
                     # api请求方法
                     api['Method'] = request.get('method', 'GET').upper()
@@ -110,10 +110,10 @@ def parsing_postman(path):
 
 
 if __name__ == '__main__':
-    pat = r'D:\apk_api\api-test-project\temp\postman.json'
+    pat = r'E:\apitest\cases\temporary_file\postman.json'
     res = parsing_postman(pat)
-    # from temp.tests import DoExcel
-    #
-    # templates = BaseDates.templates  # 使用标准模板
-    # ex = DoExcel(templates)
-    # ex.do_main("postman.xlsx", *res)
+    from common.file_handling.excel import DoExcel
+    from common.config import Config
+    templates = Config.templates  # 使用标准模板
+    ex = DoExcel(templates)
+    ex.do_main("postman.xlsx", *res)

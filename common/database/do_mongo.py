@@ -6,7 +6,7 @@ import jsonpath
 import pymongo
 
 from dateutil import parser
-from common.config import BaseDates
+from common.config import Config
 from common.file_handling.do_excel import DoExcel
 
 sys.path.append("../")
@@ -50,7 +50,7 @@ class MongoDB(object):
         return result
 
     def insert_data(self):
-        base_path = os.path.join(BaseDates.base_path, "data")
+        base_path = os.path.join(Config.base_path, "data")
         names = os.listdir(base_path)
         for name in names:
             if re.match(r"(.+?).json", name):
@@ -79,7 +79,7 @@ class MongoDB(object):
 
 
 if __name__ == "__main__":
-    db_file = BaseDates.test_data_address
+    db_file = Config.test_data_address
     excel_handle = DoExcel(db_file)
     excel_init = excel_handle.get_excel_init()
     mongo_base = excel_init["test_databases"]

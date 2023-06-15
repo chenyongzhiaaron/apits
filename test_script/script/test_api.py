@@ -8,10 +8,10 @@ sys.path.append("../../common")
 from common.file_handling.get_excel_init import get_init
 from common.utils.logger import MyLog
 from common.dependence import Dependence
-from common.config import BaseDates
+from common.config import Config
 from test_script.script.baseclass import BaseClass
 
-test_file = BaseDates.test_api  # 获取 excel 文件路径
+test_file = Config.test_api  # 获取 excel 文件路径
 excel_handle, init_data, test_case = get_init(test_file)
 logger = MyLog()
 host = init_data.pop("host")

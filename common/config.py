@@ -1,7 +1,7 @@
 import os
 
 
-class BaseDates:
+class Config:
     # 根目录路径
     # *****************************************************************
     base_path = os.path.dirname(os.path.dirname(__file__))
@@ -26,7 +26,7 @@ class BaseDates:
 
 
 if __name__ == '__main__':
-    test = BaseDates()
+    test = Config()
     print(test.base_path)
     print(test.test_api)
     print(test.test_report)

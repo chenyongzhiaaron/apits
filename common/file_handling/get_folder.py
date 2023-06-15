@@ -19,7 +19,7 @@ def get_folder(dir_path):
 
 
 if __name__ == '__main__':
-    from common.config import BaseDates
+    from common.config import Config
 
-    d_path = os.path.join(BaseDates.base_path)
+    d_path = os.path.join(Config.base_path)
     print(get_folder(d_path))

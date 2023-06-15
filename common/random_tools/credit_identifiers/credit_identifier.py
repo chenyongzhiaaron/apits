@@ -9,7 +9,7 @@ import sys
 sys.path.append('../../../')
 sys.path.append('../..')
 
-from common.config import BaseDates
+from common.config import Config
 
 
 class Social(object):

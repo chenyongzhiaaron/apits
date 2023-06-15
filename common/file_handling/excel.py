@@ -176,9 +176,9 @@ if __name__ == '__main__':
     data = [{"url": "1234", "header": "2134", "method": "get", "body": "hhh", "ok": 12345},
             {"url": "1234", "header": "2134"},
             {"url": "1234", "header": "2134", "method": "{}sss", "body": json.dumps({})}]
-    from common.config import BaseDates
+    from common.config import Config
 
-    template_file = BaseDates.templates
+    template_file = Config.templates
     excel = DoExcel(path=template_file)
     out_file = '另存为的文件.xlsx'
     excel.do_main(out_file, *data)

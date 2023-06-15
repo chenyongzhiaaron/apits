@@ -10,7 +10,7 @@ import logging
 import time
 from logging import handlers
 
-from common.config import BaseDates
+from common.config import Config
 
 
 class MyLog:
@@ -33,7 +33,7 @@ class MyLog:
         每星期（interval == 0 时代表星期一
         midnight 每天凌晨
         """
-        file_name = BaseDates.log_path
+        file_name = Config.log_path
 
         my_logger = logging.getLogger()  # 定义日志收集器 my_logger
         my_logger.setLevel(self.level_relations.get(level))  # 设置日志级别

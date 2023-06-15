@@ -9,7 +9,7 @@ from collections.abc import Iterator
 
 sys.path.append("../")
 sys.path.append("./common")
-from common.config import BaseDates
+from common.config import Config
 from openpyxl import load_workbook
 from common.utils.singleton import singleton
 
@@ -128,7 +128,7 @@ class DoExcel:
 
 
 if __name__ == '__main__':
-    file_n = BaseDates.test_api
+    file_n = Config.test_api
     print(file_n)
     test_init = DoExcel(file_n).get_excel_init()
     print(test_init)
