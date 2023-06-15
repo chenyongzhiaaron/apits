@@ -775,3 +775,9 @@
 2023-06-16 02:14:44 | INFO | | called get_init | args: ('E:\\apitest\\cases\\cases\\test_api.xlsx',) kwargs:{}
 2023-06-16 02:14:44 | ERROR | | called get_init | error: 读取excel中初始化数据异常: "There is no item named 'xl/sharedStrings.xml' in the archive"
 2023-06-16 02:14:44 | INFO | -----------分割线-----------
+2023-06-16 02:24:12 | INFO | -----------分割线-----------
+2023-06-16 02:24:12 | INFO | | called load_and_execute_script | args: ('E:\\apitest\\scripts', 'request_script_sheetname_id.py', 'setup', {'y': 'z'}) kwargs:{}
+2023-06-16 02:24:12 | INFO | -----------分割线-----------
+2023-06-16 02:24:12 | INFO | | called load_script | args: ('E:\\apitest\\scripts\\request_script_sheetname_id.py',) kwargs:{}
+2023-06-16 02:24:12 | INFO | | end called load_script | return：<module 'request_script_sheetname_id.py' from 'E:\\apitest\\scripts\\request_script_sheetname_id.py'>, duration：0.000835s
+2023-06-16 02:24:12 | INFO | | end called load_and_execute_script | return：{'y': 'z'}, duration：0.003896s
