@@ -1,11 +1,13 @@
 import json
 
 from common.file_handling.file_utils import FileUtils
+from common.utils import logger
 
 id_count = 0
 result = []
 
 
+@logger.log_decorator()
 def parsing_postman(path):
     """
     解析postman到处的json文件
@@ -34,6 +36,7 @@ def parsing_postman(path):
                 api['description'] = content.get('name')
                 request = content.get('request')
                 api['Run'] = 'yes'
+                api['Time'] = 0.05
                 if request:
                     # api请求方法
                     api['Method'] = request.get('method', 'GET').upper()
@@ -109,7 +112,7 @@ def parsing_postman(path):
 
 
 if __name__ == '__main__':
-    pat = r'D:\apk_api\api-test-project\temp\postman.json'
+    pat = r'D:\apk_api\api-test-project\cases\temporary_file\postman.json'
     res = parsing_postman(pat)
     # from temp.tests import DoExcel
     #

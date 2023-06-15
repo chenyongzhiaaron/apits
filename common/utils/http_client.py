@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import json
 import re
 import sys
 
@@ -9,29 +9,28 @@ import urllib3
 sys.path.append("../")
 sys.path.append("./common")
 
-from common.utils.mylogger import MyLogger
+from common.utils import logger
 
 # 初始化全局session
 session = None
-
-log = MyLogger()
 
 
 def log_decorator(msg="请求异常"):
     def decorator(func):
         def wrapper(*args, **kwargs):
             try:
-                log.info(f"发送请求的参数： {kwargs}")
+                logger.info(f"发送请求的参数： {kwargs}")
                 response = func(*args, **kwargs)
-                log.info(f"请求地址 --> {response.request.url}")
-                log.info(f"请求头 --> {response.request.headers}")
-                log.info(f"请求 body --> {response.request.body}")
-                log.info(f"接口状态--> {response.status_code}")
-                log.info(f"接口耗时--> {response.elapsed}")
-                log.info(f"接口响应--> {response.text}")
+                logger.info(f"请求地址 --> {response.request.url}")
+                logger.info(f"请求头 --> {response.request.headers}")
+                logger.info(f"请求 body --> {response.request.body}")
+                logger.info(f"接口状态--> {response.status_code}")
+                logger.info(f"接口耗时--> {response.elapsed}")
+                logger.info(f"接口响应--> {response.text}")
                 return response
             except Exception as e:
-                log.error(f"发送请求失败")
+                logger.error(f"发送请求失败: {e}")
+                return
 
         return wrapper
 
@@ -59,13 +58,24 @@ def http_client(host, url, method, **kwargs):
         raise ValueError("URL 不能为 None")
     url = f'{host}{url}' if not re.match(r"https?", url) else url
     func = getattr(session, method.lower())
+
+    # 增加兼容
+    # 处理 headers 参数为字符串类型的情况
+    if 'headers' in kwargs and isinstance(kwargs['headers'], str):
+        kwargs['headers'] = json.loads(kwargs['headers'])
+
+    # 处理 json 参数为字符串类型的情况
+    if 'json' in kwargs and isinstance(kwargs['json'], str):
+        kwargs['json'] = json.loads(kwargs['json'])
+
     return func(url, verify=True, timeout=30, **kwargs)
 
 
 if __name__ == '__main__':
-    url = 'https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip'
+    hst = 'https://ibs-test.bzlrobot.com'
+    url = '/api/ibs-auth/ibs_platform/login?t=168672334'
     method = 'post'
     kwargs = {
-        'json': '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8="}',
+        'json': '{"account": "luoshunwen005", "grantType": "password", "isBip": "false","password": "o+t2SnEEylblxlfIspJUvGFa0gCDNrU2dC34LjVFqIiTmxa855YDBE/6J7eRVBGaQwR7mozSKComk9n6kjSNRjSX1m574dRZdESIeYsmM/xk2Nt5n5dqB268qCMivJMXpHQMygpT4RpDiYoOiEqlOi9eG5G7v/5rixHiZ9xv98m34xVD1VdlaCbphoB9JI7T9HmVFJniSWt01ruC5t+aFUvfxLjOpRmYmfz8GwtSd5XXKaKr29ce1C39Fg+PtqOkQ3cOLVS9hXgzz6s2zud0++T4vwgVtrHx86aMrrozhCdKzrQuWPEO1cSsaEaNVdSUsT54je+4O+xKzxkJhoGMnQ=="}',
         'headers': '{"Content-Type": "application/json"}'}
-    http_client("", url, method, **kwargs)
+    http_client(hst, url, method, **kwargs)

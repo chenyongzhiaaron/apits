@@ -2,6 +2,7 @@
 import datetime
 import math
 import random
+
 from faker import Faker
 
 __all__ = [

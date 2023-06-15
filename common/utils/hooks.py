@@ -1,6 +1,3 @@
-from common.data_extraction.dependent_parameter import DependentParameter
-
-
 class Hooks:
     def __init__(self):
         self.before_request_funcs = []  # 存放 before_request 钩子函数的列表
@@ -35,4 +32,3 @@ class Hooks:
         for func in self.after_request_funcs:
             response = func(response)
         return response
-

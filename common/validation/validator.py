@@ -7,12 +7,10 @@
 # Date:         2023/03/24 17:32
 # -------------------------------------------------------------------------------
 
-from common.utils.mylogger import MyLogger
+from common.validation import logger
 from common.validation.comparator_dict import comparator_dict
 from common.validation.extractor import Extractor
 from common.validation.loaders import load_built_in_comparators
-
-logger = MyLogger()
 
 
 class Validator(object):
@@ -25,6 +23,7 @@ class Validator(object):
 
     def __init__(self):
         self.validate_variables_list = []
+        self.built_in_comparators = load_built_in_comparators()
 
     def uniform_validate(self, validate_variables):
         """
@@ -68,7 +67,6 @@ class Validator(object):
         """
 
         validate_pass = "PASS"
-        built_in_comparators = load_built_in_comparators()
 
         # 记录校验失败的原因
         failure_reason = []
@@ -79,7 +77,7 @@ class Validator(object):
             actual_value = Extractor.extract_value_by_jsonpath(resp_obj=resp_obj, expr=check_item)
             try:
                 # 获取比较器
-                fun = built_in_comparators[comparator]
+                fun = self.built_in_comparators[comparator]
                 fun(actual_value=actual_value, expect_value=expect_value)
             except (AssertionError, TypeError):
                 validate_pass = "FAIL"
@@ -103,6 +101,8 @@ class Validator(object):
         """
         if not validate_variables:
             return ""
+        # 清空校验变量
+        self.validate_variables_list.clear()
         self.uniform_validate(validate_variables)
         if not self.validate_variables_list:
             raise "uniform_validate 执行失败，无法进行 validate 校验"
@@ -111,14 +111,14 @@ class Validator(object):
 
 if __name__ == '__main__':
     validate_variables1 = {"check": "$.result.user.name", "comparator": "eq", "expect": "chenyongzhi"}
-    # {"check": "result.user", "comparator": "eq", "expect": "chen5yongzhi"}
-
     validate_variables2 = [
-        {"check": "code", "comparator": "eq", "expect": "200"}
-        # {"check": "result.user", "comparator": "eq", "expect": "chen5yongzhi"}
+        {"check": "code", "comparator": "eq", "expect": "200"},
+        {"check": "result.user", "comparator": "eq", "expect": "chen5yongzhi"}
     ]
     resp_obj = {"code": 200, "result": {"user": {"name": "chenyongzhi"}}}
-    # t = Validator()
-    for i in range(10):
-        res = Validator().run_validate(validate_variables1, resp_obj)
-        print(res)
+    validator = Validator()
+    validator.run_validate(validate_variables2, resp_obj)
+    logger.info("---")
+    validator.run_validate(validate_variables2, resp_obj)
+    logger.info("---")
+    validator.run_validate(validate_variables2, resp_obj)

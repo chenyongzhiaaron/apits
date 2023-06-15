@@ -8,7 +8,7 @@ def generate_directory_tree(directory, tree, parent=None, indent=''):
     items.sort()  # 对目录列表按照字符排序
 
     # 排除的文件后缀名、文件夹名称和隐藏文件
-    exclude_extensions = ('.png', '.gif', '.jmx', '.log', 'pyc')
+    exclude_extensions = ('.png', '.gif', '.jmx', '.logger', 'pyc')
     exclude_folders = ('__pycache__')
 
     for i, item in enumerate(items):

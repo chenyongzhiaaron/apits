@@ -7,8 +7,10 @@
 @time: 2023/4/23 18:54
 @desc:
 """
-import paho.mqtt.client as mqtt
 import json
+import sys
+
+import paho.mqtt.client as mqtt
 
 
 class MQTTSender:
@@ -85,5 +87,7 @@ msg = {
     "time": "2023-04-23T19:48:33.128Z",
     "type": "SYNC"
 }
-rab = MQTTSender(broker_address='192.2.3.59', topic='weigh/492875336/rtdata')
-rab.send_message(msg)
+if __name__ == '__main__':
+    p = sys.argv[0]
+    rab = MQTTSender(broker_address='192.2.3.59', topic='weigh/492875336/rtdata')
+    rab.send_message(msg)

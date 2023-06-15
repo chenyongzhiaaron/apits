@@ -18,7 +18,7 @@ class Config:
     script = os.path.join(base_path, "test_script", 'automation')
     # *****************************************************************
 
-    # 测试报告及 log 所在路径
+    # 测试报告及 logger 所在路径
     # *****************************************************************
     test_report = os.path.join(base_path, "OutPut", "Reports")
     log_path = os.path.join(base_path, "OutPut", "Log")

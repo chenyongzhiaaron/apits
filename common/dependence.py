@@ -1,11 +1,16 @@
 # -*- coding:utf-8 -*-
 import re
 import sys
-
 from dataclasses import dataclass
 
 sys.path.append("./")
 sys.path.append("./common")
+from common import logger
+
+
+# from common.utils.mylogger import MyLogger
+
+# logger = MyLogger()
 
 
 @dataclass

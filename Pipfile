@@ -29,6 +29,7 @@ paho-mqtt = "*"
 requests-html = "*"
 loguru = "*"
 tree = "*"
+dbutils = "*"
 
 [dev-packages]
 

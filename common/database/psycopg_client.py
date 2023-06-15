@@ -8,7 +8,7 @@
 # import psycopg2.extras
 
 
-# class DoPostgreSQL:
+# class PsycopgClient:
 #
 #     def __init__(self):
 #         postgre_config = BaseDates.postgreSql

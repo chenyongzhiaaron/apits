@@ -10,13 +10,14 @@
 import random
 import string
 
-from common.utils.logger import MyLog
+from common.utils.mylogger import MyLogger
 
-logger = MyLog()
+logger = MyLogger()
 
 __all__ = ['random_choice', 'gen_random_num', 'gen_random_str']
 
 
+@logger.log_decorator()
 def random_choice(args):
     """
     随机选择
@@ -26,10 +27,10 @@ def random_choice(args):
     Returns:
 
     """
-    logger.my_log(f'执行方法：random_choice({args})', "info")
     return random.choice(args)
 
 
+@logger.log_decorator()
 def gen_random_num(length):
     """
     随机生成指定长度的数字
@@ -39,10 +40,10 @@ def gen_random_num(length):
     Returns:
 
     """
-    logger.my_log(f'执行方法：gen_random_num({length})', "info")
     return random.randint(int('1' + '0' * (length - 1)), int('9' * length))
 
 
+@logger.log_decorator()
 def gen_random_str(length):
     """
     生成指定长度的随机字符串
@@ -52,5 +53,4 @@ def gen_random_str(length):
     Returns:
 
     """
-    logger.my_log(f'执行方法：gen_random_str({length})', "info")
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(length))

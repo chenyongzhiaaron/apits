@@ -5,16 +5,15 @@ Author: 陈勇志
 Email:262667641@qq.com
 Project:api_project
 """
-import sys
 import json
 import re
+import sys
 
 sys.path.append("../")
 sys.path.append("./common")
-from common.utils.singleton import singleton
 from jsonpath_ng import parse
 from common.dependence import Dependence
-from common.utils.logger import MyLog
+from common.utils.mylogger import MyLogger
 
 REPLACE_DICT = {
     "null": None,
@@ -24,7 +23,7 @@ REPLACE_DICT = {
 
 d = Dependence()
 
-logger = MyLog()
+logger = MyLogger()
 
 
 class DataExtractor:
@@ -51,15 +50,14 @@ class DataExtractor:
             logger.my_log(f"被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: {self.response}", "info")
             return {}
         if regex and keys:
-            # logger.my_log(f"开始执行正则提取：regex-->{regex};keys-->{keys}", "info")
-            # self.response = json.dumps(self.response) if isinstance(self.response, (dict, list)) else self.response
+            # logger.debug(f"开始执行正则提取：regex-->{regex};keys-->{keys}")
             self.substitute_regex(regex, keys)
         self.response = self.response if isinstance(self.response, (dict, list)) else json.loads(self.response)
         if deps:
-            # logger.my_log(f"开始执行路径表达式提取：deps-->{deps}", "info")
+            # logger.debug(f"开始执行路径表达式提取：deps-->{deps}")
             self.substitute_route(deps)
         if jp_dict:
-            # logger.my_log(f"开始执行jsonpath提取：jp_dict-->{jp_dict}", "info")
+            # logger.debug(f"开始执行jsonpath提取：jp_dict-->{jp_dict}")
             self.substitute_jsonpath(jp_dict)
 
     def substitute_regex(self, regex, keys):
@@ -131,7 +129,7 @@ class DataExtractor:
                 result = [m.value for m in match]
                 d.update_dep(key, result[0]) if len(result) == 1 else d.update_dep(key, result)
             except Exception as e:
-                MyLog().my_log(f"jsonpath表达式错误'{expression}': {e}")
+                logger.error(f"jsonpath表达式错误'{expression}': {e}")
 
 
 if __name__ == '__main__':

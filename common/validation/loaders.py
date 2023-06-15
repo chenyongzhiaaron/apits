@@ -11,8 +11,10 @@ import types
 
 from common.dependence import Dependence
 from common.validation import comparators
+from common.validation import logger
 
 
+@logger.log_decorator()
 def load_built_in_functions(model):
     """
     加载bif_functions包中的内建方法
@@ -25,6 +27,7 @@ def load_built_in_functions(model):
     return built_in_functions
 
 
+@logger.log_decorator()
 def load_built_in_comparators() -> object:
     """
     加载包中的内建比较器
@@ -49,7 +52,7 @@ def load_built_in_comparators() -> object:
 #         if isinstance(item, types.FunctionType):
 #             Dependence.update_dep(f"{name}()", item)
 
-
+@logger.log_decorator()
 def set_bif_fun(model):
     """
     将所有内置方法加载到依赖表中
@@ -62,6 +65,7 @@ def set_bif_fun(model):
 
 if __name__ == '__main__':
     from common.bif_functions import random_tools
-    print(load_built_in_comparators())
+
+    load_built_in_comparators()
     set_bif_fun(random_tools)
     print(Dependence.get_dep())

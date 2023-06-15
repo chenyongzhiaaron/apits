@@ -23,7 +23,6 @@ class AssertDict(object):
             expect_result:
             expect_result:
         """
-        # if expect_result.items() <= response_result.items():
         assert expect_result.items() <= response_result.items()
 
     @staticmethod
@@ -114,6 +113,4 @@ if __name__ == '__main__':
         }
     }
     print(AssertDict().assert_value(second, first))
-    # print(len(second))
-    # pass
-    print(AssertDict().assert_value(expect,response))
+    print(AssertDict().assert_value(expect, response))

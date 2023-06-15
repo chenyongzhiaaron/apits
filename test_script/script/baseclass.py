@@ -13,7 +13,7 @@ from common import bif_functions
 from common.data_extraction.dependent_parameter import DependentParameter as DP
 from common.data_extraction.data_extractor import DataExtractor
 from common.crypto.encryption_main import do_encrypt
-from common.database.do_mysql import DoMysql
+from common.database.mysql_client import MysqlClient
 from common.utils.http_client import http_client
 from common.utils.logger import MyLog
 from common.validation import loaders
@@ -29,7 +29,7 @@ class BaseClass(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         self.host = kwargs.pop("host", "") + kwargs.pop("path", "")
         self.databases = kwargs.pop("databases")
-        self.mysql = DoMysql(self.databases)
+        self.mysql = MysqlClient(self.databases)
         super().__init__(*args, **kwargs)
 
     @classmethod

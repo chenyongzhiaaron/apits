@@ -1,95 +1,102 @@
-#!/usr/bin/env python
-# encoding: utf-8
-"""
-@author: kira
-@contact: 262667641@qq.com
-@file: parsing_jmeter.py
-@time: 2023/5/18 8:51
-@desc:
-"""
-import xml.etree.ElementTree as ET
+import json
 
-import xml.etree.ElementTree as ET
+from common.file_handling.file_utils import FileUtils
+from common.utils import logger
 
 
-def parse_jmeter_test_case(file_path):
-    test_cases = []
+@logger.log_decorator()
+def parsing_postman(path):
+    """
+    解析Postman导出的JSON文件
+    Args:
+        path: Postman导出的JSON文件路径
 
-    # 解析 XML 文件
-    tree = ET.parse(file_path)
-    root = tree.getroot()
+    Returns:
+        解析后的结果，以列表嵌套字典的形式表示
+    """
+    data = FileUtils.read_file(path)
+    result = []
+    id_count = 0
 
-    # 提取线程组名称
-    thread_group_element = root.find("./hashTree/TestPlan")
-    thread_group_name = thread_group_element.get("testname")
+    def _parse_api(content):
+        # nonlocal result
+        nonlocal id_count
+        api = {}
 
-    # 遍历所有的 HTTPSamplerProxy 元素
-    for index, sampler in enumerate(root.iter('HTTPSamplerProxy')):
-        test_case = {}
-        test_case['id'] = index + 1
-        test_case['name'] = thread_group_name
+        if isinstance(content, list):
+            for item in content:
+                _parse_api(content=item)
+        elif isinstance(content, dict):
+            if 'item' in content.keys():
+                _parse_api(content=content.get('item'))
+            elif 'request' in content.keys():
+                id_count += 1
+                api['id'] = id_count
+                api['name'] = 'postman'
+                api['description'] = content.get('name')
+                request = content.get('request')
+                api['Run'] = 'yes'
+                api['Time'] = 0.05
+                if request:
+                    api['Method'] = request.get('method', 'GET').upper()
+                    header = request.get('header')
+                    header = {item.get('key'): item.get('value') for item in header} if header else {}
+                    auth = request.get('auth')
+                    if auth:
+                        auth_type = auth.get('type')
+                        if auth.get(auth_type):
+                            auth_value = {item.get('key'): item.get('value') for item in auth.get(auth_type) if
+                                          (item and item.get('key'))}
+                            header.update(auth_value)
+                    api['Url'] = request.get('url', {}).get('raw', '')
+                    api['Headers'] = json.dumps(header, ensure_ascii=False)
+                    api['Headers是否加密'] = ''
+                    api['params'] = ''
+                    body = request.get('body')
+                    if body:
+                        request_mode = body.get('mode')
+                        if 'raw' == request_mode:
+                            api['request_data_type'] = 'json'
+                        elif 'formdata' == request_mode:
+                            api['request_data_type'] = 'data'
+                        elif 'urlencoded' == request_mode:
+                            api['request_data_type'] = 'data'
 
-        # 提取测试用例描述
-        sample_name = sampler.attrib.get('testname')
-        test_case['description'] = sample_name
+                        request_data = body.get(request_mode)
+                        api['Request Data'] = {}
+                        if request_data and 'raw' == request_mode:
+                            api['Request Data'].update(
+                                json.loads(request_data.replace('\t', '').replace('\n', '').replace('\r', '')))
+                        elif request_data and 'formdata' == request_mode:
+                            if isinstance(request_data, list):
+                                for item in request_data:
+                                    if item.get("type") == "text":
+                                        api['Request Data'].update({item.get('key'): item.get("value", "")})
+                                    elif item.get("type") == "file":
+                                        api["Request Data"].update({item.get('key'): item.get("src", "")})
+                                        api["request_data_type"] = "files"
+                        api["Request Data"] = json.dumps(api["Request Data"], ensure_ascii=False)
+                        api['请求参数是否加密'] = ''
+                        api['提取请求参数'] = ''
+                        api['Jsonpath'] = ''
+                        api['正则表达式'] = ''
+                        api['正则变量'] = ''
+                        api['绝对路径表达式'] = ''
+                        api['SQL'] = ''
+                        api['sql变量'] = ''
+                        api['预期结果'] = ''
+                        api['响应结果'] = ''
+                        api['断言结果'] = ''
+                        api['报错日志'] = ''
 
-        # 提取 URL
-        ip = sampler.find("./stringProp[@name='HTTPSampler.domain']").text
-        port = sampler.find("./stringProp[@name='HTTPSampler.port']").text
-        path = sampler.find("./stringProp[@name='HTTPSampler.path']").text
-        test_case['url'] = ip + port + path
+                result.append(api)
 
-        # 提取 Method
-        test_case['method'] = sampler.find("./stringProp[@name='HTTPSampler.method']").text
-
-        # 提取 Headers
-        headers = {}
-        default_headers_element = root.find("./hashTree/HeaderManager/collectionProp[@name='HeaderManager.headers']")
-        sampler_headers_element = sampler.find("./hashTree/HeaderManager/collectionProp[@name='HeaderManager.headers']")
-        if default_headers_element is not None:
-            for header_element in default_headers_element.findall("./elementProp[@elementType='Header']"):
-                name = header_element.find("./stringProp[@name='Header.name']").text
-                value = header_element.find("./stringProp[@name='Header.value']").text
-                headers[name] = value
-        if sampler_headers_element is not None:
-            for header_element in sampler_headers_element.findall("./elementProp[@elementType='Header']"):
-                name = header_element.find("./stringProp[@name='Header.name']").text
-                value = header_element.find("./stringProp[@name='Header.value']").text
-                headers[name] = value
-        test_case['headers'] = headers
-
-        # 提取 Body
-        body_element = sampler.find("./elementProp[@name='HTTPsampler.Arguments']")
-        if body_element is not None:
-            body = body_element.find("./collectionProp/elementProp[@elementType='HTTPArgument']").find(
-                "./stringProp[@name='Argument.value']").text
-            test_case['body'] = body
-
-        # 提取 Params
-        params = {}
-        param_elements = sampler.findall(
-            "./elementProp[@name='HTTPsampler.Arguments']/collectionProp[@name='Arguments.arguments']/elementProp[@elementType='HTTPArgument']")
-        for param_element in param_elements:
-            name = param_element.attrib.get('name')
-            value = param_element.find("./stringProp[@name='Argument.value']").text
-            params[name] = value
-        test_case['params'] = params
-
-        test_cases.append(test_case)
-
-    return test_cases
+    for _ in data:
+        _parse_api(content=data)
+    return result
 
 
 if __name__ == '__main__':
-    # 调用函数进行解析
-    file_path = 'jobRequire.jmx'  # 替换为你的 JMeter 导出文件的路径
-    parsed_test_cases = parse_jmeter_test_case(file_path)
-    print("====", parsed_test_cases)
-    # 打印解析结果
-    # for test_case in parsed_test_cases:
-    #     print('URL:', test_case['url'])
-    #     print('Method:', test_case['method'])
-    #     print('Headers:', test_case['headers'])
-    #     print('Body:', test_case.get('body'))
-    #     print('Params:', test_case['params'])
-    #     print('---')
+    pat = r'D:\apk_api\api-test-project\cases\temporary_file\postman.json'
+    res = parsing_postman(pat)
+    # 进行后续处理，比如写入Excel文件等

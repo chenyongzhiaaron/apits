@@ -8,13 +8,15 @@
 # Date:         2021/1/12 14:02
 # -------------------------------------------------------------------------------
 import json
-from common.utils.logger import MyLog
+
+from common.utils.mylogger import MyLogger
 
 __all__ = ['json_dumps', 'json_loads']
 
-logger = MyLog()
+logger = MyLogger()
 
 
+@logger.log_decorator()
 def json_dumps(obj):
     """
     Serialize ``obj`` to a JSON formatted ``str``.
@@ -24,10 +26,10 @@ def json_dumps(obj):
     Returns:
 
     """
-    logger.my_log(f'执行方法：json_dumps({obj})', "info")
     return json.dumps(obj, ensure_ascii=False)
 
 
+@logger.log_decorator()
 def json_loads(obj):
     """
     Deserialize ``obj`` (a ``str``, ``bytes`` or ``bytearray`` instance containing a JSON document) to a Python object.
@@ -37,5 +39,4 @@ def json_loads(obj):
     Returns:
 
     """
-    logger.my_log(f'执行方法：json_loads({obj})', "info")
     return json.loads(obj)

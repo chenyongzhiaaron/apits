@@ -36,9 +36,9 @@ class ExcelConverter:
 
 
 if __name__ == '__main__':
-    postman_to_json = r'.\data\temporary_file\postman.json'  # postman导出的json文件
-    postman_out_file = os.path.join(Config.base_path, 'cases', 'test_cases', 'test_postman_cases.xlsx')  # 转化后的文件保存的位置
-    openapi_to_json = r'.\data\temporary_file\openapi.json'  # postman导出的json文件
-    openapi_out_file = os.path.join(Config.base_path, 'cases', 'test_cases', 'test_openapi_cases.xlsx')  # 转化后的文件保存的位置
+    postman_to_json = r'D:\apk_api\api-test-project\cases\temporary_file\postman.json'  # postman导出的json文件
+    postman_out_file = os.path.join(Config.base_path, 'cases', 'cases', 'test_postman_cases.xlsx')  # 转化后的文件保存的位置
+    openapi_to_json = r'D:\apk_api\api-test-project\cases\temporary_file\openapi.json'  # postman导出的json文件
+    openapi_out_file = os.path.join(Config.base_path, 'cases', 'cases', 'test_openapi_cases.xlsx')  # 转化后的文件保存的位置
     ExcelConverter('postman', postman_to_json, postman_out_file).main()
-    ExcelConverter('postman', openapi_to_json, openapi_out_file).main()
+    ExcelConverter('openapi', openapi_to_json, openapi_out_file).main()

@@ -8,9 +8,9 @@
 from redis import Redis, ConnectionPool
 
 
-class DoRedis:
+class RedisClient:
     def __init__(self):
-        connection = ConnectionPool(host="159.75.107.124", db=1, port=31003, decode_responses=True)
+        connection = ConnectionPool(host="localhost", db=1, port=31003, decode_responses=True)
         self.r = Redis(connection_pool=connection)
 
     def do_redis(self):
@@ -21,5 +21,5 @@ class DoRedis:
 
 
 if __name__ == '__main__':
-    test = DoRedis().do_redis()
+    test = RedisClient().do_redis()
     print(test.mget("dis:szpszx","dis:gzpszx"))

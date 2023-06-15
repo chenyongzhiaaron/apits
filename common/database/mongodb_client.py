@@ -13,7 +13,7 @@ sys.path.append("../")
 sys.path.append("./common")
 
 
-class MongoDB(object):
+class MongodbClient(object):
 
     def __init__(self, db_info):
         self.mongo_info = eval(db_info)  # mongo数据库配置信息,字典形式
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     excel_handle = DoExcel(db_file)
     excel_init = excel_handle.get_excel_init()
     mongo_base = excel_init["test_databases"]
-    MongoDB(mongo_base).insert_data()
+    MongodbClient(mongo_base).insert_data()
     # site = {'name': '我的博客地址', 'alexa': 10000, 'url': 'http://blog.csdn.net/uuihoo/'}
     # pop_obj = site.pop('name')  # 删除要删除的键值对，如{'name':'我的博客地址'}这个键值对
     # print(pop_obj)  # 输出 ：我的博客地址
