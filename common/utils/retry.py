@@ -17,4 +17,5 @@ def retry(func):
             func(*args, **kwargs)
         except:
             pass
-    return run_again()
+
+    return run_again

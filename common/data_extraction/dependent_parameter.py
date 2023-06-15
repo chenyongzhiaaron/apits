@@ -10,9 +10,7 @@
 import json
 
 from common.dependence import Dependence
-from common.utils.logger import MyLog
-
-logger = MyLog()
+from common.data_extraction import logger
 
 
 class DependentParameter:
@@ -27,6 +25,7 @@ class DependentParameter:
         self.p = Dependence.pattern  # re.compile(r'({)')
         self.pf = Dependence.pattern_fun  # re.compile(r"{{(\w+\(\))}}")
 
+    @logger.log_decorator()
     def replace_dependent_parameter(self, jst):
         """
         替换字符串中的关联参数，并返回转化后的字典格式。
@@ -46,9 +45,8 @@ class DependentParameter:
                     # 如果参数名称存在于关联参数表中，则调用相应的函数获取返回值，并替换字符串中的参数
                     value_ = Dependence.get_dep(key)()
                     jst = jst.replace(key, str(value_))
-                    # logger.my_log(f"key:{key},替换结果为--> {str(value_)}")
                 else:
-                    logger.my_log(f"key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
+                    logger.error(f"key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
             else:
                 key = self.P.search(jst)
@@ -67,9 +65,8 @@ class DependentParameter:
                     else:
                         value_ = Dependence.get_dep(k)
                     jst = jst.replace(key.group(), str(value_))
-                    # logger.my_log(f"key:{key},替换结果为--> {str(value_)}")
                 else:
-                    logger.my_log(f"key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
+                    logger.error(f"key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
             # 将 True 和 False 转换为小写，并继续循环替换参数
             jst = jst.replace("True", "true").replace("False", "false")
@@ -77,7 +74,7 @@ class DependentParameter:
             try:
                 jst = json.loads(jst)
             except json.JSONDecodeError as e:
-                logger.my_log(f"JSONDecodeError:{jst}:{e}")
+                logger.error(f"JSONDecodeError:{jst}:{e}")
         return jst
 
 
@@ -104,6 +101,4 @@ if __name__ == '__main__':
         "g": "{{var_g}}",
         "t": "{{get_timestamp()}}"
     }
-    t = DependentParameter().replace_dependent_parameter(dat)
-    print(t)
-    print(type(t))
+    DependentParameter().replace_dependent_parameter(dat)

@@ -9,14 +9,12 @@
 # -------------------------------------------------------------------------------
 import time
 
-from common.utils.logger import MyLog
-
-logger = MyLog()
+from common.bif_functions import logger
 
 __all__ = ['get_timestamp', 'ms_fmt_hms']
 
 
-@logger.decorator_log("错误原因：时间戳的长度只能在10到16位之间，默认返回长度为13位的时间戳")
+@logger.log_decorator("错误原因：时间戳的长度只能在10到16位之间，默认返回长度为13位的时间戳")
 def get_timestamp(length=13):
     """
     获取时间戳字符串，长度最多为16位；默认13位
@@ -26,16 +24,15 @@ def get_timestamp(length=13):
     Returns:
 
     """
-    logger.my_log(f'执行方法：get_timestamp({length})', "info")
     if isinstance(length, (int,)) and 10 <= length <= 16:
         power = length - 10
         timestamp = time.time()
         return int(timestamp * 10 ** power)
     else:
-        # logger.error("错误原因：时间戳的长度只能在10到16位之间，默认返回长度为13位的时间戳")
         get_timestamp(13)
 
 
+@logger.log_decorator()
 def ms_fmt_hms(ms):
     """
     将毫秒转换成 h:m:s.ms格式字符串
@@ -57,3 +54,7 @@ def ms_fmt_hms(ms):
     sec = str(sec).rjust(2, '0')
     ms = str(ms).rjust(2, '0')
     return f"{hour}:{minute}:{sec}.{ms}"
+
+
+if __name__ == '__main__':
+    get_timestamp()

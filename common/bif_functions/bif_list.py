@@ -7,15 +7,13 @@
 # EMAIL:        262667641@qq.com
 # Date:         2021/1/12 15:15
 # -------------------------------------------------------------------------------
-import logging
-from common.utils.logger import MyLog
+from common.bif_functions import logger
 
-__all__ = ['slice', 'sublist']
-
-logger = MyLog()
+__all__ = ['list_slice', 'sublist']
 
 
-def slice(obj, index=None, start=None, end=None, step=1):
+@logger.log_decorator()
+def list_slice(obj, index=None, start=None, end=None, step=1):
     """
     切片方法
     Args:
@@ -28,22 +26,18 @@ def slice(obj, index=None, start=None, end=None, step=1):
     Returns:
 
     """
-    logger.my_log(f'执行方法：slice({obj}, {index}, {start}, {end}, {step})', "info")
     if isinstance(obj, (str, tuple, list)):
-        if index != None:
+        if index is not None:
             try:
-                result = obj[index]
+                return obj[index]
             except IndexError:
-                logger.my_log(f'列表{obj}，下标{index}，异常原因：下标越界')
-                result = None
-            return result
+                return
         else:
-            step = step or 1
             return obj[start:end:step]
-    logger.my_log("obj参数格式不正确")
     return None
 
 
+@logger.log_decorator()
 def sublist(raw_list, start=None, end=None):
     """
     截取子列表
@@ -52,13 +46,33 @@ def sublist(raw_list, start=None, end=None):
         start: 字符串开始位置
         end: 字符串结束位置
 
-    Returns: 截取的字符串
+    Returns: 截取的字符串或子列表
 
     """
-    logger.my_log(f'执行方法：sublist({raw_list}, {start}, {end})', "info")
-    try:
-        start = int(start) if (isinstance(start, str) and start.isdigit()) else start
-        end = int(end) if (isinstance(end, str) and end.isdigit()) else end
-        return raw_list[start:end]
-    except TypeError as e:
-        return []
+    if isinstance(raw_list, (str, list)) and isinstance(start, (int, str)) and isinstance(end, (int, str)):
+        try:
+            start = int(start) if isinstance(start, str) and start.isdigit() else start
+            end = int(end) if isinstance(end, str) and end.isdigit() else end
+            if isinstance(raw_list, str):
+                return list(raw_list[start:end])
+            else:
+                return raw_list[start:end]
+        except TypeError:
+            pass
+
+    return []
+
+
+if __name__ == '__main__':
+    # lst = [1, 2, 3, 4, 5]
+    # print(list_slice(lst, index=2))  #  3
+    # print(list_slice(lst, start=1, end=4))  #  [2, 3, 4]
+    # print(list_slice(lst, start=1, end=4, step=2))  #  [2, 4]
+    # print(list_slice(123))  #  None
+    raw_list = ['a', 'b', 'c', 'd', 'e']
+    print(sublist(raw_list, start=1, end=4))  # ['b', 'c', 'd']
+    print(sublist(raw_list, start='1', end='4'))  # ['b', 'c', 'd']
+    print(sublist(raw_list, start='x', end='4'))  # []
+    print(sublist(raw_list, start=1, end=10))  # ['b', 'c', 'd', 'e']
+    print(sublist('abcdef', start=1, end=4))  # ['b', 'c', 'd']
+    print(sublist(123, start=1, end=4))  # []

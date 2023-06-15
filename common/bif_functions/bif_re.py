@@ -10,13 +10,12 @@
 import json
 import re
 
-from common.utils.logger import MyLog
-
-logger = MyLog()
+from common.bif_functions import logger
 
 __all__ = ['regex_extract']
 
 
+@logger.log_decorator()
 def regex_extract(string, pattern, group=None):
     """
     根据正则表达式提取内容
@@ -28,7 +27,6 @@ def regex_extract(string, pattern, group=None):
     Returns:
 
     """
-    logger.my_log(f'执行方法：regex_extract({string}, {pattern}, {group})', "info")
     if not isinstance(string, str):
         string = json.dumps(string, ensure_ascii=False)
     re_obj = re.search(pattern, string)

@@ -7,7 +7,6 @@
 @time: 2023/3/14 16:21
 @desc:
 """
-import hashlib
 import json
 import time
 
@@ -16,8 +15,10 @@ from natsort import natsorted
 __all__ = ["md5_sign", "sha1_sign"]
 
 from common.crypto.encryption_str import sha1_secret_str, md5
+from extensions import logger
 
 
+@logger.log_decorator()
 def md5_sign(data: dict):
     """
     数据加签
@@ -41,6 +42,7 @@ def md5_sign(data: dict):
     return {**data, **{"sign": sign_value}}
 
 
+@logger.log_decorator()
 def sha1_sign(post_data: dict):
     timestamp = int(round(time.time() * 1000))  # 毫秒级时间戳
     argument = {"secretKey": "", "timestamp": timestamp}  # 加密加盐参数

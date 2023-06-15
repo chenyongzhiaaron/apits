@@ -2,8 +2,7 @@
 # !/usr/bin/python
 # @Date : 2023-2-19
 # @Author : chenyongzhi
-# @File : do_excel.py
-# @Software: VS
+# @File : excel.py
 # @Desc: Excel操作类
 import json
 import os
@@ -12,8 +11,9 @@ import sys
 # 把当前目录加入到系统环境变量中
 sys.path.append(os.path.split(os.path.dirname(os.path.abspath(__file__)))[0])
 sys.path.append("../..")
-sys.path.append('venv/Lib/site-packages')
+# sys.path.append('venv/Lib/site-packages')
 from openpyxl import load_workbook, Workbook
+from common.file_handling import logger
 
 
 class DoExcel:
@@ -130,6 +130,7 @@ class DoExcel:
             row_data.append(cell_value)
         return row_data
 
+    @logger.log_decorator()
     def save(self, filename=None):
         """
         获取文件名
@@ -141,11 +142,12 @@ class DoExcel:
         elif self.path:
             self.wb.save(self.path)
         else:
-            print("保存失败：没有设置文件名")
+            # print("保存失败：没有设置文件名")
             return False
-        print("保存成功")
+        # print("保存成功")
         return True
 
+    @logger.log_decorator()
     def do_main(self, output_filename=None, *data):
         """
         动态保存列表嵌套字典的数据到 excel 中
@@ -180,5 +182,5 @@ if __name__ == '__main__':
 
     template_file = Config.templates
     excel = DoExcel(path=template_file)
-    out_file = '另存为的文件.xlsx'
+    out_file = r'..\..\OutPut\另存为的文件.xlsx'
     excel.do_main(out_file, *data)

@@ -3,19 +3,18 @@
 # -------------------------------------------------------------------------------
 # Name:         bif_hashlib.py
 # Description:
-# Author:       chenyongzhi
+# Author:       kira
 # EMAIL:        262667641@qq.com
 # Date:         2021/1/12 15:16
 # -------------------------------------------------------------------------------
 import hashlib
 
-from common.utils.logger import MyLog
-
 __all__ = ['md5_encryption']
 
-logger = MyLog()
+from common.bif_functions import logger
 
 
+@logger.log_decorator()
 def md5_encryption(raw_str, sha_str='', toupper=False):
     """
     执行md5加密
@@ -27,7 +26,6 @@ def md5_encryption(raw_str, sha_str='', toupper=False):
     Returns: 经md5加密后的字符串
 
     """
-    logger.my_log(f'执行方法：md5_encryption({raw_str}, {sha_str}, {toupper})', "info")
     md5_obj = hashlib.md5(sha_str.encode('utf-8'))
     md5_obj.update(str(raw_str).encode('utf-8'))
     encrypted_str = md5_obj.hexdigest().upper() if toupper else md5_obj.hexdigest()

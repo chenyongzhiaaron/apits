@@ -45,10 +45,10 @@ class MyLog:
         sh.setFormatter(format_str)  # 设置屏幕上显示的格式
         current = time.strftime("%Y-%m-%d", time.localtime())  # 设置当前日期
         if level == "error":
-            th = handlers.TimedRotatingFileHandler(filename=f'{file_name}/{current}_{level}.log', when=when,
+            th = handlers.TimedRotatingFileHandler(filename=f'{file_name}/{current}_{level}.logger', when=when,
                                                    backupCount=back_count, encoding="utf-8")
         else:
-            th = handlers.TimedRotatingFileHandler(filename=file_name + "/{}_info.log".format(current), when=when,
+            th = handlers.TimedRotatingFileHandler(filename=file_name + "/{}_info.logger".format(current), when=when,
                                                    backupCount=back_count,
                                                    encoding="utf-8")  # 往文件里写日志
 

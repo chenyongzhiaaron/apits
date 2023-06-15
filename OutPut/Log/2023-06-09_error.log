@@ -1,2 +1,0 @@
-2023-06-09 11:27:43,747-ERROR-logger.py-[ line:62 ] - 日志信息:None: exceptions must derive from BaseException
-2023-06-09 11:28:03,953-ERROR-logger.py-[ line:62 ] - 日志信息:知错了嘛？: exceptions must derive from BaseException

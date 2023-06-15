@@ -10,7 +10,7 @@ import time
 import requests
 import urllib3
 
-from common.file_handling.get_all_path import get_all_path
+from common.file_handling.file_utils import FileUtils
 
 urllib3.disable_warnings()
 
@@ -99,10 +99,8 @@ class WxWorkSms:
             project_name, project_port, total_cases, pass_rate, success_cases, fail_cases, skip_cases,
             error_cases, report_url
         )
-        file_path = get_all_path(folder_path)
+        file_path = FileUtils.get_all_path(folder_path)
         self.send_file(file_path)
-
-
 
 
 if __name__ == '__main__':

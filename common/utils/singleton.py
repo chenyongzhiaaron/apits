@@ -7,11 +7,12 @@
 @time: 2023/3/21 17:41
 @desc:
 """
+from functools import wraps
 
 
 def singleton(cls):
     """
-    单例模式装饰器
+    单例模式类装饰器
     Args:
         cls:被装饰类
 
@@ -20,6 +21,7 @@ def singleton(cls):
     """
     instance = {}
 
+    @wraps(cls)
     def get_instance(*args, **kwargs):
         if cls not in instance:
             instance[cls] = cls(*args, **kwargs)

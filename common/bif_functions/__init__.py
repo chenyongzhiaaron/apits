@@ -7,7 +7,9 @@
 # EMAIL:        262667641@qq.com
 # Date:         2021/1/12 14:02
 # -------------------------------------------------------------------------------
+from common.utils.mylogger import MyLogger
 
+logger = MyLogger()
 from .bif_datetime import *
 from .bif_hashlib import *
 from .bif_json import *

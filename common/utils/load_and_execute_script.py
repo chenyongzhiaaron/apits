@@ -1,11 +1,14 @@
 import importlib.util
 import os
 
-from common.utils.mylogger import MyLogger
-
-log = MyLogger()
+from common.utils import logger
 
 
+class ScriptNotFoundError(Exception):
+    pass
+
+
+@logger.log_decorator()
 def load_script(script_path):
     """
     加载脚本文件并返回模块对象
@@ -22,9 +25,10 @@ def load_script(script_path):
         spec.loader.exec_module(script_module)
         return script_module
     except FileNotFoundError:
-        log.info(f"{script_path}: 脚本文件不存在")
+        raise ScriptNotFoundError(script_path)
 
 
+@logger.log_decorator()
 def load_and_execute_script(script_directory, script_name, method_name, request):
     """
     加载并执行脚本文件中的指定方法
@@ -36,11 +40,13 @@ def load_and_execute_script(script_directory, script_name, method_name, request)
         method_name (str): 要执行的方法的名称
     """
     script_path = os.path.join(script_directory, script_name)
-    script = load_script(script_path)
-    log.info(f"------开始加载脚本------{script_name}")
-    if hasattr(script, method_name):
-        method = getattr(script, method_name)
-        return method(request)
+    try:
+        script = load_script(script_path)
+        if hasattr(script, method_name):
+            method = getattr(script, method_name)
+            return method(request)
+    except ScriptNotFoundError:
+        return request
 
 
 if __name__ == '__main__':

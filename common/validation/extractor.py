@@ -9,14 +9,13 @@
 # -------------------------------------------------------------------------------
 
 import json
+
 import jsonpath
 
-from common.utils.logger import MyLog
-
-logger = MyLog()
+from common.validation import logger
 
 
-class Extractor(object):
+class Extractor:
     """
     提取器
     主要功能：
@@ -74,15 +73,19 @@ class Extractor(object):
         Returns:
 
         """
-        logger.my_log(f'正在执行数据提取：提取数据源内容：{resp_obj},{type(resp_obj)}', "info")
-        logger.my_log('正在执行数据提取：提取表达式：{expr}'.format(expr=expr), "info")
+        logger.debug(f'正在执行数据提取：提取数据源内容：{resp_obj},{type(resp_obj)}')
+        logger.debug('正在执行数据提取：提取表达式：{expr}'.format(expr=expr))
         result = jsonpath.jsonpath(resp_obj if isinstance(resp_obj, (dict, list)) else json.dumps(resp_obj), expr)
         if result is False:
-            # jsonpath没有匹配到数据
             result = []
-            logger.my_log(f'提取失败：提取表达式：{expr}，没有提取到对应的值')
+            logger.error(f'提取失败：提取表达式：{expr}，没有提取到对应的值')
         elif isinstance(result, list):
             if len(result) == 1:
                 result = result[0]
-            logger.my_log(f'提取成功，输出变量，提取表达式：{expr}，提取结果：{result}', "info")
+            logger.info(f'提取成功，输出结果，提取表达式：{expr}，提取结果：{result}')
         return result
+
+
+if __name__ == '__main__':
+    r_obg = {"data": ["key", 1, "val", 2]}
+    Extractor.extract_value_by_jsonpath(r_obg, "$.data[0]")

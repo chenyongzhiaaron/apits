@@ -1,6 +1,9 @@
 import json
 
+from common.utils import logger
 
+
+# @logger.log_decorator()
 def parsing_openapi(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -14,6 +17,7 @@ def parsing_openapi(file_path):
                 "name": "openapi",
                 "description": details.get("summary"),
                 "Run": "yes",
+                "Time": "0.1",
                 'method': method,
                 'url': path,
                 'headers': json.dumps(extract_parameters(details.get('parameters', []), 'header')),
@@ -39,6 +43,7 @@ def parsing_openapi(file_path):
     return test_cases
 
 
+# @logger.log_decorator()
 def extract_parameters(parameters, parameter_location):
     extracted_parameters = {}
     for param in parameters:
@@ -50,6 +55,7 @@ def extract_parameters(parameters, parameter_location):
     return extracted_parameters
 
 
+# @logger.log_decorator()
 def determine_request_type(request_body):
     if request_body:
         content = request_body.get('content', {})
@@ -62,6 +68,7 @@ def determine_request_type(request_body):
     return ''
 
 
+# @logger.log_decorator()
 def extract_request_body(request_body):
     if request_body:
         content = request_body.get('content', {})
@@ -95,6 +102,6 @@ def extract_request_body(request_body):
 
 
 if __name__ == '__main__':
-    file = f'../../temp/openapi.json'
+    file = f'../../cases/temporary_file/openapi.json'
     res = parsing_openapi(file)
     print(res)

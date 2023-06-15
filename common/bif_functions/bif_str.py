@@ -7,13 +7,14 @@
 # EMAIL:        262667641@qq.com
 # Date:         2021/1/12 15:12
 # -------------------------------------------------------------------------------
-from common.utils.logger import MyLog
+from common.utils.mylogger import MyLogger
 
 __all__ = ['substr', 'str_join']
 
-logger = MyLog()
+logger = MyLogger()
 
 
+@logger.log_decorator()
 def substr(raw_str, start=None, end=None):
     """
     截取字符串
@@ -25,7 +26,6 @@ def substr(raw_str, start=None, end=None):
     Returns: 截取的字符串
 
     """
-    logger.my_log(f'执行方法：substr({raw_str}, {start}, {end})', "info")
     try:
         start = int(start) if (isinstance(start, str) and start.isdigit()) else start
         end = int(end) if (isinstance(end, str) and end.isdigit()) else end
@@ -34,6 +34,7 @@ def substr(raw_str, start=None, end=None):
         return ''
 
 
+@logger.log_decorator()
 def str_join(obj, connector=","):
     """
     连接任意数量的字符
@@ -44,7 +45,6 @@ def str_join(obj, connector=","):
     Returns:
 
     """
-    logger.my_log(f'执行方法：str_join({obj}, {connector})', "info")
     if not isinstance(connector, str):
         connector = str(connector)
     if isinstance(obj, str):
@@ -56,3 +56,8 @@ def str_join(obj, connector=","):
                 item = str(item)
             temp_obj.append(item)
         return connector.join(temp_obj)
+
+
+if __name__ == '__main__':
+    substr()
+    str_join()

@@ -223,17 +223,17 @@
                     <div class="info">
                         <div style="flex:5">
                             <button type="button" class="btn btn-primary btn-sm">开始时间</button>
-                            <span>2023-05-17 17:21:07</span>
+                            <span>2023-06-14 15:16:14</span>
                         </div>
                         <div style="flex:5">
                             <button type="button" class="btn btn-primary btn-sm">用例总数</button>
-                            <span>6</span>
+                            <span>1</span>
                         </div>
                     </div>
                     <div class="info">
                         <div style="flex:5">
                             <button type="button" class="btn btn-primary btn-sm">运行时长</button>
-                            <span>1.33 S</span>
+                            <span>0.00 S</span>
                         </div>
                         <div style="flex:5">
                             <button type="button" class="btn btn-primary btn-sm ">测试人员</button>
@@ -243,11 +243,11 @@
                     <div class="info">
                         <div style="flex:5">
                             <button type="button" class="btn btn-primary btn-sm">成功用例</button>
-                            <span>6</span>
+                            <span>0</span>
                         </div>
                         <div style="flex:5">
                             <button type="button" class="btn btn-primary btn-sm ">通过率</button>
-                            <span>100.00%</span>
+                            <span>0.00%</span>
                         </div>
                     </div>
                 </div>
@@ -271,6 +271,13 @@
                         </tr>
                         </thead>
                         <tbody>
+                        
+                        <tr>
+                            <th scope="row">2023-06-14 15:16:14</th>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0.00%</td>
+                        </tr>
                         
                         <tr>
                             <th scope="row">2023-05-17 17:21:07</th>
@@ -406,7 +413,7 @@
                         <select id="testClass">
                             <option>所有</option>
                             
-                            <option>TestProjectApi</option>
+                            <option>_FailedTest</option>
                             
                         </select>
 
@@ -433,177 +440,12 @@
                 
                 <tr class="case_">
                     <td>1</td>
-                    <td class="TestProjectApi">TestProjectApi</td>
-                    <td>test_api_1_清表</td>
-                    <td>初始化查询sql</td>
-                    <td>0.000977s</td>
-                    
-                    <td class="text-success">成功</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>2023-05-17 17:21:07,763-ERROR-logger.py-[ line:62 ] - 日志信息:测试用例:1 不执行，跳过!!!
-test_api_1_清表 (test_api_script.TestProjectApi)执行——>【通过】
-</pre>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr class="case_">
-                    <td>2</td>
-                    <td class="TestProjectApi">TestProjectApi</td>
-                    <td>test_api_2_登录</td>
-                    <td>非BIP用户登录</td>
-                    <td>0.534s</td>
-                    
-                    <td class="text-success">成功</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>2023-05-17 17:21:07,763-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
-2023-05-17 17:21:07,764-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
-2023-05-17 17:21:07,765-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
-2023-05-17 17:21:07,765-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
-2023-05-17 17:21:07,854-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip
-2023-05-17 17:21:07,855-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '214'}
-2023-05-17 17:21:07,855-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> b'{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8="}'
-2023-05-17 17:21:07,856-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
-2023-05-17 17:21:07,856-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.082804
-2023-05-17 17:21:07,870-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":"0","type":"success","data":{"id":"216843152678542487","userId":"216483504447804297","ibsUserId":7884,"mobile":"18127813600","bspToken":"bba3b119502b28e4ff14329922c6fda4","type":"user","avatar":null,"ncAccount":null,"timestamp":1684315267,"idpTokenId":null,"loginChannel":null,"clientType":null,"name":"陈勇志","btpToken":null,"account":"18127813600","accountType":"C","currentEnvId":null,"currentTenantId":"216317749963825419","currentAppId":"8d1f5bdc9c6648af84a98e2c017846c5","currentProjectId":"104966","currentOrgId":null,"currentMenuId":null,"currentOrgMenuId":null,"currentSelectedTab":"org","currentUrl":"/ibs/material/order","tenants":[{"id":"1623811301356297657","code":"1623811301356297657","fullName":"广东博嘉拓建筑测试租户","shortName":"广东博嘉拓建筑测试租户","envId":"6296f5e3960c4fdfb9c9357b581c853b","envName":"默认环境","tenantEnvs":null},{"id":"216572673247394736","code":"9C8D5715AAA44D4B8530AB2B7F627E1A","fullName":"安徽腾越建筑工程有限公司","shortName":"安徽腾越建筑工程有限公司","envId":"d1b4f959495f433fb1dd5400a78bce2c","envName":"默认环境","tenantEnvs":null},{"id":"216317749963825419","code":"C2C35D2543B34CA99366D9C76E45D01B","fullName":"沈阳腾越建筑测试租户","shortName":"沈阳腾越建筑测试租户","envId":"c4a70c0a1f5c4aaa83fcd390dcd898c6","envName":"默认环境","tenantEnvs":null},{"id":"216260762345772077","code":"216260762345772077","fullName":"广东腾越建筑工程有限公司","shortName":"广东腾越建筑工程有限公司","envId":"210712034943271000","envName":"默认环境","tenantEnvs":null},{"id":"216328986981406025","code":"TENANT_TEST","fullName":"智慧工地测试租户9","shortName":"智慧工地测试租户9","envId":"e7682a3876a343b483645b0c20da93a3","envName":"默认环境","tenantEnvs":null},{"id":"216365124588606373","code":"TENANT_TEST","fullName":"计划排程自动化测试","shortName":"计划排程自动化测试","envId":"80ce8eb5a7c941f8a6f57b8ecb61ec17","envName":"默认环境","tenantEnvs":null},{"id":"216674624791091228","code":"232E9186B1BE494E966F27BA7CF33AE2","fullName":"cyq测试","shortName":"cyq测试","envId":"ef3f8ed4792f4ef0a5e7d92af394d29c","envName":"默认环境","tenantEnvs":null},{"id":"216687529947792866","code":"9769454E01304245AEE83CE7E99537A8","fullName":"成本总控报表测试租户","shortName":"成本总控报表测试租户","envId":"5125917072884123bf9fe3966ffa4af2","envName":"默认环境","tenantEnvs":null},{"id":"216661417159402453","code":"216661417159402453","fullName":"科技建筑集团","shortName":"科技建筑集团","envId":"b23d88da977e467cb81dd7fb57de97d0","envName":"默认环境","tenantEnvs":null},{"id":"216281557054332425","code":"216281557054332425","fullName":"BIM材料用量计算","shortName":"BIM材料用量计算","envId":"7501c77b0ccd4b4d912451e5f74c1ba7","envName":"默认环境","tenantEnvs":null},{"id":"1320970534539886592","code":"1320970534539886592","fullName":"碧桂园集团","shortName":"碧桂园集团","envId":"1320970534539886592","envName":"默认环境","tenantEnvs":null}],"loginAppDto":null},"msg":null,"succeed":true}
-test_api_2_登录 (test_api_script.TestProjectApi)执行——>【通过】
-</pre>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr class="case_">
-                    <td>3</td>
-                    <td class="TestProjectApi">TestProjectApi</td>
-                    <td>test_api_3_安全大屏</td>
-                    <td>大盘-隐患类型数据</td>
-                    <td>0.000976s</td>
-                    
-                    <td class="text-success">成功</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>2023-05-17 17:21:08,297-ERROR-logger.py-[ line:62 ] - 日志信息:测试用例:3 不执行，跳过!!!
-test_api_3_安全大屏 (test_api_script.TestProjectApi)执行——>【通过】
-</pre>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr class="case_">
-                    <td>4</td>
-                    <td class="TestProjectApi">TestProjectApi</td>
-                    <td>test_api_4_劳务基础配置</td>
-                    <td>绑定TV</td>
-                    <td>0.411s</td>
-                    
-                    <td class="text-success">成功</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>2023-05-17 17:21:08,298-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
-2023-05-17 17:21:08,298-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
-2023-05-17 17:21:08,307-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
-2023-05-17 17:21:08,308-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
-2023-05-17 17:21:08,308-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
-2023-05-17 17:21:08,355-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/addTvSequence?t=1684315268299
-2023-05-17 17:21:08,356-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': 'bba3b119502b28e4ff14329922c6fda4', 'BSP_USER_TENANT': '216317749963825419', 'Content-Length': '61'}
-2023-05-17 17:21:08,356-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> b'{"projectId": "104966", "tvSequence": "zYZRusEKBXuXicfIaxRL"}'
-2023-05-17 17:21:08,357-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
-2023-05-17 17:21:08,357-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.044571
-2023-05-17 17:21:08,358-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":200,"success":true,"data":null,"msg":"添加成功"}
-test_api_4_劳务基础配置 (test_api_script.TestProjectApi)执行——>【通过】
-</pre>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr class="case_">
-                    <td>5</td>
-                    <td class="TestProjectApi">TestProjectApi</td>
-                    <td>test_api_5_劳务基础配置</td>
-                    <td>查询配置</td>
-                    <td>0.376s</td>
-                    
-                    <td class="text-success">成功</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>2023-05-17 17:21:08,709-INFO-logger.py-[ line:64 ] - 日志信息:sql 执行成功:None
-2023-05-17 17:21:08,710-INFO-logger.py-[ line:64 ] - 日志信息:执行方法：get_timestamp(13)
-2023-05-17 17:21:08,710-INFO-logger.py-[ line:64 ] - 日志信息:被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
-2023-05-17 17:21:08,710-INFO-logger.py-[ line:64 ] - 日志信息:当前用例所在的 sheet --> 安全纯净大屏
-2023-05-17 17:21:08,710-INFO-logger.py-[ line:64 ] - 日志信息:执行 SQL 语句 --> None
-2023-05-17 17:21:08,711-INFO-logger.py-[ line:64 ] - 日志信息:预期结果 --> 
-2023-05-17 17:21:08,742-INFO-logger.py-[ line:64 ] - 日志信息:请求地址 --> https://bimdc.bzlrobot.com/bsp/test/user/ugs/ibs/api/ibs-lms-base/tvConfig/getTvInfo?t=1684315268710&projectId=104966
-2023-05-17 17:21:08,742-INFO-logger.py-[ line:64 ] - 日志信息:请求头 --> {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json;charset=utf-8', 'BSP_TOKEN': 'bba3b119502b28e4ff14329922c6fda4', 'BSP_USER_TENANT': '216317749963825419'}
-2023-05-17 17:21:08,743-INFO-logger.py-[ line:64 ] - 日志信息:请求 body --> None
-2023-05-17 17:21:08,743-INFO-logger.py-[ line:64 ] - 日志信息:接口状态--> 200
-2023-05-17 17:21:08,744-INFO-logger.py-[ line:64 ] - 日志信息:接口耗时--> 0:00:00.029118
-2023-05-17 17:21:08,745-INFO-logger.py-[ line:64 ] - 日志信息:接口响应--> {"code":200,"success":true,"data":{"id":"1637650408413749249","projectId":"104966","shortInfo":"博智林提醒您：一切不能保证安全、质量的施工都要停工！进入工地，请佩戴安全帽，穿着反光衣，文明作业！","qrCode":"https://ibs-test.bzlrobot.com/api/ibs-file/document/get/MjAyMS0xMC0xOCxQSE9UT18yMDIxMTAxOF8wOTMxMDExMDIuanBnLDA0ZGQxOWU5YzA3MjQ0YjE5OTIwNzZjOTUxNzY4YzQ1","manageDeparts":[]},"msg":"操作成功"}
-test_api_5_劳务基础配置 (test_api_script.TestProjectApi)执行——>【通过】
-</pre>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr class="case_">
-                    <td>6</td>
-                    <td class="TestProjectApi">TestProjectApi</td>
-                    <td>test_api_6_None</td>
+                    <td class="_FailedTest">_FailedTest</td>
+                    <td>test_api</td>
                     <td>None</td>
-                    <td>0.0s</td>
+                    <td>0.000998s</td>
                     
-                    <td class="text-success">成功</td>
+                    <td class="text-danger">错误</td>
                     
                     <td>
                         <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
@@ -615,8 +457,44 @@ test_api_5_劳务基础配置 (test_api_script.TestProjectApi)执行——>【�
                      <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
                         
 
-                            <pre>2023-05-17 17:21:09,085-ERROR-logger.py-[ line:62 ] - 日志信息:测试用例:None 不执行，跳过!!!
-test_api_6_None (test_api_script.TestProjectApi)执行——>【通过】
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\Program Files\python39\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\Program Files\python39\lib\unittest\case.py", line 593, in run
+    self._callTestMethod(testMethod)
+</pre>
+                        
+
+                            <pre>  File "D:\Program Files\python39\lib\unittest\case.py", line 550, in _callTestMethod
+    method()
+</pre>
+                        
+
+                            <pre>  File "D:\Program Files\python39\lib\unittest\loader.py", line 34, in testFailure
+    raise self._exception
+</pre>
+                        
+
+                            <pre>ImportError: Failed to import test module: test_api
+Traceback (most recent call last):
+  File "D:\Program Files\python39\lib\unittest\loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "D:\Program Files\python39\lib\unittest\loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "D:\apk_api\api-test-project\test_script\automation\test_api.py", line 26, in <module>
+    excel_handle, init_data, test_case = get_init(test_file)
+TypeError: cannot unpack non-iterable NoneType object
+
+</pre>
+                        
+
+                            <pre>test_api (unittest.loader._FailedTest)执行——>【错误Error】
 </pre>
                         
                         
@@ -636,17 +514,17 @@ test_api_6_None (test_api_script.TestProjectApi)执行——>【通过】
 <script type="text/javascript">
 
     const resulte = {
-            "success": `6`,
-            "all": `6`,
+            "success": `0`,
+            "all": `1`,
             "fail": `0`,
             "skip": '0',
-            "error": `0`,
-            "runtime": '1.33 S',
-            "begin_time": "1.33 S",
-            "pass_rate": '100.00',
+            "error": `1`,
+            "runtime": '0.00 S',
+            "begin_time": "0.00 S",
+            "pass_rate": '0.00',
         }
     ;
-    const history = [{'success': 4, 'all': 7, 'fail': 1, 'skip': 0, 'error': 2, 'runtime': '0.45 S', 'begin_time': '2023-04-21 12:10:31', 'pass_rate': '57.14'}, {'success': 0, 'all': 1, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '0.01 S', 'begin_time': '2023-04-21 12:11:52', 'pass_rate': '0.00'}, {'success': 5, 'all': 6, 'fail': 1, 'skip': 0, 'error': 0, 'runtime': '0.33 S', 'begin_time': '2023-04-21 12:12:54', 'pass_rate': '83.33'}, {'success': 5, 'all': 6, 'fail': 1, 'skip': 0, 'error': 0, 'runtime': '0.30 S', 'begin_time': '2023-04-21 12:13:32', 'pass_rate': '83.33'}, {'success': 5, 'all': 6, 'fail': 1, 'skip': 0, 'error': 0, 'runtime': '0.28 S', 'begin_time': '2023-04-21 14:47:43', 'pass_rate': '83.33'}, {'success': 5, 'all': 6, 'fail': 1, 'skip': 0, 'error': 0, 'runtime': '0.27 S', 'begin_time': '2023-04-21 15:01:06', 'pass_rate': '83.33'}, {'success': 5, 'all': 6, 'fail': 1, 'skip': 0, 'error': 0, 'runtime': '0.24 S', 'begin_time': '2023-04-21 15:03:53', 'pass_rate': '83.33'}, {'success': 5, 'all': 6, 'fail': 1, 'skip': 0, 'error': 0, 'runtime': '0.23 S', 'begin_time': '2023-04-21 15:06:10', 'pass_rate': '83.33'}, {'success': 6, 'all': 7, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '3.00 S', 'begin_time': '2023-05-14 23:58:13', 'pass_rate': '85.71'}, {'success': 0, 'all': 2, 'fail': 0, 'skip': 0, 'error': 2, 'runtime': '0.02 S', 'begin_time': '2023-05-15 11:52:27', 'pass_rate': '0.00'}, {'success': 0, 'all': 2, 'fail': 0, 'skip': 0, 'error': 2, 'runtime': '0.00 S', 'begin_time': '2023-05-15 11:57:23', 'pass_rate': '0.00'}, {'success': 6, 'all': 7, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '1.38 S', 'begin_time': '2023-05-15 11:59:30', 'pass_rate': '85.71'}, {'success': 6, 'all': 7, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '1.44 S', 'begin_time': '2023-05-16 15:11:50', 'pass_rate': '85.71'}, {'success': 6, 'all': 7, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '1.28 S', 'begin_time': '2023-05-17 17:12:52', 'pass_rate': '85.71'}, {'success': 0, 'all': 1, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '0.00 S', 'begin_time': '2023-05-17 17:17:15', 'pass_rate': '0.00'}, {'success': 6, 'all': 6, 'fail': 0, 'skip': 0, 'error': 0, 'runtime': '1.33 S', 'begin_time': '2023-05-17 17:21:07', 'pass_rate': '100.00'}];
+    const history = [{'success': 4, 'all': 7, 'fail': 1, 'skip': 0, 'error': 2, 'runtime': '0.45 S', 'begin_time': '2023-04-21 12:10:31', 'pass_rate': '57.14'}, {'success': 0, 'all': 1, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '0.01 S', 'begin_time': '2023-04-21 12:11:52', 'pass_rate': '0.00'}, {'success': 5, 'all': 6, 'fail': 1, 'skip': 0, 'error': 0, 'runtime': '0.33 S', 'begin_time': '2023-04-21 12:12:54', 'pass_rate': '83.33'}, {'success': 5, 'all': 6, 'fail': 1, 'skip': 0, 'error': 0, 'runtime': '0.30 S', 'begin_time': '2023-04-21 12:13:32', 'pass_rate': '83.33'}, {'success': 5, 'all': 6, 'fail': 1, 'skip': 0, 'error': 0, 'runtime': '0.28 S', 'begin_time': '2023-04-21 14:47:43', 'pass_rate': '83.33'}, {'success': 5, 'all': 6, 'fail': 1, 'skip': 0, 'error': 0, 'runtime': '0.27 S', 'begin_time': '2023-04-21 15:01:06', 'pass_rate': '83.33'}, {'success': 5, 'all': 6, 'fail': 1, 'skip': 0, 'error': 0, 'runtime': '0.24 S', 'begin_time': '2023-04-21 15:03:53', 'pass_rate': '83.33'}, {'success': 5, 'all': 6, 'fail': 1, 'skip': 0, 'error': 0, 'runtime': '0.23 S', 'begin_time': '2023-04-21 15:06:10', 'pass_rate': '83.33'}, {'success': 6, 'all': 7, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '3.00 S', 'begin_time': '2023-05-14 23:58:13', 'pass_rate': '85.71'}, {'success': 0, 'all': 2, 'fail': 0, 'skip': 0, 'error': 2, 'runtime': '0.02 S', 'begin_time': '2023-05-15 11:52:27', 'pass_rate': '0.00'}, {'success': 0, 'all': 2, 'fail': 0, 'skip': 0, 'error': 2, 'runtime': '0.00 S', 'begin_time': '2023-05-15 11:57:23', 'pass_rate': '0.00'}, {'success': 6, 'all': 7, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '1.38 S', 'begin_time': '2023-05-15 11:59:30', 'pass_rate': '85.71'}, {'success': 6, 'all': 7, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '1.44 S', 'begin_time': '2023-05-16 15:11:50', 'pass_rate': '85.71'}, {'success': 6, 'all': 7, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '1.28 S', 'begin_time': '2023-05-17 17:12:52', 'pass_rate': '85.71'}, {'success': 0, 'all': 1, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '0.00 S', 'begin_time': '2023-05-17 17:17:15', 'pass_rate': '0.00'}, {'success': 6, 'all': 6, 'fail': 0, 'skip': 0, 'error': 0, 'runtime': '1.33 S', 'begin_time': '2023-05-17 17:21:07', 'pass_rate': '100.00'}, {'success': 0, 'all': 1, 'fail': 0, 'skip': 0, 'error': 1, 'runtime': '0.00 S', 'begin_time': '2023-06-14 15:16:14', 'pass_rate': '0.00'}];
 
     var passRate = [];
     var dTime = [];

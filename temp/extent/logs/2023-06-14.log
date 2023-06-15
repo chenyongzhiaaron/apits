@@ -1,230 +1,251 @@
-2023-06-14 00:39:08 | INFO | 开始加载内置方法...
-2023-06-14 00:39:08 | INFO | 内置方法加载完成
-2023-06-14 00:39:08 | INFO | 所有用例执行开始...
-2023-06-14 00:39:08 | INFO | 测试用例:1 不执行，跳过!!!
-2023-06-14 00:39:09 | INFO | 暂停:1
-2023-06-14 00:39:09 | INFO | sql 执行成功:None
-2023-06-14 00:39:09 | INFO | ------------------------prepost_script_安全纯净大屏_2.py
-2023-06-14 00:39:09 | INFO | 测试用例:3 不执行，跳过!!!
-2023-06-14 00:39:11 | INFO | 暂停:2
-2023-06-14 00:39:11 | INFO | sql 执行成功:None
-2023-06-14 00:39:11 | INFO | E:\apitest\scripts\prepost_script_安全纯净大屏_4.py: 脚本文件不存在
-2023-06-14 00:39:11 | INFO | ------------------------prepost_script_安全纯净大屏_4.py
-2023-06-14 00:39:14 | INFO | 暂停:3
-2023-06-14 00:39:14 | INFO | sql 执行成功:None
-2023-06-14 00:39:14 | INFO | E:\apitest\scripts\prepost_script_安全纯净大屏_5.py: 脚本文件不存在
-2023-06-14 00:39:14 | INFO | ------------------------prepost_script_安全纯净大屏_5.py
-2023-06-14 00:39:14 | INFO | 测试用例:None 不执行，跳过!!!
-2023-06-14 00:39:14 | INFO | 所有用例执行完毕
-2023-06-14 00:44:35 | INFO | 开始加载内置方法...
-2023-06-14 00:44:35 | INFO | 内置方法加载完成
-2023-06-14 00:44:35 | INFO | 所有用例执行开始...
-2023-06-14 00:44:35 | INFO | 测试用例:1 不执行，跳过!!!
-2023-06-14 00:44:36 | INFO | 暂停:1
-2023-06-14 00:44:36 | INFO | sql 执行成功:None
-2023-06-14 00:44:36 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_2.py
-2023-06-14 00:44:36 | INFO | 测试用例:3 不执行，跳过!!!
-2023-06-14 00:44:38 | INFO | 暂停:2
-2023-06-14 00:44:38 | INFO | sql 执行成功:None
-2023-06-14 00:44:38 | INFO | E:\apitest\scripts\prepost_script_安全纯净大屏_4.py: 脚本文件不存在
-2023-06-14 00:44:38 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_4.py
-2023-06-14 00:44:41 | INFO | 暂停:3
-2023-06-14 00:44:41 | INFO | sql 执行成功:None
-2023-06-14 00:44:41 | INFO | E:\apitest\scripts\prepost_script_安全纯净大屏_5.py: 脚本文件不存在
-2023-06-14 00:44:41 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_5.py
-2023-06-14 00:44:41 | INFO | 测试用例:None 不执行，跳过!!!
-2023-06-14 00:44:41 | INFO | 所有用例执行完毕
-2023-06-14 00:46:45 | INFO | 开始加载内置方法...
-2023-06-14 00:46:45 | INFO | 内置方法加载完成
-2023-06-14 00:46:45 | INFO | 所有用例执行开始...
-2023-06-14 00:46:45 | INFO | 测试用例:1 不执行，跳过!!!
-2023-06-14 00:46:46 | INFO | 暂停:1
-2023-06-14 00:46:46 | INFO | sql 执行成功:None
-2023-06-14 00:46:46 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_2.py
-2023-06-14 00:46:46 | INFO | 测试用例:3 不执行，跳过!!!
-2023-06-14 00:46:48 | INFO | 暂停:2
-2023-06-14 00:46:48 | INFO | sql 执行成功:None
-2023-06-14 00:46:48 | INFO | E:\apitest\scripts\prepost_script_安全纯净大屏_4.py: 脚本文件不存在
-2023-06-14 00:46:48 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_4.py
-2023-06-14 00:46:51 | INFO | 暂停:3
-2023-06-14 00:46:51 | INFO | sql 执行成功:None
-2023-06-14 00:46:51 | INFO | E:\apitest\scripts\prepost_script_安全纯净大屏_5.py: 脚本文件不存在
-2023-06-14 00:46:51 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_5.py
-2023-06-14 00:46:51 | INFO | 测试用例:None 不执行，跳过!!!
-2023-06-14 00:46:51 | INFO | 所有用例执行完毕
-2023-06-14 00:49:39 | INFO | 开始加载内置方法...
-2023-06-14 00:49:39 | INFO | 内置方法加载完成
-2023-06-14 00:49:39 | INFO | 所有用例执行开始...
-2023-06-14 00:49:39 | INFO | 测试用例:1 不执行，跳过!!!
-2023-06-14 00:49:40 | INFO | 暂停:1
-2023-06-14 00:49:40 | INFO | sql 执行成功:None
-2023-06-14 00:49:40 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_2.py
-2023-06-14 00:49:40 | INFO | -----------分割线-----------
-2023-06-14 00:49:40 | INFO | 调用 wrapper args: ('https://bimdc.bzlrobot.com/bsp/test/user/ugs', '/auth/loginByNotBip', 'post'); kwargs:{'json': '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8="}', 'headers': '{"Content-Type": "application/json"}'}
-2023-06-14 00:49:40 | ERROR | wrapper: 请求异常
+2023-06-14 08:45:56 | INFO | 开始加载内置方法...
+2023-06-14 08:45:56 | INFO | 内置方法加载完成
+2023-06-14 08:45:56 | INFO | 所有用例执行开始...
+2023-06-14 08:45:56 | INFO | 测试用例:1 不执行，跳过!!!
+2023-06-14 08:45:57 | INFO | 暂停:1
+2023-06-14 08:45:57 | INFO | sql 执行成功:None
+2023-06-14 08:45:57 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_2.py
+2023-06-14 08:45:57 | INFO | -----------分割线-----------
+2023-06-14 08:45:57 | INFO | 调用 wrapper args: ('https://bimdc.bzlrobot.com/bsp/test/user/ugs', '/auth/loginByNotBip', 'post'); kwargs:{'json': '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8="}', 'headers': '{"Content-Type": "application/json"}'}
+2023-06-14 08:45:57 | ERROR | wrapper: 请求异常
 Traceback (most recent call last):
 
-  File "D:\PyCharm 2023.1\plugins\python\helpers\pycharm\_jb_unittest_runner.py", line 38, in <module>
+  File "D:\application\PyCharm 2023.1.1\plugins\python\helpers\pycharm\_jb_unittest_runner.py", line 38, in <module>
     sys.exit(main(argv=args, module=None, testRunner=unittestpy.TeamcityTestRunner,
     │   │    │         │                             │          └ <class 'teamcity.unittestpy.TeamcityTestRunner'>
-    │   │    │         │                             └ <module 'teamcity.unittestpy' from 'D:\\PyCharm 2023.1\\plugins\\python\\helpers\\pycharm\\teamcity\\unittestpy.py'>
-    │   │    │         └ ['python -m unittest', 'E:\\apitest\\temp\\extent\\test_api_script.py']
+    │   │    │         │                             └ <module 'teamcity.unittestpy' from 'D:\\application\\PyCharm 2023.1.1\\plugins\\python\\helpers\\pycharm\\teamcity\\unittestp...
+    │   │    │         └ ['python -m unittest', 'D:\\apk_api\\api-test-project\\temp\\extent\\test_api_script.py']
     │   │    └ <class 'unittest.main.TestProgram'>
     │   └ <built-in function exit>
     └ <module 'sys' (built-in)>
 
-  File "D:\python\lib\unittest\main.py", line 101, in __init__
+  File "D:\Program Files\python39\lib\unittest\main.py", line 101, in __init__
     self.runTests()
-    │    └ <function TestProgram.runTests at 0x000002208ABED040>
-    └ <unittest.main.TestProgram object at 0x000002208AB21FD0>
+    │    └ <function TestProgram.runTests at 0x000001AB9CB13A60>
+    └ <unittest.main.TestProgram object at 0x000001AB9CA3DFA0>
 
-  File "D:\python\lib\unittest\main.py", line 271, in runTests
+  File "D:\Program Files\python39\lib\unittest\main.py", line 271, in runTests
     self.result = testRunner.run(self.test)
     │             │          │   │    └ <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[None, <test_api_script.Tes...
-    │             │          │   └ <unittest.main.TestProgram object at 0x000002208AB21FD0>
-    │             │          └ <function TeamcityTestRunner.run at 0x000002208AEACE50>
-    │             └ <teamcity.unittestpy.TeamcityTestRunner object at 0x000002208AEC07C0>
-    └ <unittest.main.TestProgram object at 0x000002208AB21FD0>
+    │             │          │   └ <unittest.main.TestProgram object at 0x000001AB9CA3DFA0>
+    │             │          └ <function TeamcityTestRunner.run at 0x000001AB9CDD4940>
+    │             └ <teamcity.unittestpy.TeamcityTestRunner object at 0x000001AB9CA3D580>
+    └ <unittest.main.TestProgram object at 0x000001AB9CA3DFA0>
 
-  File "D:\PyCharm 2023.1\plugins\python\helpers\pycharm\teamcity\unittestpy.py", line 310, in run
+  File "D:\application\PyCharm 2023.1.1\plugins\python\helpers\pycharm\teamcity\unittestpy.py", line 310, in run
     return super(TeamcityTestRunner, self).run(test)
                  │                   │         └ <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[None, <test_api_script.Tes...
-                 │                   └ <teamcity.unittestpy.TeamcityTestRunner object at 0x000002208AEC07C0>
+                 │                   └ <teamcity.unittestpy.TeamcityTestRunner object at 0x000001AB9CA3D580>
                  └ <class 'teamcity.unittestpy.TeamcityTestRunner'>
 
-  File "D:\python\lib\unittest\runner.py", line 176, in run
+  File "D:\Program Files\python39\lib\unittest\runner.py", line 176, in run
     test(result)
     │    └ <teamcity.unittestpy.TeamcityTestResult run=2 errors=0 failures=0>
     └ <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[None, <test_api_script.Tes...
 
-  File "D:\python\lib\unittest\suite.py", line 84, in __call__
+  File "D:\Program Files\python39\lib\unittest\suite.py", line 84, in __call__
     return self.run(*args, **kwds)
            │    │    │       └ {}
            │    │    └ (<teamcity.unittestpy.TeamcityTestResult run=2 errors=0 failures=0>,)
-           │    └ <function TestSuite.run at 0x000002208AB830D0>
+           │    └ <function TestSuite.run at 0x000001AB9CA9EAF0>
            └ <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[None, <test_api_script.Tes...
 
-  File "D:\python\lib\unittest\suite.py", line 122, in run
+  File "D:\Program Files\python39\lib\unittest\suite.py", line 122, in run
     test(result)
     │    └ <teamcity.unittestpy.TeamcityTestResult run=2 errors=0 failures=0>
     └ <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[None, <test_api_script.TestProjectApi testMethod=test_api_2...
 
-  File "D:\python\lib\unittest\suite.py", line 84, in __call__
+  File "D:\Program Files\python39\lib\unittest\suite.py", line 84, in __call__
     return self.run(*args, **kwds)
            │    │    │       └ {}
            │    │    └ (<teamcity.unittestpy.TeamcityTestResult run=2 errors=0 failures=0>,)
-           │    └ <function TestSuite.run at 0x000002208AB830D0>
+           │    └ <function TestSuite.run at 0x000001AB9CA9EAF0>
            └ <unittest.suite.TestSuite tests=[<unittest.suite.TestSuite tests=[None, <test_api_script.TestProjectApi testMethod=test_api_2...
 
-  File "D:\python\lib\unittest\suite.py", line 122, in run
+  File "D:\Program Files\python39\lib\unittest\suite.py", line 122, in run
     test(result)
     │    └ <teamcity.unittestpy.TeamcityTestResult run=2 errors=0 failures=0>
-    └ <unittest.suite.TestSuite tests=[None, <test_api_script.TestProjectApi testMethod=test_api_2>, <test_api_script.TestProjectAp...
+    └ <unittest.suite.TestSuite tests=[None, <test_api_script.TestProjectApi testMethod=test_api_2_登录>, <test_api_script.TestProjec...
 
-  File "D:\python\lib\unittest\suite.py", line 84, in __call__
+  File "D:\Program Files\python39\lib\unittest\suite.py", line 84, in __call__
     return self.run(*args, **kwds)
            │    │    │       └ {}
            │    │    └ (<teamcity.unittestpy.TeamcityTestResult run=2 errors=0 failures=0>,)
-           │    └ <function TestSuite.run at 0x000002208AB830D0>
-           └ <unittest.suite.TestSuite tests=[None, <test_api_script.TestProjectApi testMethod=test_api_2>, <test_api_script.TestProjectAp...
+           │    └ <function TestSuite.run at 0x000001AB9CA9EAF0>
+           └ <unittest.suite.TestSuite tests=[None, <test_api_script.TestProjectApi testMethod=test_api_2_登录>, <test_api_script.TestProjec...
 
-  File "D:\python\lib\unittest\suite.py", line 122, in run
+  File "D:\Program Files\python39\lib\unittest\suite.py", line 122, in run
     test(result)
     │    └ <teamcity.unittestpy.TeamcityTestResult run=2 errors=0 failures=0>
-    └ <test_api_script.TestProjectApi testMethod=test_api_2>
+    └ <test_api_script.TestProjectApi testMethod=test_api_2_登录>
 
-  File "D:\python\lib\unittest\case.py", line 653, in __call__
+  File "D:\Program Files\python39\lib\unittest\case.py", line 653, in __call__
     return self.run(*args, **kwds)
            │    │    │       └ {}
            │    │    └ (<teamcity.unittestpy.TeamcityTestResult run=2 errors=0 failures=0>,)
-           │    └ <function TestCase.run at 0x000002208AB770D0>
-           └ <test_api_script.TestProjectApi testMethod=test_api_2>
+           │    └ <function TestCase.run at 0x000001AB9CA98AF0>
+           └ <test_api_script.TestProjectApi testMethod=test_api_2_登录>
 
-  File "D:\python\lib\unittest\case.py", line 593, in run
+  File "D:\Program Files\python39\lib\unittest\case.py", line 593, in run
     self._callTestMethod(testMethod)
-    │    │               └ <bound method TestProjectApi.test_api of <test_api_script.TestProjectApi testMethod=test_api_2>>
-    │    └ <function TestCase._callTestMethod at 0x000002208AB6FEE0>
-    └ <test_api_script.TestProjectApi testMethod=test_api_2>
+    │    │               └ <bound method TestProjectApi.test_api of <test_api_script.TestProjectApi testMethod=test_api_2_登录>>
+    │    └ <function TestCase._callTestMethod at 0x000001AB9CA98940>
+    └ <test_api_script.TestProjectApi testMethod=test_api_2_登录>
 
-  File "D:\python\lib\unittest\case.py", line 550, in _callTestMethod
+  File "D:\Program Files\python39\lib\unittest\case.py", line 550, in _callTestMethod
     method()
-    └ <bound method TestProjectApi.test_api of <test_api_script.TestProjectApi testMethod=test_api_2>>
+    └ <bound method TestProjectApi.test_api of <test_api_script.TestProjectApi testMethod=test_api_2_登录>>
 
-  File "C:\Users\Administrator\.virtualenvs\apitest-5XMQbNnO\lib\site-packages\ddt.py", line 220, in wrapper
+  File "C:\Users\chenyongzhi11\.virtualenvs\api-test-project-FfYYNBU1\lib\site-packages\ddt.py", line 235, in wrapper
     return func(self, *args, **kwargs)
            │    │      │       └ {}
            │    │      └ ({'Run': 'YES', 'Time': 1, 'Url': '/auth/loginByNotBip', 'Headers': '{"Content-Type": "application/json"}', 'Request Data': '...
-           │    └ <test_api_script.TestProjectApi testMethod=test_api_2>
-           └ <function TestProjectApi.test_api at 0x00000220ACE9AE50>
+           │    └ <test_api_script.TestProjectApi testMethod=test_api_2_登录>
+           └ <function TestProjectApi.test_api at 0x000001ABB69FEB80>
 
-  File "E:\apitest\temp\extent\test_api_script.py", line 125, in test_api
+  File "D:\apk_api\api-test-project\temp\extent\test_api_script.py", line 125, in test_api
     response = http_client(host, url, method, **kwargs)
                │           │     │    │         └ {'json': '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQT...
                │           │     │    └ 'post'
                │           │     └ '/auth/loginByNotBip'
                │           └ 'https://bimdc.bzlrobot.com/bsp/test/user/ugs'
-               └ <function log_decorator.<locals>.wrapper at 0x00000220AC92B820>
+               └ <function log_decorator.<locals>.wrapper at 0x000001ABB52C3D30>
 
-> File "E:\apitest\common\utils\mylogger.py", line 94, in wrapper
+> File "D:\apk_api\api-test-project\common\utils\mylogger.py", line 94, in wrapper
     result = func(*args, **kwargs)
              │     │       └ {'json': '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQT...
              │     └ ('https://bimdc.bzlrobot.com/bsp/test/user/ugs', '/auth/loginByNotBip', 'post')
-             └ <function log_decorator.<locals>.wrapper at 0x00000220AC92B790>
+             └ <function log_decorator.<locals>.wrapper at 0x000001ABB52C3DC0>
 
-  File "E:\apitest\common\utils\http_client.py", line 22, in wrapper
+  File "D:\apk_api\api-test-project\common\utils\http_client.py", line 22, in wrapper
     response = func(*args, **kwargs)
                │     │       └ {'json': '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQT...
                │     └ ('https://bimdc.bzlrobot.com/bsp/test/user/ugs', '/auth/loginByNotBip', 'post')
-               └ <function http_client at 0x00000220AC92B670>
+               └ <function http_client at 0x000001ABB52C3B80>
 
-  File "E:\apitest\common\utils\http_client.py", line 56, in http_client
+  File "D:\apk_api\api-test-project\common\utils\http_client.py", line 56, in http_client
     return func(url, verify=True, timeout=30, **kwargs)
            │    │                               └ {'json': '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQT...
            │    └ 'https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip'
-           └ <bound method Session.post of <requests.sessions.Session object at 0x00000220ACF47640>>
+           └ <bound method Session.post of <requests.sessions.Session object at 0x000001ABB6A01BE0>>
 
-  File "C:\Users\Administrator\.virtualenvs\apitest-5XMQbNnO\lib\site-packages\requests\sessions.py", line 578, in post
+  File "C:\Users\chenyongzhi11\.virtualenvs\api-test-project-FfYYNBU1\lib\site-packages\requests\sessions.py", line 578, in post
     return self.request('POST', url, data=data, json=json, **kwargs)
            │    │               │         │          │       └ {'verify': True, 'timeout': 30, 'headers': '{"Content-Type": "application/json"}'}
            │    │               │         │          └ '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1...
            │    │               │         └ None
            │    │               └ 'https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip'
-           │    └ <function Session.request at 0x00000220AC74F160>
-           └ <requests.sessions.Session object at 0x00000220ACF47640>
+           │    └ <function Session.request at 0x000001ABB50E69D0>
+           └ <requests.sessions.Session object at 0x000001ABB6A01BE0>
 
-  File "C:\Users\Administrator\.virtualenvs\apitest-5XMQbNnO\lib\site-packages\requests\sessions.py", line 516, in request
+  File "C:\Users\chenyongzhi11\.virtualenvs\api-test-project-FfYYNBU1\lib\site-packages\requests\sessions.py", line 516, in request
     prep = self.prepare_request(req)
            │    │               └ <Request [POST]>
-           │    └ <function Session.prepare_request at 0x00000220AC74F0D0>
-           └ <requests.sessions.Session object at 0x00000220ACF47640>
+           │    └ <function Session.prepare_request at 0x000001ABB50E6940>
+           └ <requests.sessions.Session object at 0x000001ABB6A01BE0>
 
-  File "C:\Users\Administrator\.virtualenvs\apitest-5XMQbNnO\lib\site-packages\requests\sessions.py", line 449, in prepare_request
+  File "C:\Users\chenyongzhi11\.virtualenvs\api-test-project-FfYYNBU1\lib\site-packages\requests\sessions.py", line 449, in prepare_request
     p.prepare(
-    │ └ <function PreparedRequest.prepare at 0x00000220AC73D430>
+    │ └ <function PreparedRequest.prepare at 0x000001ABB50C8DC0>
     └ <PreparedRequest [POST]>
 
-  File "C:\Users\Administrator\.virtualenvs\apitest-5XMQbNnO\lib\site-packages\requests\models.py", line 315, in prepare
+  File "C:\Users\chenyongzhi11\.virtualenvs\api-test-project-FfYYNBU1\lib\site-packages\requests\models.py", line 315, in prepare
     self.prepare_headers(headers)
     │    │               └ '{"Content-Type": "application/json"}'
-    │    └ <function PreparedRequest.prepare_headers at 0x00000220AC73D790>
+    │    └ <function PreparedRequest.prepare_headers at 0x000001ABB50CA160>
     └ <PreparedRequest [POST]>
 
-  File "C:\Users\Administrator\.virtualenvs\apitest-5XMQbNnO\lib\site-packages\requests\models.py", line 447, in prepare_headers
+  File "C:\Users\chenyongzhi11\.virtualenvs\api-test-project-FfYYNBU1\lib\site-packages\requests\models.py", line 447, in prepare_headers
     for header in headers.items():
                   └ '{"Content-Type": "application/json"}'
 
 AttributeError: 'str' object has no attribute 'items'
-2023-06-14 00:49:40 | INFO | -----------分割线-----------
-2023-06-14 00:49:40 | ERROR | 异常用例: 安全纯净大屏_2_登录_非BIP用户登录
+2023-06-14 08:45:57 | INFO | -----------分割线-----------
+2023-06-14 08:45:57 | ERROR | 异常用例: 安全纯净大屏_2_登录_非BIP用户登录
 'NoneType' object has no attribute 'json'
-2023-06-14 00:49:40 | INFO | 测试用例:3 不执行，跳过!!!
-2023-06-14 00:49:42 | INFO | 暂停:2
-2023-06-14 00:49:42 | INFO | sql 执行成功:None
-2023-06-14 00:49:42 | INFO | E:\apitest\scripts\prepost_script_安全纯净大屏_4.py: 脚本文件不存在
-2023-06-14 00:49:42 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_4.py
-2023-06-14 00:49:45 | INFO | 暂停:3
-2023-06-14 00:49:45 | INFO | sql 执行成功:None
-2023-06-14 00:49:45 | INFO | E:\apitest\scripts\prepost_script_安全纯净大屏_5.py: 脚本文件不存在
-2023-06-14 00:49:45 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_5.py
-2023-06-14 00:49:45 | INFO | 测试用例:None 不执行，跳过!!!
-2023-06-14 00:49:45 | INFO | 所有用例执行完毕
+2023-06-14 08:45:57 | INFO | 测试用例:3 不执行，跳过!!!
+2023-06-14 08:45:59 | INFO | 暂停:2
+2023-06-14 08:45:59 | INFO | sql 执行成功:None
+2023-06-14 08:45:59 | INFO | D:\apk_api\api-test-project\scripts\prepost_script_安全纯净大屏_4.py: 脚本文件不存在
+2023-06-14 08:45:59 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_4.py
+2023-06-14 08:46:02 | INFO | 暂停:3
+2023-06-14 08:46:02 | INFO | sql 执行成功:None
+2023-06-14 08:46:02 | INFO | D:\apk_api\api-test-project\scripts\prepost_script_安全纯净大屏_5.py: 脚本文件不存在
+2023-06-14 08:46:02 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_5.py
+2023-06-14 08:46:02 | INFO | 测试用例:None 不执行，跳过!!!
+2023-06-14 08:46:02 | INFO | 所有用例执行完毕
+2023-06-14 08:49:55 | INFO | 开始加载内置方法...
+2023-06-14 08:49:55 | INFO | 内置方法加载完成
+2023-06-14 08:49:55 | INFO | 所有用例执行开始...
+2023-06-14 08:49:55 | INFO | 测试用例:1 不执行，跳过!!!
+2023-06-14 08:49:57 | INFO | 暂停:1
+2023-06-14 08:49:57 | INFO | sql 执行成功:None
+2023-06-14 08:49:57 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_2.py
+2023-06-14 08:49:57 | INFO | -----------分割线-----------
+2023-06-14 08:49:57 | INFO | 调用 wrapper args: ('https://bimdc.bzlrobot.com/bsp/test/user/ugs', '/auth/loginByNotBip', 'post'); kwargs:{'json': '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1cztGYbVp97kvIQwZLN4UhrOAe3h1asY/NLnDwB/byl7agcGv9WI4oy6B1Z93HVHmQiAKn7QqnDgPVITu4jthNc8="}', 'headers': '{"Content-Type": "application/json"}'}
+2023-06-14 08:49:57 | ERROR | wrapper: 请求异常
+Traceback (most recent call last):
+
+  File "D:\apk_api\api-test-project\common\utils\mylogger.py", line 94, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {'json': '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQT...
+             │     └ ('https://bimdc.bzlrobot.com/bsp/test/user/ugs', '/auth/loginByNotBip', 'post')
+             └ <function log_decorator.<locals>.wrapper at 0x000001EE14EE4DC0>
+
+  File "D:\apk_api\api-test-project\common\utils\http_client.py", line 22, in wrapper
+    response = func(*args, **kwargs)
+               │     │       └ {'json': '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQT...
+               │     └ ('https://bimdc.bzlrobot.com/bsp/test/user/ugs', '/auth/loginByNotBip', 'post')
+               └ <function http_client at 0x000001EE14EE4B80>
+
+  File "D:\apk_api\api-test-project\common\utils\http_client.py", line 56, in http_client
+    return func(url, verify=True, timeout=30, **kwargs)
+           │    │                               └ {'json': '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQT...
+           │    └ 'https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip'
+           └ <bound method Session.post of <requests.sessions.Session object at 0x000001EE15653D30>>
+
+  File "C:\Users\chenyongzhi11\.virtualenvs\api-test-project-FfYYNBU1\lib\site-packages\requests\sessions.py", line 578, in post
+    return self.request('POST', url, data=data, json=json, **kwargs)
+           │    │               │         │          │       └ {'verify': True, 'timeout': 30, 'headers': '{"Content-Type": "application/json"}'}
+           │    │               │         │          └ '{"account": "18127813600", "password": "WD6Y0+LJLHXuFaplzUtSCnwktA7KgXCpjCS+OVvIFGTEoz2gbqK2oOOuJUf7ao0m2YYGiGi1pQTMBnkrxIY1...
+           │    │               │         └ None
+           │    │               └ 'https://bimdc.bzlrobot.com/bsp/test/user/ugs/auth/loginByNotBip'
+           │    └ <function Session.request at 0x000001EE14D05A60>
+           └ <requests.sessions.Session object at 0x000001EE15653D30>
+
+  File "C:\Users\chenyongzhi11\.virtualenvs\api-test-project-FfYYNBU1\lib\site-packages\requests\sessions.py", line 516, in request
+    prep = self.prepare_request(req)
+           │    │               └ <Request [POST]>
+           │    └ <function Session.prepare_request at 0x000001EE14D059D0>
+           └ <requests.sessions.Session object at 0x000001EE15653D30>
+
+  File "C:\Users\chenyongzhi11\.virtualenvs\api-test-project-FfYYNBU1\lib\site-packages\requests\sessions.py", line 449, in prepare_request
+    p.prepare(
+    │ └ <function PreparedRequest.prepare at 0x000001EE14CE7E50>
+    └ <PreparedRequest [POST]>
+
+  File "C:\Users\chenyongzhi11\.virtualenvs\api-test-project-FfYYNBU1\lib\site-packages\requests\models.py", line 315, in prepare
+    self.prepare_headers(headers)
+    │    │               └ '{"Content-Type": "application/json"}'
+    │    └ <function PreparedRequest.prepare_headers at 0x000001EE14CEF1F0>
+    └ <PreparedRequest [POST]>
+
+  File "C:\Users\chenyongzhi11\.virtualenvs\api-test-project-FfYYNBU1\lib\site-packages\requests\models.py", line 447, in prepare_headers
+    for header in headers.items():
+                  └ '{"Content-Type": "application/json"}'
+
+AttributeError: 'str' object has no attribute 'items'
+2023-06-14 08:49:57 | INFO | -----------分割线-----------
+2023-06-14 08:49:57 | ERROR | 异常用例: 安全纯净大屏_2_登录_非BIP用户登录
+'NoneType' object has no attribute 'json'
+2023-06-14 08:49:57 | INFO | 测试用例:3 不执行，跳过!!!
+2023-06-14 08:49:59 | INFO | 暂停:2
+2023-06-14 08:49:59 | INFO | sql 执行成功:None
+2023-06-14 08:49:59 | INFO | D:\apk_api\api-test-project\scripts\prepost_script_安全纯净大屏_4.py: 脚本文件不存在
+2023-06-14 08:49:59 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_4.py
+2023-06-14 08:50:02 | INFO | 暂停:3
+2023-06-14 08:50:02 | INFO | sql 执行成功:None
+2023-06-14 08:50:02 | INFO | D:\apk_api\api-test-project\scripts\prepost_script_安全纯净大屏_5.py: 脚本文件不存在
+2023-06-14 08:50:02 | INFO | ------开始加载脚本------prepost_script_安全纯净大屏_5.py
+2023-06-14 08:50:02 | INFO | 测试用例:None 不执行，跳过!!!
+2023-06-14 08:50:02 | INFO | 所有用例执行完毕

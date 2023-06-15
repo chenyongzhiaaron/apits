@@ -5,13 +5,12 @@
 # @File : do_excel.py
 # @Project : risk_project
 import sys
-from collections.abc import Iterator
 
 sys.path.append("../")
 sys.path.append("./common")
-from common.config import Config
 from openpyxl import load_workbook
 from common.utils.singleton import singleton
+from common.file_handling import logger
 
 
 @singleton
@@ -22,6 +21,7 @@ class DoExcel:
         self.wb = load_workbook(self.file_name)
         self.init_sheet = self.wb["init"]
 
+    @logger.log_decorator()
     def do_excel(self):
         """
         通过 title 定位单元格，获取所有测试数据
@@ -46,6 +46,7 @@ class DoExcel:
                 test_data.append(sub_data)  # 将所有单元格 title 对应的值组成字典添加到列表中。
         return test_data
 
+    @logger.log_decorator()
     def do_excel_yield(self):
         """
         读取excel数据的生成器
@@ -67,6 +68,7 @@ class DoExcel:
                     sub_data["sheet"] = sheet_name
                 yield sub_data
 
+    @logger.log_decorator()
     def write_back(self, sheet_name, i, **kwargs):
         """
 
@@ -87,6 +89,7 @@ class DoExcel:
         sheet.cell(i + 1, 21).value = assert_log
         self.wb.save(self.file_name)
 
+    @logger.log_decorator()
     def clear_date(self):
         """
         执行清空单元格数据
@@ -105,6 +108,7 @@ class DoExcel:
         self.wb.save(self.file_name)
         return "清空指定 sheet 中的单元格成功"
 
+    @logger.log_decorator()
     def get_excel_init(self):
         """
         获取 excel 中 sheet 名称为 init 中的基础数据
@@ -128,11 +132,11 @@ class DoExcel:
 
 
 if __name__ == '__main__':
+    from common.config import Config
+
     file_n = Config.test_api
-    print(file_n)
-    test_init = DoExcel(file_n).get_excel_init()
-    print(test_init)
     excel = DoExcel(file_n)
-    print(excel.do_excel())
-    print(excel.clear_date())
-    print(excel.do_excel())
+    # excel.get_excel_init()
+    # excel.do_excel()
+    # excel.clear_date()
+    # excel.do_excel()

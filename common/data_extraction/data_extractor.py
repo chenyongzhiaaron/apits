@@ -5,16 +5,15 @@ Author: 陈勇志
 Email:262667641@qq.com
 Project:api_project
 """
-import sys
 import json
 import re
+import sys
 
 sys.path.append("../")
 sys.path.append("./common")
-from common.utils.singleton import singleton
 from jsonpath_ng import parse
 from common.dependence import Dependence
-from common.utils.logger import MyLog
+from common.data_extraction import logger
 
 REPLACE_DICT = {
     "null": None,
@@ -24,8 +23,6 @@ REPLACE_DICT = {
 
 d = Dependence()
 
-logger = MyLog()
-
 
 class DataExtractor:
 
@@ -33,6 +30,7 @@ class DataExtractor:
         self.PATTERN = getattr(Dependence, "PATTERN")  # 预编译正则表达式
         self.response = response
 
+    @logger.log_decorator("提取参数出现了意想不到的错误！！")
     def substitute_data(self, regex=None, keys=None, deps=None, jp_dict=None):
         """
         方法接收一个正则表达式 regex 和一个关联参数表 deps，用于从接口返回的数据中提取关联参数。
@@ -48,18 +46,14 @@ class DataExtractor:
         """
         self.response = self.response
         if not isinstance(self.response, (dict, str, list)):
-            logger.my_log(f"被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: {self.response}", "info")
+            logger.error(f"被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: {self.response}")
             return {}
         if regex and keys:
-            # logger.my_log(f"开始执行正则提取：regex-->{regex};keys-->{keys}", "info")
-            # self.response = json.dumps(self.response) if isinstance(self.response, (dict, list)) else self.response
             self.substitute_regex(regex, keys)
         self.response = self.response if isinstance(self.response, (dict, list)) else json.loads(self.response)
         if deps:
-            # logger.my_log(f"开始执行路径表达式提取：deps-->{deps}", "info")
             self.substitute_route(deps)
         if jp_dict:
-            # logger.my_log(f"开始执行jsonpath提取：jp_dict-->{jp_dict}", "info")
             self.substitute_jsonpath(jp_dict)
 
     def substitute_regex(self, regex, keys):
@@ -131,12 +125,12 @@ class DataExtractor:
                 result = [m.value for m in match]
                 d.update_dep(key, result[0]) if len(result) == 1 else d.update_dep(key, result)
             except Exception as e:
-                MyLog().my_log(f"jsonpath表达式错误'{expression}': {e}")
+                logger.error(f"jsonpath表达式错误'{expression}': {e}")
 
 
 if __name__ == '__main__':
     # 测试subs函数
-    print(Dependence.get_dep())
+    Dependence.get_dep()
     res = '{"code": 1,"data": [{"id": 1, "name": "Alice", "age": [20, 21, 22, {"a": "b"}]}]}'
     lists = {"k": "$..code", "x": "$.data[0].age[3].a"}
     dep_str = "name=data[0].name;ok=data[0].id;an=data[0].age"
@@ -144,4 +138,5 @@ if __name__ == '__main__':
     regex_key = ["a", "b"]
     t = DataExtractor(res)
     t.substitute_data(regex=regex_str, keys=regex_key, deps=dep_str, jp_dict=lists)
-    print(Dependence.get_dep())
+    d = Dependence.get_dep()
+    print(d)

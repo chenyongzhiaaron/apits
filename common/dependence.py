@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 import re
 import sys
-
 from dataclasses import dataclass
 
 sys.path.append("./")

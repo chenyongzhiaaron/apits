@@ -13,8 +13,8 @@ from common import bif_functions
 from common.data_extraction.dependent_parameter import DependentParameter as DP
 from common.data_extraction.data_extractor import DataExtractor
 from common.crypto.encryption_main import do_encrypt
-from common.database.do_mysql import DoMysql
-from common.utils.http_client import http_client
+from common.database.mysql_client import MysqlClient
+from common.http_client.http_client import http_client
 from common.utils.logger import MyLog
 from common.validation import loaders
 from common.validation.validator import Validator
@@ -29,7 +29,7 @@ class BaseClass(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         self.host = kwargs.pop("host", "") + kwargs.pop("path", "")
         self.databases = kwargs.pop("databases")
-        self.mysql = DoMysql(self.databases)
+        self.mysql = MysqlClient(self.databases)
         super().__init__(*args, **kwargs)
 
     @classmethod
@@ -154,7 +154,7 @@ class BaseClass(unittest.TestCase):
     def get_sql_res(self):
         """执行sql"""
         try:
-            execute_sql_results = self.mysql.do_mysql(self.sql)
+            execute_sql_results = self.mysql.execute_sql(self.sql)
             if execute_sql_results and self.sql_variable:
                 # 执行sql数据提取
                 DataExtractor(execute_sql_results).substitute_data(jp_dict=self.sql_variable)
