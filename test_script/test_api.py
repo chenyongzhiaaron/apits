@@ -27,7 +27,7 @@ class TestProjectApi(unittest.TestCase):
         item_id = item.pop("Id")
         name = item.pop("Name")
         description = item.pop("Description")
-        sleep_time = item.get("Time")
+        sleep_time = item.pop("Time")
         # 不填写，默认为get请求的传参
         request_data_type = item.pop("Request Data Type") if item.get("Request Data Type") else 'params'
         method = item.pop("Method")
@@ -40,9 +40,8 @@ class TestProjectApi(unittest.TestCase):
         regex_params_list = item.pop("Regex Params List")
         retrieve_value = item.pop("Retrieve Value")
         json_path = item.pop("Jsonpath")
-        logger.debug(f"当前的:{item}")
-
-        if not item.get("Run") or item.get("Run").upper() != "YES":
+        is_run = item.pop("Run")
+        if not is_run or is_run.upper() != "YES":
             # logger.info(f"测试用例:{item_id} 不执行，跳过!!!")
             return
 
@@ -68,17 +67,18 @@ class TestProjectApi(unittest.TestCase):
                 logger.error(f'执行 sql 失败:{sql},异常信息:{e}')
                 raise e
 
-        # 拼接动态代码段文件
-        prepost_script = f"prepost_script_{sheet}_{item_id}.py"
-        item = load_and_execute_script(Config.SCRIPTS_DIR, prepost_script, "setup", item)
-
-        # 替换 URL, PARAMETERS, HEADER,期望值
-        item = dep_par.replace_dependent_parameter(item)
-
         url = item.pop("Url")
         request_data = item.pop("Request Data")
         headers = item.pop("Headers")
         expected = item.pop("Expected")
+
+        # 拼接动态代码段文件
+        prepost_script = f"prepost_script_{sheet}_{item_id}.py"
+
+        item = load_and_execute_script(Config.SCRIPTS_DIR, prepost_script, "setup", item)
+
+        # 替换 URL, PARAMETERS, HEADER,期望值
+        item = dep_par.replace_dependent_parameter(item)
 
         # 提取请求参数信息
         DataExtractor(request_data).substitute_data(jp_dict=parameters_key)

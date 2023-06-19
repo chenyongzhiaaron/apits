@@ -30,6 +30,7 @@ requests-html = "*"
 loguru = "*"
 tree = "*"
 dbutils = "*"
+flask = "*"
 
 [dev-packages]
 
