@@ -6,8 +6,8 @@
 # @Project : risk_project
 import sys
 
-sys.path.append("../")
-sys.path.append("./common")
+sys.path.append("../../")
+sys.path.append("../../common")
 from openpyxl import load_workbook
 from common.utils.singleton import singleton
 from common.file_handling import logger
@@ -46,7 +46,7 @@ class DoExcel:
                 test_data.append(sub_data)  # 将所有单元格 title 对应的值组成字典添加到列表中。
         return test_data
 
-    @logger.log_decorator()
+    # @logger.log_decorator()
     def do_excel_yield(self):
         """
         读取excel数据的生成器
@@ -84,9 +84,9 @@ class DoExcel:
         test_result = kwargs.get("test_result")
         assert_log = kwargs.get("assert_log")
         sheet = self.wb[sheet_name]
-        sheet.cell(i + 1, 19).value = response_value
-        sheet.cell(i + 1, 20).value = test_result
-        sheet.cell(i + 1, 21).value = assert_log
+        sheet.cell(i + 1, 22).value = response_value
+        sheet.cell(i + 1, 23).value = test_result
+        sheet.cell(i + 1, 24).value = assert_log
         self.wb.save(self.file_name)
 
     @logger.log_decorator()
@@ -102,9 +102,9 @@ class DoExcel:
             sheet = self.wb[sheet_name]
             max_row = sheet.max_row  # 获取最大行
             for i in range(2, max_row + 1):
-                sheet.cell(i, 19).value = ""
-                sheet.cell(i, 20).value = ""
-                sheet.cell(i, 21).value = ""
+                sheet.cell(i, 22).value = ""
+                sheet.cell(i, 23).value = ""
+                sheet.cell(i, 24).value = ""
         self.wb.save(self.file_name)
         return "清空指定 sheet 中的单元格成功"
 
@@ -127,8 +127,8 @@ class DoExcel:
                 break
         return init
 
-    def __del__(self):
-        self.wb.close()
+    # def __del__(self):
+    #     self.wb.close()
 
 
 if __name__ == '__main__':

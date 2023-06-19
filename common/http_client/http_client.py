@@ -19,14 +19,14 @@ def log_decorator(msg="请求异常"):
     def decorator(func):
         def wrapper(*args, **kwargs):
             try:
-                logger.info(f"发送请求的参数： {kwargs}")
+                print(f"发送请求的参数： {kwargs}")
                 response = func(*args, **kwargs)
-                logger.info(f"请求地址 --> {response.request.url}")
-                logger.info(f"请求头 --> {response.request.headers}")
-                logger.info(f"请求 body --> {response.request.body}")
-                logger.info(f"接口状态--> {response.status_code}")
-                logger.info(f"接口耗时--> {response.elapsed}")
-                logger.info(f"接口响应--> {response.text}")
+                print(f"请求地址 --> {response.request.url}")
+                print(f"请求头 --> {response.request.headers}")
+                print(f"请求 body --> {response.request.body}")
+                print(f"接口状态--> {response.status_code}")
+                print(f"接口耗时--> {response.elapsed}")
+                print(f"接口响应--> {response.text}")
                 return response
             except Exception as e:
                 logger.error(f"发送请求失败: {e}")
@@ -77,5 +77,5 @@ if __name__ == '__main__':
     method = 'post'
     kwargs = {
         'json': '{"account": "luoshunwen005", "grantType": "password", "isBip": "false","password": "o+t2SnEEylblxlfIspJUvGFa0gCDNrU2dC34LjVFqIiTmxa855YDBE/6J7eRVBGaQwR7mozSKComk9n6kjSNRjSX1m574dRZdESIeYsmM/xk2Nt5n5dqB268qCMivJMXpHQMygpT4RpDiYoOiEqlOi9eG5G7v/5rixHiZ9xv98m34xVD1VdlaCbphoB9JI7T9HmVFJniSWt01ruC5t+aFUvfxLjOpRmYmfz8GwtSd5XXKaKr29ce1C39Fg+PtqOkQ3cOLVS9hXgzz6s2zud0++T4vwgVtrHx86aMrrozhCdKzrQuWPEO1cSsaEaNVdSUsT54je+4O+xKzxkJhoGMnQ=="}',
-        'headers': '{"Content-Type": "application/json"}'}
+        'headers': None}
     http_client(hst, url, method, **kwargs)

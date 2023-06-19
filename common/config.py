@@ -10,12 +10,12 @@ class Config:
     # 测试数据所在路径
     # *****************************************************************
     templates = os.path.join(base_path, "cases", "templates", "template.xlsx")  # 模板文件
-    test_api = os.path.join(base_path, "cases", "cases", "test_api.xlsx")
+    test_api = os.path.join(base_path, "cases", "cases", "test_cases.xlsx")
     # *****************************************************************
 
     # 测试用例脚本目录
     # *****************************************************************
-    script = os.path.join(base_path, "test_script", 'automation')
+    script = os.path.join(base_path, "test_script")
     # *****************************************************************
 
     # 测试报告及 logger 所在路径

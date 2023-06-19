@@ -7,7 +7,10 @@
 @time: 2023/3/15 11:14
 @desc:
 """
-from common.utils.mylogger import MyLogger
+import sys
 
+sys.path.append('../../common')
+
+from common.utils.mylogger import MyLogger
 
 logger = MyLogger()

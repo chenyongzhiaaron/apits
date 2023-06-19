@@ -3,14 +3,18 @@ import os
 import sys
 
 sys.path.append('../../common')
-from common.utils import logger
+sys.path.append('../../common/utils')
+
+from common.utils.mylogger import MyLogger
+
+logger = MyLogger()
 
 
 class ScriptNotFoundError(Exception):
     pass
 
 
-@logger.log_decorator()
+# @logger.log_decorator()
 def load_script(script_path):
     """
     加载脚本文件并返回模块对象
