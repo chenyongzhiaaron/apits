@@ -21,6 +21,15 @@ class DoExcel:
         self.wb = load_workbook(self.file_name)
         self.init_sheet = self.wb["init"]
 
+    # def __enter__(self):
+    #     self.wb = load_workbook(self.file_name)
+    #     self.init_sheet = self.wb['init']
+    #     return self
+    #
+    # def __exit__(self, exc_type, exc_val, exc_tb):
+    #     self.wb.save(self.file_name)
+    #     self.wb.close()
+
     @logger.log_decorator()
     def do_excel(self):
         """
@@ -80,7 +89,7 @@ class DoExcel:
             assert_log: 报错结果
         Returns:
         """
-        response_value = kwargs.get("response_value")
+        response_value = kwargs.get("response")
         test_result = kwargs.get("test_result")
         assert_log = kwargs.get("assert_log")
         sheet = self.wb[sheet_name]
@@ -106,7 +115,7 @@ class DoExcel:
                 sheet.cell(i, 23).value = ""
                 sheet.cell(i, 24).value = ""
         self.wb.save(self.file_name)
-        return "清空指定 sheet 中的单元格成功"
+        return f"清空指定 {sheets} 中的单元格成功"
 
     @logger.log_decorator()
     def get_excel_init(self):
@@ -127,8 +136,19 @@ class DoExcel:
                 break
         return init
 
-    # def __del__(self):
-    #     self.wb.close()
+    def get_excel_init_and_cases(self):
+        """
+
+        Returns:初始化数据及测试用例组成的元组
+
+        """
+        try:
+            self.clear_date()
+            test_case = self.do_excel_yield()
+            init_data = self.get_excel_init()
+        except Exception as e:
+            raise e
+        return init_data, test_case
 
 
 if __name__ == '__main__':

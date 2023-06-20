@@ -10,7 +10,6 @@
 import requests
 
 from common.database.redis_client import RedisClient
-```
 redis_client = RedisClient()
 
 
@@ -33,4 +32,3 @@ def second_api():
 if __name__ == '__main__':
     first_api()
     second_api()
-```

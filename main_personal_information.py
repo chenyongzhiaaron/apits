@@ -1,5 +1,9 @@
 # -*-coding:utf-8-*-
 import random
+import sys
+
+# sys.path.append('./')
+# sys.path.append('./common')
 
 from prettytable import PrettyTable
 from faker import Faker

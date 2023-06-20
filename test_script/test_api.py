@@ -5,7 +5,6 @@ from ddt import ddt, data
 
 from common import bif_functions
 from common.crypto.encrypt_data import encrypt_data
-from common.data_extraction.data_extractor import DataExtractor
 from common.http_client.http_client import http_client
 from common.utils.load_and_execute_script import load_and_execute_script
 from common.validation import loaders
@@ -15,6 +14,7 @@ from test_script import *
 @ddt
 class TestProjectApi(unittest.TestCase):
     maxDiff = None
+    extractor = DataExtractor()
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -42,16 +42,8 @@ class TestProjectApi(unittest.TestCase):
         json_path = item.pop("Jsonpath")
         is_run = item.pop("Run")
         if not is_run or is_run.upper() != "YES":
-            # logger.info(f"测试用例:{item_id} 不执行，跳过!!!")
             return
-
-        if sleep_time:
-            try:
-                time.sleep(int(sleep_time))
-                # logger.info(f"暂停:{sleep_time}")
-            except Exception as e:
-                logger.error(f'暂停时间必须是数字')
-                raise e
+        self.pause_execution(sleep_time)
 
         # 首先执行sql替换,将sql替换为正确的sql语句
         sql = dep_par.replace_dependent_parameter(sqlps)
@@ -60,17 +52,12 @@ class TestProjectApi(unittest.TestCase):
                 execute_sql_results = mysql.do_mysql(sql)
                 if execute_sql_results and sql_params_dict:
                     # 执行sql数据提取
-                    DataExtractor(execute_sql_results).substitute_data(jp_dict=sql_params_dict)
+                    self.extractor.substitute_data(execute_sql_results, jp_dict=sql_params_dict)
                     if method == "SQL" and mysql:
                         return
             except Exception as e:
                 logger.error(f'执行 sql 失败:{sql},异常信息:{e}')
                 raise e
-
-        url = item.pop("Url")
-        request_data = item.pop("Request Data")
-        headers = item.pop("Headers")
-        expected = item.pop("Expected")
 
         # 拼接动态代码段文件
         prepost_script = f"prepost_script_{sheet}_{item_id}.py"
@@ -79,9 +66,12 @@ class TestProjectApi(unittest.TestCase):
 
         # 替换 URL, PARAMETERS, HEADER,期望值
         item = dep_par.replace_dependent_parameter(item)
-
+        url = item.pop("Url")
+        request_data = item.pop("Request Data")
+        headers = item.pop("Headers")
+        expected = item.pop("Expected")
         # 提取请求参数信息
-        DataExtractor(request_data).substitute_data(jp_dict=parameters_key)
+        self.extractor.substitute_data(request_data, jp_dict=parameters_key)
 
         headers, request_data = encrypt_data(headers_crypto, headers, request_data_crypto, request_data)
 
@@ -103,8 +93,9 @@ class TestProjectApi(unittest.TestCase):
             self.assertNotIn("FAIL", result_tuple, "FAIL 存在结果元组中")
             try:
                 # 提取响应
-                DataExtractor(response.json()).substitute_data(regex=regex, keys=regex_params_list, deps=retrieve_value,
-                                                               jp_dict=json_path)
+                self.extractor.substitute_data(response.json(), regex=regex, keys=regex_params_list,
+                                               deps=retrieve_value,
+                                               jp_dict=json_path)
 
             except Exception as err:
                 logger.error(f"提取响应失败：{sheet}_{item_id}_{name}_{description}"
@@ -121,8 +112,16 @@ class TestProjectApi(unittest.TestCase):
             response_value = response.text if response is not None else str(response)
             assert_log = str(result_tuple)
             # 响应结果及测试结果回写 excel
-            excel_handle.write_back(sheet_name=sheet, i=item_id, response_value=response_value, test_result=result,
-                                    assert_log=assert_log)
+            # excel.write_back(sheet_name=sheet, i=item_id, response=response_value, test_result=result,
+            #                         assert_log=assert_log)
+
+    def pause_execution(self, sleep_time):
+        if sleep_time:
+            try:
+                time.sleep(sleep_time)
+            except Exception as e:
+                logger.error("暂时时间必须是数字")
+                raise e
 
     @classmethod
     def tearDownClass(cls) -> None:

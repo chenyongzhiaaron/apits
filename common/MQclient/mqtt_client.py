@@ -13,7 +13,7 @@ import sys
 import paho.mqtt.client as mqtt
 
 
-class MQTTSender:
+class MQTTClient:
     def __init__(self, broker_address, topic):
         self.broker_address = broker_address
         self.topic = topic
@@ -89,5 +89,5 @@ msg = {
 }
 if __name__ == '__main__':
     p = sys.argv[0]
-    rab = MQTTSender(broker_address='192.2.3.59', topic='weigh/492875336/rtdata')
+    rab = MQTTClient(broker_address='192.2.3.59', topic='weigh/492875336/rtdata')
     rab.send_message(msg)

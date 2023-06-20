@@ -1,6 +1,6 @@
 import json
 
-from common.file_handling.read_file import read_file
+from common.file_handling.file_utils import FileUtils
 
 id_count = 0
 result = []
@@ -15,7 +15,7 @@ def parsing_postman(path):
     Returns:
 
     """
-    data = read_file(path)
+    data = FileUtils.read_json_data(path)
 
     def _parse_api(content):
         global result

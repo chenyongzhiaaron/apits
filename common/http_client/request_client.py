@@ -52,6 +52,4 @@ if __name__ == '__main__':
     }
     kg = {'json': payload, "headers": headers}
     res = req("", url, 'post', **kg)
-    # print(res.before_request_funcs)
-    # print(res.after_request_funcs)
     print(res, res.json())

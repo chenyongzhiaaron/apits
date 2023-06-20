@@ -3,7 +3,7 @@
 """
 @author: kira
 @contact: 262667641@qq.com
-@file: RabbitMQSender.py
+@file: RabbitMQClient.py
 @time: 2023/4/23 16:44
 @desc:
 """
@@ -12,10 +12,10 @@ import json
 import pika
 
 
-class RabbitMQSender:
+class RabbitMQClient:
     def __init__(self, host, queue_name=None, exchange_name=None, exchange_type=None, routing_key=None):
         """
-        RabbitMQSender 类的构造函数。AMQP 协议默认
+        RabbitMQClient 类的构造函数。AMQP 协议默认
         参数：
         - host: RabbitMQ 服务器的主机地址。
         - queue_name: 队列名称。如果指定了该参数，则消息将被发送到指定的队列。
@@ -115,7 +115,7 @@ if __name__ == '__main__':
         "time": "2023-04-23T17:48:33.128Z",
         "type": "SYNC"
     }
-    rab = RabbitMQSender(host='192.1.1.59:1883', exchange_name='/bridge/492/rtdata',
+    rab = RabbitMQClient(host='192.1.1.59:1883', exchange_name='/bridge/492/rtdata',
                          # exchange_type='topic',
                          # routing_key='connected'
                          )

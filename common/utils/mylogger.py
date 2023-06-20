@@ -37,7 +37,7 @@ class MyLogger:
         os.makedirs(self.log_dir, exist_ok=True)
 
         shared_config = {
-            "level": "INFO",
+            "level": "ERROR",
             "enqueue": True,
             "backtrace": False,
             "format": "{time:YYYY-MM-DD HH:mm:ss} | {level} | {message}",
@@ -90,7 +90,7 @@ class MyLogger:
                     result = func(*args, **kwargs)
                     end = perf_counter()  # 结束时间
                     duration = end - start
-                    self.logger.info(f"| end called {func.__name__} | return：{result}, duration：{duration:4f}s")
+                    self.logger.info(f"| end called {func.__name__}, duration：{duration:4f}s")
                     return result
                 except Exception as e:
                     self.logger.error(f"| called {func.__name__} | error: {msg}: {e}")

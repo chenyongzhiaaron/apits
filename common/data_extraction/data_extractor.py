@@ -26,12 +26,12 @@ d = Dependence()
 
 class DataExtractor:
 
-    def __init__(self, response):
+    def __init__(self):
         self.PATTERN = getattr(Dependence, "PATTERN")  # 预编译正则表达式
-        self.response = response
+        # self.response = response
 
     @logger.log_decorator("提取参数出现了意想不到的错误！！")
-    def substitute_data(self, regex=None, keys=None, deps=None, jp_dict=None):
+    def substitute_data(self, response, regex=None, keys=None, deps=None, jp_dict=None):
         """
         方法接收一个正则表达式 regex 和一个关联参数表 deps，用于从接口返回的数据中提取关联参数。
         它会从接口返回的数据中使用正则表达式 regex 和正则表达式返回结果的键列表 keys 提取数据，并将其更新到关联参数表中。
@@ -44,19 +44,20 @@ class DataExtractor:
             jp_dict: jsonpath 提取方式入参：{"k": "$.data", "x": "$.data[0].age[3].a"}
         Returns:
         """
-        self.response = self.response
-        if not isinstance(self.response, (dict, str, list)):
-            logger.error(f"被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: {self.response}")
+
+        response = response
+        if not isinstance(response, (dict, str, list)):
+            logger.error(f"被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: {response}")
             return {}
         if regex and keys:
-            self.substitute_regex(regex, keys)
-        self.response = self.response if isinstance(self.response, (dict, list)) else json.loads(self.response)
+            self.substitute_regex(response, regex, keys)
+        response = response if isinstance(response, (dict, list)) else json.loads(response)
         if deps:
-            self.substitute_route(deps)
+            self.substitute_route(response, deps)
         if jp_dict:
-            self.substitute_jsonpath(jp_dict)
+            self.substitute_jsonpath(response, jp_dict)
 
-    def substitute_regex(self, regex, keys):
+    def substitute_regex(self, response, regex, keys):
         """
         方法用于使用正则表达式 regex 和正则表达式返回结果的键列表 keys 从接口返回的数据中提取数据，并将其更新到关联参数表中。
         Args:
@@ -66,8 +67,8 @@ class DataExtractor:
         Returns:
 
         """
-        self.response = json.dumps(self.response) if isinstance(self.response, (dict, list)) else self.response
-        match = re.search(regex, self.response)
+        response = json.dumps(response) if isinstance(response, (dict, list)) else response
+        match = re.search(regex, response)
         if not match:
             return {}
         groups = match.groups()
@@ -77,12 +78,12 @@ class DataExtractor:
             except:
                 d.update_dep(key, None)
 
-    def substitute_route(self, route_str):
+    def substitute_route(self, response, route_str):
         deps_list = re.sub(f"[\r\n]+", "", route_str).split(";")
         for dep_item in deps_list:
             key, value_path = dep_item.split("=")
             value_path_parts = re.findall(r'\w+', value_path)
-            temp = self.response
+            temp = response
             for part in value_path_parts:
                 if isinstance(temp, dict):
                     temp = temp.get(part)
@@ -107,20 +108,23 @@ class DataExtractor:
             if temp is not None:
                 d.update_dep(key, temp)
 
-    def substitute_jsonpath(self, json_path_dict):
+    def substitute_jsonpath(self, response, json_path_dict):
         """
         jsonpath 提取参数
         Args:
+            response: 响应结果
             json_path_dict: {"k": "$.data", "x": "$.data[0].age[3].a"}
 
         Returns: 字符串或者list
 
         """
+
+        print("================================", json_path_dict)
         json_path_dict = json_path_dict if isinstance(json_path_dict, dict) else json.loads(json_path_dict)
         for key, expression in json_path_dict.items():
             try:
                 parsed_expression = parse(expression)
-                data = self.response
+                data = response
                 match = parsed_expression.find(data)
                 result = [m.value for m in match]
                 d.update_dep(key, result[0]) if len(result) == 1 else d.update_dep(key, result)
@@ -136,7 +140,7 @@ if __name__ == '__main__':
     dep_str = "name=data[0].name;ok=data[0].id;an=data[0].age"
     regex_str = r'"id": (\d+), "name": "(\w+)",'
     regex_key = ["a", "b"]
-    t = DataExtractor(res)
-    t.substitute_data(regex=regex_str, keys=regex_key, deps=dep_str, jp_dict=lists)
+    t = DataExtractor()
+    t.substitute_data(res, regex=regex_str, keys=regex_key, deps=dep_str, jp_dict=lists)
     d = Dependence.get_dep()
     print(d)
