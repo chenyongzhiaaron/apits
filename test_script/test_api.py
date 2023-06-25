@@ -32,11 +32,11 @@ class TestProjectApi(unittest.TestCase):
 		cls.action.set_variable(initialize_data)  # 加载初始化数据
 		cls.action.set_bif_fun(bif_functions)  # 加载内置方法
 	
-	@data(*test_case)  # {"":""}
-	def test_api(self, item):  # item = {測試用例}
-		# f"""用例描述：{item.get("name")}_{item.get("desc")}"""
+	@data(*test_case)
+	def test_api(self, item):
+		# f"""用例：{item.get("name")}_{item.get("desc")}"""
 		
-		sheet, item_id, condition, st, name, desc, headers_crypto, request_crypto, method = self.__base_info(
+		sheet, iid, condition, st, name, desc, headers_crypto, request_crypto, method = self.__base_info(
 			item)
 		regex, keys, deps, jp_dict, extract_request_data = self.__extractor_info(item)
 		
@@ -51,7 +51,7 @@ class TestProjectApi(unittest.TestCase):
 		self.__exc_sql(sql, sql_params_dict, method)
 		
 		# 拼接动态代码段文件
-		prepost_script = f"prepost_script_{sheet}_{item_id}.py"
+		prepost_script = f"prepost_script_{sheet}_{iid}.py"
 		
 		item = self.action.load_and_execute_script(Config.SCRIPTS_DIR, prepost_script, "setup", item)
 		
@@ -62,8 +62,7 @@ class TestProjectApi(unittest.TestCase):
 		# 提取请求参数信息
 		self.action.substitute_data(request_data, jp_dict=jp_dict)
 		
-		headers, request_data = self.action.encrypt_data.encrypt_data(headers_crypto, headers, request_crypto,
-		                                                              request_data)
+		headers, request_data = self.action.encrypt.encrypts(headers_crypto, headers, request_crypto, request_data)
 		
 		result_tuple = None
 		result = "PASS"
@@ -83,11 +82,10 @@ class TestProjectApi(unittest.TestCase):
 			self.assertNotIn("FAIL", result_tuple, "FAIL 存在结果元组中")
 			try:
 				# 提取响应
-				self.action.substitute_data(response.json(), regex=regex, keys=keys, deps=deps,
-				                            jp_dict=jp_dict)
+				self.action.substitute_data(response.json(), regex=regex, keys=keys, deps=deps, jp_dict=jp_dict)
 			
 			except Exception as err:
-				logger.error(f"提取响应失败：{sheet}_{item_id}_{name}_{desc}"
+				logger.error(f"提取响应失败：{sheet}_{iid}_{name}_{desc}"
 				             f"\nregex={regex};"
 				             f" \nkeys={keys};"
 				             f"\ndeps={deps};"
@@ -95,15 +93,14 @@ class TestProjectApi(unittest.TestCase):
 				             f"\n{err}")
 		except Exception as e:
 			result = "FAIL"
-			logger.error(f'异常用例: {sheet}_{item_id}_{name}_{desc}\n{e}')
+			logger.error(f'异常用例: {sheet}_{iid}_{name}_{desc}\n{e}')
 			raise e
 		finally:
-			response_value = response.text if response is not None else str(response)
+			response = response.text if response is not None else str(response)
 			assert_log = str(result_tuple)
 			
 			# 响应结果及测试结果回写 excel
-			excel.write_back(sheet_name=sheet, i=item_id, response=response_value, test_result=result,
-			                 assert_log=assert_log)
+			excel.write_back(sheet_name=sheet, i=iid, response=response, test_result=result, assert_log=assert_log)
 	
 	@classmethod
 	def tearDownClass(cls) -> None:

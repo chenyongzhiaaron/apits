@@ -3,7 +3,7 @@
 """
 @author: kira
 @contact: 262667641@qq.com
-@file: encrypt_data.py
+@file: encrypt.py
 @time: 2023/6/16 15:43
 @desc:
 """
@@ -14,7 +14,7 @@ from extensions import sign
 
 @logger.log_decorator()
 class EncryptData:
-	def encrypt_data(self, headers_crypto, headers, request_data_crypto, request_data):
+	def encrypts(self, headers_crypto, headers, request_data_crypto, request_data):
 		encryption_methods = {
 			"MD5": sign.md5_sign,
 			"sha1": sign.sha1_sign,

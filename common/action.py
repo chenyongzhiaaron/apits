@@ -19,4 +19,4 @@ from common.validation.validator import Validator
 class Action(Extractor, LoadScript, Validator):
     def __init__(self):
         super().__init__()
-        self.encrypt_data = EncryptData()
+        self.encrypt = EncryptData()
