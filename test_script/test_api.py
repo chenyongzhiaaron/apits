@@ -39,15 +39,13 @@ class TestProjectApi(unittest.TestCase):
         request_data_type = item.pop("Request Data Type") if item.get("Request Data Type") else 'params'
         sql_params_dict = item.pop("Sql Params Dict")
         sqlps = item.pop("SQL")
-        parameters_key = item.pop("Extract Request Data")
-        regex = item.pop("Regex")
-        regex_params_list = item.pop("Regex Params List")
-        retrieve_value = item.pop("Retrieve Value")
-        json_path = item.pop("Jsonpath")
-        sheet, item_id, condition, st, name, desc, headers_crypto, request_crypto, method = self.__base_info(item)
 
-        if not condition or condition.upper() != "YES":
+        sheet, item_id, condition, st, name, desc, headers_crypto, request_crypto, method = self.__base_info(item)
+        regex, keys, deps, jp_dict, extract_request_data = self.__extractor_info(item)
+
+        if self.is_run(condition):
             return
+
         self.pause_execution(st)
 
         # 首先执行sql替换,将sql替换为正确的sql语句
@@ -77,7 +75,7 @@ class TestProjectApi(unittest.TestCase):
         headers = item.pop("Headers")
         expected = item.pop("Expected")
         # 提取请求参数信息
-        self.action.substitute_data(request_data, jp_dict=parameters_key)
+        self.action.substitute_data(request_data, jp_dict=jp_dict)
 
         headers, request_data = self.action.encrypt_data.encrypt_data(headers_crypto, headers, request_crypto,
                                                                       request_data)
@@ -100,15 +98,15 @@ class TestProjectApi(unittest.TestCase):
             self.assertNotIn("FAIL", result_tuple, "FAIL 存在结果元组中")
             try:
                 # 提取响应
-                self.action.substitute_data(response.json(), regex=regex, keys=regex_params_list,
-                                            deps=retrieve_value, jp_dict=json_path)
+                self.action.substitute_data(response.json(), regex=regex, keys=keys,
+                                            deps=deps, jp_dict=jp_dict)
 
             except Exception as err:
                 logger.error(f"提取响应失败：{sheet}_{item_id}_{name}_{desc}"
                              f"\nregex={regex};"
-                             f" \nkeys={regex_params_list};"
-                             f"\ndeps={retrieve_value};"
-                             f"\njp_dict={json_path}"
+                             f" \nkeys={keys};"
+                             f"\ndeps={deps};"
+                             f"\njp_dict={jp_dict}"
                              f"\n{err}")
         except Exception as e:
             result = "FAIL"
@@ -127,19 +125,35 @@ class TestProjectApi(unittest.TestCase):
 
     @staticmethod
     def __base_info(item):
+        """
+        获取基础信息
+        Args:
+            item:
+
+        Returns:
+
+        """
         sheet = item.pop("sheet")
         item_id = item.pop("Id")
         condition = item.pop("Run")
         sleep_time = item.pop("Time")
         name = item.pop("Name")
-        description = item.pop("Description")
+        desc = item.pop("Description")
         headers_crypto = item.pop("Headers Crypto")
         request_data_crypto = item.pop("Request Data Crypto")
         method = item.pop("Method")
-        return sheet, item_id, condition, sleep_time, name, description, headers_crypto, request_data_crypto, method
+        return sheet, item_id, condition, sleep_time, name, desc, headers_crypto, request_data_crypto, method
 
     @staticmethod
     def __extractor_info(item):
+        """
+        获取提取参数的基本字段信息
+        Args:
+            item:
+
+        Returns:
+
+        """
         regex = item.pop("Regex")
         keys = item.pop("Regex Params List")
         deps = item.pop("Retrieve Value")

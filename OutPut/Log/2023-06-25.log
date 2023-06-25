@@ -160,3 +160,18 @@ jp_dict=None
 2023-06-25 17:54:27 | ERROR | 异常用例: 安全纯净大屏_None_None_None
 'NoneType' object has no attribute 'json'
 2023-06-25 17:58:33 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-06-25 18:01:49 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-06-25 18:02:20 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-06-25 18:02:20 | ERROR | 发送请求失败: URL cannot be None
+2023-06-25 18:02:20 | ERROR | 异常用例: 安全纯净大屏_1_清表_初始化查询sql
+'NoneType' object has no attribute 'json'
+2023-06-25 18:02:21 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-06-25 18:02:21 | ERROR | 发送请求失败: URL cannot be None
+2023-06-25 18:02:21 | ERROR | 异常用例: 安全纯净大屏_3_安全大屏_大盘-隐患类型数据
+'NoneType' object has no attribute 'json'
+2023-06-25 18:02:26 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-06-25 18:02:26 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-06-25 18:02:26 | ERROR | 发送请求失败: expected string or bytes-like object
+2023-06-25 18:02:26 | ERROR | 异常用例: 安全纯净大屏_None_None_None
+'NoneType' object has no attribute 'json'
+2023-06-25 18:04:27 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
