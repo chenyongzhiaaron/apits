@@ -8,15 +8,21 @@
 @desc:
 """
 
-from flask import Flask, request
+import json
+import json
 
-app = Flask(__name__)
+data = {
+    "name": "kira",
+    "age": 18,
+    "hobby": ["唱歌", "吹牛"],
+    "friends": [
+        {"name": "刘德华"},
+        {"name": "梁朝伟"}
+    ]
+}
+json_str = json.dumps(data)
+print(json_str)
 
-
-@app.route("/")
-def index():
-    user_id = str(request.args.get("user_id"))
-    return user_id
-
-
-app.run()
+print(json.dumps(data, ensure_ascii=False))
+print(json.dumps(data, ensure_ascii=False, indent=4))
+print(json.dumps(data, ensure_ascii=False, indent=4, sort_keys=True))

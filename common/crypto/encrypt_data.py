@@ -13,27 +13,28 @@ from extensions import sign
 
 
 @logger.log_decorator()
-def encrypt_data(headers_crypto, headers, request_data_crypto, request_data):
-    encryption_methods = {
-        "MD5": sign.md5_sign,
-        "sha1": sign.sha1_sign,
-        "rsa": lambda data: Rsa(data).rsa_encrypt()
-    }
+class EncryptData:
+    def encrypt_data(self, headers_crypto, headers, request_data_crypto, request_data):
+        encryption_methods = {
+            "MD5": sign.md5_sign,
+            "sha1": sign.sha1_sign,
+            "rsa": lambda data: Rsa(data).rsa_encrypt()
+        }
 
-    if headers_crypto:
-        encrypt_func = encryption_methods.get(headers_crypto)
-        if encrypt_func:
-            try:
-                headers = encrypt_func(headers)
-            except Exception as e:
-                logger.error(f"{headers_crypto} 加密失败：{e}")
+        if headers_crypto:
+            encrypt_func = encryption_methods.get(headers_crypto)
+            if encrypt_func:
+                try:
+                    headers = encrypt_func(headers)
+                except Exception as e:
+                    logger.error(f"{headers_crypto} 加密失败：{e}")
 
-    if request_data_crypto:
-        encrypt_func = encryption_methods.get(request_data_crypto)
-        if encrypt_func:
-            try:
-                request_data = encrypt_func(request_data)
-            except Exception as e:
-                logger.error(f"{request_data_crypto} 加密失败：{e}")
+        if request_data_crypto:
+            encrypt_func = encryption_methods.get(request_data_crypto)
+            if encrypt_func:
+                try:
+                    request_data = encrypt_func(request_data)
+                except Exception as e:
+                    logger.error(f"{request_data_crypto} 加密失败：{e}")
 
-    return headers, request_data
+        return headers, request_data

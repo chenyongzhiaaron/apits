@@ -84,13 +84,13 @@ class MyLogger:
             @wraps(func)
             def wrapper(*args, **kwargs):
                 self.logger.info(f'-----------分割线-----------')
-                self.logger.info(f'| called {func.__name__} | args: {args} kwargs:{kwargs}')
+                # self.logger.info(f'| called {func.__name__} | args: {args} kwargs:{kwargs}')
                 start = perf_counter()  # 开始时间
                 try:
                     result = func(*args, **kwargs)
                     end = perf_counter()  # 结束时间
                     duration = end - start
-                    self.logger.info(f"| end called {func.__name__}, duration：{duration:4f}s")
+                    # self.logger.info(f"| end called {func.__name__}, duration：{duration:4f}s")
                     return result
                 except Exception as e:
                     self.logger.error(f"| called {func.__name__} | error: {msg}: {e}")

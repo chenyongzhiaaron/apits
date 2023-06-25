@@ -1,6 +1,14 @@
 # main.py
 
-import decorator_test
-
+ss = """
 print("Function called.")
-decorator_test.my_function()
+
+
+
+
+
+
+"""
+
+
+eval(ss)

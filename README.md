@@ -110,7 +110,7 @@
 │   │   ├── execute_sql.py                     // mysql 操作工具
 │   │   ├── do_psycopg.py                   // presto 操作工具
 │   │   └── do_redis.py                     // redis 操作工具
-│   ├── dependence.py                       // 数据依赖类
+│   ├── variables.py                       // 数据依赖类
 │   ├── file_handling                       // 文件操作
 │   │   ├── __init__.py
 │   │   ├── do_bat_sql.py                   // 批量读取文件下的 sql 文件并打开文件执行文件内的每条 sql 

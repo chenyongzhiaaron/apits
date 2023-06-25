@@ -1,0 +1,67 @@
+2023-06-21 11:50:16 | ERROR | 发送请求失败: name 'session' is not defined
+2023-06-21 14:19:06 | ERROR | | called clear_date | error: 快看，异常了，别唧唧哇哇，块排查: [Errno 13] Permission denied: 'D:\\apk_api\\api-test-project\\cases\\cases\\test_cases.xlsx'
+2023-06-21 14:19:07 | ERROR | | called write_back | error: 快看，异常了，别唧唧哇哇，块排查: [Errno 13] Permission denied: 'D:\\apk_api\\api-test-project\\cases\\cases\\test_cases.xlsx'
+2023-06-21 14:19:09 | ERROR | | called write_back | error: 快看，异常了，别唧唧哇哇，块排查: [Errno 13] Permission denied: 'D:\\apk_api\\api-test-project\\cases\\cases\\test_cases.xlsx'
+2023-06-21 14:19:12 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-06-21 14:19:12 | ERROR | 发送请求失败: 'NoneType' object has no attribute 'decode'
+2023-06-21 14:19:12 | ERROR | 测试用例执行失败：安全纯净大屏_5_劳务基础配置_查询配置:
+e
+2023-06-21 14:19:12 | ERROR | | called write_back | error: 快看，异常了，别唧唧哇哇，块排查: [Errno 13] Permission denied: 'D:\\apk_api\\api-test-project\\cases\\cases\\test_cases.xlsx'
+2023-06-21 14:19:34 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-06-21 14:19:34 | ERROR | 发送请求失败: 'NoneType' object has no attribute 'decode'
+2023-06-21 14:19:34 | ERROR | 测试用例执行失败：安全纯净大屏_5_劳务基础配置_查询配置:
+e
+2023-06-21 14:24:15 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-06-21 15:57:14 | ERROR | | called replace_dependent_parameter | error: 快看，异常了，别唧唧哇哇，块排查: 'DependentParameter' object has no attribute 'pf'
+2023-06-21 17:08:15 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:08:18 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:13:47 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:13:50 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:14:04 | ERROR | 提取响应失败：安全纯净大屏_2_登录_非BIP用户登录
+regex=None; 
+keys=None;
+deps=None;
+jp_dict={"BSP_TOKEN": "$.data.bspToken", "BSP_USER_TENANT": "$.data.currentTenantId"}
+'TestProjectApi' object has no attribute 'extractor'
+2023-06-21 17:14:06 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:14:09 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:15:12 | ERROR | 提取响应失败：安全纯净大屏_2_登录_非BIP用户登录
+regex=None; 
+keys=None;
+deps=None;
+jp_dict={"BSP_TOKEN": "$.data.bspToken", "BSP_USER_TENANT": "$.data.currentTenantId"}
+'TestProjectApi' object has no attribute 'extractor'
+2023-06-21 17:15:14 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:15:17 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:18:08 | ERROR | 提取响应失败：安全纯净大屏_2_登录_非BIP用户登录
+regex=None; 
+keys=None;
+deps=None;
+jp_dict={"BSP_TOKEN": "$.data.bspToken", "BSP_USER_TENANT": "$.data.currentTenantId"}
+'TestProjectApi' object has no attribute 'extractor'
+2023-06-21 17:18:10 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:18:13 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:18:37 | ERROR | 提取响应失败：安全纯净大屏_2_登录_非BIP用户登录
+regex=None; 
+keys=None;
+deps=None;
+jp_dict={"BSP_TOKEN": "$.data.bspToken", "BSP_USER_TENANT": "$.data.currentTenantId"}
+'TestProjectApi' object has no attribute 'extractor'
+2023-06-21 17:18:39 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:18:42 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:37:58 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-06-21 17:38:01 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+

@@ -12,8 +12,10 @@ import sys
 sys.path.append("../")
 sys.path.append("./common")
 from jsonpath_ng import parse
-from common.dependence import Dependence
+from common.variables import Variables
 from common.data_extraction import logger
+
+# from common.http_client.http_client import Pyt
 
 REPLACE_DICT = {
     "null": None,
@@ -21,21 +23,22 @@ REPLACE_DICT = {
     "false": False
 }
 
-d = Dependence()
+
+# d = Variables()
 
 
-class DataExtractor:
+class DataExtractor(Variables):
 
     def __init__(self):
-        self.PATTERN = getattr(Dependence, "PATTERN")  # 预编译正则表达式
-        # self.response = response
+        super().__init__()
+        # self.PATTERN = getattr(Variables, "PATTERN")  # 预编译正则表达式
 
     @logger.log_decorator("提取参数出现了意想不到的错误！！")
     def substitute_data(self, response, regex=None, keys=None, deps=None, jp_dict=None):
         """
         方法接收一个正则表达式 regex 和一个关联参数表 deps，用于从接口返回的数据中提取关联参数。
         它会从接口返回的数据中使用正则表达式 regex 和正则表达式返回结果的键列表 keys 提取数据，并将其更新到关联参数表中。
-        然后，它会使用 subs_deps 和 subs_lists 方法提取更多的关联参数。最后，它将更新后的关联参数表设置为 Dependence 类的静态变量，并将其返回
+        然后，它会使用 subs_deps 和 subs_lists 方法提取更多的关联参数。最后，它将更新后的关联参数表设置为 Variables 类的静态变量，并将其返回
         Args:
             response: 被提取数据对象
             regex:  正则表达式： r'"id": (\d+), "name": "(\w+)",'
@@ -74,9 +77,9 @@ class DataExtractor:
         groups = match.groups()
         for i, key in enumerate(keys):
             try:
-                d.update_dep(key, groups[i])
+                self.update_variable(key, groups[i])
             except:
-                d.update_dep(key, None)
+                self.update_variable(key, None)
 
     def substitute_route(self, response, route_str):
         deps_list = re.sub(f"[\r\n]+", "", route_str).split(";")
@@ -106,7 +109,7 @@ class DataExtractor:
                 else:
                     break
             if temp is not None:
-                d.update_dep(key, temp)
+                self.update_variable(key, temp)
 
     def substitute_jsonpath(self, response, json_path_dict):
         """
@@ -119,7 +122,6 @@ class DataExtractor:
 
         """
 
-        print("================================", json_path_dict)
         json_path_dict = json_path_dict if isinstance(json_path_dict, dict) else json.loads(json_path_dict)
         for key, expression in json_path_dict.items():
             try:
@@ -127,14 +129,13 @@ class DataExtractor:
                 data = response
                 match = parsed_expression.find(data)
                 result = [m.value for m in match]
-                d.update_dep(key, result[0]) if len(result) == 1 else d.update_dep(key, result)
+                self.update_variable(key, result[0]) if len(result) == 1 else self.update_variable(key, result)
             except Exception as e:
                 logger.error(f"jsonpath表达式错误'{expression}': {e}")
 
 
 if __name__ == '__main__':
     # 测试subs函数
-    Dependence.get_dep()
     res = '{"code": 1,"data": [{"id": 1, "name": "Alice", "age": [20, 21, 22, {"a": "b"}]}]}'
     lists = {"k": "$..code", "x": "$.data[0].age[3].a"}
     dep_str = "name=data[0].name;ok=data[0].id;an=data[0].age"
@@ -142,5 +143,4 @@ if __name__ == '__main__':
     regex_key = ["a", "b"]
     t = DataExtractor()
     t.substitute_data(res, regex=regex_str, keys=regex_key, deps=dep_str, jp_dict=lists)
-    d = Dependence.get_dep()
-    print(d)
+    print("-------->res:", t.get_variable())

@@ -10,10 +10,12 @@
 from common.validation import logger
 from common.validation.comparator_dict import comparator_dict
 from common.validation.extractor import Extractor
-from common.validation.loaders import load_built_in_comparators
+from common.validation.loaders import Loaders
+
+# load_built_in_comparators
 
 
-class Validator(object):
+class Validator(Loaders):
     """
     校验器
     主要功能：
@@ -22,8 +24,9 @@ class Validator(object):
     """
 
     def __init__(self):
+        super().__init__()
         self.validate_variables_list = []
-        self.built_in_comparators = load_built_in_comparators()
+        self.built_in_comparators = self.load_built_in_comparators()
 
     def uniform_validate(self, validate_variables):
         """

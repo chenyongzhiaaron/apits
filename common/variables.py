@@ -1,34 +1,37 @@
 # -*- coding:utf-8 -*-
 import re
-import sys
 from dataclasses import dataclass
-
-sys.path.append("./")
-sys.path.append("./common")
 
 
 @dataclass
-class Dependence:
-    dependence = {}  # 定义依赖表
+class Variables:
+    variables = {}  # 定义依赖表
     pattern_l = re.compile(r"{{\s*([^}\s]+)\s*}}(?:\[(\d+)\])?")
     PATTERN = re.compile(r"{{(.*?)}}")  # 预编译正则表达式
     pattern = re.compile(r'({)')
     pattern_fun = re.compile(r"{{(\w+\(\))}}")
 
     @classmethod
-    def update_dep(cls, key, value):
+    def update_variable(cls, key, value):
         """更新依赖表"""
-        cls.dependence[f"{{{{{key}}}}}"] = value
+        cls.variables[f"{{{{{key}}}}}"] = value
 
     @classmethod
-    def get_dep(cls, key=None):
+    def get_variable(cls, key=None):
         """获取依赖表 或 依赖表中key对应的值"""
-        return cls.dependence if not key else cls.dependence.get(key)
+        return cls.variables if not key else cls.variables.get(key)
 
     @classmethod
-    def set_dep(cls, value):
+    def set_variable(cls, value):
         """设置依赖表"""
-        cls.dependence = value
+        cls.variables = value
+
+    @classmethod
+    def reset(cls):
+        """重置"""
+        cls.variables.clear()
+        cls.request = None
+        cls.response = None
 
 
 if __name__ == '__main__':
@@ -39,6 +42,6 @@ if __name__ == '__main__':
     excel_handle, init_data, test_case = get_init(test_file)
     initialize_data = eval(init_data.get("initialize_data"))
     print(initialize_data)
-    d = Dependence
-    d.set_dep(initialize_data)  # 初始化依赖表
-    print("--------------------->", d.get_dep())
+    d = Variables
+    d.set_variable(initialize_data)  # 初始化依赖表
+    print("--------------------->", d.get_variable())

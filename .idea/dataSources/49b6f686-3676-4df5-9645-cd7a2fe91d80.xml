@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@localhost">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.48">
+    <root id="1">
+      <DefaultCasing>lower/lower</DefaultCasing>
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
+      <ServerVersion>8.0.26</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="api_">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="3" parent="1" name="back">
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </schema>
+    <schema id="4" parent="1" name="class">
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </schema>
+    <schema id="5" parent="1" name="dev_testplatform">
+      <CollationName>utf8_general_ci</CollationName>
+    </schema>
+    <schema id="6" parent="1" name="do_mysql">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="7" parent="1" name="information_schema">
+      <CollationName>utf8_general_ci</CollationName>
+    </schema>
+    <schema id="8" parent="1" name="mydatabase">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="9" parent="1" name="mysql">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="10" parent="1" name="performance_schema">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="11" parent="1" name="qaplatform">
+      <CollationName>utf8_general_ci</CollationName>
+    </schema>
+    <schema id="12" parent="1" name="sys">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="13" parent="1" name="yytest">
+      <CollationName>utf8_general_ci</CollationName>
+    </schema>
+    <schema id="14" parent="1" name="yytests">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+  </database-model>
+</dataSource>

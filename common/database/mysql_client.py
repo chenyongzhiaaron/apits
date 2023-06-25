@@ -162,7 +162,7 @@ if __name__ == '__main__':
     res = MysqlClient(database_2).execute_sql(sql_2)
     print("数据执行结果", res)
     from common.data_extraction.data_extractor import DataExtractor
-    from common.dependence import Dependence
-
-    DataExtractor(res).substitute_data(jp_dict={"total": "$.select_sale[0].total", "total_1": "$..total"})
-    print(Dependence.get_dep())
+    from common.variables import Variables
+    t = DataExtractor()
+    t.substitute_data(res,jp_dict={"total": "$.select_sale[0].total", "total_1": "$..total"})
+    print(Variables.get_variable())
