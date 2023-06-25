@@ -17,25 +17,25 @@ __all__ = ['regex_extract']
 
 @logger.log_decorator()
 def regex_extract(string, pattern, group=None):
-    """
-    根据正则表达式提取内容
-    Args:
-        string: 字符串
-        pattern: 正则表达式
-        group: 分组组号
-
-    Returns:
-
-    """
-    if not isinstance(string, str):
-        string = json.dumps(string, ensure_ascii=False)
-    re_obj = re.search(pattern, string)
-    result = None
-    if re_obj:
-        result = re_obj.group(0)
-        if group:
-            try:
-                result = re_obj.group(group)
-            except IndexError:
-                pass
-    return result
+	"""
+	根据正则表达式提取内容
+	Args:
+	    string: 字符串
+	    pattern: 正则表达式
+	    group: 分组组号
+    
+	Returns:
+ 
+	"""
+	if not isinstance(string, str):
+		string = json.dumps(string, ensure_ascii=False)
+	re_obj = re.search(pattern, string)
+	result = None
+	if re_obj:
+		result = re_obj.group(0)
+		if group:
+			try:
+				result = re_obj.group(group)
+			except IndexError:
+				pass
+	return result

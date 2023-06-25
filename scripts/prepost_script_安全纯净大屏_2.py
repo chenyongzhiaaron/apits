@@ -9,7 +9,7 @@ def setup(request):
     'Expected': None,
     'Response': '',
     'Assertion': '', 
-    'Error Log': '',
+    'Error log': '',
     None: None}"""
 
     # 获取请求参数

@@ -12,6 +12,4 @@ __all__ = ["online_function"]
 
 
 def online_function():
-    pass
-
-
+	pass

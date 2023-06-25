@@ -11,29 +11,29 @@ from functools import wraps
 
 
 def single(cls):
-    instance = {}
-
-    @wraps(cls)
-    def decortator(*args, **kwargs):
-        if cls not in instance:
-            instance[cls] = cls(*args, **kwargs)
-        return instance[cls]
-
-    return decortator
+	instance = {}
+	
+	@wraps(cls)
+	def decortator(*args, **kwargs):
+		if cls not in instance:
+			instance[cls] = cls(*args, **kwargs)
+		return instance[cls]
+	
+	return decortator
 
 
 class A:
-    pass
+	pass
 
 
 @single
 class B(A):
-    pass
+	pass
 
 
 class C(B):
-    pass
+	pass
 
 
 if __name__ == '__main__':
-    C()
+	C()

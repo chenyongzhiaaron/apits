@@ -1,0 +1,8 @@
+base_path: .
+current_path: .
+templates: ./cases/templates/templates.xlsx # 测试用例模板文件
+test_case: ./cases/cases/test_cases.xlsx # 测试用例
+script: ./test_script  # 动态脚本
+test_report: ./output/reports # 测试报告
+log_path: ./output/log # 日志
+script_dir: ./scripts # 测试主代码脚本

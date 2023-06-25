@@ -11,20 +11,20 @@ from functools import wraps
 
 
 def singleton(cls):
-    """
-    单例模式类装饰器
-    Args:
-        cls:被装饰类
-
-    Returns:
-
-    """
-    instance = {}
-
-    @wraps(cls)
-    def get_instance(*args, **kwargs):
-        if cls not in instance:
-            instance[cls] = cls(*args, **kwargs)
-        return instance[cls]
-
-    return get_instance
+	"""
+	单例模式类装饰器
+	Args:
+	    cls:被装饰类
+    
+	Returns:
+ 
+	"""
+	instance = {}
+	
+	@wraps(cls)
+	def get_instance(*args, **kwargs):
+		if cls not in instance:
+			instance[cls] = cls(*args, **kwargs)
+		return instance[cls]
+	
+	return get_instance

@@ -12,13 +12,13 @@ import json
 import json
 
 data = {
-    "name": "kira",
-    "age": 18,
-    "hobby": ["唱歌", "吹牛"],
-    "friends": [
-        {"name": "刘德华"},
-        {"name": "梁朝伟"}
-    ]
+	"name": "kira",
+	"age": 18,
+	"hobby": ["唱歌", "吹牛"],
+	"friends": [
+		{"name": "刘德华"},
+		{"name": "梁朝伟"}
+	]
 }
 json_str = json.dumps(data)
 print(json_str)

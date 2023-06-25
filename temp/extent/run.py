@@ -15,9 +15,9 @@ from temp.extent.hooks_decorator import before_decorator, after_decorator
 @after_decorator
 @before_decorator
 def test_user_registration(url, method, **kwargs):
-    requests.request(method, url, **kwargs)
+	requests.request(method, url, **kwargs)
 
 
 if __name__ == "__main__":
-    kwg = {}
-    test_user_registration("http://jsonplaceholder.typicode.com/posts/2", "get", **kwg)
+	kwg = {}
+	test_user_registration("http://jsonplaceholder.typicode.com/posts/2", "get", **kwg)
