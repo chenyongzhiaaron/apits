@@ -47,7 +47,7 @@ class Pyt(LoadModulesFromFolder):
 		
 		return decorator
 	
-	@log_decorator()
+	# @log_decorator()
 	def http_client(self, host, url, method, **kwargs):
 		"""
 		发送 http 请求

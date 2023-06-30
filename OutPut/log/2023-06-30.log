@@ -1,0 +1,3 @@
+2023-06-30 09:01:03 | ERROR | 发送请求失败: Value for header {BSP_USER_ID: 216684145642752200} must be of type str or bytes, not <class 'int'>
+2023-06-30 09:01:25 | ERROR | 发送请求失败: Value for header {projectId: 99000022} must be of type str or bytes, not <class 'int'>
+2023-06-30 09:01:34 | ERROR | 发送请求失败: Method cannot contain non-token characters '/IBS/API/IBS-LMS-BASE/WORK-KIND/PAGE/LIST?T=1636702597000&CURRENT=1&SIZE=1000&PROJECTID=99000022&KEY=&SUPPLYID=&STATUS=0&ENABLED=1' (found at least '/')
