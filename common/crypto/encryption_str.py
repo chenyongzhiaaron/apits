@@ -8,10 +8,9 @@
 @desc:
 """
 
-import hashlib
 import base64
 import binascii
-import rsa
+import hashlib
 
 from pyDes import des, CBC, PAD_PKCS5
 
@@ -20,117 +19,117 @@ from pyDes import des, CBC, PAD_PKCS5
 
 
 def bs64_data_encode(st):
-	"""
-	base64 加密
-	Args:
-	    st:
-    
-	Returns:
- 
-	"""
-	return base64.b64encode(st.encode("utf-8"))
+    """
+    base64 加密
+    Args:
+        st:
+
+    Returns:
+
+    """
+    return base64.b64encode(st.encode("utf-8"))
 
 
 def bs64_data_decode(st):
-	"""
-	base64 解密
-	Args:
-	    st:
-    
-	Returns:
- 
-	"""
-	return base64.b64decode(st).decode()
+    """
+    base64 解密
+    Args:
+        st:
+
+    Returns:
+
+    """
+    return base64.b64decode(st).decode()
 
 
 def md5(st: str) -> str:
-	"""
+    """
  
-	Args:
-	    st:待加密字符串
-    
-	Returns: 返回MD5 加密后的字符串
- 
-	"""
-	md = hashlib.md5()  # 创建MD5对象
-	md.update(st.encode(encoding="utf-8"))
-	return md.hexdigest()
+    Args:
+        st:待加密字符串
+
+    Returns: 返回MD5 加密后的字符串
+
+    """
+    md = hashlib.md5()  # 创建MD5对象
+    md.update(st.encode(encoding="utf-8"))
+    return md.hexdigest()
 
 
 def sha1_secret_str(st):
-	"""
-	使用sha1加密算法，返回str加密后的字符串
-	Args:
-	    st:
-    
-	Returns:
- 
-	"""
-	sha = hashlib.sha1(st.encode("utf-8"))
-	return sha.hexdigest()
+    """
+    使用sha1加密算法，返回str加密后的字符串
+    Args:
+        st:
+
+    Returns:
+
+    """
+    sha = hashlib.sha1(st.encode("utf-8"))
+    return sha.hexdigest()
 
 
 def sha256_single(st):
-	"""
-	sha256加密
-	Args:
-	    st: 加密字符串
-    
-	Returns:加密结果转换为16进制字符串，并大写
- 
-	"""
-	sha_obj = hashlib.sha256()
-	sha_obj.update(st.encode("utf-8"))
-	return sha_obj.hexdigest().upper()
+    """
+    sha256加密
+    Args:
+        st: 加密字符串
+
+    Returns:加密结果转换为16进制字符串，并大写
+
+    """
+    sha_obj = hashlib.sha256()
+    sha_obj.update(st.encode("utf-8"))
+    return sha_obj.hexdigest().upper()
 
 
 class Des:
-	def __init__(self, text, key):
-		self.text = text  # 原始字符串
-		self.KEY = key  # 这个key是固定问开发，
-	
-	def des_encrypt(self):
-		"""DES 加密
-		Returns:加密后字符串，16进制
-	
-		"""
-		secret_key = self.KEY  # 密码
-		iv = secret_key  # 偏移
-		# secret_key:加密密钥，CBC:加密模式，iv:偏移, padmode:填充
-		des_obj = des(secret_key, CBC, iv, pad=None, padmode=PAD_PKCS5)
-		# 返回为字节
-		secret_bytes = des_obj.encrypt(self.text.encode("utf-8"), padmode=PAD_PKCS5)
-		# 返回为16进制
-		return binascii.b2a_hex(secret_bytes)
-	
-	def des_decrypt(self):
-		"""
-		DES 解密
-		Returns:解密后的字符串
-	
-		"""
-		secret_key = self.KEY
-		iv = secret_key
-		des_obj = des(secret_key, CBC, iv, pad=None, padmode=PAD_PKCS5)
-		decrypt_str = des_obj.decrypt(binascii.a2b_hex(self.text), padmode=PAD_PKCS5)
-		return bytes.decode(decrypt_str)  # bytes.decode() 将bit转为str
+    def __init__(self, text, key):
+        self.text = text  # 原始字符串
+        self.KEY = key  # 这个key是固定问开发，
+
+    def des_encrypt(self):
+        """DES 加密
+        Returns:加密后字符串，16进制
+
+        """
+        secret_key = self.KEY  # 密码
+        iv = secret_key  # 偏移
+        # secret_key:加密密钥，CBC:加密模式，iv:偏移, padmode:填充
+        des_obj = des(secret_key, CBC, iv, pad=None, padmode=PAD_PKCS5)
+        # 返回为字节
+        secret_bytes = des_obj.encrypt(self.text.encode("utf-8"), padmode=PAD_PKCS5)
+        # 返回为16进制
+        return binascii.b2a_hex(secret_bytes)
+
+    def des_decrypt(self):
+        """
+        DES 解密
+        Returns:解密后的字符串
+
+        """
+        secret_key = self.KEY
+        iv = secret_key
+        des_obj = des(secret_key, CBC, iv, pad=None, padmode=PAD_PKCS5)
+        decrypt_str = des_obj.decrypt(binascii.a2b_hex(self.text), padmode=PAD_PKCS5)
+        return bytes.decode(decrypt_str)  # bytes.decode() 将bit转为str
 
 
 def add_to_16(text: str):
-	"""
-	使用空格补足16位数
-	Args:
-	    text:源字符串
-    
-	Returns:补位后字符串
- 
-	"""
-	b_text = text.encode("utf-8")
-	add = 0
-	# 计算需要补的位数
-	if len(b_text) % 16:
-		add = 16 - len(b_text) % 16
-	return b_text + b'\0' * add
+    """
+    使用空格补足16位数
+    Args:
+        text:源字符串
+
+    Returns:补位后字符串
+
+    """
+    b_text = text.encode("utf-8")
+    add = 0
+    # 计算需要补的位数
+    if len(b_text) % 16:
+        add = 16 - len(b_text) % 16
+    return b_text + b'\0' * add
 
 # class AesEcb:
 #

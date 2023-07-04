@@ -11,5 +11,7 @@
 __all__ = ["online_function"]
 
 
+# 用户自定义扩展函数文件。
+
 def online_function():
 	pass

@@ -1,7 +1,5 @@
 import json
 
-from common.utils import logger
-
 
 # @logger.log_decorator()
 def parsing_openapi(file_path):
@@ -13,30 +11,30 @@ def parsing_openapi(file_path):
 	for path, methods in paths.items():
 		for method, details in methods.items():
 			test_case = {
-				"id": count,
-				"name": "openapi",
-				"description": details.get("summary"),
+				"Id": count,
+				"Name": "openapi",
+				"Description": details.get("summary"),
 				"Run": "yes",
 				"Time": "0.1",
-				'method': method,
-				'url': path,
-				'headers': json.dumps(extract_parameters(details.get('parameters', []), 'header')),
-				'Headers是否加密': "",
-				'params': json.dumps(extract_parameters(details.get('parameters', []), 'query')),
-				'request_data_type': determine_request_type(details.get('requestBody')),
-				'request_data': json.dumps(extract_request_body(details.get('requestBody'))),
-				'请求参数是否加密': '',
-				'提取请求参数': '',
+				'Method': method,
+				'Url': path,
+				'Headers': json.dumps(extract_parameters(details.get('parameters', []), 'header')),
+				'Headers Crypto': "",
+				'Query Str': json.dumps(extract_parameters(details.get('parameters', []), 'query')),
+				'Request Data Type': determine_request_type(details.get('requestBody')),
+				'Request Data': json.dumps(extract_request_body(details.get('requestBody'))),
+				'Request Data Crypto': '',
+				'Extract Request Data': '',
 				'Jsonpath': '',
-				'正则表达式': '',
-				'正则变量': '',
-				'绝对路径表达式': '',
+				'Regex': '',
+				'Regex Params List': '',
+				'Retrieve Value': '',
 				'SQL': '',
-				'sql变量': '',
-				'预期结果': '',
-				'响应结果': '',
-				'断言结果': '',
-				'报错日志': ''}
+				'Sql Params Dict': '',
+				'Expected': '',
+				'Response': '',
+				'Assertion': '',
+				'Error Log': ''}
 			test_cases.append(test_case)
 			count += 1
 	
@@ -105,3 +103,9 @@ if __name__ == '__main__':
 	file = f'../../cases/temporary_file/openapi.json'
 	res = parsing_openapi(file)
 	print(res)
+	from common.file_handling.excel import DoExcel
+	from common.config import Config
+	
+	templates = Config.templates  # 使用标准模板
+	ex = DoExcel(templates)
+	ex.do_main("openapi.xlsx", *res)

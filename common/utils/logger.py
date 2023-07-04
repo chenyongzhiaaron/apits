@@ -21,7 +21,7 @@ class MyLog:
 		"error": logging.ERROR,
 		"critic": logging.CRITICAL
 	}  # 日志级别关系映射
-	
+
 	def my_log(self, msg, level="error", when="D", back_count=10):
 		"""
 		实例化 TimeRotatingFileHandler
@@ -34,10 +34,10 @@ class MyLog:
 		midnight 每天凌晨
 		"""
 		file_name = Config.log_path
-		
+
 		my_logger = logging.getLogger()  # 定义日志收集器 my_logger
 		my_logger.setLevel(self.level_relations.get(level))  # 设置日志级别
-		
+
 		format_str = logging.Formatter(
 			"%(asctime)s-%(levelname)s-%(filename)s-[ line:%(lineno)d ] - 日志信息:%(message)s")  # 设置日志格式
 		# 创建输出渠道
@@ -45,19 +45,16 @@ class MyLog:
 		sh.setFormatter(format_str)  # 设置屏幕上显示的格式
 		current = time.strftime("%Y-%m-%d", time.localtime())  # 设置当前日期
 		if level == "error":
-			th = handlers.TimedRotatingFileHandler(filename=f'{file_name}/{current}_{level}.logger',
-			                                       when=when,
+			th = handlers.TimedRotatingFileHandler(filename=f'{file_name}/{current}_{level}.logger', when=when,
 			                                       backupCount=back_count, encoding="utf-8")
 		else:
-			th = handlers.TimedRotatingFileHandler(filename=file_name + "/{}_info.logger".format(current),
-			                                       when=when,
-			                                       backupCount=back_count,
-			                                       encoding="utf-8")  # 往文件里写日志
-		
+			th = handlers.TimedRotatingFileHandler(filename=file_name + "/{}_info.logger".format(current), when=when,
+			                                       backupCount=back_count, encoding="utf-8")  # 往文件里写日志
+
 		th.setFormatter(format_str)  # 设置文件里写入的格式
 		my_logger.addHandler(sh)  # 将对象加入logger里
 		my_logger.addHandler(th)
-		
+
 		if level == "debug":
 			my_logger.debug(msg)
 		elif level == "error":
@@ -68,11 +65,11 @@ class MyLog:
 			my_logger.warning(msg)
 		else:
 			my_logger.critical(msg)
-		
+
 		my_logger.removeHandler(sh)
 		my_logger.removeHandler(th)
 		logging.shutdown()
-	
+
 	def decorator_log(self, msg=None):
 		def warp(fun):
 			def inner(*args, **kwargs):
@@ -80,9 +77,9 @@ class MyLog:
 					return fun(*args, **kwargs)
 				except Exception as e:
 					self.my_log(f"{msg}: {e}", "error")
-			
+
 			return inner
-		
+
 		return warp
 
 
@@ -94,6 +91,6 @@ if __name__ == '__main__':
 	def add():
 		print("试一下")
 		raise "不好使，异常了。"
-	
-	
+
+
 	add()
