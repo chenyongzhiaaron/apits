@@ -62,6 +62,10 @@ class TestProjectApi(unittest.TestCase):
 		
 		# 执行前置动态代码
 		self.action.execute_dynamic_code(setup_script)
+		url = self.action.vars.get("url")
+		query_str = self.action.vars.get("query_str")
+		request_data = self.action.vars.get("request_data")
+		headers = self.action.vars.get("headers")
 		
 		# 提取请求参数信息
 		self.action.substitute_data(request_data, jp_dict=jp_dict)
@@ -75,7 +79,7 @@ class TestProjectApi(unittest.TestCase):
 		
 		try:
 			# 执行请求操作
-			kwargs = {request_data_type: request_data, 'headers': headers}
+			kwargs = {request_data_type: request_data, 'headers': headers, "params": query_str}
 			response = self.action.send_request(host, url, method, **kwargs)
 			# response = self.action.http_client(host, url, method, **kwargs)
 			
