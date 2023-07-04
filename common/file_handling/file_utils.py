@@ -167,5 +167,5 @@ class FileUtils:
 
 if __name__ == '__main__':
     fu = FileUtils()
-    rest = fu.read_yaml_file(r'../../config.yaml')
-    print(rest)
+    # rest = fu.read_yaml_file(r'../../config.yaml')
+    # print(rest)

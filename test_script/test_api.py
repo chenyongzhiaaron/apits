@@ -34,7 +34,6 @@ class TestProjectApi(unittest.TestCase):
 	
 	@data(*test_case)
 	def test_api(self, item):
-		# f"""用例：{item.get("name")}_{item.get("desc")}"""
 		
 		sheet, iid, condition, st, name, desc, headers_crypto, request_crypto, method = self.__base_info(item)
 		regex, keys, deps, jp_dict, extract_request_data = self.__extractor_info(item)
@@ -50,17 +49,24 @@ class TestProjectApi(unittest.TestCase):
 		self.__exc_sql(sql, sql_params_dict, method)
 		
 		# 拼接动态代码段文件
-		prepost_script = f"prepost_script_{sheet}_{iid}.py"
-		
-		item = self.action.load_and_execute_script(Config.SCRIPTS_DIR, prepost_script, "setup", item)
+		# prepost_script = f"prepost_script_{sheet}_{iid}.py"
+		# item = self.action.load_and_execute_script(Config.SCRIPTS_DIR, prepost_script, "setup", item)
 		
 		# 替换 URL, PARAMETERS, HEADER,期望值
 		item = self.action.replace_dependent_parameter(item)
 		
-		url, query_str, request_data, headers, expected, request_data_type = self.__request_info(item)
+		url, query_str, request_data, headers, expected, request_data_type, setup_script, teardown_script = self.__request_info(
+			item)
+		
+		self.action.vars.update({"url": url, "query_str": query_str, "request_data": request_data, "headers": headers})
+		
+		# 执行前置动态代码
+		self.action.execute_dynamic_code(setup_script)
+		
 		# 提取请求参数信息
 		self.action.substitute_data(request_data, jp_dict=jp_dict)
 		
+		# 请求头及请求body加密或者加签
 		headers, request_data = self.action.encrypt.encrypts(headers_crypto, headers, request_crypto, request_data)
 		
 		result_tuple = None
@@ -70,9 +76,12 @@ class TestProjectApi(unittest.TestCase):
 		try:
 			# 执行请求操作
 			kwargs = {request_data_type: request_data, 'headers': headers}
-			response = self.action.http_client(host, url, method, **kwargs)
+			response = self.action.send_request(host, url, method, **kwargs)
+			# response = self.action.http_client(host, url, method, **kwargs)
+			
 			# 执行后置代码片段
-			self.action.load_and_execute_script(Config.SCRIPTS_DIR, prepost_script, "teardown", response)
+			self.action.execute_dynamic_code(teardown_script)
+			# self.action.load_and_execute_script(Config.SCRIPTS_DIR, prepost_script, "teardown", response)
 			
 			result_tuple = self.action.run_validate(expected, response.json())  # 执行断言 返回结果元组
 			self.assertNotIn("FAIL", result_tuple, "FAIL 存在结果元组中")
@@ -162,8 +171,10 @@ class TestProjectApi(unittest.TestCase):
 		headers = item.pop("Headers")
 		expected = item.pop("Expected")
 		request_data_type = item.pop("Request Data Type") if item.get("Request Data Type") else 'params'
+		setup_script = item.pop("Setup Script")
+		teardown_script = item.pop("Teardown Script")
 		
-		return url, query_str, request_data, headers, expected, request_data_type
+		return url, query_str, request_data, headers, expected, request_data_type, setup_script, teardown_script
 	
 	@staticmethod
 	def __is_run(condition):

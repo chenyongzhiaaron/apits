@@ -89,6 +89,7 @@ def parsing_postman(path):
 										api["Request Data"].update({item.get('key'): item.get("src", "")})
 										api["Request Data Type"] = "files"
 						api["Request Data"] = json.dumps(api["Request Data"], ensure_ascii=False)
+						api['Setup Script'] = ''
 						api['Request Data Crypto'] = ''
 						api['Extract Request Data'] = ''
 						api['Jsonpath'] = ''
@@ -97,6 +98,7 @@ def parsing_postman(path):
 						api['Retrieve Value'] = ''
 						api['SQL'] = ''
 						api['Sql Params Dict'] = ''
+						api['Teardown Script'] = ''
 						api['Expected'] = ''
 						api['Response'] = ''
 						api['Assertion'] = ''
