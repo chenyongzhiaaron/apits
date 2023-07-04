@@ -3,7 +3,6 @@
 # @Author : kira
 # @Email : 262667641@qq.com
 # @File : analysis_json.py
-# @Project : risk_api_project
 """
 接口返回的数据是  列表字典
 新建两个函数 A 和 B，函数 A 处理字典数据，被调用后，判断传循环嵌套  格式的，通过一个 key 值，获取到被包裹了多层的目标数据

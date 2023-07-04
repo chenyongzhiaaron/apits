@@ -12,12 +12,9 @@ from functools import wraps
 
 def singleton(cls):
 	"""
-	单例模式类装饰器
 	Args:
-	    cls:被装饰类
-    
+	cls:被装饰类
 	Returns:
- 
 	"""
 	instance = {}
 	

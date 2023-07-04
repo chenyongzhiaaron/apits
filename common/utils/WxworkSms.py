@@ -23,8 +23,7 @@ class WxWorkSms:
 		self.send_url = f"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={key}"
 		self.up_url = f"https://qyapi.weixin.qq.com/cgi-bin/webhook/upload_media?key={key}&type=file"
 	
-	def send_markdown(self, project_name, project_port, total_cases, pass_rate, success_cases, fail_cases,
-	                  skip_cases,
+	def send_markdown(self, project_name, project_port, total_cases, pass_rate, success_cases, fail_cases, skip_cases,
 	                  error_cases, report_url):
 		"""
 		发送markdown 请求
@@ -107,4 +106,4 @@ class WxWorkSms:
 if __name__ == '__main__':
 	dirs = r'D:\apk_api\api-test-project\OutPut\Reports'
 	WxWorkSms('8b1647d4-dc32-447c-b524-548acf18a938').send_main(dirs, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-	# WxWorkSms('8b1647d4-dc32-447c-b524-548acf18a938').send_markdown(1, 2, 3, 4, 5, 6, 7, 8, 9)
+# WxWorkSms('8b1647d4-dc32-447c-b524-548acf18a938').send_markdown(1, 2, 3, 4, 5, 6, 7, 8, 9)

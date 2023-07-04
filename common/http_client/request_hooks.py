@@ -8,7 +8,6 @@ class Hooks:
 		注册 before_request 钩子函数，将其添加到 before_request_funcs 列表中
 		"""
 		self.before_request_funcs.append(func)
-		print(self.before_request_funcs)
 		return func
 	
 	def after_request(self, func):
@@ -16,7 +15,6 @@ class Hooks:
 		注册 after_request 钩子函数，将其添加到 after_request_funcs 列表中
 		"""
 		self.after_request_funcs.append(func)
-		print(self.after_request_funcs)
 		return func
 	
 	def run_before_request_funcs(self, request):

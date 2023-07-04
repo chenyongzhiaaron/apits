@@ -8,10 +8,8 @@ import json
 import os
 import sys
 
-# 把当前目录加入到系统环境变量中
 sys.path.append(os.path.split(os.path.dirname(os.path.abspath(__file__)))[0])
 sys.path.append("../..")
-# sys.path.append('venv/Lib/site-packages')
 from openpyxl import load_workbook, Workbook
 from common.file_handling import logger
 

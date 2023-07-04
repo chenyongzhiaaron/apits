@@ -4,8 +4,8 @@ import unittest
 from ddt import ddt, data
 
 from common import bif_functions
-from common.config import Config
 from common.action import Action
+from common.config import Config
 from common.database.mysql_client import MysqlClient
 from common.file_handling.do_excel import DoExcel
 from common.utils.mylogger import MyLogger
@@ -36,8 +36,7 @@ class TestProjectApi(unittest.TestCase):
 	def test_api(self, item):
 		# f"""用例：{item.get("name")}_{item.get("desc")}"""
 		
-		sheet, iid, condition, st, name, desc, headers_crypto, request_crypto, method = self.__base_info(
-			item)
+		sheet, iid, condition, st, name, desc, headers_crypto, request_crypto, method = self.__base_info(item)
 		regex, keys, deps, jp_dict, extract_request_data = self.__extractor_info(item)
 		
 		if self.__is_run(condition):
@@ -70,10 +69,7 @@ class TestProjectApi(unittest.TestCase):
 		
 		try:
 			# 执行请求操作
-			kwargs = {
-				request_data_type: request_data,
-				'headers': headers
-			}
+			kwargs = {request_data_type: request_data, 'headers': headers}
 			response = self.action.http_client(host, url, method, **kwargs)
 			# 执行后置代码片段
 			self.action.load_and_execute_script(Config.SCRIPTS_DIR, prepost_script, "teardown", response)

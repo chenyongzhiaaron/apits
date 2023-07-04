@@ -29,36 +29,10 @@ class DoExcel:
 	# def __exit__(self, exc_type, exc_val, exc_tb):
 	#     self.wb.save(self.file_name)
 	#     self.wb.close()
-	
-	@logger.log_decorator()
-	def do_excel(self):
-		"""
-		通过 title 定位单元格，获取所有测试数据
-		Returns: 读取每一条测试用用例分别保存到字典中，然后再将所有用例保存到列表中，如[{用例1},{用例2},{用例3}]
-		[{"":""},{},{}]
-		"""
-		sheets = eval(self.get_excel_init().get("sheets"))
-		test_data = []
-		for sheet_name in sheets:  # 遍历存在配置文件里面的字典，sheet_name == 每一个 excel 中的 sheetName
-			sheet = self.wb[sheet_name]  # 获取所有 sheet 句柄
-			max_row = sheet.max_row  # 获取最大行
-			max_column = sheet.max_column  # 获取最大列
-			fist_header = []  # 获取第一行标题所有值
-			for i in range(1, max_column + 1):
-				fist_header.append(sheet.cell(1, i).value)
-				# 定位单元格
-			for i in range(2, max_row + 1):
-				sub_data = {}  # 列表内的字典（也就是测试数据）
-				for k in range(1, max_column + 1):
-					sub_data[fist_header[k - 1]] = sheet.cell(i, k).value
-					sub_data["sheet"] = sheet_name
-				test_data.append(sub_data)  # 将所有单元格 title 对应的值组成字典添加到列表中。
-		return test_data
-	
-	# @logger.log_decorator()
+
 	def do_excel_yield(self):
 		"""
-		读取excel数据的生成器
+		读取excel数据
 		Returns:
 	
 		"""

@@ -2,8 +2,8 @@ import os.path
 
 from common.config import Config
 from common.file_handling.excel import DoExcel
-from common.utils.parsing_postman import parsing_postman
 from common.utils.parsing_openapi import parsing_openapi
+from common.utils.parsing_postman import parsing_postman
 
 
 class ExcelConverter:
@@ -37,10 +37,8 @@ class ExcelConverter:
 
 if __name__ == '__main__':
 	postman_to_json = r'.\data\temporary_file\postman.json'  # postman导出的json文件
-	postman_out_file = os.path.join(Config.base_path, 'cases', 'test_cases',
-	                                'test_postman_cases.xlsx')  # 转化后的文件保存的位置
+	postman_out_file = os.path.join(Config.base_path, 'cases', 'test_cases', 'test_postman_cases.xlsx')  # 转化后的文件保存的位置
 	openapi_to_json = r'.\data\temporary_file\openapi.json'  # postman导出的json文件
-	openapi_out_file = os.path.join(Config.base_path, 'cases', 'test_cases',
-	                                'test_openapi_cases.xlsx')  # 转化后的文件保存的位置
+	openapi_out_file = os.path.join(Config.base_path, 'cases', 'test_cases', 'test_openapi_cases.xlsx')  # 转化后的文件保存的位置
 	ExcelConverter('postman', postman_to_json, postman_out_file).main()
 	ExcelConverter('postman', openapi_to_json, openapi_out_file).main()
