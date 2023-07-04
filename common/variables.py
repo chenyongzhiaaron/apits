@@ -5,7 +5,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Variables:
-	variables = {}  # 定义依赖表
+	variables = {}
 	pattern_l = re.compile(r"{{\s*([^}\s]+)\s*}}(?:\[(\d+)\])?")
 	PATTERN = re.compile(r"{{(.*?)}}")  # 预编译正则表达式
 	pattern = re.compile(r'({)')
@@ -35,13 +35,12 @@ class Variables:
 
 
 if __name__ == '__main__':
-	from common.file_handling.get_excel_init import get_init
+	from common.file_handling.do_excel import DoExcel
 	from common.config import Config
 	
 	test_file = Config.test_case
-	excel_handle, init_data, test_case = get_init(test_file)
-	initialize_data = eval(init_data.get("initialize_data"))
-	print(initialize_data)
+	do_excel = DoExcel(test_file)
+	init_case = do_excel.get_excel_init()
 	d = Variables
-	d.set_variable(initialize_data)  # 初始化依赖表
+	d.set_variable(init_case)
 	print("--------------------->", d.get_variable())
