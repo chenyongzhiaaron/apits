@@ -10,7 +10,8 @@
 import json
 
 import pymysql
-from dbutils.pooled_db import PooledDB
+from DBUtils.PooledDB import PooledDB
+# from dbutils.pooled_db import PooledDB
 from pymysql.cursors import DictCursor
 
 from common.database import logger

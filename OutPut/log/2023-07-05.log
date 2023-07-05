@@ -1,0 +1,36 @@
+2023-07-05 09:17:38 | ERROR | 异常用例: 安全纯净大屏_2_登录_非BIP用户登录
+'NoneType' object has no attribute 'json'
+2023-07-05 09:17:40 | ERROR | 异常用例: 安全纯净大屏_4_劳务基础配置_绑定TV
+'NoneType' object has no attribute 'json'
+2023-07-05 09:17:43 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-05 09:17:43 | ERROR | 异常用例: 安全纯净大屏_5_劳务基础配置_查询配置
+'NoneType' object has no attribute 'json'
+2023-07-05 09:20:43 | ERROR | 异常用例: 安全纯净大屏_2_登录_非BIP用户登录
+'NoneType' object has no attribute 'json'
+2023-07-05 09:20:46 | ERROR | 异常用例: 安全纯净大屏_4_劳务基础配置_绑定TV
+'NoneType' object has no attribute 'json'
+2023-07-05 09:20:49 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-05 09:20:49 | ERROR | 异常用例: 安全纯净大屏_5_劳务基础配置_查询配置
+'NoneType' object has no attribute 'json'
+2023-07-05 09:21:53 | ERROR | 异常用例: 安全纯净大屏_2_登录_非BIP用户登录
+'NoneType' object has no attribute 'json'
+2023-07-05 09:21:55 | ERROR | 异常用例: 安全纯净大屏_4_劳务基础配置_绑定TV
+'NoneType' object has no attribute 'json'
+2023-07-05 09:21:58 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-05 09:21:58 | ERROR | 异常用例: 安全纯净大屏_5_劳务基础配置_查询配置
+'NoneType' object has no attribute 'json'
+2023-07-05 09:46:55 | ERROR | 异常用例: 安全纯净大屏_2_登录_非BIP用户登录
+'NoneType' object has no attribute 'json'
+2023-07-05 09:46:57 | ERROR | 异常用例: 安全纯净大屏_4_劳务基础配置_绑定TV
+'NoneType' object has no attribute 'json'
+2023-07-05 09:47:00 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-05 09:47:00 | ERROR | 异常用例: 安全纯净大屏_5_劳务基础配置_查询配置
+'NoneType' object has no attribute 'json'
+2023-07-05 09:52:10 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-05 09:52:10 | ERROR | 发送请求失败: URL cannot be None
+2023-07-05 09:52:10 | ERROR | 异常用例: 安全纯净大屏_2_登录_非BIP用户登录
+'NoneType' object has no attribute 'json'
+2023-07-05 09:52:12 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 09:52:15 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+

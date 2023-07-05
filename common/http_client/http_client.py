@@ -22,7 +22,6 @@ class Pyt(LoadModulesFromFolder):
 		self.request = None
 		self.response = None
 	
-	@staticmethod
 	def log_decorator(msg="请求异常"):
 		def decorator(func):
 			def wrapper(*args, **kwargs):

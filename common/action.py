@@ -28,6 +28,7 @@ class Action(Extractor, LoadScript, Validator):
 			ast_obj = ast.parse(code, mode='exec')
 			compiled = compile(ast_obj, '<string>', 'exec')
 			exec(compiled, {"action": self})
+			print("exec dynamic code  success")
 			return self.vars
 		except SyntaxError as e:
 			error_message = f'Syntax error in dynamic code: {e}'

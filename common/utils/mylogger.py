@@ -94,7 +94,8 @@ class MyLogger:
 					return result
 				except Exception as e:
 					self.logger.error(f"| called {func.__name__} | error: {msg}: {e}")
-				# self.logger.info(f"-----------分割线-----------")
+			
+			# self.logger.info(f"-----------分割线-----------")
 			
 			return wrapper
 		

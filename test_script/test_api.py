@@ -57,32 +57,32 @@ class TestProjectApi(unittest.TestCase):
 		
 		url, query_str, request_data, headers, expected, request_data_type, setup_script, teardown_script = self.__request_info(
 			item)
-		
+
 		self.action.vars.update({"url": url, "query_str": query_str, "request_data": request_data, "headers": headers})
-		
+
 		# 执行前置动态代码
 		self.action.execute_dynamic_code(setup_script)
 		url = self.action.vars.get("url")
 		query_str = self.action.vars.get("query_str")
 		request_data = self.action.vars.get("request_data")
 		headers = self.action.vars.get("headers")
-		
+
 		# 提取请求参数信息
 		self.action.substitute_data(request_data, jp_dict=jp_dict)
-		
+
 		# 请求头及请求body加密或者加签
 		headers, request_data = self.action.encrypt.encrypts(headers_crypto, headers, request_crypto, request_data)
-		
+
 		result_tuple = None
 		result = "PASS"
 		response = None
-		
+
 		try:
 			# 执行请求操作
 			kwargs = {request_data_type: request_data, 'headers': headers, "params": query_str}
 			response = self.action.send_request(host, url, method, **kwargs)
 			# response = self.action.http_client(host, url, method, **kwargs)
-			
+
 			# 执行后置代码片段
 			self.action.execute_dynamic_code(teardown_script)
 			# self.action.load_and_execute_script(Config.SCRIPTS_DIR, prepost_script, "teardown", response)
