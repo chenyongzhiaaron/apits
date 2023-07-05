@@ -50,7 +50,7 @@ class Loaders(Pyt):
 	#     Returns:
 	#
 	#     """
-	#     for name, item in vars(model).items():
+	#     for name, item in __vars(model).items():
 	#         if isinstance(item, types.FunctionType):
 	#             Variables.update_variable(f"{name}()", item)
 	

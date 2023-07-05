@@ -34,3 +34,75 @@
 
 2023-07-05 09:52:15 | ERROR | key:{{get_timestamp()}},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
 
+2023-07-05 15:05:00 | ERROR | key:<re.Match object; span=(461, 468), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:05:02 | ERROR | key:<re.Match object; span=(153, 166), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:05:05 | ERROR | key:<re.Match object; span=(166, 179), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:07:57 | ERROR | key:<re.Match object; span=(463, 470), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:07:57 | ERROR | 异常用例: 安全纯净大屏_2_登录_非BIP用户登录
+'NoneType' object has no attribute 'json'
+2023-07-05 15:07:59 | ERROR | key:<re.Match object; span=(409, 416), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:07:59 | ERROR | 异常用例: 安全纯净大屏_4_劳务基础配置_绑定TV
+'NoneType' object has no attribute 'json'
+2023-07-05 15:08:02 | ERROR | key:<re.Match object; span=(360, 367), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:08:02 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-05 15:08:02 | ERROR | 异常用例: 安全纯净大屏_5_劳务基础配置_查询配置
+'NoneType' object has no attribute 'json'
+2023-07-05 15:12:26 | ERROR | key:<re.Match object; span=(459, 466), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:12:26 | ERROR | 异常用例: 安全纯净大屏_2_登录_非BIP用户登录
+'NoneType' object has no attribute 'json'
+2023-07-05 15:12:28 | ERROR | key:<re.Match object; span=(405, 412), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:12:29 | ERROR | 异常用例: 安全纯净大屏_4_劳务基础配置_绑定TV
+'NoneType' object has no attribute 'json'
+2023-07-05 15:12:32 | ERROR | key:<re.Match object; span=(356, 363), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:12:32 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-05 15:12:32 | ERROR | 异常用例: 安全纯净大屏_5_劳务基础配置_查询配置
+'NoneType' object has no attribute 'json'
+2023-07-05 15:15:53 | ERROR | key:<re.Match object; span=(465, 472), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:15:53 | ERROR | 异常用例: 安全纯净大屏_2_登录_非BIP用户登录
+'NoneType' object has no attribute 'json'
+2023-07-05 15:15:55 | ERROR | key:<re.Match object; span=(411, 418), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:15:55 | ERROR | 异常用例: 安全纯净大屏_4_劳务基础配置_绑定TV
+'NoneType' object has no attribute 'json'
+2023-07-05 15:15:58 | ERROR | key:<re.Match object; span=(362, 369), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:15:58 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-05 15:15:59 | ERROR | 异常用例: 安全纯净大屏_5_劳务基础配置_查询配置
+'NoneType' object has no attribute 'json'
+2023-07-05 15:17:24 | ERROR | key:<re.Match object; span=(465, 472), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:17:24 | ERROR | 异常用例: 安全纯净大屏_2_登录_非BIP用户登录
+'NoneType' object has no attribute 'json'
+2023-07-05 15:17:26 | ERROR | key:<re.Match object; span=(411, 418), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:17:26 | ERROR | 异常用例: 安全纯净大屏_4_劳务基础配置_绑定TV
+'NoneType' object has no attribute 'json'
+2023-07-05 15:17:29 | ERROR | key:<re.Match object; span=(362, 369), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:17:29 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-05 15:17:29 | ERROR | 异常用例: 安全纯净大屏_5_劳务基础配置_查询配置
+'NoneType' object has no attribute 'json'
+2023-07-05 15:17:52 | ERROR | key:<re.Match object; span=(465, 472), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:17:54 | ERROR | key:<re.Match object; span=(457, 464), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:17:57 | ERROR | key:<re.Match object; span=(408, 415), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:17:57 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-05 15:31:17 | ERROR | key:<re.Match object; span=(463, 470), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:31:19 | ERROR | key:<re.Match object; span=(455, 462), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:31:22 | ERROR | key:<re.Match object; span=(406, 413), match='{{999}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-05 15:31:22 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
