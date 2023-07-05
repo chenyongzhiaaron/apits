@@ -1,26 +1,29 @@
 # 使用文档
 
-#### 项目介绍
+## 项目介绍
 
-接口自动化测试项目1.0
+接口自动化测试项目2.0
 
-#### 软件架构
+### 软件架构
 
 本框架主要是基于 Python + unittest + ddt + HTMLTestRunner + log + excel + mysql + 企业微信通知 + Jenkins 实现的接口自动化框架。
-
-##### 想要`2.0`版本尚未开源的小伙伴，可以私聊勇哥哈。
 
 * 项目参与者: 陈勇志
 * 技术支持邮箱: 262667641@qq.com
 * 个人微信: blue-blue-lemon
 * 个人博客地址:  [https://home.cnblogs.com/u/Nephalem-262667641](https://home.cnblogs.com/u/Nephalem-262667641)
+* 微信公众号：测试玩家勇哥
 
-## 前言
+### 前言
 
 公司突然要求你做自动化，但是没有代码基础不知道怎么做？或者有自动化基础，但是不知道如何系统性的做自动化，
-放在 excel 文件中维护，不知道如何处理多业务依赖的逻辑？
+放在 excel 文件中维护，不知道如何处理多业务依赖的逻辑，又或者你想想postman一样可以给每一条测试用例编写一些代码来处理脚本，但是又不知道怎么做。
+那么 gitee 中勇哥的自动化测试框架，将为你解决这些问题。
 
-那么本自动化框架，将为你解决这些问题。
+### 框架优势
+
+本框架不收取汾河费用，其优势在于测试人员直接编写测试用例，运行一个测试文件就可以自动执行所有测试用例。
+
 框架主要使用 python 语言编写，结合 unittest 进行二次开发，用户仅需要在 excel 文件中编写测试用例，
 编写成功之后，会自动生成测试用例的代码，零基础代码小白，也可以操作。
 
@@ -28,198 +31,182 @@
 本框架支持动态脚本函数扩展，可以随时内部预置函数，或者增加动态脚本，通过固定格式写法 {{fun()}} 动态调用
 接口 unittest 框架生成 HTML 报告及 excel 用例执行报告，并且发送 企业微信通知/ 钉钉通知/ 邮箱通知/ 飞书通知，灵活配置。
 
-## 实现功能
+### 实现功能
 
-* 测试数据隔离, 实现数据驱动
-* 直接多套环境使用，比如测试用例相同，但是环境不同，只需在 excel 中启用需要执行的环境即可
-* 支持多接口数据依赖: 如A接口需要同时依赖 B、C 接口的响应数据作为参数,或者 c 接口断言需要动态使用A接口的入参作为预期结果
-* 数据库断言: 直接在测试用例中写入查询的 sql 即可断言，无需编写代码
-* 动态多断言: 如接口需要同时校验响应数据和 sql 校验，支持多场景断言
-* 自动生成用例代码: 测试人员在 excel 文件中填写好测试用例, 程序可以直接生成用例代码，纯小白也能使用
-* 统计接口的运行时长: 拓展功能，订制开关，可以决定是否需要使用
-* 日志模块: 打印每个接口的日志信息，同样订制了开关，可以决定是否需要打印日志
-* 钉钉、企业微信通知: 支持多种通知场景，执行成功之后，可选择发送钉钉、或者企业微信、邮箱通知
-* 内置实现了一部分随意函数及自定义常用函数：如:随机字符串、任意日期时间、随机gps、随机用户身份证、地址、邮箱、企业信息等等
-* 自定义拓展函数: 如用例中需要自己实习一些函数使用，可以随时写上函数，通过 {{func()}} 随时调用
-* 支持自定义脚本代码段，类似postman一样给每一条测试用例编写一些代码，使用PM对象操作前后置数据
-* 支持导入postman或者openapi导出的json文件自动处理成测试用例，然后修改一下参数即可使用
+* 测试数据隔离, 实现数据驱动。
+* 支持多套环境使用，比如测试用例相同，但是环境不同，只需在 excel 中启用需要执行的环境即可。
+* 支持多接口数据依赖: 如A接口需要同时依赖 B、C 接口的响应数据作为参数,或者 c 接口断言需要动态使用A接口的入参作为预期结果。
+* 数据库断言: 直接在测试用例中写入查询的 sql 即可断言，无需编写代码。
+* 动态多断言: 如接口需要同时校验响应数据和 sql 校验，支持多场景断言。
+* 支持自定义脚本代码（python语言），可以让你像 postman 一样给每一条测试用例编写任意前后置脚本代码，内置了 action 对象操作及一些方法可以很便捷的处理前置或后置脚本。
+* 自动生成用例代码: 测试人员在 excel 文件中填写好测试用例, 程序可以直接生成用例代码，纯小白也能使用。
+* 支持自定义拓展函数: 如用例中需要使用自己实现的函数，可以随时在指定的目录下面写上函数，通过 {{func(*args,**kwargs)}} 随时调用你自己设置的函数。
+* 内置实现了一部分随意函数及自定义常用函数：如:随机字符串、任意日期时间、随机gps、随机用户身份证、地址、邮箱、企业信息等等，用户还可以自己定义任意函数，无门槛使用。
+* 统计接口的运行时长: 拓展功能，订制开关，可以决定是否需要使用。
+* 支持用例定时器运行，比如：B用例执行前需要A用例执行后等待5秒才开始执行，可以随意加上等待时间。
+* 日志模块: 打印每个接口的日志信息，同样订制了开关，可以决定是否需要打印日志。
+* 钉钉、企业微信通知、邮件通知: 支持多种通知场景，执行成功之后，可选择发送钉钉、或者企业微信、邮箱通知。
+* 封装了发送MQTT的类，支持发送MQTT消息。
+* 支持导入postman或者swargs导出的json文件自动处理成测试用例，然后修改一下参数即可使用。
 
-## 遇到问题
+### gitee 地址
+接口自动化框架地址：[点我查看](https://gitee.com/chenyongzhiaaron_admin/apitest/edit/master/README.md)
+
+### 遇到问题
 
 * 请仔细阅读文档，文档中几乎可以帮你避免所有的问题
 * 可以添加微信： blue-blue-lemon, 添加微信会将你拉倒自动化交流群中，群内有很多热心的小伙伴，但是前提是希望你已经阅读了文档中的所有内容
 * 你也可以请作者为你解答，当然在我时间空闲的时候，也可以让作者为你一对一服务，当然是收费的。
 
+
 ## 目录结构
 ```markdown
 .
-├── OutPut
-│   ├── Log                                     // 日志
-│   ├── Reports                                 // html|json 报告
-│   │   ├── T 测试报告.html
-│   │   ├── T.html
-│   │   ├── history.json
-│   │   ├── report.html
-│   │   ├── test_api 测试报告.html
-│   │   └── test_api.html
-│   └── __init__.py
-├── Pipfile
-├── Pipfile.lock
-├── README.md                                   // 帮助
-├── cases                                       // 测试用例数据文件夹
-│   ├── cases                                   // 测试用例
-│   │   ├── test_api.xlsx                       
-│   │   ├── test_openapi_cases.xlsx
-│   │   └── test_postman_cases.xlsx
-│   ├── templates                               // 测试用例模板
-│   │   └── template.xlsx
-│   └── temporary_file                          // openapi| postman 导出的 json文件存放位置
-│       ├── apifox.json
-│       ├── openapi.json
-│       └── postman.json
-├── common                                      // 功能配置及核心功能函数
-│   ├── __init__.py
-│   ├── bif_functions                           // 内置一些函数工具
-│   │   ├── __init__.py
-│   │   ├── bif_datetime.py                     // 内置日期时间函数
-│   │   ├── bif_hashlib.py                      // 内置hash 函数
-│   │   ├── bif_json.py                         // 内置json解析函数
-│   │   ├── bif_list.py                         // 内置列表操作函数
-│   │   ├── bif_random.py                       // 内置随机函数
-│   │   ├── bif_re.py                           // 内置正则函数
-│   │   ├── bif_str.py                          // 内置字符串函数
-│   │   ├── bif_time.py                         // 内置时间函数
-│   │   └── random_tools.py                     // 内置其他随机函数
-│   ├── config.py                               // 公共基础环境路径存放位置：如日志，测试测试脚本路径
-│   ├── crypto                                  // 加密工具
-│   │   ├── __init__.py
-│   │   ├── encryption_aes.py                   // aes 加密
-│   │   ├── encryption_base64_to_image.py       // base64 转图片工具
-│   │   ├── encryption_main.py                  // 执行加入函数入口，对应excel中的加密方法选项，结合 extensions 中的 sign 可自定义加密规则
-│   │   ├── encryption_rsa.py                   // 常用的字符串加密工具函数
-│   │   └── encryption_str.py                   // rsa 加密
-│   ├── data_extraction                         // 数据提取器
-│   │   ├── __init__.py 
-│   │   ├── analysis_json.py                    // json 字典分析函数，类似 jsonpath
-│   │   ├── assert_dict.py                      // 旧断言字段函数 （暂时舍弃）
-│   │   ├── data_extractor.py                   // 数据提取函数
-│   │   ├── dependent_parameter.py              // 数据替换函数
-│   │   └── dict_get.py                         // 旧路径提取函数
-│   ├── database                            // 数据库操作工具
-│   │   ├── __init__.py
-│   │   ├── do_mongo.py                     // mongoDB 操作工具
-│   │   ├── execute_sql.py                     // mysql 操作工具
-│   │   ├── do_psycopg.py                   // presto 操作工具
-│   │   └── do_redis.py                     // redis 操作工具
-│   ├── variables.py                       // 数据依赖类
-│   ├── file_handling                       // 文件操作
-│   │   ├── __init__.py
-│   │   ├── do_bat_sql.py                   // 批量读取文件下的 sql 文件并打开文件执行文件内的每条 sql 
-│   │   ├── do_excel.py                     // excel 处理
-│   │   ├── excel.py                        // excel 处理(旧)
-│   │   ├── get_all_path.py                 // 递归获取目录下所有的文件的路径
-│   │   ├── get_conf_data.py                // 读取配置文件(不使用，更改为 pytest 模式时，可能 pytest 需要)
-│   │   ├── get_excel_init.py               // 读取 excel 中初始化 init 表 的数据   
-│   │   ├── get_file.py                     // 获取指定目录内的所有文件(没卵用)
-│   │   ├── get_folder.py                   // 获取指定路径下的所有文件夹及文件（没卵用）
-│   │   └── read_file.py                    // 文件读取（没卵用）
-│   ├── random_tools                        // 独立的随机工具类，主要用于自动创建一些测试数据给收工测试使用
-│   │   ├── __init__.py
-│   │   ├── credit_cards                    // 随机银行卡
-│   │   │   ├── __init__.py
-│   │   │   ├── bankcard.py
-│   │   │   └── cardbin.csv
-│   │   ├── credit_identifiers              // 随机企业唯一信用代码   
-│   │   │   ├── __init__.py
-│   │   │   ├── address.json
-│   │   │   ├── credit_identifier.py
-│   │   │   └── unified_social_credit_identifier.py
-│   │   ├── emails                          // 速记邮件
-│   │   │   ├── __init__.py
-│   │   │   ├── email.py
-│   │   │   └── free_email.csv
-│   │   ├── identification                  // 随机身份证
-│   │   │   ├── __init__.py
-│   │   │   ├── area.csv
-│   │   │   └── id_card.py
-│   │   ├── names                           // 随机中国人姓名
-│   │   │   ├── __init__.py
-│   │   │   ├── first_name_boy.csv
-│   │   │   ├── first_name_girl.csv
-│   │   │   ├── last_name.csv
-│   │   │   └── name.py
-│   │   └── phone_numbers                   // 随机手机号
-│   │       ├── __init__.py
-│   │       ├── phone.py
-│   │       └── phone_area.csv
-│   ├── utils                               // 杂七杂八的工具包
-│   │   ├── WxworkSms.py                    // 企业微信，需要使用其他工具，可以在这个模块下扩展增加脚本
-│   │   ├── __init__.py
-│   │   ├── captcha.py                      // 识别图片转字符串，常用于验证码登录
-│   │   ├── function_run_time.py            // 运行时间装饰器（没卵用）
-│   │   ├── hooks.py                        // 请求钩子函数（暂时没用到）
-│   │   ├── http_client.py                  // http请求封装
-│   │   ├── logger.py                       // 日志记录loggin
-│   │   ├── mylogger.py                     // 日志记录loguru
-│   │   ├── parsing_openapi.py              // 解析 openapi导出的文件 json-->excel
-│   │   ├── parsing_postman.py              // 解析 postman导出的文件 json-->excel
-│   │   ├── request.py                      // 请求封装(暂时没用到)
-│   │   ├── request_processor.py            // 请求处理器（暂时没用到）
-│   │   ├── retry.py                        // 重试（实际没啥用）
-│   │   └── singleton.py                    // 单例模式
-│   └── validation                          // 断言及加载动条函数工具包
-│       ├── __init__.py
-│       ├── comparator_dict.py              // 自定义比较器名词释义
-│       ├── comparators.py                  // 自定义比较器
-│       ├── extractor.py                    // 提取器
-│       ├── load_modules_from_folder.py     // 动态从模块中加载函数（暂未使用）
-│       ├── loaders.py                      // 动态加载函数及加载内置比较器等工具包
-│       └── validator.py                    // 断言校验器
-├── debug                                   // 调试使用，与实际程序没啥关系
-├── excel_converter.py                      // postman|openapi 导出的json文件转excel测试用例的程序入口
-├── extensions                              // 动态扩展程序文件包
-│   ├── __init__.py
-│   ├── ext_method_online.py                // 动态扩展方法
-│   └── sign.py                             // 自定义签名规则
-├── generate_tree.py                        // 目录树生成文件
-├── image                                   // 图片
-│   ├── wx.jpg
-│   └── zfb.jpg
-├── main.py                                 // 自动化测试执行入口文件
-├── main_personal_information.py            // 随机个人信息
-├── pipenv_command.text
-├── scripts                                 // 动态测试用例脚本库
-│   └── __init__.py
-├── temp                                    // 临时脚本文件，与自动化测试无关
-│   ├── __init__.py
-│   ├── excel_handler.py
-│   ├── extent
-│   │   ├── __init__.py
-│   │   ├── api.py
-│   │   ├── config.py
-│   │   └── test_api_script.py
-│   ├── fun.md
-│   ├── get_zl.py
-│   ├── mqtt_sender.py
-│   ├── parsing_jmeter.py
-│   ├── rabbit_mq_sender.py
-│   └── test_log.py
-└── test_script                             // 执行测试逻辑脚本文件
-    ├── __init__.py
-    ├── automation
-    │   ├── __init__.py
-    │   └── test_api_script.py              // 测试执行文件
-    └── script                              // 重新封装的测试脚本框架
-        ├── __init__.py
-        ├── baseclass.py
-        └── test_api.py
+└── cases/                                  // 测试用例数据文件夹
+    └── cases/                              // 测试用例
+        └── test_cases.xlsx
+    └── templates/                          // 测试用例模板
+        └── template.xlsx
+    └── temporary_file/                     // swagger| postman 导出的 json文件存放位置
+        └── openapi.json
+        └── postman.json
+└── common/                                 // 配置及核心功能代码
+    └── bif_functions/                      // 内置函数工具
+        └── __init__.py
+        └── bif_datetime.py                 // 内置日期时间函数
+        └── bif_hashlib.py                  // 内置hash 函数
+        └── bif_json.py                     // 内置json解析函数
+        └── bif_list.py                     // 内置列表操作函数
+        └── bif_random.py                   // 内置随机函数
+        └── bif_re.py                       // 内置正则函数
+        └── bif_str.py                      // 内置字符串函数
+        └── bif_time.py                     // 内置时间函数
+        └── random_tools.py                 // 内置其他随机函数
+    └── crypto/                             // 加密工具
+        └── __init__.py
+        └── encrypt_data.py                 // 执行数据加密封装入口
+        └── encryption_aes.py               // aes 加密
+        └── encryption_base64_to_image.py   // base64 转图片工具
+        └── encryption_main.py              // 执行加入函数入口，对应excel中的加密方法选项，结合 extensions 中的 sign 可自定义加密规则
+        └── encryption_rsa.py               // rsa 加密
+        └── encryption_str.py               // 常用的字符串加密工具函数
+    └── data_extraction/                    // 数据提取器
+        └── __init__.py
+        └── analysis_json.py                // json 字典分析函数，类似 jsonpath
+        └── assert_dict.py                  // 旧断言字段函数 （暂时舍弃）
+        └── data_extractor.py               // 数据提取函数
+        └── dependent_parameter.py          // 数据替换函数
+        └── dict_get.py                     // 旧路径提取函数
+    └── database/                           // 数据库操作工具
+        └── __init__.py
+        └── execute_sql_files.py            // sql 批处理工具
+        └── mongodb_client.py               // mongoDB 操作工具
+        └── mysql_client.py                 // mysql 操作工具
+        └── psycopg_client.py               // presto 操作工具      
+        └── redis_client.py                 // redis 操作工具
+    └── file_handling/                      // 文件操作
+        └── __init__.py
+        └── do_excel.py                     // excel 处理
+        └── excel.py                        // excel 处理
+        └── file_utils.py                   // json、yarm等文件操作以及一些目录操作
+    └── http_client/                        // http_client 发送http的工具
+        └── __init__.py
+        └── http_client.py                  // http 请求封装
+    └── MQclient/                           // MQ 工具
+        └── __init__.py
+        └── mqtt_client.py                  // mqtt 工具
+        └── rabbit_mq_client.py             // rmq 工具
+    └── random_tools/                       // 常用随机数工具包
+        └── credit_cards/                   // 随机银行卡
+            └── __init__.py
+            └── bankcard.py
+            └── cardbin.csv
+        └── credit_identifiers/             // 随机企业唯一信用代码 
+            └── __init__.py
+            └── address.json
+            └── credit_identifier.py
+            └── unified_social_credit_identifier.py
+        └── emails/                         // 随机邮箱
+            └── __init__.py
+            └── email.py
+            └── free_email.csv
+        └── identification/                 // 随机身份证
+            └── __init__.py
+            └── area.csv
+            └── id_card.py
+        └── names/                          // 随机姓名
+            └── __init__.py
+            └── first_name_boy.csv
+            └── first_name_girl.csv
+            └── last_name.csv
+            └── name.py
+        └── phone_numbers/                  // 随机手机号
+            └── __init__.py
+            └── phone.py
+            └── phone_area.csv
+        └── __init__.py
+    └── utils/                              // 工具包
+        └── __init__.py 
+        └── captcha.py                      // 识别图片转字符串，常用于验证码登录
+        └── load_and_execute_script.py      // 动态加载自定义python文件工具
+        └── logger.py                       // loggin 日志封装
+        └── mylogger.py                     // loguru 日志封装 
+        └── parsing_openapi.py              // 解析 swagger 文件 转测试用例
+        └── parsing_postman.py              // 解析 postman 文件 转测试用例
+        └── singleton.py                    // 单例
+        └── WxworkSms.py                    // 企业微信
+    └── validation/                         // 断言及加载动条函数工具包
+        └── __init__.py
+        └── comparator_dict.py              // 自定义比较器名词释义
+        └── comparators.py                  // 自定义比较器
+        └── extractor.py                    // 提取器
+        └── load_modules_from_folder.py     // 动态从模块中加载函数
+        └── loaders.py                      // 动态加载函数及加载内置比较器等工具包
+        └── validator.py                    // 断言校验器
+    └── __init__.py
+    └── action.py                           // 核心类
+    └── config.py                           // 配置文件
+    └── variables.py                        // 数据操作类
+└── extensions/                             // 动态扩展模块目录
+    └── __init__.py
+    └── ext_method_online.py                // 动态扩展方法模块
+    └── sign.py                             // 加签模块
+└── image/
+    └── wx.jpg
+    └── zfb.jpg
+└── OutPut/                                 // 日志报错
+    └── log/
+        └── 2023-06-25.log
+        └── 2023-07-04.log
+        └── 2023-07-05.log
+    └── reports/
+        └── history.json
+└── scripts/                                // 动态脚本目录
+    └── __init__.py
+    └── prepost_script_安全纯净大屏_2.py     // 对应每条测试用例的前后置脚本（可选）
+    └── request_script_sheetname_id.py
+└── test_script/                            // 测试脚本核心模块
+    └── __init__.py
+    └── test_api.py
+└── directory_tree.txt                      
+└── excel_converter.py                      // postman、swagger 文件转换主入口模块
+└── generate_tree.py                        // 项目目录树模块
+└── main_personal_information.py            // 随机个人信息核心入口
+└── pipenv_command.text             
+└── Pipfile     
+└── Pipfile.lock    
+└── README.md
+└── run.py                                  // 自动化测试执行入口模块
 
 ```
 
-## 依赖库
+
+## 安装教程
+
+
+### 依赖库
 
 参考 pipenv --Pipfile 虚拟环境文件，不一一列出
-## 安装教程
 
 首先，执行本框架之后，需要搭建好 python 环境，python 环境搭建自行百度
 
@@ -229,9 +216,10 @@
 
 #### 使用说明
 
-1. 提取参数方式可以使用正则，jsonpath及json逐层取值
-2. xxxx
-3. Personalinformation
+1. 测试用例只需要在 cases/cases/xxx.xlsx 文件填写测试用例即可，可以参考测试用例模板文件，由于模板文件的用例已经做了敏感信息处理，所以执行执行模板的用例应该会报错
+2. 运行用例可以直接进入到 test_script/test_xxx.py 中，执行test_xxx.py文件，也可以直接运训 最外层的 run.py文件，
+3. Personalinformation.py 这个文件是用来生成一些测试数据，方便做功能测试或者其他一般性测试使用
+
 
 ## 开放测试接口文档
 
@@ -242,6 +230,28 @@
 - [https://wanandroid.com/blog/show/2](https://wanandroid.com/blog/show/2)
 
 ## 如何创建用例
+
+### excel中的测试用例相关字段介
+下面是一个关于一个用例中的所有字段，字段不是全部必填
+![字段解释](image/img_18.png)
+下面对每一个字段的作用，做出解释：
+* Id：测试用例的id，唯一，必填
+* Name: 测试用例的名称，必填
+* Description: 测试用例描述，可选,建议填写，生成的报告会用到这个字段
+* Run: 是否运行这条用例，如果不填或填写的不是YES/yes，则不运行这条用例
+* Time: 定时器，数字，非必填，填写则会等待多少秒后运行这条用例
+* Method： 请求方法，支持所有的http请求方法，get/post/put/patch等等
+* Url: 接口路径或者整个请求地址，如果不带域名，则会自动去init表中拼接host上去，Url中可以参数化，如： /test/api/get/{{id}}/{{func()}}
+* Headers: 请求头,字典填写方式，如：{"Content-Type":"application/json","token":"{{token}}",'time':'{{timestamp()}}'}
+* Headers Crypto: 请求头是否加密，可以自定义加密方式，然后这里输入你的加密方法名即可,如 MD5\sha1 等
+* Query Str: 查询字符串参数，也就是URL过长的时候，可以将URL后面的参数拆出来填写在这里，字典的方式填写，支持参数化
+* Request Data Type: 请求参数类型，有json,file,params,data等等这几种
+* Request Data： 请求参数，字典形式填写，支持参数化，如：{"projectId":"{{projectId}}","tvSequence":"{{random_string()}}"}
+* Setup Script: 前置脚本，可以直接写 pthon 代码，比如类，函数，等等，如果是函数，类一定要调用才会执行。编写方式见后面的讲解
+* Request Data Crypto： 请求参数是否加密，可以填写你需要的加密方式，如 MD5\sha1 等
+* Extract Request Data：提取请求参数的字段或整个请求参数字典，如：{"k": "$.projectId", "x": "$.data[0].age[3].a"}
+* Jsonpath: 提取响应结果的 jsonpath 表达式，示例：默认情况下若表达式结果只有一个值那么就存为字符串，如果表达式执行结果有多个值，那么就存为列表，表达式填写方式如下： {"k": "$.data", "x": "$.data[0].age[3].a"}
+
 
 ### 创建用例步骤
 
