@@ -3,6 +3,7 @@ import json
 
 # @logger.log_decorator()
 def parsing_openapi(file_path):
+	"""解析swagger文件转为excel测试用例"""
 	with open(file_path, 'r', encoding='utf-8') as file:
 		data = json.load(file)
 	count = 1

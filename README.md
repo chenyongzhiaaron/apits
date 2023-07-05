@@ -400,6 +400,14 @@ excel 中有一个 method 字段，设置值为 sql 即可，后面的 SQL,SQL �
 其实这套代码这些都可以不需要使用，也可以使用，定制一些初始化函数或者唯一登录这样用，做数据清晰操作？可以将sql写excel，
 或者单独再excel种建立一个sheet来执行sql也是可行的，方法很多，很灵活
 
+#### postman或者swagger的文件怎么快速转为测试用例？
+本框架已经封装好了解析函数，直接将postman文件导出，放到指定目录
+运行excel_converter.py文件，即可得到测试用例
+非常快捷省事，不用一条一条复制粘贴
+![img.png](image/img_24.png)
+![img.png](image/img_25.png)
+![img.png](image/img_26.png)
+
 #### 更换不同的数据库？
 
 目前内置有多种数据库查链接方式，但是尚未使用起来，只是将mysql使用起来了，使用者如需要使用其他如 mongoDB 这类数据库，
