@@ -66,131 +66,131 @@
 ```markdown
 .
 └── cases/ // 测试用例数据文件夹
-└── cases/ // 测试用例
-└── test_cases.xlsx
-└── templates/ // 测试用例模板
-└── template.xlsx
-└── temporary_file/ // swagger| postman 导出的 json文件存放位置
-└── openapi.json
-└── postman.json
+    └── cases/ // 测试用例
+        └── test_cases.xlsx
+    └── templates/ // 测试用例模板
+        └── template.xlsx
+    └── temporary_file/ // swagger| postman 导出的 json文件存放位置
+        └── openapi.json
+        └── postman.json
 └── common/ // 配置及核心功能代码
-└── bif_functions/ // 内置函数工具
-└── __init__.py
-└── bif_datetime.py // 内置日期时间函数
-└── bif_hashlib.py // 内置hash 函数
-└── bif_json.py // 内置json解析函数
-└── bif_list.py // 内置列表操作函数
-└── bif_random.py // 内置随机函数
-└── bif_re.py // 内置正则函数
-└── bif_str.py // 内置字符串函数
-└── bif_time.py // 内置时间函数
-└── random_tools.py // 内置其他随机函数
-└── crypto/ // 加密工具
-└── __init__.py
-└── encrypt_data.py // 执行数据加密封装入口
-└── encryption_aes.py // aes 加密
-└── encryption_base64_to_image.py // base64 转图片工具
-└── encryption_main.py // 执行加入函数入口，对应excel中的加密方法选项，结合 extensions 中的 sign 可自定义加密规则
-└── encryption_rsa.py // rsa 加密
-└── encryption_str.py // 常用的字符串加密工具函数
-└── data_extraction/ // 数据提取器
-└── __init__.py
-└── analysis_json.py // json 字典分析函数，类似 jsonpath
-└── assert_dict.py // 旧断言字段函数 （暂时舍弃）
-└── data_extractor.py // 数据提取函数
-└── dependent_parameter.py // 数据替换函数
-└── dict_get.py // 旧路径提取函数
-└── database/ // 数据库操作工具
-└── __init__.py
-└── execute_sql_files.py // sql 批处理工具
-└── mongodb_client.py // mongoDB 操作工具
-└── mysql_client.py // mysql 操作工具
-└── psycopg_client.py // presto 操作工具      
-└── redis_client.py // redis 操作工具
-└── file_handling/ // 文件操作
-└── __init__.py
-└── do_excel.py // excel 处理
-└── excel.py // excel 处理
-└── file_utils.py // json、yarm等文件操作以及一些目录操作
-└── http_client/ // http_client 发送http的工具
-└── __init__.py
-└── http_client.py // http 请求封装
-└── MQclient/ // MQ 工具
-└── __init__.py
-└── mqtt_client.py // mqtt 工具
-└── rabbit_mq_client.py // rmq 工具
-└── random_tools/ // 常用随机数工具包
-└── credit_cards/ // 随机银行卡
-└── __init__.py
-└── bankcard.py
-└── cardbin.csv
-└── credit_identifiers/ // 随机企业唯一信用代码
-└── __init__.py
-└── address.json
-└── credit_identifier.py
-└── unified_social_credit_identifier.py
-└── emails/ // 随机邮箱
-└── __init__.py
-└── email.py
-└── free_email.csv
-└── identification/ // 随机身份证
-└── __init__.py
-└── area.csv
-└── id_card.py
-└── names/ // 随机姓名
-└── __init__.py
-└── first_name_boy.csv
-└── first_name_girl.csv
-└── last_name.csv
-└── name.py
-└── phone_numbers/ // 随机手机号
-└── __init__.py
-└── phone.py
-└── phone_area.csv
-└── __init__.py
-└── utils/ // 工具包
-└── __init__.py
-└── captcha.py // 识别图片转字符串，常用于验证码登录
-└── load_and_execute_script.py // 动态加载自定义python文件工具
-└── logger.py // loggin 日志封装
-└── mylogger.py // loguru 日志封装
-└── parsing_openapi.py // 解析 swagger 文件 转测试用例
-└── parsing_postman.py // 解析 postman 文件 转测试用例
-└── singleton.py // 单例
-└── WxworkSms.py // 企业微信
-└── validation/ // 断言及加载动条函数工具包
-└── __init__.py
-└── comparator_dict.py // 自定义比较器名词释义
-└── comparators.py // 自定义比较器
-└── extractor.py // 提取器
-└── load_modules_from_folder.py // 动态从模块中加载函数
-└── loaders.py // 动态加载函数及加载内置比较器等工具包
-└── validator.py // 断言校验器
-└── __init__.py
-└── action.py // 核心类
-└── config.py // 配置文件
-└── variables.py // 数据操作类
+    └── bif_functions/ // 内置函数工具
+        └── __init__.py
+        └── bif_datetime.py // 内置日期时间函数
+        └── bif_hashlib.py // 内置hash 函数
+        └── bif_json.py // 内置json解析函数
+        └── bif_list.py // 内置列表操作函数
+        └── bif_random.py // 内置随机函数
+        └── bif_re.py // 内置正则函数
+        └── bif_str.py // 内置字符串函数
+        └── bif_time.py // 内置时间函数
+        └── random_tools.py // 内置其他随机函数
+    └── crypto/ // 加密工具
+        └── __init__.py
+        └── encrypt_data.py // 执行数据加密封装入口
+        └── encryption_aes.py // aes 加密
+        └── encryption_base64_to_image.py // base64 转图片工具
+        └── encryption_main.py // 执行加入函数入口，对应excel中的加密方法选项，结合 extensions 中的 sign 可自定义加密规则
+        └── encryption_rsa.py // rsa 加密
+        └── encryption_str.py // 常用的字符串加密工具函数
+    └── data_extraction/ // 数据提取器
+        └── __init__.py
+        └── analysis_json.py // json 字典分析函数，类似 jsonpath
+        └── assert_dict.py // 旧断言字段函数 （暂时舍弃）
+        └── data_extractor.py // 数据提取函数
+        └── dependent_parameter.py // 数据替换函数
+        └── dict_get.py // 旧路径提取函数
+    └── database/ // 数据库操作工具
+        └── __init__.py
+        └── execute_sql_files.py // sql 批处理工具
+        └── mongodb_client.py // mongoDB 操作工具
+        └── mysql_client.py // mysql 操作工具
+        └── psycopg_client.py // presto 操作工具      
+        └── redis_client.py // redis 操作工具
+    └── file_handling/ // 文件操作
+        └── __init__.py
+        └── do_excel.py // excel 处理
+        └── excel.py // excel 处理
+        └── file_utils.py // json、yarm等文件操作以及一些目录操作
+    └── http_client/ // http_client 发送http的工具
+        └── __init__.py
+        └── http_client.py // http 请求封装
+    └── MQclient/ // MQ 工具
+        └── __init__.py
+        └── mqtt_client.py // mqtt 工具
+        └── rabbit_mq_client.py // rmq 工具
+    └── random_tools/ // 常用随机数工具包
+        └── credit_cards/ // 随机银行卡
+            └── __init__.py
+            └── bankcard.py
+            └── cardbin.csv
+        └── credit_identifiers/ // 随机企业唯一信用代码
+            └── __init__.py
+            └── address.json
+            └── credit_identifier.py
+            └── unified_social_credit_identifier.py
+        └── emails/ // 随机邮箱
+            └── __init__.py
+            └── email.py
+            └── free_email.csv
+        └── identification/ // 随机身份证
+            └── __init__.py
+            └── area.csv
+            └── id_card.py
+        └── names/ // 随机姓名
+            └── __init__.py
+            └── first_name_boy.csv
+            └── first_name_girl.csv
+            └── last_name.csv
+            └── name.py
+        └── phone_numbers/ // 随机手机号
+            └── __init__.py
+            └── phone.py
+            └── phone_area.csv
+            └── __init__.py
+    └── utils/ // 工具包
+        └── __init__.py
+        └── captcha.py // 识别图片转字符串，常用于验证码登录
+        └── load_and_execute_script.py // 动态加载自定义python文件工具
+        └── logger.py // loggin 日志封装
+        └── mylogger.py // loguru 日志封装
+        └── parsing_openapi.py // 解析 swagger 文件 转测试用例
+        └── parsing_postman.py // 解析 postman 文件 转测试用例
+        └── singleton.py // 单例
+        └── WxworkSms.py // 企业微信
+    └── validation/ // 断言及加载动条函数工具包
+        └── __init__.py
+        └── comparator_dict.py // 自定义比较器名词释义
+        └── comparators.py // 自定义比较器
+        └── extractor.py // 提取器
+        └── load_modules_from_folder.py // 动态从模块中加载函数
+        └── loaders.py // 动态加载函数及加载内置比较器等工具包
+    └── validator.py // 断言校验器
+        └── __init__.py
+    └── action.py // 核心类
+    └── config.py // 配置文件
+    └── variables.py // 数据操作类
 └── extensions/ // 动态扩展模块目录
-└── __init__.py
-└── ext_method_online.py // 动态扩展方法模块
-└── sign.py // 加签模块
+    └── __init__.py
+    └── ext_method_online.py // 动态扩展方法模块
+    └── sign.py // 加签模块
 └── image/
-└── wx.jpg
-└── zfb.jpg
+    └── wx.jpg
+    └── zfb.jpg
 └── OutPut/ // 日志报错
-└── log/
-└── 2023-06-25.log
-└── 2023-07-04.log
-└── 2023-07-05.log
-└── reports/
-└── history.json
+    └── log/
+        └── 2023-06-25.log
+        └── 2023-07-04.log
+        └── 2023-07-05.log
+    └── reports/
+        └── history.json
 └── scripts/ // 动态脚本目录
-└── __init__.py
-└── prepost_script_安全纯净大屏_2.py // 对应每条测试用例的前后置脚本（可选）
-└── request_script_sheetname_id.py
+    └── __init__.py
+        └── prepost_script_安全纯净大屏_2.py // 对应每条测试用例的前后置脚本（可选）
+        └── request_script_sheetname_id.py
 └── test_script/ // 测试脚本核心模块
-└── __init__.py
-└── test_api.py
+    └── __init__.py
+    └── test_api.py
 └── directory_tree.txt                      
 └── excel_converter.py // postman、swagger 文件转换主入口模块
 └── generate_tree.py // 项目目录树模块
