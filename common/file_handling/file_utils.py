@@ -14,6 +14,8 @@ from configparser import RawConfigParser
 
 import yaml
 
+from common.config import Config
+
 
 class FileUtils:
     @staticmethod
@@ -30,7 +32,7 @@ class FileUtils:
         for root, dirs, files in os.walk(open_file_path):
             path_list.extend([os.path.join(root, file) for file in files])
         return path_list
-
+    
     @staticmethod
     def get_files_in_folder(folder_path):
         """
@@ -49,7 +51,16 @@ class FileUtils:
             if os.path.isfile(file_path):
                 file_list.append(filename)
         return file_list
-
+    
+    @staticmethod
+    def get_file_path(file_name):
+        """根据文件名获取指定目录下的文件路径"""
+        for root, dirs, files in os.walk(Config.test_files):
+            for file in files:
+                if file == file_name:
+                    return os.path.join(root, file)
+        return
+    
     @staticmethod
     def get_folders_in_path(dir_path):
         """
@@ -68,7 +79,7 @@ class FileUtils:
             if os.path.isdir(folder_path):
                 folder_list.append(foldername)
         return folder_list
-
+    
     @staticmethod
     def read_file(file_path):
         """
@@ -83,7 +94,7 @@ class FileUtils:
             raise ValueError("Invalid file path")
         with open(file_path, "r", encoding="utf-8") as f:
             return f.read()
-
+    
     @staticmethod
     def read_json_file(file_path):
         """
@@ -99,7 +110,7 @@ class FileUtils:
             return json.loads(content)
         except json.JSONDecodeError as e:
             raise ValueError("Invalid JSON file: {}".format(e))
-
+    
     @staticmethod
     def read_yaml_file(file_path):
         """
@@ -112,7 +123,7 @@ class FileUtils:
         """
         with open(file_path, "r", encoding="utf-8") as f:
             return yaml.safe_load(f)
-
+    
     @staticmethod
     def get_value_from_dict(data, key_path):
         """
@@ -126,15 +137,15 @@ class FileUtils:
         """
         if isinstance(key_path, str):
             key_path = key_path.split('.')
-
+        
         for key in key_path:
             if isinstance(data, dict) and key in data:
                 data = data[key]
             else:
                 return None
-
+        
         return data
-
+    
     @staticmethod
     def read_config_data(file_path, section, option):
         """
@@ -150,7 +161,7 @@ class FileUtils:
         cf = RawConfigParser()
         cf.read(file_path, encoding="UTF-8")
         return eval(cf.get(section, option))
-
+    
     @staticmethod
     def read_json_data(file_path):
         """

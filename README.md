@@ -377,6 +377,7 @@ None，貌似没有对 None 特殊处理
 ![img.png](/image/img_1.png)
 
 - 这个MD5方法，一般都没有使用，一般都是直接excel中是否使用【参数加密方式字段开关】来处理加密
+![](image/img_31.png)
   ![img.png](/image/img.png)
 - 内置函数使用，统一是 `{{xxx()}}`，可以传参数到()内,比如 `{{token(999)}}`
   ![img.png](/image/img_2.png)
