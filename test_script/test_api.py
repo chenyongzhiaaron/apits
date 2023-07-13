@@ -55,6 +55,7 @@ class TestProjectApi(unittest.TestCase):
         
         # 修正参数
         item = self.action.replace_dependent_parameter(item)
+        print("*" * 15, item)
         url, query_str, request_data, headers, expected, request_data_type = self.__request_info(item)
         
         # 分析请求参数信息

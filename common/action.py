@@ -27,18 +27,21 @@ class Action(Extractor, LoadScript, Validator):
     
     def execute_dynamic_code(self, item, code):
         self.set_vars(item)
-        try:
-            ast_obj = ast.parse(code, mode='exec')
-            compiled = compile(ast_obj, '<string>', 'exec')
-            exec(compiled, {"action": self})
-        except SyntaxError as e:
-            error_message = f'Syntax error in dynamic code: {e}'
-            self._handle_error(error_message)
-        except Exception as e:
-            error_message = f"Error executing dynamic code: {e}"
-            self._handle_error(error_message)
-        finally:
-            return self.__vars
+        print("___self.get_vars()____", self.get_vars())
+        if code is not None:
+            try:
+                ast_obj = ast.parse(code, mode='exec')
+                compiled = compile(ast_obj, '<string>', 'exec')
+                exec(compiled, {"action": self})
+            except SyntaxError as e:
+                error_message = f'Syntax error in dynamic code: {e}'
+                self._handle_error(error_message)
+            except Exception as e:
+                error_message = f"Error executing dynamic code: {e}"
+                self._handle_error(error_message)
+            finally:
+                return self.__vars
+        return item
     
     def _handle_error(self, error_message):
         print(f'Error occurred: {error_message}')

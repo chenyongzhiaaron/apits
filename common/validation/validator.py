@@ -6,11 +6,13 @@
 # EMAIL:        262667641@qq.com
 # Date:         2023/03/24 17:32
 # -------------------------------------------------------------------------------
+import json
 
 from common.validation import logger
 from common.validation.comparator_dict import comparator_dict
 from common.validation.extractor import Extractor
 from common.validation.loaders import Loaders
+
 
 # load_built_in_comparators
 
@@ -22,12 +24,15 @@ class Validator(Loaders):
         1、格式化校验变量
         2、校验期望结果与实际结果与预期一致，并返回校验结果
     """
-
+    validate_variables_list = []
+    built_in_comparators = Loaders.load_built_in_comparators()
+    
+    # built_in_comparators = self.load_built_in_comparators()
     def __init__(self):
         super().__init__()
-        self.validate_variables_list = []
-        self.built_in_comparators = self.load_built_in_comparators()
-
+        # self.validate_variables_list = []
+        # self.built_in_comparators = self.load_built_in_comparators()
+    
     def uniform_validate(self, validate_variables):
         """
         统一格式化测试用例的验证变量validate
@@ -42,6 +47,10 @@ class Validator(Loaders):
                     [{"check":"result.user.name","comparator":"eq","expect":"chenyongzhi"}]
 
         """
+        if isinstance(validate_variables, str):
+            validate_variables = json.loads(validate_variables)
+        print("validate_variables>>>", validate_variables, type(validate_variables))
+        
         if isinstance(validate_variables, list):
             for item in validate_variables:
                 self.uniform_validate(item)
@@ -58,7 +67,7 @@ class Validator(Loaders):
                 })
         else:
             logger.error("参数格式错误！")
-
+    
     def validate(self, resp_obj=None):
         """
         校验期望结果与实际结果与预期一致
@@ -68,9 +77,9 @@ class Validator(Loaders):
         Returns:
 
         """
-
+        
         validate_pass = "PASS"
-
+        
         # 记录校验失败的原因
         failure_reason = []
         for validate_variable in self.validate_variables_list:
@@ -91,7 +100,7 @@ class Validator(Loaders):
                     '断言方法': comparator_dict.get(comparator),
                 })
         return validate_pass, failure_reason
-
+    
     def run_validate(self, validate_variables, resp_obj=None):
         """
          统一格式化测试用例的验证变量validate，然后校验期望结果与实际结果与预期一致
@@ -120,8 +129,8 @@ if __name__ == '__main__':
     ]
     resp_obj = {"code": 200, "result": {"user": {"name": "chenyongzhi"}}}
     validator = Validator()
-    validator.run_validate(validate_variables2, resp_obj)
-    logger.info("---")
-    validator.run_validate(validate_variables2, resp_obj)
-    logger.info("---")
-    validator.run_validate(validate_variables2, resp_obj)
+    print(validator.run_validate(validate_variables2, resp_obj))
+    # logger.info("---")
+    # validator.run_validate(validate_variables2, resp_obj)
+    # logger.info("---")
+    # validator.run_validate(validate_variables2, resp_obj)

@@ -29,7 +29,7 @@ class Pyt(LoadModulesFromFolder):
         def decorator(func):
             def wrapper(*args, **kwargs):
                 try:
-                    print(f"发送请求的参数： {kwargs}")
+                    print(f"发送请求的参数====： {kwargs}")
                     response = func(*args, **kwargs)
                     print(f"请求地址 --> {response.request.url}")
                     print(f"请求头 --> {response.request.headers}")
@@ -51,7 +51,7 @@ class Pyt(LoadModulesFromFolder):
     # 		self.variables = func
     # 	return decorator
     
-    @log_decorator()
+    # @log_decorator()
     def http_client(self, host, url, method, **kwargs):
         """
         发送 http 请求
@@ -78,12 +78,13 @@ class Pyt(LoadModulesFromFolder):
             kwargs['json'] = json.loads(kwargs['json'])
         
         # 处理 files 参数的情况
+        fs = []
         if 'files' in kwargs:
             file_paths = kwargs['files']
             if isinstance(file_paths, str):
                 file_paths = json.loads(file_paths)
             files = []
-            fs = []
+            
             for i, file_path in enumerate(file_paths):
                 file_type = mimetypes.guess_type(file_path)[0]
                 file_path_completion = self.file_utils.get_file_path(file_path)
@@ -93,7 +94,7 @@ class Pyt(LoadModulesFromFolder):
                     ('file', (f'{file_path}', f, file_type))
                 )
             kwargs['files'] = files
-            print(kwargs)
+        print("=" * 30, kwargs)
         
         # 发送请求
         self.request = requests.Request(method, __url, **kwargs)
