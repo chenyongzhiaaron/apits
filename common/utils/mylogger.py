@@ -12,7 +12,7 @@ from time import perf_counter
 from loguru import logger
 
 from common.config import Config
-from common.utils.singleton import singleton
+from common.utils.decorators import singleton
 
 LOG_DIR = Config.log_path
 

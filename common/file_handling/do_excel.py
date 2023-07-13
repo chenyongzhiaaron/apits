@@ -9,7 +9,7 @@ import sys
 sys.path.append("../../")
 sys.path.append("../../common")
 from openpyxl import load_workbook
-from common.utils.singleton import singleton
+from common.utils.decorators import singleton
 from common.file_handling import logger
 
 

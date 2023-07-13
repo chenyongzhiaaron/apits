@@ -1,0 +1,71 @@
+2023-07-14 00:15:44 | ERROR | 发送请求失败: HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:15:44 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+'NoneType' object has no attribute 'json'
+2023-07-14 00:15:45 | ERROR | 发送请求失败: HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689264945235 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:15:45 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+'NoneType' object has no attribute 'json'
+2023-07-14 00:15:46 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 00:15:46 | ERROR | 发送请求失败: HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689264946368&projectId=3333 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:15:46 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+'NoneType' object has no attribute 'json'
+2023-07-14 00:19:48 | ERROR | 发送请求失败: HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:19:48 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:19:49 | ERROR | 发送请求失败: HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689265189499 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:19:49 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689265189499 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:19:50 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 00:19:50 | ERROR | 发送请求失败: HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689265190636&projectId=3333 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:19:50 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689265190636&projectId=3333 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:20:10 | ERROR | 发送请求失败: HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002184647C370>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 00:20:10 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002184647C370>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 00:20:14 | ERROR | 发送请求失败: HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689265212011 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002184649D3D0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 00:20:14 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689265212011 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002184649D3D0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 00:20:16 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 00:20:19 | ERROR | 发送请求失败: HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689265216060&projectId=3333 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000218464DE4C0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 00:20:19 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689265216060&projectId=3333 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000218464DE4C0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 00:32:06 | ERROR | 发送请求失败: name 'self' is not defined
+2023-07-14 00:32:06 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+name 'self' is not defined
+2023-07-14 00:32:07 | ERROR | 发送请求失败: name 'self' is not defined
+2023-07-14 00:32:07 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+name 'self' is not defined
+2023-07-14 00:32:08 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 00:32:08 | ERROR | 发送请求失败: name 'self' is not defined
+2023-07-14 00:32:08 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+name 'self' is not defined
+2023-07-14 00:32:31 | ERROR | 发送请求失败: HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:32:31 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:32:32 | ERROR | 发送请求失败: HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689265952519 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:32:32 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689265952519 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:32:33 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 00:32:33 | ERROR | 发送请求失败: HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689265953669&projectId=3333 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:32:33 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689265953669&projectId=3333 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:39:00 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+module 'common.utils.logger' has no attribute 'error'
+2023-07-14 00:39:01 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+module 'common.utils.logger' has no attribute 'error'
+2023-07-14 00:39:03 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 00:39:03 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+module 'common.utils.logger' has no attribute 'error'
+2023-07-14 00:42:32 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+module 'common.utils.logger' has no attribute 'error'
+2023-07-14 00:42:33 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+module 'common.utils.logger' has no attribute 'error'
+2023-07-14 00:42:34 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 00:42:34 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+module 'common.utils.logger' has no attribute 'error'
+2023-07-14 00:46:03 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:46:04 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689266764798 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 00:46:05 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 00:46:05 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689266765926&projectId=3333 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))

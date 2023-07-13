@@ -11,7 +11,7 @@ import ast
 
 from common.crypto.encrypt_data import EncryptData
 from common.utils.load_and_execute_script import LoadScript
-from common.utils.singleton import singleton
+from common.utils.decorators import singleton
 from common.validation.extractor import Extractor
 from common.validation.validator import Validator
 

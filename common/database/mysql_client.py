@@ -15,7 +15,7 @@ from dbutils.pooled_db import PooledDB
 from pymysql.cursors import DictCursor
 
 from common.database import logger
-from common.utils.singleton import singleton
+from common.utils.decorators import singleton
 
 
 @singleton

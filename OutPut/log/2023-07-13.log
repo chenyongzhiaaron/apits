@@ -295,3 +295,10 @@ HTTPSConnectionPool(host='bimdc.bzlrobot.com', port=443): Max retries exceeded w
 2023-07-13 20:27:55 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
 2023-07-13 20:31:15 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
 2023-07-13 20:33:24 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-13 23:38:51 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+decorator() got an unexpected keyword argument 'json'
+2023-07-13 23:38:52 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+decorator() got an unexpected keyword argument 'json'
+2023-07-13 23:38:53 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-13 23:38:53 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+decorator() got an unexpected keyword argument 'params'
