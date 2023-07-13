@@ -77,8 +77,8 @@ class Pyt(LoadModulesFromFolder):
 
 
 if __name__ == '__main__':
-	hst = 'https://bimdc.bzlrobot.com'
-	url = '/bsp/test/user/ugs/ibs/api/ibs-file/file-upload/upload-image'
+	hst = 'https://kkk.ll.com'
+	url = '/bsp/test/'
 	method = 'post'
 	kwargs = {
 		'headers': {},
