@@ -4,6 +4,20 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+jsonpath-ng = "*"
+ddt = "*"
+jsonpath = "*"
+requests = "*"
+urllib3 = "*"
+pymysql = "*"
+rsa = "*"
+loguru = "*"
+faker = "*"
+natsort = "*"
+pydes = "*"
+pyyaml = "*"
+dbutils = "*"
+openpyxl = "*"
 
 [dev-packages]
 

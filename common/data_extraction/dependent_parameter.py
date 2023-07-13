@@ -11,7 +11,7 @@ import json
 
 from common.data_extraction import logger
 # from common.http_client.http_client import Pyt
-# from common.variables import
+# from common.environments import
 from common.data_extraction.data_extractor import DataExtractor
 
 
@@ -45,10 +45,10 @@ class DependentParameter(DataExtractor):
 			if self.pattern_fun.search(jst):
 				# 函数替换
 				key = self.pattern_fun.search(jst).group()
-				if key in self.get_variable().keys():
+				if key in self.get_environments().keys():
 					
 					# 如果参数名称存在于关联参数表中，则调用相应的函数获取返回值，并替换字符串中的参数
-					value_ = self.get_variable(key)()
+					value_ = self.get_environments(key)()
 					jst = jst.replace(key, str(value_))
 				else:
 					logger.error(
@@ -65,11 +65,11 @@ class DependentParameter(DataExtractor):
 					index = ""
 					k = key.group()
 				# 如果参数名称存在于关联参数表中，则获取相应的值，并替换字符串中的参数
-				if k in self.get_variable().keys():
+				if k in self.get_environments().keys():
 					if isinstance(index, int):
-						value_ = self.get_variable(k)[index]
+						value_ = self.get_environments(k)[index]
 					else:
-						value_ = self.get_variable(k)
+						value_ = self.get_environments(k)
 					jst = jst.replace(key.group(), str(value_))
 				else:
 					logger.error(
@@ -86,7 +86,7 @@ class DependentParameter(DataExtractor):
 
 
 if __name__ == '__main__':
-	from common.variables import Variables
+	from common.environments import Environments
 	
 	dps = {
 		"{{var_a}}": "foo",
@@ -98,8 +98,8 @@ if __name__ == '__main__':
 		"{{var_g}}": {'g': 'gg', 'g1': 'gg', 'g2': 'gg2'}
 	}
 	
-	d = Variables()
-	d.set_variable(dps)
+	d = Environments()
+	d.set_environments(dps)
 	from common.validation import loaders
 	from common import bif_functions
 	

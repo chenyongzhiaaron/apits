@@ -72,7 +72,7 @@ class MyLogger:
 	def __getattr__(self, level: str):
 		return getattr(self.logger, level)
 	
-	def log_decorator(self, msg="快看，异常了，别唧唧哇哇，块排查"):
+	def log_decorator(self, msg="快看，异常了，别唧唧哇哇，快排查！！"):
 		"""
 		 日志装饰器，记录函数的名称、参数、返回值、运行时间和异常信息
 	    Args:

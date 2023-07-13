@@ -30,8 +30,9 @@ class Loaders(Pyt):
 				built_in_functions[name] = item
 		return built_in_functions
 	
+	@staticmethod
 	@logger.log_decorator()
-	def load_built_in_comparators(self) -> object:
+	def load_built_in_comparators() -> object:
 		"""
 		加载包中的内建比较器
 		Returns:
@@ -44,16 +45,6 @@ class Loaders(Pyt):
 		
 		return built_in_comparators
 	
-	# def load_model_fun(model):
-	#     """
-	#     加载指定模块中的所有函数
-	#     Returns:
-	#
-	#     """
-	#     for name, item in __vars(model).items():
-	#         if isinstance(item, types.FunctionType):
-	#             Variables.update_variable(f"{name}()", item)
-	
 	@logger.log_decorator()
 	def set_bif_fun(self, model):
 		"""
@@ -62,13 +53,18 @@ class Loaders(Pyt):
 	
 		"""
 		for k, v in self.load_built_in_functions(model).items():
-			self.update_variable(f"{k}()", v)
+			self.update_environments(f"{k}()", v)
 
 
 if __name__ == '__main__':
 	from common.bif_functions import random_tools
+	import extensions
 	
+	print()
 	loaders = Loaders()
 	loaders.load_built_in_comparators()
 	loaders.set_bif_fun(random_tools)
-	print(loaders.get_variable())
+	print(loaders.get_environments())
+	
+	loaders.set_bif_fun(extensions)
+	print(loaders.get_environments())

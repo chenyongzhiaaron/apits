@@ -10,8 +10,8 @@
 import json
 
 import pymysql
-from DBUtils.PooledDB import PooledDB
-# from dbutils.pooled_db import PooledDB
+# from DBUtils.PooledDB import PooledDB
+from dbutils.pooled_db import PooledDB
 from pymysql.cursors import DictCursor
 
 from common.database import logger
@@ -156,8 +156,8 @@ if __name__ == '__main__':
     res = MysqlClient(database_2).execute_sql(sql_2)
     print("数据执行结果", res)
     from common.data_extraction.data_extractor import DataExtractor
-    from common.variables import Variables
+    from common.environments import Environments
 
     t = DataExtractor()
     t.substitute_data(res, jp_dict={"total": "$.select_sale[0].total", "total_1": "$..total"})
-    print(Variables.get_variable())
+    print(Environments.get_environments())

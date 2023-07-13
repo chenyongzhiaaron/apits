@@ -255,12 +255,12 @@
 ```python
 # 可以写类，可以写函数，可以直接普通python语句，
 def setup(action):
-	print("获取action示例的属性", action.get_vars())
-	# 更新属性到action实例的属性中
-	action.update_vars("999", "99999")
-	print("获取所有的临时变量", action.get_variable())
-	print("将变量存到临时变量表中以便后续用例{{key}}使用", action.update_variable("key", "value"))
-	print("将函数存到临时变量表，以便后面调用{{setup_func()}}也可以", action.update_variable("setup_func", setup))
+  print("获取action示例的属性", action.get_variables())
+  # 更新属性到action实例的属性中
+  action.update_variables("999", "99999")
+  print("获取所有的临时变量", action.get_environments())
+  print("将变量存到临时变量表中以便后续用例{{key}}使用", action.update_environments("key", "value"))
+  print("将函数存到临时变量表，以便后面调用{{setup_func()}}也可以", action.update_environments("setup_func", setup))
 
 
 # 调用方法

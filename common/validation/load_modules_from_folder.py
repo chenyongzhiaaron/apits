@@ -14,7 +14,7 @@ from common.data_extraction.dependent_parameter import DependentParameter
 from common.validation import logger
 
 
-# from common.variables import Variables
+# from common.environments import Environments
 # from common.data_extraction.data_extractor import DataExtractor
 
 
@@ -52,10 +52,10 @@ class LoadModulesFromFolder(DependentParameter):
 				# 遍历 module 对象中的所有属性，找出函数并添加到 functions 字典中
 				for name, obj in vars(module).items():
 					if callable(obj):
-						self.update_variable(name, obj)
+						self.update_environments(name, obj)
 
 
 if __name__ == '__main__':
 	lmff = LoadModulesFromFolder()
 	lmff.load_modules_from_folder(r'D:\apk_api\api-test-project\extensions')
-	print(lmff.get_variable())
+	print(lmff.get_environments())

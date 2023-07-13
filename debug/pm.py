@@ -1,26 +1,19 @@
-#!/usr/bin/env python
-# encoding: utf-8
-"""
-@author: kira
-@contact: 262667641@qq.com
-@file: pm.py
-@time: 2023/7/13 16:38
-@desc:
-"""
+def setup(pm):
+	print("pm---------------->", pm.get_variables())
+	# request_data = pm.get_variables()  # 获取得到请求数据
+	"""
+	request_data 的值:  {'Url': '/login',
+	 'Headers': '{"Content-Type": "application/json"}',
+	  'Query Str': None,
+	   'Request Data Type': 'params',
+	   'Request Data': '{"account": "{{account}}", "password": "{{passwd}}"}',
+	   'Expected': None, 'Response': '', 'Assertion': '', 'Error Log': ''
+	   }
+	"""
+	BSP_TOKEN = pm.get_environments("{{BSP_TOKEN}}")  # 获取环境变量
+	pm.update_environments("BSP_TOKEN_NEWS", BSP_TOKEN + "修改了环境变量")  # 设置环境变量
+	print("---->pm.get_environments", pm.get_environments("{{BSP_TOKEN_NEWS}}"))
+	print("---->pm.get_variables", pm.get_variables())
 
 
-def setup(action):
-    request_data = action.get_vars()  # 获取得到请求数据
-    """
-    request_data 的值:  {'Url': '/login',
-     'Headers': '{"Content-Type": "application/json"}',
-      'Query Str': None,
-       'Request Data Type': 'params',
-       'Request Data': '{"account": "{{account}}", "password": "{{passwd}}"}',
-       'Expected': None, 'Response': '', 'Assertion': '', 'Error Log': ''
-       }
-    """
-    #
-    email_str = action.get_variable("{{email()}}") # 加入已经自定义了邮件函数 则这里获取到
-    
-    action.set_variable("userEmail", email_str)
+setup(pm)

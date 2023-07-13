@@ -29,7 +29,7 @@ class Pyt(LoadModulesFromFolder):
         def decorator(func):
             def wrapper(*args, **kwargs):
                 try:
-                    print(f"发送请求的参数====： {kwargs}")
+                    print(f"发送请求的参数： {kwargs}")
                     response = func(*args, **kwargs)
                     print(f"请求地址 --> {response.request.url}")
                     print(f"请求头 --> {response.request.headers}")
@@ -48,7 +48,7 @@ class Pyt(LoadModulesFromFolder):
     
     # def pre_script(self,name):
     # 	def decorator(func):
-    # 		self.variables = func
+    # 		self.environments = func
     # 	return decorator
     
     # @log_decorator()
@@ -94,7 +94,6 @@ class Pyt(LoadModulesFromFolder):
                     ('file', (f'{file_path}', f, file_type))
                 )
             kwargs['files'] = files
-        print("=" * 30, kwargs)
         
         # 发送请求
         self.request = requests.Request(method, __url, **kwargs)
