@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import json
+import mimetypes
 import re
 import sys
 
@@ -84,11 +85,12 @@ class Pyt(LoadModulesFromFolder):
             files = []
             fs = []
             for i, file_path in enumerate(file_paths):
+                file_type = mimetypes.guess_type(file_path)[0]
                 file_path_completion = self.file_utils.get_file_path(file_path)
                 f = open(file_path_completion, 'rb')
                 fs.append(f)
                 files.append(
-                    ('file', (f'{file_path}', f))
+                    ('file', (f'{file_path}', f, file_type))
                 )
             kwargs['files'] = files
             print(kwargs)
@@ -101,9 +103,8 @@ class Pyt(LoadModulesFromFolder):
 
 
 if __name__ == '__main__':
-    hst = 'htt.com'
-    # url = '/File'
-    url = '/ge'
+    hst = 'https://bimdc.bzlrobot.com'
+    url = '/bsp/test/user/ugs/ibs/api/ibs-file/file-upload/upload-image'
     method = 'post'
     kwargs = {
         'headers': {},

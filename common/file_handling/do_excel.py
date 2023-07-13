@@ -85,9 +85,9 @@ class DoExcel:
             sheet = self.wb[sheet_name]
             max_row = sheet.max_row  # 获取最大行
             for i in range(2, max_row + 1):
-                sheet.cell(i, 22).value = ""
-                sheet.cell(i, 23).value = ""
                 sheet.cell(i, 24).value = ""
+                sheet.cell(i, 25).value = ""
+                sheet.cell(i, 26).value = ""
         self.wb.save(self.file_name)
         return f"清空指定 {sheets} 中的单元格成功"
     
