@@ -69,3 +69,25 @@ HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /
 2023-07-14 00:46:05 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
 2023-07-14 00:46:05 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
 HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689266765926&projectId=3333 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 17:56:48 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000279F94EBE80>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 17:56:50 | ERROR | key:<re.Match object; span=(127, 140), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 17:56:56 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689328610847 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000279F952B0A0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 17:56:57 | ERROR | key:<re.Match object; span=(138, 151), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 17:56:57 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 17:57:03 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689328617901&projectId=3333 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000279F94C9280>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 18:05:55 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002B958C01370>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 18:05:56 | ERROR | key:<re.Match object; span=(127, 140), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 18:06:05 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689329156326 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002B958CC8400>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 18:06:06 | ERROR | key:<re.Match object; span=(138, 151), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 18:06:06 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 18:06:20 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689329166696&projectId=3333 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002B958C69D90>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
