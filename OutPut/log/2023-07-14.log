@@ -91,3 +91,77 @@ HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /
 2023-07-14 18:06:06 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
 2023-07-14 18:06:20 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
 HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689329166696&projectId=3333 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002B958C69D90>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 21:39:34 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 21:39:35 | ERROR | key:<re.Match object; span=(127, 140), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 21:39:35 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689341975678 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 21:39:36 | ERROR | key:<re.Match object; span=(138, 151), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 21:39:36 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 21:39:36 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689341976802&projectId=3333 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 21:45:50 | ERROR | | called clear_date | error: 快看，异常了，别唧唧哇哇，快排查！！: [Errno 13] Permission denied: 'E:\\apitest\\cases\\cases\\test_api.xlsx'
+2023-07-14 21:45:55 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000021972E47D90>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 21:45:55 | ERROR | | called write_back | error: 快看，异常了，别唧唧哇哇，快排查！！: [Errno 13] Permission denied: 'E:\\apitest\\cases\\cases\\test_api.xlsx'
+2023-07-14 21:45:56 | ERROR | key:<re.Match object; span=(127, 140), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 21:45:59 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689342356074 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000021972E47EE0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 21:45:59 | ERROR | | called write_back | error: 快看，异常了，别唧唧哇哇，快排查！！: [Errno 13] Permission denied: 'E:\\apitest\\cases\\cases\\test_api.xlsx'
+2023-07-14 21:46:00 | ERROR | key:<re.Match object; span=(138, 151), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 21:46:00 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 21:46:03 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689342360415&projectId=3333 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000021972E71820>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 21:46:03 | ERROR | | called write_back | error: 快看，异常了，别唧唧哇哇，快排查！！: [Errno 13] Permission denied: 'E:\\apitest\\cases\\cases\\test_api.xlsx'
+2023-07-14 21:51:21 | ERROR | | called clear_date | error: 快看，异常了，别唧唧哇哇，快排查！！: [Errno 13] Permission denied: 'E:\\apitest\\cases\\cases\\test_api.xlsx'
+2023-07-14 21:51:25 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000137E1F36D90>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 21:51:25 | ERROR | | called write_back | error: 快看，异常了，别唧唧哇哇，快排查！！: [Errno 13] Permission denied: 'E:\\apitest\\cases\\cases\\test_api.xlsx'
+2023-07-14 21:51:26 | ERROR | key:<re.Match object; span=(127, 140), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 21:51:29 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689342686629 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000137E1F36F70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 21:51:29 | ERROR | | called write_back | error: 快看，异常了，别唧唧哇哇，快排查！！: [Errno 13] Permission denied: 'E:\\apitest\\cases\\cases\\test_api.xlsx'
+2023-07-14 21:51:30 | ERROR | key:<re.Match object; span=(138, 151), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 21:51:30 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 21:51:33 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689342690487&projectId=3333 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000137E1F63850>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 21:51:33 | ERROR | | called write_back | error: 快看，异常了，别唧唧哇哇，快排查！！: [Errno 13] Permission denied: 'E:\\apitest\\cases\\cases\\test_api.xlsx'
+2023-07-14 21:57:41 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000022B4E9A8A90>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 21:57:42 | ERROR | key:<re.Match object; span=(152, 165), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 21:57:45 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689343062620 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000022B4EA822B0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 21:57:46 | ERROR | key:<re.Match object; span=(138, 151), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 21:57:46 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 21:57:49 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689343066559&projectId=3333 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000022B4EB06100>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 22:00:03 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 22:00:04 | ERROR | key:<re.Match object; span=(152, 165), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 22:00:04 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689343204417 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 22:00:05 | ERROR | key:<re.Match object; span=(138, 151), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 22:00:05 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 22:00:05 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689343205520&projectId=3333 (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1123)'))))
+2023-07-14 23:00:24 | ERROR | 异常用例: safe_2_登录_非BIP用户登录
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/login (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002D112A8B400>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 23:00:26 | ERROR | key:<re.Match object; span=(152, 165), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 23:00:28 | ERROR | 异常用例: safe_4_劳务基础配置_绑定TV
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/addTvSequence?t=1689346826007 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002D112ABED00>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 23:00:30 | ERROR | key:<re.Match object; span=(138, 151), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 23:00:30 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 23:00:33 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
+HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689346830060&projectId=3333 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002D112A8BC70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))

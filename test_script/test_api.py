@@ -1,5 +1,6 @@
 import time
 import unittest
+from functools import partial
 
 from ddt import ddt, data
 
@@ -37,14 +38,11 @@ class TestProjectApi(unittest.TestCase):
 	
 	@data(*test_case)
 	def test_api(self, item):
-		
 		sheet, iid, condition, st, name, desc, h_crypto, r_crypto, method = self.__base_info(item)
-		regex, keys, deps, jp_dict, extract_request_data = self.__extractor_info(item)
-		setup_script, teardown_script = self.script(item)
-		
 		if self.__is_run(condition):
-			return
-		
+			self.skipTest("这个测试用例听说泡面比较好吃，所以放弃执行了。")
+		regex, keys, deps, jp_dict, ex_request_data = self.__extractor_info(item)
+		setup_script, teardown_script = self.script(item)
 		self.__pause_execution(st)
 		
 		# 首执行 sql
@@ -61,8 +59,7 @@ class TestProjectApi(unittest.TestCase):
 		url, query_str, request_data, headers, expected, request_data_type = self.__request_info(item)
 		
 		# 分析请求参数信息
-		headers, request_data = self.action.analysis_request(request_data, h_crypto, headers, r_crypto,
-		                                                     extract_request_data)
+		headers, request_data = self.action.analysis_request(request_data, h_crypto, headers, r_crypto, ex_request_data)
 		result_tuple = None
 		result = "PASS"
 		response = None
@@ -81,7 +78,6 @@ class TestProjectApi(unittest.TestCase):
 			try:
 				# 提取响应
 				self.action.substitute_data(response.json(), regex=regex, keys=keys, deps=deps, jp_dict=jp_dict)
-			
 			except Exception as err:
 				logger.error(f"提取响应失败：{sheet}_{iid}_{name}_{desc}"
 				             f"\nregex={regex};"
@@ -91,7 +87,7 @@ class TestProjectApi(unittest.TestCase):
 				             f"\n{err}")
 		except Exception as e:
 			result = "FAIL"
-			logger.error(f'异常用例: {sheet}_{iid}_{name}_{desc}\n{e}')
+			logger.error(f'异常用例: **{sheet}_{iid}_{name}_{desc}**\n{e}')
 			raise e
 		finally:
 			response = response.text if response is not None else str(response)

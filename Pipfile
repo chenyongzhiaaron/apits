@@ -18,6 +18,7 @@ pydes = "*"
 pyyaml = "*"
 dbutils = "*"
 openpyxl = "*"
+unittestreport = "*"
 
 [dev-packages]
 
