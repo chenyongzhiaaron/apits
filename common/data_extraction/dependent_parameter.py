@@ -46,7 +46,6 @@ class DependentParameter(DataExtractor):
 				# 函数替换
 				key = self.pattern_fun.search(jst).group()
 				if key in self.get_environments().keys():
-					
 					# 如果参数名称存在于关联参数表中，则调用相应的函数获取返回值，并替换字符串中的参数
 					value_ = self.get_environments(key)()
 					jst = jst.replace(key, str(value_))

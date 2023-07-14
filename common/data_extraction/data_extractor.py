@@ -124,7 +124,6 @@ class DataExtractor(Environments):
 		Returns: 字符串或者list
 
 		"""
-		
 		json_path_dict = json_path_dict if isinstance(json_path_dict, dict) else json.loads(json_path_dict)
 		for key, expression in json_path_dict.items():
 			try:

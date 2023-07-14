@@ -10,7 +10,6 @@ import urllib3
 sys.path.append("../")
 sys.path.append("./common")
 
-from common.http_client import logger
 from common.validation.load_modules_from_folder import LoadModulesFromFolder
 from common.file_handling.file_utils import FileUtils
 from common.utils.decorators import request_decorator
