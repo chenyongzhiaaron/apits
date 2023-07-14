@@ -165,3 +165,35 @@ HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /
 2023-07-14 23:00:30 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
 2023-07-14 23:00:33 | ERROR | 异常用例: safe_5_劳务基础配置_查询配置
 HTTPSConnectionPool(host='xxxx.com', port=443): Max retries exceeded with url: /test/api/getTvInfo?t=1689346830060&projectId=3333 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002D112A8BC70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2023-07-14 23:31:50 | ERROR | key:<re.Match object; span=(152, 165), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 23:31:51 | ERROR | key:<re.Match object; span=(138, 151), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 23:31:51 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 23:33:01 | ERROR | key:<re.Match object; span=(152, 165), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 23:33:13 | ERROR | key:<re.Match object; span=(138, 151), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 23:33:13 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 23:38:02 | ERROR | key:<re.Match object; span=(152, 165), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 23:38:15 | ERROR | key:<re.Match object; span=(138, 151), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 23:38:15 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 23:45:41 | ERROR | key:<re.Match object; span=(152, 165), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 23:45:51 | ERROR | key:<re.Match object; span=(138, 151), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-14 23:45:51 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 23:54:12 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 23:54:12 | ERROR | 提取失败：提取表达式：data.projectId，没有提取到对应的值
+2023-07-14 23:54:12 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': 'data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
+2023-07-14 23:56:41 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 23:56:41 | ERROR | 提取失败：提取表达式：data.projectId，没有提取到对应的值
+2023-07-14 23:56:41 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': 'data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
+2023-07-14 23:57:22 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-14 23:57:22 | ERROR | 提取失败：提取表达式：data.projectId，没有提取到对应的值
+2023-07-14 23:57:23 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': 'data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中

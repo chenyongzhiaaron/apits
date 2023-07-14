@@ -33,17 +33,17 @@ class Action(Extractor, LoadScript, Validator):
 				compiled = compile(ast_obj, '<string>', 'exec')
 				exec(compiled, {"pm": self})
 			except SyntaxError as e:
-				error_message = f'Syntax error in dynamic code: {e}'
+				error_message = f'动态代码语法异常: {e}'
 				self._handle_error(error_message)
 			except Exception as e:
-				error_message = f"Error executing dynamic code: {e}"
+				error_message = f"动态代码执行异常: {e}"
 				self._handle_error(error_message)
 			finally:
 				return self.__variables
 		return item
 	
 	def _handle_error(self, error_message):
-		print(f'Error occurred: {error_message}')
+		print(f'发现异常: {error_message}')
 	
 	def set_variables(self, item):
 		self.__variables = item
@@ -59,5 +59,11 @@ class Action(Extractor, LoadScript, Validator):
 		# 请求头及body加密或者加签
 		headers, request_data = self.encrypt.encrypts(headers_crypto, headers, request_crypto, request_data)
 		# 提取请求参数信息
-		self.substitute_data(request_data, jp_dict=extract_request_data)
+		if extract_request_data is not None and request_data is not None:
+			self.substitute_data(request_data, jp_dict=extract_request_data)
 		return headers, request_data
+	
+	def send_request(self, host, url, method, teardown_script, **kwargs):
+		response = self.http_client(host, url, method, **kwargs)
+		self.execute_dynamic_code(response, teardown_script)
+		return response

@@ -62,16 +62,15 @@ class TestProjectApi(unittest.TestCase):
 		headers, request_data = self.action.analysis_request(request_data, h_crypto, headers, r_crypto, ex_request_data)
 		result_tuple = None
 		result = "PASS"
-		response = None
+		
+		# 执行请求操作
+		kwargs = {request_data_type: request_data, 'headers': headers, "params": query_str}
+		# response = self.action.http_client(host, url, method, **kwargs)
+		# 执行后置代码片段
+		# self.action.execute_dynamic_code(response, teardown_script)
+		response = self.action.send_request(host, url, method, teardown_script, **kwargs)
 		
 		try:
-			# 执行请求操作
-			kwargs = {request_data_type: request_data, 'headers': headers, "params": query_str}
-			response = self.action.http_client(host, url, method, **kwargs)
-			
-			# 执行后置代码片段
-			self.action.execute_dynamic_code(response, teardown_script)
-			
 			# 执行断言 返回结果元组
 			result_tuple = self.action.run_validate(expected, response.json())
 			self.assertNotIn("FAIL", result_tuple, "FAIL 存在结果元组中")

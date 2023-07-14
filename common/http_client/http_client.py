@@ -12,11 +12,10 @@ sys.path.append("./common")
 
 from common.validation.load_modules_from_folder import LoadModulesFromFolder
 from common.file_handling.file_utils import FileUtils
-from common.utils.decorators import request_decorator
+from common.utils.decorators import request_retry_on_exception
 
 
 class Pyt(LoadModulesFromFolder):
-	# 类属性，保存一个会话对象，防止每次都创建一个新的会话，节省资源
 	session = requests.Session()
 	
 	def __init__(self):
@@ -24,7 +23,7 @@ class Pyt(LoadModulesFromFolder):
 		self.request = None
 		self.response = None
 	
-	@request_decorator
+	@request_retry_on_exception()
 	def http_client(self, host, url, method, **kwargs):
 		"""
 		发送 http 请求
