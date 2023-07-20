@@ -1,0 +1,37 @@
+2023-07-21 00:15:54 | ERROR | 执行 sql 失败:{'select': {'select_one': "select username,password as pwd  from user where username ='luoshunwen003';"}},异常信息:'MysqlClient' object has no attribute 'do_mysql'
+2023-07-21 00:15:55 | ERROR | key:<re.Match object; span=(102, 116), match='{{tvSequence}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-21 00:15:55 | ERROR | 异常用例: **safe_4_劳务基础配置_绑定TV**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': '$.code', '期望值': 200, '实际值': 'AG_100003', '断言方法': 'eq:实际值与期望值相等'}, {'检查项': '$.msg', '期望值': '添加成功', '实际值': '您的登陆状态已过期，请重新登陆。', '断言方法': 'eq:实际值与期望值相等'}]) : FAIL 存在结果元组中
+2023-07-21 00:15:56 | ERROR | key:<re.Match object; span=(171, 184), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-21 00:15:56 | ERROR | 提取失败：提取表达式：$.data.projectId，没有提取到对应的值
+2023-07-21 00:15:56 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': '$.data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
+2023-07-21 00:16:39 | ERROR | 提取失败：提取表达式：$.data.projectId，没有提取到对应的值
+2023-07-21 00:16:39 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': '$.data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
+2023-07-21 00:18:28 | ERROR | 提取失败：提取表达式：$.data.projectId，没有提取到对应的值
+2023-07-21 00:18:28 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': '$.data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
+2023-07-21 00:19:03 | ERROR | 提取失败：提取表达式：$.data.projectId，没有提取到对应的值
+2023-07-21 00:19:03 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': '$.data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
+2023-07-21 00:20:12 | ERROR | 提取失败：提取表达式：$.data.projectId，没有提取到对应的值
+2023-07-21 00:20:12 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': '$.data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
+2023-07-21 00:41:18 | ERROR | 提取失败：提取表达式：$.data.projectId，没有提取到对应的值
+2023-07-21 00:41:18 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': '$.data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
+2023-07-21 00:42:07 | ERROR | 提取失败：提取表达式：$.data.projectId，没有提取到对应的值
+2023-07-21 00:42:07 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': '$.data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
+2023-07-21 00:44:24 | ERROR | 提取失败：提取表达式：$.data.projectId，没有提取到对应的值
+2023-07-21 00:44:24 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': '$.data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
+2023-07-21 00:49:16 | ERROR | 提取失败：提取表达式：$.data.projectId，没有提取到对应的值
+2023-07-21 00:49:16 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': '$.data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
+2023-07-21 00:52:03 | ERROR | 提取失败：提取表达式：$.data.projectId，没有提取到对应的值
+2023-07-21 00:52:03 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
+'FAIL' unexpectedly found in ('FAIL', [{'检查项': '$.data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
