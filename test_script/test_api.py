@@ -16,7 +16,6 @@ excel = DoExcel(test_file)
 init_data, test_case = excel.get_excel_init_and_cases()
 
 databases = init_data.get('databases')  # 获取数据库配置信息
-mysql = MysqlClient(databases)  # 初始化 mysql 链接
 
 logger = MyLogger()
 initialize_data = eval(init_data.get("initialize_data"))
@@ -26,7 +25,7 @@ host = init_data.get('host', "") + init_data.get("path", "")
 @ddt
 class TestProjectApi(unittest.TestCase):
 	maxDiff = None
-	action = Action(initialize_data, bif_functions)
+	action = Action(initialize_data, bif_functions, databases)
 	
 	@classmethod
 	def setUpClass(cls) -> None:
@@ -39,13 +38,15 @@ class TestProjectApi(unittest.TestCase):
 	def test_api(self, item):
 		sheet, iid, condition, st, name, desc, h_crypto, r_crypto, method, expected = self.__base_info(item)
 		if self.__is_run(condition):
-			self.skipTest("这个测试用例听说泡面比较好吃，所以放弃执行了。")
+			self.skipTest("这个测试用例听说泡面比较好吃，所以放弃执行了！！")
 		regex, keys, deps, jp_dict, ex_request_data = self.__extractor_info(item)
 		setup_script, teardown_script = self.script(item)
 		self.__pause_execution(st)
 		
 		# 首执行 sql
-		self.__exc_sql(item, method)
+		self.__exc_sql(item)
+		if method.upper() == 'SQL':
+			self.skipTest("这条测试用例被 SQL 吃了，所以放弃执行了！！")
 		
 		# 执行动态代码
 		item = self.action.execute_dynamic_code(item, setup_script)
@@ -59,7 +60,7 @@ class TestProjectApi(unittest.TestCase):
 		
 		# 分析请求参数信息
 		headers, request_data = self.action.analysis_request(request_data, h_crypto, headers, r_crypto, ex_request_data)
-		result_tuple = None
+		result_tp = None
 		result = "PASS"
 		
 		# 执行请求操作
@@ -172,20 +173,17 @@ class TestProjectApi(unittest.TestCase):
 				logger.error("暂时时间必须是数字")
 				raise e
 	
-	def __exc_sql(self, item, method):
+	def __exc_sql(self, item):
 		sql, sql_params_dict = self.__sql_info(item)
 		sql = self.action.replace_dependent_parameter(sql)
 		if sql:
 			try:
-				execute_sql_results = mysql.do_mysql(sql)
+				execute_sql_results = self.action.execute_sql(sql)
 				if execute_sql_results and sql_params_dict:
-					self.action.extract_request_data(execute_sql_results, jp_dict=sql_params_dict)
-					if method == "SQL" and mysql:
-						return None
+					self.action.substitute_data(execute_sql_results, jp_dict=sql_params_dict)
 			except Exception as e:
 				logger.error(f'执行 sql 失败:{sql},异常信息:{e}')
 				raise e
-		return sql
 
 
 if __name__ == '__main__':

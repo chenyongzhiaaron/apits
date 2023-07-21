@@ -1,0 +1,15 @@
+2023-07-20 23:39:11 | ERROR | 查询异常 sql: select username,password as pwd  from user where username ='luoshunwen003';
+2023-07-20 23:39:11 | ERROR | 数据库操作异常: 'MysqlClient' object has no attribute 'cursor'
+2023-07-20 23:39:11 | ERROR | | called execute_sql | error: 快看，异常了，别唧唧哇哇，快排查！！: 'MysqlClient' object has no attribute 'cursor'
+2023-07-20 23:39:11 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-20 23:40:14 | ERROR | 查询异常 sql: select username,password as pwd  from lea.user where username ='luoshunwen003';
+2023-07-20 23:40:14 | ERROR | 数据库操作异常: 'MysqlClient' object has no attribute 'cursor'
+2023-07-20 23:40:14 | ERROR | | called execute_sql | error: 快看，异常了，别唧唧哇哇，快排查！！: 'MysqlClient' object has no attribute 'cursor'
+2023-07-20 23:40:14 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
+2023-07-20 23:40:23 | ERROR | 查询异常 sql: select username,password as pwd  from lea.user where username ='luoshunwen003';
+2023-07-20 23:40:23 | ERROR | 数据库操作异常: 'MysqlClient' object has no attribute 'cursor'
+2023-07-20 23:40:23 | ERROR | | called execute_sql | error: 快看，异常了，别唧唧哇哇，快排查！！: 'MysqlClient' object has no attribute 'cursor'
+2023-07-20 23:41:11 | ERROR | 查询异常 sql: select username,password as pwd  from lea.user where username ='luoshunwen003';
+2023-07-20 23:41:11 | ERROR | 数据库操作异常: 'MysqlClient' object has no attribute 'cursor'
+2023-07-20 23:42:16 | ERROR | 查询异常 sql: select username,password as pwd  from lea.user where username ='luoshunwen003';
+2023-07-20 23:42:16 | ERROR | 数据库操作异常: 'MysqlClient' object has no attribute 'cursor'

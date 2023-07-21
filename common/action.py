@@ -14,12 +14,14 @@ from common.utils.decorators import singleton
 from common.utils.load_and_execute_script import LoadScript
 from common.validation.extractor import Extractor
 from common.validation.validator import Validator
+from common.database.mysql_client import MysqlClient
 
 
 @singleton
-class Action(Extractor, LoadScript, Validator):
-	def __init__(self, initialize_data=None, bif_functions=None):
+class Action(Extractor, LoadScript, Validator, MysqlClient):
+	def __init__(self, initialize_data=None, bif_functions=None, db_config=None):
 		super().__init__()
+		MysqlClient.__init__(self, db_config)
 		self.encrypt = EncryptData()
 		self.__variables = {}
 		self.set_environments(initialize_data)
