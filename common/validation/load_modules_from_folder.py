@@ -25,7 +25,7 @@ class LoadModulesFromFolder(DependentParameter):
 	@logger.log_decorator()
 	def load_modules_from_folder(self, folder_path):
 		"""
-		动态加载指定文件夹下的模块，并读取其中的函数，存储在字典这样的数据结构中。
+		动态加载指定文件夹下的模块，并读取其中的函数
 		通过访问字典的 key 可以获取到对应的函数值并调用。
 	
 		Args:
