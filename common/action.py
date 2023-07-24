@@ -12,7 +12,7 @@ import ast
 from common.crypto.encrypt_data import EncryptData
 from common.database.mysql_client import MysqlClient
 from common.utils.decorators import singleton
-from common.utils.load_and_execute_script import LoadScript
+from common.validation.load_and_execute_script import LoadScript
 from common.validation.extractor import Extractor
 from common.validation.validator import Validator
 

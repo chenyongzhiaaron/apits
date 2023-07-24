@@ -2,10 +2,10 @@ import importlib.util
 import os
 import sys
 
-sys.path.append('../../common')
-sys.path.append('../../common/utils')
+sys.path.append('..')
+sys.path.append('../utils')
 
-from common.utils.mylogger import MyLogger
+from common.log_utils.mylogger import MyLogger
 
 logger = MyLogger()
 

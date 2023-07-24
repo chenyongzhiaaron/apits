@@ -12,6 +12,7 @@ import base64
 import binascii
 import hashlib
 
+import ddddocr
 from pyDes import des, CBC, PAD_PKCS5
 
 
@@ -87,7 +88,7 @@ class Des:
     def __init__(self, text, key):
         self.text = text  # 原始字符串
         self.KEY = key  # 这个key是固定问开发，
-
+    
     def des_encrypt(self):
         """DES 加密
         Returns:加密后字符串，16进制
@@ -101,7 +102,7 @@ class Des:
         secret_bytes = des_obj.encrypt(self.text.encode("utf-8"), padmode=PAD_PKCS5)
         # 返回为16进制
         return binascii.b2a_hex(secret_bytes)
-
+    
     def des_decrypt(self):
         """
         DES 解密
@@ -130,6 +131,7 @@ def add_to_16(text: str):
     if len(b_text) % 16:
         add = 16 - len(b_text) % 16
     return b_text + b'\0' * add
+
 
 # class AesEcb:
 #
@@ -192,3 +194,24 @@ def add_to_16(text: str):
 #         msg_text = self.aes.decrypt(res)
 #         decrypt_text = self.unpad(msg_text).decode('utf8')
 #         return decrypt_text
+
+
+def captcha(file_path):
+    """
+    失败图片验证码
+    Args:
+        file_path:
+
+    Returns:返回图片的验证码
+
+    """
+    orc = ddddocr.DdddOcr()
+    
+    with open(file_path, 'rb') as f:
+        img_bytes = f.read()
+    res = orc.classification(img_bytes)
+    print(str(res))
+    return res
+
+if __name__ == '__main__':
+    captcha('../../image/origina388l.png')

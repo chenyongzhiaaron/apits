@@ -2,8 +2,8 @@ import os.path
 
 from common.config import Config
 from common.file_handling.excel import DoExcel
-from common.utils.parsing_openapi import parsing_openapi
-from common.utils.parsing_postman import parsing_postman
+from common.parsing.parsing_openapi import parsing_openapi
+from common.parsing.parsing_postman import parsing_postman
 
 
 class ExcelConverter:

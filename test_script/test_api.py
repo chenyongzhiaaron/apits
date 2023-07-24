@@ -1,14 +1,12 @@
 import time
 import unittest
 from ddt import ddt, data
-from functools import partial
 
 from common import bif_functions
 from common.action import Action
 from common.config import Config
-from common.database.mysql_client import MysqlClient
 from common.file_handling.do_excel import DoExcel
-from common.utils.mylogger import MyLogger
+from common.log_utils.mylogger import MyLogger
 from extensions import dynamic_scaling_methods
 
 test_file = Config.test_case  # 获取 excel 文件路径
