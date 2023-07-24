@@ -28,7 +28,6 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         self.set_bif_fun(bif_functions)
     
     def execute_dynamic_code(self, item, code):
-        # self.set_variables(item)
         self.variables = item
         if code is not None:
             try:
@@ -42,7 +41,6 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
                 error_message = f"动态代码执行异常: {e}"
                 self._handle_error(error_message)
         return self.variables
-        # return self.__variables
     
     def _handle_error(self, error_message):
         print(f'发现异常: {error_message}')
@@ -72,7 +70,6 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         self.execute_dynamic_code(response, teardown_script)
         return response
     
-    # Request = property(_get_variables, _set_variables)
 
 
 if __name__ == '__main__':

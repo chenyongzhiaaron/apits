@@ -29,8 +29,6 @@ class Environments:
 	@classmethod
 	def reset_environments(cls):
 		"""重置"""
-		# cls.request = None
-		# cls.response = None
 		cls.environments.clear()
 
 
