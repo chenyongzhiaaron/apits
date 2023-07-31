@@ -37,7 +37,7 @@ class MysqlClient:
 			self.cursor = self.conn.cursor(DictCursor)
 		except Exception as e:
 			logger.error(f"数据库链接失败: {e}")
-			raise
+			# raise
 	
 	# @logger.log_decorator()
 	def execute_sql(self, sql):
@@ -127,7 +127,7 @@ if __name__ == '__main__':
 	sql_2 = {
 		"select":
 			{
-				"select_one": "select username,password as pwd  from lea.user where username ='luoshunwen003';"
+				# "select_one": "select username,password as pwd  from lea.user where username ='luoshunwen003';"
 			}
 	}
 	database_2 = {

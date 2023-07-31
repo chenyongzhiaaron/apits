@@ -120,9 +120,12 @@ class DoExcel:
             self.clear_date()
             test_case = self.do_excel_yield()
             init_data = self.get_excel_init()
+            databases = init_data.get('databases')
+            initialize_data = eval(init_data.get("initialize_data"))
+            host = init_data.get('host', "") + init_data.get("path", "")
         except Exception as e:
             raise e
-        return init_data, test_case
+        return test_case, databases, initialize_data, host
     
     def close_excel(self):
         self.wb.close()
