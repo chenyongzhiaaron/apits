@@ -12,7 +12,7 @@ import sys
 sys.path.append("../")
 sys.path.append("./common")
 from jsonpath_ng import parse
-from common.environments import Environments
+from common.utils.environments import Environments
 from common.data_extraction import logger
 
 REPLACE_DICT = {

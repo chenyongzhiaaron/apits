@@ -132,7 +132,7 @@ class DoExcel:
 
 
 if __name__ == '__main__':
-    from common.config import Config
+    from config import Config
     
     file_n = Config.test_case
     excel = DoExcel(file_n)

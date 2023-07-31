@@ -4,14 +4,13 @@ import os
 class Config:
     # 根目录路径
     # *****************************************************************
-    base_path = os.path.dirname(os.path.dirname(__file__))
-    current_path = os.path.dirname(__file__)
+    base_path = os.path.dirname(__file__)
     # *****************************************************************
     # 测试数据所在路径
     # *****************************************************************
     templates = os.path.join(base_path, "cases", "templates", "template.xlsx")  # 模板文件
-    # test_case = os.path.join(base_path, "cases", "cases", "test_api.xlsx")
-    test_case = os.path.join(base_path, "cases", "cases", "test_cases.xlsx")
+    test_case = os.path.join(base_path, "cases", "cases", "test_api.xlsx")
+    # test_case = os.path.join(base_path, "cases", "cases", "test_cases.xlsx")
     test_files = os.path.join(base_path, 'cases', 'files')
     # *****************************************************************
     
@@ -33,5 +32,4 @@ if __name__ == '__main__':
     print(test.test_case)
     print(test.test_report)
     print(test.test_case)
-    print(test.current_path)
     print(test.SCRIPTS_DIR)

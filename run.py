@@ -12,7 +12,7 @@ sys.path.append("./common")
 sys.path.append("./")
 sys.path.append('cases')
 
-from common.config import Config
+from config import Config
 from unittestreport import TestRunner
 from common.utils.WxworkSms import WxWorkSms
 

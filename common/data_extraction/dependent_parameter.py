@@ -79,7 +79,7 @@ class DependentParameter(DataExtractor):
 
 
 if __name__ == '__main__':
-    from common.environments import Environments
+    from common.utils.environments import Environments
     
     dps = {
         "{{var_a}}": "foo",

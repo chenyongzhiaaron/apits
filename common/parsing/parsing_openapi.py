@@ -107,7 +107,7 @@ if __name__ == '__main__':
 	res = parsing_openapi(file)
 	print(res)
 	from common.file_handling.excel import DoExcel
-	from common.config import Config
+	from config import Config
 	
 	templates = Config.templates  # 使用标准模板
 	ex = DoExcel(templates)
