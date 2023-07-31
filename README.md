@@ -10,7 +10,7 @@
 
 * 项目参与者: 陈勇志
 * 技术支持邮箱: 262667641@qq.com
-* 个人微信: blue-blue-lemon
+* 个人微信: Testing_Player
 * 个人博客地址:  [https://home.cnblogs.com/u/Nephalem-262667641](https://home.cnblogs.com/u/Nephalem-262667641)
 * 微信公众号：测试玩家勇哥
 
