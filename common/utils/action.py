@@ -14,6 +14,7 @@ from common.crypto.encrypt_data import EncryptData
 from common.database.mysql_client import MysqlClient
 from common.log_utils.mylogger import MyLogger
 from common.utils.decorators import singleton
+from common.utils.exceptions import *
 from common.validation.extractor import Extractor
 from common.validation.load_and_execute_script import LoadScript
 from common.validation.validator import Validator
@@ -38,15 +39,11 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
                 compiled = compile(ast_obj, '<string>', 'exec')
                 exec(compiled, {"pm": self})
             except SyntaxError as e:
-                error_message = f'动态代码语法异常: {e}'
-                self._handle_error(error_message)
-            except Exception as e:
-                error_message = f"动态代码执行异常: {e}"
-                self._handle_error(error_message)
+                ExecuteDynamiCodeError(code, e)
+            except ExecuteDynamiCodeError as e:
+                ExecuteDynamiCodeError(code, e)
+        
         return self.variables
-    
-    def _handle_error(self, error_message):
-        print(f'发现异常: {error_message}')
     
     @property
     def variables(self, key=None):
@@ -68,10 +65,9 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         return headers, request_data
     
     def send_request(self, host, url, method, teardown_script, **kwargs):
-        response = self.http_client(host, url, method, **kwargs)
-        self.update_environments("responseTime", response.elapsed.total_seconds() * 1000)  # 存响应时间
-        self.execute_dynamic_code(response, teardown_script)
-        return response
+        self.http_client(host, url, method, **kwargs)
+        self.update_environments("responseTime", self.response.elapsed.total_seconds() * 1000)  # 存响应时间
+        self.execute_dynamic_code(self.response, teardown_script)
     
     @staticmethod
     def base_info(item):
@@ -142,9 +138,8 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         if sleep_time:
             try:
                 time.sleep(sleep_time)
-            except Exception as e:
-                self.logger.error("暂时时间必须是数字")
-                raise e
+            except MyBaseException as e:
+                raise MyBaseException(f"暂停时间必须是数字!")
     
     def exc_sql(self, item):
         sql, sql_params_dict = self.sql_info(item)
@@ -152,11 +147,14 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         if sql:
             try:
                 execute_sql_results = self.execute_sql(sql)
+            except DatabaseExceptionError as e:
+                raise DatabaseExceptionError(sql, str(e))
+            else:
                 if execute_sql_results and sql_params_dict:
-                    self.substitute_data(execute_sql_results, jp_dict=sql_params_dict)
-            except Exception as e:
-                self.logger.error(f'执行 sql 失败:{sql},异常信息:{e}')
-                raise e
+                    try:
+                        self.substitute_data(execute_sql_results, jp_dict=sql_params_dict)
+                    except ParameterExtractionError as e:
+                        ParameterExtractionError(sql_params_dict, str(e))
 
 
 if __name__ == '__main__':
