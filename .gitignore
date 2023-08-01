@@ -6,12 +6,15 @@ bin-release/
 
 # Other files and folders
 .settings/
-
+/.vscode
+OutPut/reports
+OutPut/log
 # Executables
 *.swf
 *.air
 *.ipa
 *.apk
+*.log
 __pycache__
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
