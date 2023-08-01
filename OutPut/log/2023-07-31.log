@@ -1,0 +1,36 @@
+2023-07-31 17:53:33 | ERROR | 数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2023-07-31 17:55:12 | ERROR | 数据库链接失败: (1049, "Unknown database 'lea'")
+2023-07-31 17:55:32 | ERROR | 数据库链接失败: (1049, "Unknown database 'lea'")
+2023-07-31 17:55:46 | ERROR | 数据库链接失败: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2023-07-31 17:57:55 | ERROR | 数据库链接失败: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2023-07-31 17:58:22 | ERROR | 数据库链接失败: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2023-07-31 17:58:50 | ERROR | 数据库链接失败: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2023-07-31 17:59:36 | ERROR | 数据库链接失败: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2023-07-31 17:59:37 | ERROR | 提取响应失败：安全纯净大屏_2_登录_非BIP用户登录
+regex=None; 
+keys=None;
+deps=None;
+jp_dict={"BSP_TOKEN": "$.data.bspToken", "BSP_USER_TENANT": "$.data.currentTenantId"}
+Expecting value: line 1 column 1 (char 0)
+2023-07-31 17:59:37 | ERROR | 异常用例: **安全纯净大屏_2_登录_非BIP用户登录**
+Expecting value: line 1 column 1 (char 0)
+2023-07-31 17:59:39 | ERROR | key:<re.Match object; span=(115, 128), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-31 17:59:39 | ERROR | 提取响应失败：安全纯净大屏_4_劳务基础配置_绑定TV
+regex=None; 
+keys=None;
+deps=None;
+jp_dict={"tvSequence": "$..tvSequence"}
+Expecting value: line 1 column 1 (char 0)
+2023-07-31 17:59:39 | ERROR | 异常用例: **安全纯净大屏_4_劳务基础配置_绑定TV**
+Expecting value: line 1 column 1 (char 0)
+2023-07-31 17:59:42 | ERROR | key:<re.Match object; span=(128, 141), match='{{BSP_TOKEN}}'>,在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常
+
+2023-07-31 17:59:42 | ERROR | 提取响应失败：安全纯净大屏_5_劳务基础配置_查询配置
+regex=None; 
+keys=None;
+deps=None;
+jp_dict=None
+Expecting value: line 1 column 1 (char 0)
+2023-07-31 17:59:42 | ERROR | 异常用例: **安全纯净大屏_5_劳务基础配置_查询配置**
+Expecting value: line 1 column 1 (char 0)
