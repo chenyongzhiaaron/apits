@@ -34,7 +34,7 @@ class Environments:
 
 if __name__ == '__main__':
 	from common.file_handling.do_excel import DoExcel
-	from common.config import Config
+	from config import Config
 	
 	test_file = Config.test_case
 	do_excel = DoExcel(test_file)

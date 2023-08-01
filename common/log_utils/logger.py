@@ -10,7 +10,7 @@ import logging
 import time
 from logging import handlers
 
-from common.config import Config
+from config import Config
 
 
 class MyLog:

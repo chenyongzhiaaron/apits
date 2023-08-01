@@ -22,7 +22,7 @@ class Validator(Loaders):
 		2、校验期望结果与实际结果与预期一致，并返回校验结果
 	"""
 	validate_variables_list = []
-	built_in_comparators = Loaders.load_built_in_comparators()
+	assertions = []
 	
 	def __init__(self):
 		super().__init__()
@@ -61,47 +61,44 @@ class Validator(Loaders):
 		else:
 			logger.error("参数格式错误！")
 	
-	def validate(self, resp_obj=None):
+	def validate(self, resp=None):
 		"""
 		校验期望结果与实际结果与预期一致
 		Args:
-			resp_obj: ResponseObject对象实例
+			resp: ResponseObject对象实例
 
 		Returns:
 
 		"""
 		
-		validate_pass = "PASS"
-		
-		# 记录校验失败的原因
-		failure_reason = []
+		validate_result = "通过"
 		for validate_variable in self.validate_variables_list:
 			check_item = validate_variable['check']
 			expect_value = validate_variable['expect']
 			comparator = validate_variable['comparator']
-			actual_value = Extractor.extract_value_by_jsonpath(resp_obj=resp_obj, expr=check_item)
+			actual_value = Extractor.extract_value_by_jsonpath(resp_obj=resp, expr=check_item)
 			try:
 				# 获取比较器
-				fun = self.built_in_comparators[comparator]
-				
+				fun = self.load_built_in_comparators()[comparator]
 				fun(actual_value=actual_value, expect_value=expect_value)
-			except (AssertionError, TypeError):
-				validate_pass = "FAIL"
+			except (AssertionError, TypeError) as e:
+				validate_result = "失败"
+				raise e
 			finally:
-				failure_reason.append({
+				self.assertions.append({
 					'检查项': check_item,
 					'期望值': expect_value,
 					'实际值': actual_value,
 					'断言方法': comparator_dict.get(comparator),
+					"断言结果": validate_result
 				})
-		return validate_pass, failure_reason
 	
-	def run_validate(self, validate_variables, resp_obj=None):
+	def run_validate(self, validate_variables, resp=None):
 		"""
 		 统一格式化测试用例的验证变量validate，然后校验期望结果与实际结果与预期一致
 		Args:
 			validate_variables:参数格式 list、dict
-			resp_obj:ResponseObject对象实例
+			resp:ResponseObject对象实例
 
 		Returns:返回校验结果
 
@@ -110,10 +107,11 @@ class Validator(Loaders):
 			return ""
 		# 清空校验变量
 		self.validate_variables_list.clear()
+		self.assertions.clear()
 		self.uniform_validate(validate_variables)
 		if not self.validate_variables_list:
 			raise "uniform_validate 执行失败，无法进行 validate 校验"
-		return self.validate(resp_obj)
+		self.validate(resp)
 
 
 if __name__ == '__main__':
@@ -124,6 +122,9 @@ if __name__ == '__main__':
 	]
 	resp_obj = {"code": "200", "result": {"user": {"name": "chenyongzhi"}}}
 	validator = Validator()
-	print(validator.run_validate(validate_variables1, resp_obj))
-	print(validator.run_validate(validate_variables2, resp_obj))
-	print(validator.run_validate(validate_variables2, resp_obj))
+	validator.run_validate(validate_variables1, resp_obj)
+	print(validator.assertions)
+	validator.run_validate(validate_variables2, resp_obj)
+	print(validator.assertions)
+	validator.run_validate(validate_variables2, resp_obj)
+	print(validator.assertions)

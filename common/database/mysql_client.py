@@ -15,7 +15,6 @@ from dbutils.pooled_db import PooledDB
 from pymysql.cursors import DictCursor
 
 from common.database import logger
-from common.utils.decorators import singleton
 
 
 # @singleton
@@ -139,8 +138,6 @@ if __name__ == '__main__':
 	}
 	res = MysqlClient(database_2).execute_sql(sql_2)
 	print("数据执行结果", res)
-	from common.data_extraction.data_extractor import DataExtractor
-	from common.environments import Environments
 
 # t = DataExtractor()
 # t.substitute_data(res, jp_dict={"total": "$.select_sale[0].total", "total_1": "$..total"})
