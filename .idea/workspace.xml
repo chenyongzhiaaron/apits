@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="删除多余的文件">
+    <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="测试浏览记录到csv">
+      <change afterPath="$PROJECT_DIR$/encryption_rules/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug/cap.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug/requestRecord.py" beforeDir="false" afterPath="$PROJECT_DIR$/debug/requestRecord.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug/test15.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/filtered_requests.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/crypto/encrypt_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/crypto/encrypt_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/utils/action.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/action.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/validation/load_modules_from_folder.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/validation/load_modules_from_folder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions/sign.py" beforeDir="false" afterPath="$PROJECT_DIR$/encryption_rules/rules.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_script/test_executor.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_script/test_executor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,34 +69,13 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\app\apitest\encryption_rules" />
       <recent name="D:\app\apitest\common\validation" />
       <recent name="D:\app\apitest\common\log_utils" />
       <recent name="D:\app\apitest\common\parsing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.http_client">
-    <configuration name="encryption_str" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="api_project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common/crypto" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common/crypto/encryption_str.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.load_modules_from_folder">
     <configuration name="http_client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="api_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -108,6 +90,50 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common/http_client/http_client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="load_modules_from_folder" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="api_project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common/validation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common/validation/load_modules_from_folder.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="loaders" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="api_project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common/validation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common/validation/loaders.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -138,28 +164,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="requestRecord (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="api_project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/debug" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/debug/requestRecord.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="Unittest (test_executor.py 内)" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="api_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -177,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.load_modules_from_folder" />
+        <item itemvalue="Python.loaders" />
         <item itemvalue="Python.http_client" />
         <item itemvalue="Python 测试.Unittest (test_executor.py 内)" />
         <item itemvalue="Python.mysql_client" />
-        <item itemvalue="Python.encryption_str" />
-        <item itemvalue="Python.requestRecord (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +215,8 @@
       <workItem from="1690536254640" duration="11000" />
       <workItem from="1690774476519" duration="12117000" />
       <workItem from="1690855086910" duration="749000" />
-      <workItem from="1690855882311" duration="1790000" />
+      <workItem from="1690855882311" duration="1981000" />
+      <workItem from="1690873614157" duration="4763000" />
     </task>
     <task id="LOCAL-00001" summary="优化代码">
       <option name="closed" value="true" />
@@ -285,7 +290,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690854560996</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="测试浏览记录到csv">
+      <option name="closed" value="true" />
+      <created>1690858708660</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1690858708660</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +311,8 @@
     <MESSAGE value="增加统一自定义异常类" />
     <MESSAGE value="gitignore" />
     <MESSAGE value="删除多余的文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除多余的文件" />
+    <MESSAGE value="测试浏览记录到csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试浏览记录到csv" />
   </component>
   <component name="com.github.evgenys91.machinet.common.dslhistory.DslHistoryState">
     <option name="historyDtoById">
@@ -318,6 +332,8 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/apitest$loaders.coverage" NAME="loaders 覆盖结果" MODIFIED="1690874206675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/validation" />
+    <SUITE FILE_PATH="coverage/apitest$load_modules_from_folder.coverage" NAME="load_modules_from_folder 覆盖结果" MODIFIED="1690882059703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/validation" />
     <SUITE FILE_PATH="coverage/apitest$requestRecord__1_.coverage" NAME="requestRecord (1) 覆盖结果" MODIFIED="1690531988570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/debug" />
     <SUITE FILE_PATH="coverage/apitest$Unittest__test_executor_py__.coverage" NAME="Unittest (test_executor.py 内) 覆盖结果" MODIFIED="1690850721335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_script" />
     <SUITE FILE_PATH="coverage/apitest$action.coverage" NAME="action 覆盖结果" MODIFIED="1689907783681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />

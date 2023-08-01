@@ -3,9 +3,9 @@
 """
 @author: kira
 @contact: 262667641@qq.com
-@file: do_sign.py
+@file: rules.py
 @time: 2023/3/14 16:21
-@desc:
+@desc:自定义加密规则
 """
 import json
 import time

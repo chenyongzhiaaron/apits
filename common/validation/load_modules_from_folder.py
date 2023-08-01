@@ -9,53 +9,54 @@
 """
 import importlib.util
 import os
+import types
 
 from common.data_extraction.dependent_parameter import DependentParameter
 from common.validation import logger
 
 
-# from common.environments import Environments
-# from common.data_extraction.data_extractor import DataExtractor
-
-
 class LoadModulesFromFolder(DependentParameter):
-	def __init__(self):
-		super().__init__()
-	
-	@logger.log_decorator()
-	def load_modules_from_folder(self, folder_path):
-		"""
-		动态加载指定文件夹下的模块，并读取其中的函数
-		通过访问字典的 key 可以获取到对应的函数值并调用。
-	
-		Args:
-		    folder_path (str): 要加载模块的文件夹路径
-	
-		Returns:
-		    dict: 存储函数的字典，键为函数名，值为函数对象
-		"""
-		
-		if not os.path.exists(folder_path):  # 检查文件夹路径是否存在
-			raise ValueError("Folder path does not exist.")
-		
-		for file_name in os.listdir(folder_path):  # 遍历指定文件夹下的所有文件
-			module_name, ext = os.path.splitext(file_name)
-			if ext == '.py' and module_name != '__init__':  # 如果是 Python 模块文件
-				module_path = os.path.join(folder_path, file_name)  # 获取模块文件的完整路径
-				spec = importlib.util.spec_from_file_location(module_name, module_path)
-				module = importlib.util.module_from_spec(spec)
-				try:
-					spec.loader.exec_module(module)  # 加载模块文件并执行其中的代码，将函数定义添加到 module 对象中
-				except Exception as e:
-					continue
-				
-				# 遍历 module 对象中的所有属性，找出函数并添加到 functions 字典中
-				for name, obj in vars(module).items():
-					if callable(obj):
-						self.update_environments(name, obj)
+    def __init__(self):
+        super().__init__()
+
+    @logger.log_decorator()
+    def load_modules_from_folder(self, folder_or_mnodule):
+        """
+        动态加载文件或模块
+        """
+
+        if isinstance(folder_or_mnodule, str):
+            folder_path = folder_or_mnodule
+            if not os.path.exists(folder_path):  # 检查文件夹路径是否存在
+                raise ValueError("Folder path does not exist.")
+
+            for file_name in os.listdir(folder_path):  # 遍历指定文件夹下的所有文件
+                module_name, ext = os.path.splitext(file_name)
+                if ext == '.py' and module_name != '__init__':
+                    module_path = os.path.join(folder_path, file_name)  # 获取模块文件的完整路径
+                    spec = importlib.util.spec_from_file_location(module_name, module_path)
+                    module = importlib.util.module_from_spec(spec)
+                    try:
+                        spec.loader.exec_module(module)  # 加载模块文件并执行其中的代码，将函数定义添加到 module 对象中
+                    except:
+                        continue
+                    for name, obj in vars(module).items():
+                        if callable(obj):
+                            self.update_environments(name, obj)
+        elif isinstance(folder_or_mnodule, types.ModuleType):
+            module = folder_or_mnodule
+            module = importlib.reload(module)
+            for n, o in vars(module).items():
+                if callable(o):
+                    self.update_environments(n, o)
+        else:
+            raise TypeError("folder_or_module should be either a folder path (str) or a module (types.ModuleType).")
 
 
 if __name__ == '__main__':
-	lmff = LoadModulesFromFolder()
-	lmff.load_modules_from_folder(r'D:\apk_api\api-test-project\extensions')
-	print(lmff.get_environments())
+    lmff = LoadModulesFromFolder()
+    # lmff.load_modules_from_folder(r'..\..\extensions')
+    import extensions as es
+
+    lmff.load_modules_from_folder(es)
+    print(lmff.get_environments())

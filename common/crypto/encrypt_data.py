@@ -10,7 +10,7 @@
 from common.crypto import logger
 from common.crypto.encryption_rsa import Rsa
 # from common.crypto.encryption_aes import DoAES
-from extensions import sign
+from encryption_rules import rules
 
 
 @logger.log_decorator()
@@ -21,8 +21,8 @@ class EncryptData:
 
     def encrypts(self, headers_crypto, headers, request_data_crypto, request_data):
         encryption_methods = {
-            "MD5": sign.md5_sign,
-            "sha1": sign.sha1_sign,
+            "MD5": rules.md5_sign,
+            "sha1": rules.sha1_sign,
             "rsa": lambda data: Rsa(data).rsa_encrypt()
         }
 

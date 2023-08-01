@@ -10,6 +10,7 @@
 import ast
 import time
 
+from common import bif_functions
 from common.crypto.encrypt_data import EncryptData
 from common.database.mysql_client import MysqlClient
 from common.log_utils.mylogger import MyLogger
@@ -22,7 +23,7 @@ from common.validation.validator import Validator
 
 @singleton
 class Action(Extractor, LoadScript, Validator, MysqlClient):
-    def __init__(self, initialize_data=None, bif_functions=None, db_config=None):
+    def __init__(self, initialize_data=None, db_config=None):
         super().__init__()
         MysqlClient.__init__(self, db_config)
         self.encrypt = EncryptData()
@@ -30,7 +31,7 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         self.set_environments(initialize_data)
         self.set_bif_fun(bif_functions)
         self.logger = MyLogger()
-    
+
     def execute_dynamic_code(self, item, code):
         self.variables = item
         if code is not None:
@@ -42,20 +43,20 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
                 ExecuteDynamiCodeError(code, e)
             except ExecuteDynamiCodeError as e:
                 ExecuteDynamiCodeError(code, e)
-        
+
         return self.variables
-    
+
     @property
     def variables(self, key=None):
         return self.__variables if not key else self.__variables.get(key)
-    
+
     @variables.setter
     def variables(self, item):
         self.__variables = item
-    
+
     # def update_variables(self, key, value):
     #     self.__variables[f"{{{{{key}}}}}"] = value
-    
+
     def analysis_request(self, request_data, headers_crypto, headers, request_crypto, extract_request_data):
         # 请求头及body加密或者加签
         headers, request_data = self.encrypt.encrypts(headers_crypto, headers, request_crypto, request_data)
@@ -63,12 +64,12 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         if extract_request_data is not None and request_data is not None:
             self.substitute_data(request_data, jp_dict=extract_request_data)
         return headers, request_data
-    
+
     def send_request(self, host, url, method, teardown_script, **kwargs):
         self.http_client(host, url, method, **kwargs)
         self.update_environments("responseTime", self.response.elapsed.total_seconds() * 1000)  # 存响应时间
         self.execute_dynamic_code(self.response, teardown_script)
-    
+
     @staticmethod
     def base_info(item):
         """
@@ -85,13 +86,13 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         method = item.pop("Method")
         expected = item.pop("Expected")
         return sheet, item_id, condition, sleep_time, name, desc, headers_crypto, request_data_crypto, method, expected
-    
+
     @staticmethod
     def sql_info(item):
         sql = item.pop("SQL")
         sql_params_dict = item.pop("Sql Params Dict")
         return sql, sql_params_dict
-    
+
     @staticmethod
     def extractor_info(item):
         """
@@ -108,7 +109,7 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         jp_dict = item.pop("Jsonpath")
         extract_request_data = item.pop("Extract Request Data")
         return regex, keys, deps, jp_dict, extract_request_data
-    
+
     @staticmethod
     def request_info(item):
         """
@@ -119,28 +120,28 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         request_data = item.pop("Request Data")
         headers = item.pop("Headers")
         request_data_type = item.pop("Request Data Type") if item.get("Request Data Type") else 'params'
-        
+
         return url, query_str, request_data, headers, request_data_type
-    
+
     @staticmethod
     def script(item):
         setup_script = item.pop("Setup Script")
         teardown_script = item.pop("Teardown Script")
         return setup_script, teardown_script
-    
+
     @staticmethod
     def is_run(condition):
         is_run = condition
         if not is_run or is_run.upper() != "YES":
             return True
-    
+
     def pause_execution(self, sleep_time):
         if sleep_time:
             try:
                 time.sleep(sleep_time)
             except MyBaseException as e:
                 raise MyBaseException(f"暂停时间必须是数字!")
-    
+
     def exc_sql(self, item):
         sql, sql_params_dict = self.sql_info(item)
         sql = self.replace_dependent_parameter(sql)
