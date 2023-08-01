@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="删除多余的文件">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug/cap.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug/requestRecord.py" beforeDir="false" afterPath="$PROJECT_DIR$/debug/requestRecord.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug/test15.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/filtered_requests.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,6 +211,7 @@
       <workItem from="1690536254640" duration="11000" />
       <workItem from="1690774476519" duration="12117000" />
       <workItem from="1690855086910" duration="749000" />
+      <workItem from="1690855882311" duration="1790000" />
     </task>
     <task id="LOCAL-00001" summary="优化代码">
       <option name="closed" value="true" />
