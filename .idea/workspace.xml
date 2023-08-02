@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="修复动态加载函数的bug">
+    <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="增加处理函数调用链变量以及修复动态函数中传参失效的问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/bif_functions/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/bif_functions/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/bif_functions/bif_random.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/bif_functions/bif_other.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/bif_functions/bif_time.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/bif_functions/bif_time.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/bif_functions/random_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/bif_functions/bif_faker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/data_extraction/dependent_parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/data_extraction/dependent_parameter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/environments.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/environments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/validation/loaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/validation/loaders.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +218,7 @@
       <workItem from="1690855086910" duration="749000" />
       <workItem from="1690855882311" duration="1981000" />
       <workItem from="1690873614157" duration="4828000" />
-      <workItem from="1690937027137" duration="25249000" />
+      <workItem from="1690937027137" duration="26771000" />
     </task>
     <task id="LOCAL-00001" summary="优化代码">
       <option name="closed" value="true" />
@@ -314,7 +308,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690882687926</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="增加处理函数调用链变量以及修复动态函数中传参失效的问题">
+      <option name="closed" value="true" />
+      <created>1690969473478</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1690969473478</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +331,8 @@
     <MESSAGE value="删除多余的文件" />
     <MESSAGE value="测试浏览记录到csv" />
     <MESSAGE value="修复动态加载函数的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复动态加载函数的bug" />
+    <MESSAGE value="增加处理函数调用链变量以及修复动态函数中传参失效的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加处理函数调用链变量以及修复动态函数中传参失效的问题" />
   </component>
   <component name="com.github.evgenys91.machinet.common.dslhistory.DslHistoryState">
     <option name="historyDtoById">
@@ -353,7 +356,7 @@
     <SUITE FILE_PATH="coverage/apitest$Unittest__test_executor_py__.coverage" NAME="Unittest (test_executor.py 内) 覆盖结果" MODIFIED="1690850721335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_script" />
     <SUITE FILE_PATH="coverage/apitest$http_client.coverage" NAME="http_client 覆盖结果" MODIFIED="1690850772526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/http_client" />
     <SUITE FILE_PATH="coverage/apitest$Unittest__test_api_py__.coverage" NAME="Unittest (test_api.py 内) 覆盖结果" MODIFIED="1689907531802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_script" />
-    <SUITE FILE_PATH="coverage/apitest$dependent_parameter.coverage" NAME="dependent_parameter 覆盖结果" MODIFIED="1690969368595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/data_extraction" />
+    <SUITE FILE_PATH="coverage/apitest$dependent_parameter.coverage" NAME="dependent_parameter 覆盖结果" MODIFIED="1690970103268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/data_extraction" />
     <SUITE FILE_PATH="coverage/apitest$re_chain.coverage" NAME="re_chain 覆盖结果" MODIFIED="1690962595251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/debug" />
     <SUITE FILE_PATH="coverage/apitest$loaders.coverage" NAME="loaders 覆盖结果" MODIFIED="1690942567666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/validation" />
     <SUITE FILE_PATH="coverage/apitest$requestRecord__1_.coverage" NAME="requestRecord (1) 覆盖结果" MODIFIED="1690531988570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/debug" />

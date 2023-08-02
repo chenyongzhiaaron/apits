@@ -22,7 +22,7 @@ class DependentParameter(DataExtractor):
     def __init__(self):
         super().__init__()
 
-    # @logger.log_decorator()
+    @logger.log_decorator()
     def replace_dependent_parameter(self, json_string):
         """
         替换字符串中的关联参数，并返回转化后的字典格式。
@@ -32,77 +32,54 @@ class DependentParameter(DataExtractor):
         """
 
         def execute_method_chain(obj, methods, args=None):
-            """调用函数兼容调用方法链"""
             if not methods:
-                if callable(obj):
-                    return obj(*args)
-                else:
-                    return obj
+                return obj(*args) if callable(obj) else obj
             method_name, *remaining_methods = methods
             if hasattr(obj(), method_name) and callable(getattr(obj(), method_name)):
                 method = getattr(obj(), method_name)
                 return execute_method_chain(method(), remaining_methods)
-            else:
-                # 如果方法不存在或不可调用，则返回None
-                return None
+            return None
 
         def get_method_call_and_method_names(strings):
-            """获取方法调用和方法名"""
             first_method_call_match = self.FUNCTION_CALL_MATCHER.search(strings)
             if first_method_call_match:
                 first_method_call = "{{" + f'{first_method_call_match.group()}'.split("(")[0] + "()" + "}}"
                 first_fun = first_method_call_match.group()
                 args_string = self.ARGS_MATCHER.search(first_method_call_match.group())
-                if args_string:
-                    args_list = args_string.group(1).split(',')
-
-                else:
-                    args_list = []
+                args_list = args_string.group(1).split(',') if args_string else []
             else:
-                raise ValueError("函数写法错误")
+                raise ValueError(f"函数写法错误：无法匹配函数调用格式，字符串为：{strings}")
             remaining_method_names = self.METHOD_NAME_MATCHER.findall(strings)
             return first_fun, first_method_call, remaining_method_names, args_list
 
         if not json_string:
             return json_string
         json_string = json.dumps(json_string) if isinstance(json_string, (dict, list)) else json_string
-        # 循环替换参数
         while self.PARAMETER_MATCHER.search(json_string):
             if self.FUNCTION_CHAIN_MATCHER.search(json_string):
-                # 函数替换
                 function_pattern = self.FUNCTION_CHAIN_MATCHER.search(json_string).group()
                 function_with_args, key, remaining_methods, args = get_method_call_and_method_names(function_pattern)
                 if key in self.get_environments().keys():
-                    # 如果参数名称存在于关联参数表中，则调用相应的函数获取返回值，并替换字符串中的参数
                     obj = self.get_environments(key)
                     obj = execute_method_chain(obj, remaining_methods, args=args)
                     json_string = json_string.replace(function_pattern, str(obj))
                 else:
-                    logger.error(
-                        f"函数key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
+                    logger.error(f"函数key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
             else:
                 key = self.PARAMETER_MATCHER.search(json_string)
-                # 字符串替换，判断需要替换的字符串是{{key}}还是{{key}}[index]
                 if "[" and "]" in key.group():
-                    # 如果需要替换的是数组参数，则获取数组下标
                     index = int(key.group(2))
                     k = self.PARAMETER_PATTERN.search(key.group()).group()
                 else:
                     index = ""
                     k = key.group()
-                # 如果参数名称存在于关联参数表中，则获取相应的值，并替换字符串中的参数
                 if k in self.get_environments().keys():
-                    if isinstance(index, int):
-                        obj = self.get_environments(k)[index]
-                    else:
-                        obj = self.get_environments(k)
+                    obj = self.get_environments(k)[index] if isinstance(index, int) else self.get_environments(k)
                     json_string = json_string.replace(key.group(), str(obj))
                 else:
-                    logger.error(
-                        f"字符串key:{key},字符串在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
+                    logger.error(f"字符串key:{key},字符串在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
-            # 将 True 和 False 转换为小写，并继续循环替换参数
             json_string = json_string.replace("True", "true").replace("False", "false")
         if self.BRACE_MATCHER.search(json_string) and not self.FUNCTION_CHAIN_MATCHER.search(json_string):
             try:
