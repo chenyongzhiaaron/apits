@@ -57,13 +57,13 @@ class Loaders(Pyt):
 
 
 if __name__ == '__main__':
-	from common.bif_functions import random_tools
+	from common.bif_functions import bif_faker
 	import extensions
 	
 	print()
 	loaders = Loaders()
 	loaders.load_built_in_comparators()
-	loaders.set_bif_fun(random_tools)
+	loaders.set_bif_fun(bif_faker)
 	print(loaders.get_environments())
 	
 	loaders.set_bif_fun(extensions)
