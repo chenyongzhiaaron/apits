@@ -7,3 +7,5 @@
 @time: 2023/7/13 16:38
 @desc:
 """
+a = {"key": "value", "c": ""}
+print(a.get("c", ""))

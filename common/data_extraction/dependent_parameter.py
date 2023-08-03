@@ -14,10 +14,7 @@ from common.data_extraction.data_extractor import DataExtractor
 
 
 class DependentParameter(DataExtractor):
-    """
-       该类用于替换接口参数。它会从字符串中寻找需要替换的参数，并将其替换为关联参数表中对应的值。
-       然后，它将替换后的字符串转化为字典并返回。如果找不到需要替换的参数，则直接返回原始字符串。
-    """
+    """数据更换"""
 
     def __init__(self):
         super().__init__()

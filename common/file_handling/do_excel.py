@@ -15,12 +15,12 @@ from common.file_handling import logger
 
 @singleton
 class DoExcel:
-    
+
     def __init__(self, file_name):
         self.file_name = file_name
         self.wb = load_workbook(self.file_name)
         self.init_sheet = self.wb["init"]
-    
+
     # def __enter__(self):
     #     self.wb = load_workbook(self.file_name)
     #     self.init_sheet = self.wb['init']
@@ -29,7 +29,7 @@ class DoExcel:
     # def __exit__(self, exc_type, exc_val, exc_tb):
     #     self.wb.save(self.file_name)
     #     self.wb.close()
-    
+
     def do_excel_yield(self):
         """
         读取excel数据
@@ -50,7 +50,7 @@ class DoExcel:
                     sub_data[first_header[k - 1]] = sheet.cell(i, k).value
                     sub_data["sheet"] = sheet_name
                 yield sub_data
-    
+
     @logger.log_decorator()
     def write_back(self, sheet_name, i, **kwargs):
         """
@@ -71,7 +71,7 @@ class DoExcel:
         sheet.cell(i + 1, 25).value = test_result
         sheet.cell(i + 1, 26).value = assert_log
         self.wb.save(self.file_name)
-    
+
     @logger.log_decorator()
     def clear_date(self):
         """
@@ -80,7 +80,7 @@ class DoExcel:
     
         """
         sheets = eval(self.get_excel_init().get("sheets"))
-        
+
         for sheet_name in sheets:
             sheet = self.wb[sheet_name]
             max_row = sheet.max_row  # 获取最大行
@@ -90,7 +90,7 @@ class DoExcel:
                 sheet.cell(i, 26).value = ""
         self.wb.save(self.file_name)
         return f"清空指定 {sheets} 中的单元格成功"
-    
+
     @logger.log_decorator()
     def get_excel_init(self):
         """
@@ -109,7 +109,7 @@ class DoExcel:
             if init.get("run").upper() == "YES":
                 break
         return init
-    
+
     def get_excel_init_and_cases(self):
         """
     
@@ -122,18 +122,20 @@ class DoExcel:
             init_data = self.get_excel_init()
             databases = init_data.get('databases')
             initialize_data = eval(init_data.get("initialize_data"))
-            host = init_data.get('host', "") + init_data.get("path", "")
+            host = init_data.get('host', "")
+            path = init_data.get("path", "")
+            host_path = host if host is not None else "" + path if path is not None else ""
         except Exception as e:
             raise e
-        return test_case, databases, initialize_data, host
-    
+        return test_case, databases, initialize_data, host_path
+
     def close_excel(self):
         self.wb.close()
 
 
 if __name__ == '__main__':
     from config import Config
-    
+
     file_n = Config.test_case
     excel = DoExcel(file_n)
 # excel.get_excel_init()

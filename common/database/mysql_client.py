@@ -35,7 +35,7 @@ class MysqlClient:
 			self.conn = self.pool.connection()
 			self.cursor = self.conn.cursor(DictCursor)
 		except Exception as e:
-			logger.error(f"数据库链接失败: {e}")
+			logger.error(f"| 数据库链接失败: {e}")
 			# raise
 	
 	# @logger.log_decorator()
@@ -72,9 +72,9 @@ class MysqlClient:
 			for method, sql_data in sql.items():
 				execute_method = getattr(self, f"_execute_{method}", None)
 				if not execute_method:
-					logger.error("sql字典集编写格式不符合规范")
-					raise ValueError("Invalid SQL method")
-				logger.info(f"执行 sql 语句集: {sql_data}")
+					logger.error("| sql字典集编写格式不符合规范")
+					raise ValueError("| Invalid SQL method")
+				logger.info(f"| 执行 sql 语句集: {sql_data}")
 				execute_method(sql_data)
 			
 			self.cursor.close()
@@ -83,7 +83,7 @@ class MysqlClient:
 			return self.result
 		
 		except Exception as e:
-			logger.error(f"数据库操作异常: {e}")
+			logger.error(f"| 数据库操作异常: {e}")
 			raise
 	
 	def _execute_write(self, sql_data):
@@ -94,7 +94,7 @@ class MysqlClient:
 			try:
 				self.cursor.execute(str(sql_))
 			except Exception as err:
-				logger.error(f"执行 SQL 异常: {sql_}")
+				logger.error(f"| 执行 SQL 异常: {sql_}")
 				raise err
 		self.cursor.connection.commit()
 	
@@ -118,7 +118,7 @@ class MysqlClient:
 				self.cursor.execute(sql_)
 				self.result[sql_name] = self.cursor.fetchall()
 			except Exception as err:
-				logger.error(f"查询异常 sql: {sql_}")
+				logger.error(f"| 查询异常 sql: {sql_}")
 				raise err
 
 

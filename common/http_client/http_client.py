@@ -17,13 +17,13 @@ from common.utils.decorators import request_retry_on_exception
 
 class Pyt(LoadModulesFromFolder):
     session = requests.Session()
-    
+
     def __init__(self):
         super().__init__()
         self.request = None
         self.response = None
         self.response_json = None
-    
+
     @request_retry_on_exception()
     def http_client(self, host, url, method, **kwargs):
         """
@@ -36,20 +36,21 @@ class Pyt(LoadModulesFromFolder):
         """
         # 关闭 https 警告信息
         urllib3.disable_warnings()
-        
+        self.request = None
+        self.response = None
         if not url:
             raise ValueError("URL cannot be None")
         __url = f'{host}{url}' if not re.match(r"https?", url) else url
-        
+
         # 增加兼容
         # 处理 headers 参数为字符串类型的情况
         if 'headers' in kwargs and isinstance(kwargs['headers'], str):
             kwargs['headers'] = json.loads(kwargs['headers'])
-        
+
         # 处理 json 参数为字符串类型的情况
         if 'json' in kwargs and isinstance(kwargs['json'], str):
             kwargs['json'] = json.loads(kwargs['json'])
-        
+
         # 处理 files 参数的情况
         fs = []
         if 'files' in kwargs:
@@ -67,7 +68,7 @@ class Pyt(LoadModulesFromFolder):
                     ('file', (f'{file_path}', f, file_type))
                 )
             kwargs['files'] = files
-        
+
         # 发送请求
         self.request = requests.Request(method, __url, **kwargs)
         self.response = self.session.send(self.request.prepare(), timeout=30, verify=True)

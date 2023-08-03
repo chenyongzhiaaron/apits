@@ -9,8 +9,8 @@ class Config:
     # 测试数据所在路径
     # *****************************************************************
     templates = os.path.join(base_path, "cases", "templates", "template.xlsx")  # 模板文件
-    test_case = os.path.join(base_path, "cases", "cases", "test_api.xlsx")
-    # test_case = os.path.join(base_path, "cases", "cases", "test_cases.xlsx")
+    # test_case = os.path.join(base_path, "cases", "cases", "test_api.xlsx")
+    test_case = os.path.join(base_path, "cases", "cases", "test_cases.xlsx")
     test_files = os.path.join(base_path, 'cases', 'files')
     # *****************************************************************
     

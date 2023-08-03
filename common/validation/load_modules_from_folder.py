@@ -27,17 +27,17 @@ class LoadModulesFromFolder(DependentParameter):
 
         if isinstance(folder_or_mnodule, str):
             folder_path = folder_or_mnodule
-            if not os.path.exists(folder_path):  # 检查文件夹路径是否存在
+            if not os.path.exists(folder_path):
                 raise ValueError("Folder path does not exist.")
 
-            for file_name in os.listdir(folder_path):  # 遍历指定文件夹下的所有文件
+            for file_name in os.listdir(folder_path):
                 module_name, ext = os.path.splitext(file_name)
                 if ext == '.py' and module_name != '__init__':
-                    module_path = os.path.join(folder_path, file_name)  # 获取模块文件的完整路径
+                    module_path = os.path.join(folder_path, file_name)
                     spec = importlib.util.spec_from_file_location(module_name, module_path)
                     module = importlib.util.module_from_spec(spec)
                     try:
-                        spec.loader.exec_module(module)  # 加载模块文件并执行其中的代码，将函数定义添加到 module 对象中
+                        spec.loader.exec_module(module)
                     except:
                         continue
                     for name, obj in vars(module).items():

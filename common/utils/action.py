@@ -41,7 +41,9 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
                 exec(compiled, {"pm": self})
             except SyntaxError as e:
                 ExecuteDynamiCodeError(code, e)
-            except ExecuteDynamiCodeError as e:
+            except TypeError as e:
+                ExecuteDynamiCodeError(code, e)
+            except Exception as e:
                 ExecuteDynamiCodeError(code, e)
 
         return self.variables
@@ -54,21 +56,42 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
     def variables(self, item):
         self.__variables = item
 
-    # def update_variables(self, key, value):
-    #     self.__variables[f"{{{{{key}}}}}"] = value
-
     def analysis_request(self, request_data, headers_crypto, headers, request_crypto, extract_request_data):
-        # 请求头及body加密或者加签
         headers, request_data = self.encrypt.encrypts(headers_crypto, headers, request_crypto, request_data)
-        # 提取请求参数信息
         if extract_request_data is not None and request_data is not None:
             self.substitute_data(request_data, jp_dict=extract_request_data)
         return headers, request_data
 
     def send_request(self, host, url, method, teardown_script, **kwargs):
         self.http_client(host, url, method, **kwargs)
-        self.update_environments("responseTime", self.response.elapsed.total_seconds() * 1000)  # 存响应时间
+        self.update_environments("responseStatusCode", self.response.status_code)
+        self.update_environments("responseTime", round(self.response.elapsed.total_seconds() * 1000, 2))
         self.execute_dynamic_code(self.response, teardown_script)
+
+    def analysis_response(self, sheet, iid, name, desc, regex, keys, deps, jp_dict):
+        try:
+            self.substitute_data(self.response_json, regex=regex, keys=keys, deps=deps, jp_dict=jp_dict)
+        except Exception as err:
+            self.logger.error(f"| 分析响应失败：{sheet}_{iid}_{name}_{desc}"
+                              f"\nregex={regex};"
+                              f" \nkeys={keys};"
+                              f"\ndeps={deps};"
+                              f"\njp_dict={jp_dict}"
+                              f"\n{err}")
+
+    def execute_validation(self, excel, sheet, iid, name, desc, expected):
+        try:
+            self.run_validate(expected, self.response_json)
+            result = "PASS"
+        except Exception as e:
+            result = "FAIL"
+            self.logger.error(f"| exception case:**{sheet}_{iid}_{name}_{desc}**\n{e}")
+            raise AssertionFailedError(self.assertions)
+        finally:
+            print(f'| Assertion Result-->{self.assertions}')
+            response = self.response.text if self.response is not None else str(self.response)
+            # excel.write_back(sheet_name=sheet, i=iid, response=response, test_result=result,
+            #                  assert_log=str(self.assertions))
 
     @staticmethod
     def base_info(item):
@@ -139,7 +162,7 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         if sleep_time:
             try:
                 time.sleep(sleep_time)
-            except MyBaseException as e:
+            except Exception as e:
                 raise MyBaseException(f"暂停时间必须是数字!")
 
     def exc_sql(self, item):
@@ -154,9 +177,9 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
                 if execute_sql_results and sql_params_dict:
                     try:
                         self.substitute_data(execute_sql_results, jp_dict=sql_params_dict)
-                    except ParameterExtractionError as e:
+                    except Exception as e:
                         ParameterExtractionError(sql_params_dict, str(e))
 
 
 if __name__ == '__main__':
-    print(Action.__mro__)
+    print(Action())

@@ -37,20 +37,21 @@ def request_retry_on_exception(retries=2, delay=1.5):
             nonlocal e
             for i in range(retries):
                 try:
-                    print(f"第{i + 1}次发送请求的参数： {kwargs}")
+                    print(f"| 第{i + 1}次发送请求的参数： {kwargs}")
                     response = func(*args, **kwargs)
-                    print(f"请求地址 --> {response.request.url}")
-                    print(f"请求头 --> {response.request.headers}")
-                    print(f"请求 body --> {response.request.body}")
-                    print(f"接口状态--> {response.status_code}")
-                    print(f"接口耗时--> {response.elapsed}")
-                    print(f"接口响应--> {response.text}")
+                    print(f"| 请求地址 --> {response.request.url}")
+                    print(f"| 请求头 --> {response.request.headers}")
+                    print(f"| 请求 body --> {response.request.body}")
+                    print(f"| 接口状态--> {response.status_code}")
+                    print(f"| 接口耗时--> {response.elapsed}")
+                    print(f"| 接口响应--> {response.text}")
+
                 except Exception as error:
                     e = error
                     time.sleep(delay)
                 else:
                     return response
-            raise Exception(f"请求重试**{retries}**次失败，请检查！！{e}")
+            raise Exception(f"| 请求重试**{retries}**次失败，请检查！！{e}")
         
         return wrapper
     
