@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>接口自动化测试报告</title>
+    <title>{{ title }}</title>
 
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <script src=" https://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
@@ -204,7 +204,7 @@
 <body>
 <div class="main">
     <div class="title">
-        接口自动化测试报告
+        {{ title }}
     </div>
     <div class="content-box">
         <div class="box1">
@@ -227,31 +227,31 @@
                     <div class="info">
                         <div style="flex:5">
                             <button type="button" class="btn btn-primary btn-sm">开始时间</button>
-                            <span>2023-08-08 18:08:17</span>
+                            <span>{{ begin_time }}</span>
                         </div>
                         <div style="flex:5">
                             <button type="button" class="btn btn-primary btn-sm">用例总数</button>
-                            <span>6</span>
+                            <span>{{ all }}</span>
                         </div>
                     </div>
                     <div class="info">
                         <div style="flex:5">
                             <button type="button" class="btn btn-primary btn-sm">运行时长</button>
-                            <span>45.22 S</span>
+                            <span>{{ runtime }}</span>
                         </div>
                         <div style="flex:5">
                             <button type="button" class="btn btn-primary btn-sm ">测试人员</button>
-                            <span>kira</span>
+                            <span>{{ tester }}</span>
                         </div>
                     </div>
                     <div class="info">
                         <div style="flex:5">
                             <button type="button" class="btn btn-primary btn-sm">成功用例</button>
-                            <span>3</span>
+                            <span>{{ success }}</span>
                         </div>
                         <div style="flex:5">
                             <button type="button" class="btn btn-primary btn-sm ">通过率</button>
-                            <span>50%</span>
+                            <span>{{pass_rate}}%</span>
                         </div>
                     </div>
                 </div>
@@ -275,91 +275,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                        
+                        {% for hos in history[::-1] %}
                         <tr>
-                            <th scope="row">2023-08-08 18:08:17</th>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>50%</td>
+                            <th scope="row">{{hos.begin_time}}</th>
+                            <td>{{hos.all}}</td>
+                            <td>{{hos.success}}</td>
+                            <td>{{hos.pass_rate}}%</td>
                         </tr>
-                        
-                        <tr>
-                            <th scope="row">2023-08-08 18:04:47</th>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>50%</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">2023-08-08 18:03:22</th>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>50%</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">2023-08-08 17:52:34</th>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>50%</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">2023-08-08 17:51:45</th>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>50%</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">2023-08-08 17:49:06</th>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>50%</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">2023-08-08 17:42:45</th>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>50%</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">2023-08-08 17:40:02</th>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>50%</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">2023-08-08 17:19:08</th>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>50%</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">2023-08-08 17:17:38</th>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>50%</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">2023-08-08 17:10:46</th>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>50%</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">2023-08-08 17:02:51</th>
-                            <td>6</td>
-                            <td>3</td>
-                            <td>50%</td>
-                        </tr>
-                        
+                        {% endfor %}
                         </tbody>
                     </table>
 
@@ -381,9 +304,9 @@
                         <span>测试类</span>
                         <select id="testClass">
                             <option>所有</option>
-                            
-                            <option>TestProjectApi</option>
-                            
+                            {% for foo in testClass %}
+                            <option>{{ foo }}</option>
+                            {% endfor %}
                         </select>
 
                     </th>
@@ -406,16 +329,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                
+                {% for foo in results %}
                 <tr class="case_">
-                    <td>1</td>
-                    <td class="TestProjectApi">TestProjectApi</td>
-                    <td>test_api_001_清表</td>
-                    <td>初始化查询sql</td>
-                    <td>0.0s</td>
-                    
-                    <td class="text-info">跳过</td>
-                    
+                    <td>{{ loop.index }}</td>
+                    <td class="{{ foo.class_name }}">{{ foo.class_name }}</td>
+                    <td>{{ foo.method_name }}</td>
+                    <td>{{ foo.method_doc }}</td>
+                    <td>{{ foo.run_time }}</td>
+                    {% if foo.state == '成功' %}
+                    <td class="text-success">{{ foo.state }}</td>
+                    {% elif foo.state == '失败' %}
+                    <td class="text-warning">{{ foo.state }}</td>
+                    {% elif foo.state == '错误' %}
+                    <td class="text-danger">{{ foo.state }}</td>
+                    {% else %}
+                    <td class="text-info">{{ foo.state }}</td>
+                    {% endif %}
                     <td>
                         <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
                     </td>
@@ -424,250 +353,16 @@
                 <tr class="test_log">
 
                      <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
+                        {% for item in foo.run_info %}
 
-                            <pre>这个测试用例听说泡面比较好吃，所以放弃执行了！！</pre>
-                        
-                        
+                            <pre>{{ item }}</pre>
+                        {% endfor %}
+                        {% if foo.run_info == [] %}
+                            <pre>无内容输出！</pre>
+                        {% endif %}
                     </td>
                 </tr>
-                
-                <tr class="case_">
-                    <td>2</td>
-                    <td class="TestProjectApi">TestProjectApi</td>
-                    <td>test_api_002_注册</td>
-                    <td>正确的随机邮箱注册成功</td>
-                    <td>43.6s</td>
-                    
-                    <td class="text-success">成功</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>| 执行 sql 成功--> {'select_one': [{'e_name': 'Ben', 'e_salary': 5000, 'e_dep': 'b2'}]}
-pm----------------> {'Url': '/api/register', 'Headers': '{"Content-Type": "application/json"}', 'Query Str': None, 'Request Data Type': 'json', 'Request Data': '{"email": "{{email}}", "password": "{{password}}"}', 'Response': '', 'Assertion': '', 'Error Log': '', None: None}
-| 第1次发送请求的参数： {'json': '{"email": "eve.holt@reqres.in", "password": "pistol"}', 'headers': '{"Content-Type": "application/json"}', 'params': None}
-| 请求地址 --> https://reqres.in/api/register
-| 请求头 --> {'Content-Type': 'application/json', 'Content-Length': '53'}
-| 请求 body --> b'{"email": "eve.holt@reqres.in", "password": "pistol"}'
-| 接口状态--> 200
-| 接口耗时--> 0:00:43.021884
-| 接口响应--> {"id":4,"token":"QpwL5tke4Pnpja7X4"}
-| 断言结果-->[{'检查项': '200', '期望值': '200', '实际值': '200', '断言方法': 'eq:实际值与期望值相等', '断言结果': '通过'}]
-
-test_api_002_注册 (test_executor.TestProjectApi)执行——>【通过】
-</pre>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr class="case_">
-                    <td>3</td>
-                    <td class="TestProjectApi">TestProjectApi</td>
-                    <td>test_api_003_登录</td>
-                    <td>注册成功的账号可以登录成功</td>
-                    <td>1.07s</td>
-                    
-                    <td class="text-success">成功</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>| 第1次发送请求的参数： {'json': '{"email": "eve.holt@reqres.in", "password": "pistol"}', 'headers': '{"Content-Type": "application/json"}', 'params': None}
-| 请求地址 --> https://reqres.in/api/login
-| 请求头 --> {'Content-Type': 'application/json', 'Content-Length': '53'}
-| 请求 body --> b'{"email": "eve.holt@reqres.in", "password": "pistol"}'
-| 接口状态--> 200
-| 接口耗时--> 0:00:00.528297
-| 接口响应--> {"token":"QpwL5tke4Pnpja7X4"}
-请求地址 --> https://reqres.in/api/login
-请求头 --> {'Content-Type': 'application/json', 'Content-Length': '53'}
-请求 body --> b'{"email": "eve.holt@reqres.in", "password": "pistol"}'
-接口状态--> 200
-接口耗时--> 0:00:00.528297
-接口响应--> {"token":"QpwL5tke4Pnpja7X4"}
-| 断言结果-->[{'检查项': '200', '期望值': '200', '实际值': '200', '断言方法': 'eq:实际值与期望值相等', '断言结果': '通过'}]
-
-test_api_003_登录 (test_executor.TestProjectApi)执行——>【通过】
-</pre>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr class="case_">
-                    <td>4</td>
-                    <td class="TestProjectApi">TestProjectApi</td>
-                    <td>test_api_004_用户列表</td>
-                    <td>查询用户列表</td>
-                    <td>0.274s</td>
-                    
-                    <td class="text-warning">失败</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>| 第1次发送请求的参数： {'params': None, 'headers': '{"Content-Type":"application/json;charset=utf-8","token":"QpwL5tke4Pnpja7X4"}'}
-| 请求地址 --> https://reqres.in/api/users
-| 请求头 --> {'Content-Type': 'application/json;charset=utf-8', 'token': 'QpwL5tke4Pnpja7X4'}
-| 请求 body --> None
-| 接口状态--> 200
-| 接口耗时--> 0:00:00.226330
-| 接口响应--> {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},{"id":4,"email":"eve.holt@reqres.in","first_name":"Eve","last_name":"Holt","avatar":"https://reqres.in/img/faces/4-image.jpg"},{"id":5,"email":"charles.morris@reqres.in","first_name":"Charles","last_name":"Morris","avatar":"https://reqres.in/img/faces/5-image.jpg"},{"id":6,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
-| 断言结果-->[{'检查项': '200', '期望值': 200, '实际值': '200', '断言方法': 'eq:实际值与期望值相等', '断言结果': '失败'}]
-
-test_api_004_用户列表 (test_executor.TestProjectApi)执行——>【失败】
-</pre>
-                        
-
-                            <pre>Traceback (most recent call last):
-</pre>
-                        
-
-                            <pre>  File "D:\Program Files\python39\lib\unittest\case.py", line 59, in testPartExecutor
-    yield
-</pre>
-                        
-
-                            <pre>  File "D:\Program Files\python39\lib\unittest\case.py", line 593, in run
-    self._callTestMethod(testMethod)
-</pre>
-                        
-
-                            <pre>  File "D:\Program Files\python39\lib\unittest\case.py", line 550, in _callTestMethod
-    method()
-</pre>
-                        
-
-                            <pre>  File "D:\app\apitest\unittestreportnew\core\dataDriver.py", line 43, in wrapper
-    return func(self, params, *args, **kwargs)
-</pre>
-                        
-
-                            <pre>  File "D:\app\apitest\test_script\test_executor.py", line 62, in test_api
-    self.action.execute_validation(excel, sheet, iid, name, desc, expected)
-</pre>
-                        
-
-                            <pre>  File "D:\app\apitest\common\utils\action.py", line 89, in execute_validation
-    raise e
-</pre>
-                        
-
-                            <pre>  File "D:\app\apitest\common\utils\action.py", line 83, in execute_validation
-    self.run_validate(expected, self.response_json)
-</pre>
-                        
-
-                            <pre>  File "D:\app\apitest\common\validation\validator.py", line 115, in run_validate
-    self.validate(resp)
-</pre>
-                        
-
-                            <pre>  File "D:\app\apitest\common\validation\validator.py", line 87, in validate
-    raise e
-</pre>
-                        
-
-                            <pre>  File "D:\app\apitest\common\validation\validator.py", line 83, in validate
-    fun(actual_value=actual_value, expect_value=expect_value)
-</pre>
-                        
-
-                            <pre>  File "D:\app\apitest\common\validation\comparators.py", line 24, in eq
-    assert actual_value == expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
-</pre>
-                        
-
-                            <pre>AssertionError: 预期结果：200,实际结果：200
-</pre>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr class="case_">
-                    <td>5</td>
-                    <td class="TestProjectApi">TestProjectApi</td>
-                    <td>test_api_005_用户列表</td>
-                    <td>获取指定用户的信息</td>
-                    <td>0.268s</td>
-                    
-                    <td class="text-success">成功</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>| 第1次发送请求的参数： {'params': None, 'headers': '{"Content-Type":"application/json;charset=utf-8","token":"QpwL5tke4Pnpja7X4"}'}
-| 请求地址 --> https://reqres.in/api/users/4
-| 请求头 --> {'Content-Type': 'application/json;charset=utf-8', 'token': 'QpwL5tke4Pnpja7X4'}
-| 请求 body --> None
-| 接口状态--> 200
-| 接口耗时--> 0:00:00.218369
-| 接口响应--> {"data":{"id":4,"email":"eve.holt@reqres.in","first_name":"Eve","last_name":"Holt","avatar":"https://reqres.in/img/faces/4-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
-| 断言结果-->[{'检查项': '$.data.id', '期望值': 4, '实际值': 4, '断言方法': 'eq:实际值与期望值相等', '断言结果': '通过'}, {'检查项': '$.data.email', '期望值': 'eve.holt@reqres.in', '实际值': 'eve.holt@reqres.in', '断言方法': 'eq:实际值与期望值相等', '断言结果': '通过'}, {'检查项': '200', '期望值': '200', '实际值': '200', '断言方法': 'eq:实际值与期望值相等', '断言结果': '通过'}]
-
-test_api_005_用户列表 (test_executor.TestProjectApi)执行——>【通过】
-</pre>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr class="case_">
-                    <td>6</td>
-                    <td class="TestProjectApi">TestProjectApi</td>
-                    <td>test_api_006_None</td>
-                    <td>None</td>
-                    <td>0.0s</td>
-                    
-                    <td class="text-info">跳过</td>
-                    
-                    <td>
-                        <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
-                    </td>
-                </tr>
-
-                <tr class="test_log">
-
-                     <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
-                        
-
-                            <pre>这个测试用例听说泡面比较好吃，所以放弃执行了！！</pre>
-                        
-                        
-                    </td>
-                </tr>
-                
+                {% endfor %}
             </table>
         </div>
 
@@ -681,17 +376,17 @@ test_api_005_用户列表 (test_executor.TestProjectApi)执行——>【通过�
 <script type="text/javascript">
 
     const resulte = {
-            "success": `3`,
-            "all": `6`,
-            "fail": `1`,
-            "skip": '2',
-            "error": `0`,
-            "runtime": '45.22 S',
-            "begin_time": "45.22 S",
-            "pass_rate": '50',
+            "success": `{{success}}`,
+            "all": `{{all}}`,
+            "fail": `{{fail}}`,
+            "skip": '{{skip}}',
+            "error": `{{error}}`,
+            "runtime": '{{runtime}}',
+            "begin_time": "{{runtime}}",
+            "pass_rate": '{{pass_rate}}',
         }
     ;
-    const history = [{'success': 3, 'all': 6, 'fail': 1, 'skip': 2, 'error': 0, 'runtime': '3.50 S', 'begin_time': '2023-08-08 17:02:51', 'pass_rate': 50}, {'success': 3, 'all': 6, 'fail': 1, 'skip': 2, 'error': 0, 'runtime': '3.19 S', 'begin_time': '2023-08-08 17:10:46', 'pass_rate': 50}, {'success': 3, 'all': 6, 'fail': 1, 'skip': 2, 'error': 0, 'runtime': '3.82 S', 'begin_time': '2023-08-08 17:17:38', 'pass_rate': 50}, {'success': 3, 'all': 6, 'fail': 1, 'skip': 2, 'error': 0, 'runtime': '4.88 S', 'begin_time': '2023-08-08 17:19:08', 'pass_rate': 50}, {'success': 3, 'all': 6, 'fail': 1, 'skip': 2, 'error': 0, 'runtime': '3.41 S', 'begin_time': '2023-08-08 17:40:02', 'pass_rate': 50}, {'success': 3, 'all': 6, 'fail': 1, 'skip': 2, 'error': 0, 'runtime': '3.17 S', 'begin_time': '2023-08-08 17:42:45', 'pass_rate': 50}, {'success': 3, 'all': 6, 'fail': 1, 'skip': 2, 'error': 0, 'runtime': '3.16 S', 'begin_time': '2023-08-08 17:49:06', 'pass_rate': 50}, {'success': 3, 'all': 6, 'fail': 1, 'skip': 2, 'error': 0, 'runtime': '3.22 S', 'begin_time': '2023-08-08 17:51:45', 'pass_rate': 50}, {'success': 3, 'all': 6, 'fail': 1, 'skip': 2, 'error': 0, 'runtime': '3.33 S', 'begin_time': '2023-08-08 17:52:34', 'pass_rate': 50}, {'success': 3, 'all': 6, 'fail': 1, 'skip': 2, 'error': 0, 'runtime': '3.24 S', 'begin_time': '2023-08-08 18:03:22', 'pass_rate': 50}, {'success': 3, 'all': 6, 'fail': 1, 'skip': 2, 'error': 0, 'runtime': '3.35 S', 'begin_time': '2023-08-08 18:04:47', 'pass_rate': 50}, {'success': 3, 'all': 6, 'fail': 1, 'skip': 2, 'error': 0, 'runtime': '45.22 S', 'begin_time': '2023-08-08 18:08:17', 'pass_rate': 50}];
+    const history = {{history}};
 
     var passRate = [];
     var dTime = [];

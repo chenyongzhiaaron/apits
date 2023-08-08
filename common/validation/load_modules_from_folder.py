@@ -12,14 +12,13 @@ import os
 import types
 
 from common.data_extraction.dependent_parameter import DependentParameter
-from common.validation import logger
+from common.utils.exceptions import DynamicLoadingError
 
 
 class LoadModulesFromFolder(DependentParameter):
     def __init__(self):
         super().__init__()
 
-    @logger.log_decorator()
     def load_modules_from_folder(self, folder_or_mnodule):
         """
         动态加载文件或模块
@@ -50,7 +49,9 @@ class LoadModulesFromFolder(DependentParameter):
                 if callable(o):
                     self.update_environments(n, o)
         else:
-            raise TypeError("folder_or_module should be either a folder path (str) or a module (types.ModuleType).")
+            raise DynamicLoadingError(folder_or_mnodule,
+                                      "older_or_module should be either a folder path (str) or a module ("
+                                      "types.ModuleType).")
 
 
 if __name__ == '__main__':

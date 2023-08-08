@@ -9,12 +9,12 @@
 # -------------------------------------------------------------------------------
 import types
 
-from common.http_client.http_client import Pyt
+from common.http_client.http_client import HttpClient
 from common.validation import comparators
 from common.validation import logger
 
 
-class Loaders(Pyt):
+class Loaders(HttpClient):
     def __init__(self):
         super().__init__()
 

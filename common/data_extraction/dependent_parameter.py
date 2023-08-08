@@ -9,8 +9,11 @@
 """
 import json
 
-from common.data_extraction import logger
 from common.data_extraction.data_extractor import DataExtractor
+from common.utils.exceptions import ParameterExtractionError, ResponseJsonConversionError
+
+
+# from common.utils.exceptions import logger
 
 
 class DependentParameter(DataExtractor):
@@ -19,7 +22,6 @@ class DependentParameter(DataExtractor):
     def __init__(self):
         super().__init__()
 
-    @logger.log_decorator()
     def replace_dependent_parameter(self, json_string):
         """
         替换字符串中的关联参数，并返回转化后的字典格式。
@@ -45,7 +47,9 @@ class DependentParameter(DataExtractor):
                 args_string = self.ARGS_MATCHER.search(first_method_call_match.group())
                 args_list = args_string.group(1).split(',') if args_string else []
             else:
-                raise ValueError(f"函数写法错误：无法匹配函数调用格式，字符串为：{strings}")
+                raise ParameterExtractionError(key, "在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常")
+
+                # raise ValueError(f"函数写法错误：无法匹配函数调用格式，字符串为：{strings}")
             remaining_method_names = self.METHOD_NAME_MATCHER.findall(strings)
             return first_fun, first_method_call, remaining_method_names, args_list
 
@@ -61,7 +65,8 @@ class DependentParameter(DataExtractor):
                     obj = execute_method_chain(obj, remaining_methods, args=args)
                     json_string = json_string.replace(function_pattern, str(obj))
                 else:
-                    logger.error(f"函数key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
+                    ParameterExtractionError(key, "在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常")
+                    # logger.error(f"函数key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
             else:
                 key = self.PARAMETER_MATCHER.search(json_string)
@@ -75,14 +80,16 @@ class DependentParameter(DataExtractor):
                     obj = self.get_environments(k)[index] if isinstance(index, int) else self.get_environments(k)
                     json_string = json_string.replace(key.group(), str(obj))
                 else:
-                    logger.error(f"字符串key:{key},字符串在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
+                    ParameterExtractionError(key, "在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常")
+                    # logger.error(f"字符串key:{key},字符串在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
             json_string = json_string.replace("True", "true").replace("False", "false")
         if self.BRACE_MATCHER.search(json_string) and not self.FUNCTION_CHAIN_MATCHER.search(json_string):
             try:
                 json_string = json.loads(json_string)
             except json.JSONDecodeError as e:
-                logger.error(f"JSONDecodeError:{json_string}:{e}")
+                ResponseJsonConversionError(json_string,e)
+                # logger.error(f"JSONDecodeError:{json_string}:{e}")
         return json_string
 
 

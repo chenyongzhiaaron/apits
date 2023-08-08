@@ -7,6 +7,3 @@
 @time: 2023/3/14 14:21
 @desc:
 """
-from common.log_utils.mylogger import MyLogger
-
-logger = MyLogger()

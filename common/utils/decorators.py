@@ -7,8 +7,12 @@
 @time: 2023/3/21 17:41
 @desc:
 """
-import time
+import json
 from functools import wraps
+
+import yaml
+
+from common.utils.exceptions import RequestSendingError
 
 
 def singleton(cls):
@@ -18,20 +22,22 @@ def singleton(cls):
     Returns:
     """
     instance = {}
-    
+
     @wraps(cls)
     def get_instance(*args, **kwargs):
         if cls not in instance:
             instance[cls] = cls(*args, **kwargs)
         return instance[cls]
-    
+
     return get_instance
 
 
 def request_retry_on_exception(retries=2, delay=1.5):
+    """失败请求重发"""
+
     def request_decorator(func):
         e = None
-        
+
         @wraps(func)
         def wrapper(*args, **kwargs):
             nonlocal e
@@ -51,8 +57,97 @@ def request_retry_on_exception(retries=2, delay=1.5):
                     time.sleep(delay)
                 else:
                     return response
-            raise Exception(f"| 请求重试**{retries}**次失败，请检查！！{e}")
-        
+            raise RequestSendingError(kwargs, e)
+
         return wrapper
-    
+
     return request_decorator
+
+
+def list_data(datas):
+    """
+    :param datas: 测试数据
+    :return:
+    """
+
+    def wrapper(func):
+        setattr(func, "PARAMS", datas)
+        return func
+
+    return wrapper
+
+
+def yaml_data(file_path):
+    """
+    :param file_path: yaml文件路径
+    :return:
+    """
+
+    def wrapper(func):
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                datas = yaml.load(f, Loader=yaml.FullLoader)
+        except:
+            with open(file_path, "r", encoding="gbk") as f:
+                datas = yaml.load(f, Loader=yaml.FullLoader)
+        setattr(func, "PARAMS", datas)
+        return func
+
+    return wrapper
+
+
+def json_data(file_path):
+    """
+    :param file_path: json文件路径
+    :return:
+    """
+
+    def wrapper(func):
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                datas = json.load(f)
+        except:
+            with open(file_path, "r", encoding="gbk") as f:
+                datas = json.load(f)
+        setattr(func, "PARAMS", datas)
+        return func
+
+    return wrapper
+
+
+import time
+import traceback
+
+
+def run_count(count, interval, func, *args, **kwargs):
+    """运行计数"""
+    for i in range(count):
+        try:
+            func(*args, **kwargs)
+        except Exception as e:
+            print("====用例执行失败===")
+            traceback.print_exc()
+            if i + 1 == count:
+                raise e
+            else:
+                print("==============开始第{}次重运行=============".format(i))
+                time.sleep(interval)
+        else:
+            break
+
+
+def rerun(count, interval=2):
+    """
+    单个测试用例重运行的装饰器,注意点，如果使用了ddt,那么该方法要在用在ddt之前
+    :param count: 失败重运行次数
+    :param interval: 每次重运行间隔时间,默认三秒钟
+    :return:
+    """
+
+    def wrapper(func):
+        def decorator(*args, **kwargs):
+            run_count(count, interval, func, *args, **kwargs)
+
+        return decorator
+
+    return wrapper

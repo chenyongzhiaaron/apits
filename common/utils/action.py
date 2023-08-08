@@ -13,7 +13,6 @@ import time
 from common import bif_functions
 from common.crypto.encrypt_data import EncryptData
 from common.database.mysql_client import MysqlClient
-from common.log_utils.mylogger import MyLogger
 from common.utils.decorators import singleton
 from common.utils.exceptions import *
 from common.validation.extractor import Extractor
@@ -22,15 +21,14 @@ from common.validation.validator import Validator
 
 
 @singleton
-class Action(Extractor, LoadScript, Validator, MysqlClient):
+class Action(Extractor, LoadScript, Validator):
     def __init__(self, initialize_data=None, db_config=None):
         super().__init__()
-        MysqlClient.__init__(self, db_config)
+        self.db_config = db_config
         self.encrypt = EncryptData()
         self.__variables = {}
         self.set_environments(initialize_data)
         self.set_bif_fun(bif_functions)
-        self.logger = MyLogger()
 
     def execute_dynamic_code(self, item, code):
         self.variables = item
@@ -72,12 +70,13 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         try:
             self.substitute_data(self.response_json, regex=regex, keys=keys, deps=deps, jp_dict=jp_dict)
         except Exception as err:
-            self.logger.error(f"| 分析响应失败：{sheet}_{iid}_{name}_{desc}"
-                              f"\nregex={regex};"
-                              f" \nkeys={keys};"
-                              f"\ndeps={deps};"
-                              f"\njp_dict={jp_dict}"
-                              f"\n{err}")
+            msg = f"| 分析响应失败：{sheet}_{iid}_{name}_{desc}"
+            f"\nregex={regex};"
+            f" \nkeys={keys};"
+            f"\ndeps={deps};"
+            f"\njp_dict={jp_dict}"
+            f"\n{err}"
+            ParameterExtractionError(msg, err)
 
     def execute_validation(self, excel, sheet, iid, name, desc, expected):
         try:
@@ -85,13 +84,14 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
             result = "PASS"
         except Exception as e:
             result = "FAIL"
-            self.logger.error(f"| exception case:**{sheet}_{iid}_{name}_{desc}**\n{e}")
-            raise AssertionFailedError(self.assertions)
+            error_info = f"| exception case:**{sheet}_{iid}_{name}_{desc},{self.assertions}"
+            AssertionFailedError(error_info, e)
+            raise e
         finally:
-            print(f'| Assertion Result-->{self.assertions}')
+            print(f'| 断言结果-->{self.assertions}\n')
             response = self.response.text if self.response is not None else str(self.response)
-            # excel.write_back(sheet_name=sheet, i=iid, response=response, test_result=result,
-            #                  assert_log=str(self.assertions))
+            excel.write_back(sheet_name=sheet, i=iid, response=response, test_result=result,
+                             assert_log=str(self.assertions))
 
     @staticmethod
     def base_info(item):
@@ -158,27 +158,23 @@ class Action(Extractor, LoadScript, Validator, MysqlClient):
         if not is_run or is_run.upper() != "YES":
             return True
 
-    def pause_execution(self, sleep_time):
+    @staticmethod
+    def pause_execution(sleep_time):
         if sleep_time:
             try:
                 time.sleep(sleep_time)
             except Exception as e:
-                raise MyBaseException(f"暂停时间必须是数字!")
+                raise InvalidSleepTimeError(f"{sleep_time}", e)
 
     def exc_sql(self, item):
         sql, sql_params_dict = self.sql_info(item)
         sql = self.replace_dependent_parameter(sql)
         if sql:
-            try:
-                execute_sql_results = self.execute_sql(sql)
-            except DatabaseExceptionError as e:
-                raise DatabaseExceptionError(sql, str(e))
-            else:
-                if execute_sql_results and sql_params_dict:
-                    try:
-                        self.substitute_data(execute_sql_results, jp_dict=sql_params_dict)
-                    except Exception as e:
-                        ParameterExtractionError(sql_params_dict, str(e))
+            client = MysqlClient(self.db_config)
+            execute_sql_results = client.execute_sql(sql)
+            print(f"| 执行 sql 成功--> {execute_sql_results}")
+            if execute_sql_results and sql_params_dict:
+                self.substitute_data(execute_sql_results, jp_dict=sql_params_dict)
 
 
 if __name__ == '__main__':

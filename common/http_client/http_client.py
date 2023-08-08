@@ -7,6 +7,8 @@ import sys
 import requests
 import urllib3
 
+from common.utils.exceptions import ResponseJsonConversionError
+
 sys.path.append("../")
 sys.path.append("./common")
 
@@ -15,7 +17,7 @@ from common.file_handling.file_utils import FileUtils
 from common.utils.decorators import request_retry_on_exception
 
 
-class Pyt(LoadModulesFromFolder):
+class HttpClient(LoadModulesFromFolder):
     session = requests.Session()
 
     def __init__(self):
@@ -76,6 +78,7 @@ class Pyt(LoadModulesFromFolder):
         try:
             self.response_json = self.response.json()
         except Exception as e:
+            ResponseJsonConversionError(self.response.text, str(e))
             self.response_json = None
         return self.response
 
@@ -89,5 +92,5 @@ if __name__ == '__main__':
         'data': {},
         'files': ['test.txt']
     }
-    pyt = Pyt()
+    pyt = HttpClient()
     pyt.http_client(hst, url, method, **kwargs)

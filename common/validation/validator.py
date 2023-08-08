@@ -8,7 +8,7 @@
 # -------------------------------------------------------------------------------
 import json
 
-from common.validation import logger
+from common.utils.exceptions import InvalidParameterFormatError
 from common.validation.comparator_dict import comparator_dict
 from common.validation.extractor import Extractor
 from common.validation.loaders import Loaders
@@ -58,7 +58,7 @@ class Validator(Loaders):
                     "comparator": comparator
                 })
         else:
-            logger.error("参数格式错误！")
+            InvalidParameterFormatError(validate_variables, "参数格式错误！")
 
     def validate(self, resp=None):
         """
@@ -110,7 +110,8 @@ class Validator(Loaders):
         self.assertions.clear()
         self.uniform_validate(validate_variables)
         if not self.validate_variables_list:
-            raise "uniform_validate 执行失败，无法进行 validate 校验"
+            raise InvalidParameterFormatError(self.validate_variables_list,
+                                        "uniform_validate 执行失败，无法进行 validate 校验")
         self.validate(resp)
 
 

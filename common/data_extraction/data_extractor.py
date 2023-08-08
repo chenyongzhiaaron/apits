@@ -13,7 +13,7 @@ sys.path.append("../")
 sys.path.append("./common")
 from jsonpath_ng import parse
 from common.utils.environments import Environments
-from common.data_extraction import logger
+from common.utils.exceptions import logger, InvalidParameterFormatError, ParameterExtractionError
 
 REPLACE_DICT = {
     "null": None,
@@ -42,7 +42,7 @@ class DataExtractor(Environments):
 
         response = response
         if not isinstance(response, (dict, str, list)):
-            logger.error(f"| 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: {response}")
+            InvalidParameterFormatError(response, "| 被提取对象非字典、非字符串、非列表，不执行jsonpath提取")
             return {}
         if regex and keys:
             self.substitute_regex(response, regex, keys)
@@ -133,7 +133,7 @@ class DataExtractor(Environments):
                 self.update_environments(key, result[0]) if len(result) == 1 else self.update_environments(key,
                                                                                                            result)
             except Exception as e:
-                logger.error(f"| jsonpath表达式错误'{expression}': {e}")
+                ParameterExtractionError(expression, e)
 
 
 if __name__ == '__main__':

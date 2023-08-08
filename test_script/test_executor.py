@@ -9,12 +9,13 @@
 """
 import unittest
 
-from ddt import ddt, data
-
 import extensions
 from common.file_handling.do_excel import DoExcel
 from common.utils.action import Action
 from config import Config
+from unittestreportnew import list_data
+# from ddt import ddt, data
+from unittestreportnew.core.dataDriver import ddt
 
 test_file = Config.test_case  # 获取 excel 文件路径
 excel = DoExcel(test_file)
@@ -34,7 +35,8 @@ class TestProjectApi(unittest.TestCase):
     def setUp(self) -> None:
         pass
 
-    @data(*test_case)
+    # @data(*test_case)
+    @list_data(test_case)
     def test_api(self, item):
         sheet, iid, condition, st, name, desc, h_crypto, r_crypto, method, expected = self.action.base_info(item)
         if self.action.is_run(condition):
@@ -62,7 +64,6 @@ class TestProjectApi(unittest.TestCase):
     @classmethod
     def tearDownClass(cls) -> None:
         excel.close_excel()
-        cls.action.logger.info(f"所有用例执行完毕")
 
 
 if __name__ == '__main__':

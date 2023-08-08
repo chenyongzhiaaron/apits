@@ -7,13 +7,11 @@
 @time: 2023/6/16 15:43
 @desc:
 """
-from common.crypto import logger
 from common.crypto.encryption_rsa import Rsa
-# from common.crypto.encryption_aes import DoAES
+from common.utils.exceptions import EncryptionError
 from encryption_rules import rules
 
 
-@logger.log_decorator()
 class EncryptData:
     """
     数据加密入口
@@ -32,7 +30,7 @@ class EncryptData:
                 try:
                     headers = encrypt_func(headers)
                 except Exception as e:
-                    logger.error(f"{headers_crypto} 加密失败：{e}")
+                    EncryptionError(headers_crypto, e)
 
         if request_data_crypto:
             encrypt_func = encryption_methods.get(request_data_crypto)
@@ -40,6 +38,6 @@ class EncryptData:
                 try:
                     request_data = encrypt_func(request_data)
                 except Exception as e:
-                    logger.error(f"{request_data_crypto} 加密失败：{e}")
+                    EncryptionError(request_data_crypto, e)
 
         return headers, request_data

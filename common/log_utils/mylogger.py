@@ -11,13 +11,11 @@ from time import perf_counter
 
 from loguru import logger
 
-from common.utils.decorators import singleton
 from config import Config
 
 LOG_DIR = Config.log_path
 
 
-@singleton
 class MyLogger:
     """
     根据时间、文件大小切割日志
