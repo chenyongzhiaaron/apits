@@ -11,6 +11,10 @@ import json
 import re
 
 
+def p_string(a, e):
+    return f"预期：{a} -> {type(a)}, 实际：{e} -> {type(e)}"
+
+
 def eq(actual_value, expect_value):
     """
     实际值与期望值相等
@@ -21,7 +25,7 @@ def eq(actual_value, expect_value):
     Returns:
 
     """
-    assert actual_value == expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert actual_value == expect_value, p_string(actual_value, expect_value)
 
 
 def lt(actual_value, expect_value):
@@ -34,7 +38,7 @@ def lt(actual_value, expect_value):
     Returns:
 
     """
-    assert actual_value < expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert actual_value < expect_value, p_string(actual_value, expect_value)
 
 
 def lte(actual_value, expect_value):
@@ -47,7 +51,7 @@ def lte(actual_value, expect_value):
     Returns:
 
     """
-    assert actual_value <= expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert actual_value <= expect_value, p_string(actual_value, expect_value)
 
 
 def gt(actual_value, expect_value):
@@ -60,7 +64,7 @@ def gt(actual_value, expect_value):
     Returns:
 
     """
-    assert actual_value > expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert actual_value > expect_value, p_string(actual_value, expect_value)
 
 
 def gte(actual_value, expect_value):
@@ -73,7 +77,7 @@ def gte(actual_value, expect_value):
     Returns:
 
     """
-    assert actual_value >= expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert actual_value >= expect_value, p_string(actual_value, expect_value)
 
 
 def neq(actual_value, expect_value):
@@ -86,7 +90,7 @@ def neq(actual_value, expect_value):
     Returns:
 
     """
-    assert actual_value != expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert actual_value != expect_value, p_string(actual_value, expect_value)
 
 
 def str_eq(actual_value, expect_value):
@@ -99,7 +103,8 @@ def str_eq(actual_value, expect_value):
     Returns:
 
     """
-    assert str(actual_value) == str(expect_value), f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert str(actual_value) == str(
+        expect_value), p_string(actual_value, expect_value)
 
 
 def length_eq(actual_value, expect_value):
@@ -112,8 +117,8 @@ def length_eq(actual_value, expect_value):
     Returns:
 
     """
-    assert isinstance(expect_value, (int,)), f"预期结果：{actual_value},实际结果：{expect_value}"
-    assert len(actual_value) == expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert isinstance(expect_value, (int,)), p_string(actual_value, expect_value)
+    assert len(actual_value) == expect_value, p_string(actual_value, expect_value)
 
 
 def length_gt(actual_value, expect_value):
@@ -126,8 +131,8 @@ def length_gt(actual_value, expect_value):
     Returns:
 
     """
-    assert isinstance(expect_value, (int,)), f"预期结果：{actual_value},实际结果：{expect_value}"
-    assert len(actual_value) > expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert isinstance(expect_value, (int,)), p_string(actual_value, expect_value)
+    assert len(actual_value) > expect_value, p_string(actual_value, expect_value)
 
 
 def length_gte(actual_value, expect_value):
@@ -140,8 +145,8 @@ def length_gte(actual_value, expect_value):
     Returns:
 
     """
-    assert isinstance(expect_value, (int,)), f"预期结果：{actual_value},实际结果：{expect_value}"
-    assert len(actual_value) >= expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert isinstance(expect_value, (int,)), p_string(actual_value, expect_value)
+    assert len(actual_value) >= expect_value, p_string(actual_value, expect_value)
 
 
 def length_lt(actual_value, expect_value):
@@ -154,8 +159,8 @@ def length_lt(actual_value, expect_value):
     Returns:
 
     """
-    assert isinstance(expect_value, (int,)), f"预期结果：{actual_value},实际结果：{expect_value}"
-    assert len(actual_value) < expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert isinstance(expect_value, (int,)), p_string(actual_value, expect_value)
+    assert len(actual_value) < expect_value, p_string(actual_value, expect_value)
 
 
 def length_lte(actual_value, expect_value):
@@ -168,8 +173,10 @@ def length_lte(actual_value, expect_value):
     Returns:
 
     """
-    assert isinstance(expect_value, (int,)), f"预期结果：{actual_value},实际结果：{expect_value}"
-    assert len(actual_value) <= expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert isinstance(expect_value, (
+        int,)), p_string(actual_value, expect_value)
+    assert len(
+        actual_value) <= expect_value, p_string(actual_value, expect_value)
 
 
 def contains(actual_value, expect_value):
@@ -182,8 +189,8 @@ def contains(actual_value, expect_value):
     Returns:
 
     """
-    assert isinstance(actual_value, (list, tuple, dict, str, bytes)), f"预期结果：{actual_value},实际结果：{expect_value}"
-    assert expect_value in actual_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert isinstance(actual_value, (list, tuple, dict, str, bytes)), p_string(actual_value, expect_value)
+    assert expect_value in actual_value, p_string(actual_value, expect_value)
 
 
 def contained_by(actual_value, expect_value):
@@ -196,8 +203,8 @@ def contained_by(actual_value, expect_value):
     Returns:
 
     """
-    assert isinstance(expect_value, (list, tuple, dict, str, bytes)), f"预期结果：{actual_value},实际结果：{expect_value}"
-    assert actual_value in expect_value, f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert isinstance(expect_value, (list, tuple, dict, str, bytes)), p_string(actual_value, expect_value)
+    assert actual_value in expect_value, p_string(actual_value, expect_value)
 
 
 def type_match(actual_value, expect_value):
@@ -222,7 +229,7 @@ def type_match(actual_value, expect_value):
         else:
             raise ValueError(name)
 
-    assert isinstance(actual_value, get_type(expect_value)), f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert isinstance(actual_value, get_type(expect_value)), p_string(actual_value, expect_value)
 
 
 def regex_match(actual_value, expect_value):
@@ -239,7 +246,7 @@ def regex_match(actual_value, expect_value):
         actual_value = json.dumps(actual_value, ensure_ascii=False)
     if not isinstance(expect_value, str):
         expect_value = json.dumps(expect_value, ensure_ascii=False)
-    assert re.match(expect_value, actual_value), f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert re.match(expect_value, actual_value), p_string(actual_value, expect_value)
 
 
 def regex_search(actual_value, expect_value):
@@ -256,7 +263,7 @@ def regex_search(actual_value, expect_value):
         actual_value = json.dumps(actual_value, ensure_ascii=False)
     if not isinstance(expect_value, str):
         expect_value = json.dumps(expect_value, ensure_ascii=False)
-    assert re.search(expect_value, actual_value), f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert re.search(expect_value, actual_value), p_string(actual_value, expect_value)
 
 
 def startswith(actual_value, expect_value):
@@ -269,7 +276,7 @@ def startswith(actual_value, expect_value):
     Returns:
 
     """
-    assert str(actual_value).startswith(str(expect_value)), f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert str(actual_value).startswith(str(expect_value)), p_string(actual_value, expect_value)
 
 
 def endswith(actual_value, expect_value):
@@ -282,4 +289,8 @@ def endswith(actual_value, expect_value):
     Returns:
 
     """
-    assert str(actual_value).endswith(str(expect_value)), f"预期结果：{actual_value},实际结果：{expect_value}"
+    assert str(actual_value).endswith(str(expect_value)), p_string(actual_value, expect_value)
+
+
+if __name__ == '__main__':
+    eq(1, "1")
