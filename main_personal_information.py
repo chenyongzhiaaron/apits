@@ -1,9 +1,14 @@
-# -*-coding:utf-8-*-
-import random
-import sys
+#!/usr/bin/env python
+# encoding: utf-8
+"""
+@author: kira
+@contact: 262667641@qq.com
+@file: main_personal_information.py
+@time: 2023/7/21 17:44
+@desc: 随机信息工具
+"""
 
-# sys.path.append('./')
-# sys.path.append('./common')
+import random
 
 from prettytable import PrettyTable
 from faker import Faker

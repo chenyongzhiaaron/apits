@@ -1,4 +1,13 @@
-# -*- coding:utf-8 -*-
+#!/usr/bin/env python
+# encoding: utf-8
+"""
+@author: kira
+@contact: 262667641@qq.com
+@file: environments.py
+@time: 2023/6/21 17:44
+@desc:
+"""
+
 import re
 from dataclasses import dataclass
 
@@ -39,7 +48,7 @@ if __name__ == '__main__':
     from common.file_handling.do_excel import DoExcel
     from config import Config
 
-    test_file = Config.test_case
+    test_file = Config.TEST_CASE
     do_excel = DoExcel(test_file)
     init_case = do_excel.get_excel_init()
     d = Environments

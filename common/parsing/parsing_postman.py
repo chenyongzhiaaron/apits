@@ -1,3 +1,13 @@
+#!/usr/bin/env python
+# encoding: utf-8
+"""
+@author: kira
+@contact: 262667641@qq.com
+@file: parsing_postman.py
+@time: 2023/8/8 10:58
+@desc:
+"""
+
 import json
 
 from common.file_handling.file_utils import FileUtils
@@ -61,48 +71,48 @@ def parsing_postman(path):
 					#         [item.get('key') + '=' + (item.get('value') or '') for item in url.get('query') if item])
 					# api请求头
 					api['Headers'] = json.dumps(header, ensure_ascii=False)
-					api['Headers Crypto'] = ''
-					api['Query Str'] = ''
+					api['HeadersCrypto'] = ''
+					api['QueryStr'] = ''
 					body = request.get('body')
 					if body:
 						# api接口请求参数类型
 						request_mode = body.get('mode')
 						if 'raw' == request_mode:
-							api['Request Data Type'] = 'json'
+							api['RequestDataType'] = 'json'
 						elif 'formdata' == request_mode:
-							api['Request Data Type'] = 'data'
+							api['RequestDataType'] = 'data'
 						elif 'urlencoded' == request_mode:
-							api['Request Data Type'] = 'data'
+							api['RequestDataType'] = 'data'
 						
 						# api接口请求参数
 						request_data = body.get(request_mode)
-						api['Request Data'] = {}
+						api['RequestData'] = {}
 						if request_data and 'raw' == request_mode:
-							api['Request Data'].update(
+							api['RequestData'].update(
 								json.loads(request_data.replace('\t', '').replace('\n', '').replace('\r', '')))
 						elif request_data and 'formdata' == request_mode:
 							if isinstance(request_data, list):
 								for item in request_data:
 									if item.get("type") == "text":
-										api['Request Data'].update({item.get('key'): item.get("value", "")})
+										api['RequestData'].update({item.get('key'): item.get("value", "")})
 									elif item.get("type") == "file":
-										api["Request Data"].update({item.get('key'): item.get("src", "")})
-										api["Request Data Type"] = "files"
-						api["Request Data"] = json.dumps(api["Request Data"], ensure_ascii=False)
-						api['Setup Script'] = ''
-						api['Request Data Crypto'] = ''
-						api['Extract Request Data'] = ''
+										api["RequestData"].update({item.get('key'): item.get("src", "")})
+										api["RequestDataType"] = "files"
+						api["RequestData"] = json.dumps(api["RequestData"], ensure_ascii=False)
+						api['SetupScript'] = ''
+						api['RequestDataCrypto'] = ''
+						api['ExtractRequestData'] = ''
 						api['Jsonpath'] = ''
 						api['Regex'] = ''
-						api['Regex Params List'] = ''
-						api['Retrieve Value'] = ''
+						api['RegexParamsList'] = ''
+						api['RetrieveValue'] = ''
 						api['SQL'] = ''
-						api['Sql Params Dict'] = ''
-						api['Teardown Script'] = ''
+						api['SqlParamsDict'] = ''
+						api['TeardownScript'] = ''
 						api['Expected'] = ''
 						api['Response'] = ''
 						api['Assertion'] = ''
-						api['Error Log'] = ''
+						api['ErrorLog'] = ''
 				
 				result.append(api)
 	
@@ -117,6 +127,6 @@ if __name__ == '__main__':
 	from common.file_handling.excel import DoExcel
 	from config import Config
 	
-	templates = Config.templates  # 使用标准模板
+	templates = Config.TEMPLATES  # 使用标准模板
 	ex = DoExcel(templates)
 	ex.do_main("postman.xlsx", *res)

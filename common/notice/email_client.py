@@ -3,7 +3,7 @@
 """
 @author: kira
 @contact: 262667641@qq.com
-@file: email.py
+@file: email_client.py
 @time: 2023/8/8 10:58
 @desc:
 """
@@ -27,17 +27,17 @@ class SendEmail:
         :param password: SMTP service authorization code of mailbox
         """
         # 邮箱服务器地址
-        self.host = Config.mail_data.get("host")
+        self.host = Config.MAIL_NOTICE.get("host")
         # 用户名
-        self.user = Config.mail_data.get("user")
+        self.user = Config.MAIL_NOTICE.get("user")
         # 密码(部分邮箱为授权码)
-        self.password = Config.mail_data.get("password")
+        self.password = Config.MAIL_NOTICE.get("password")
         # 邮件发送方邮箱地址
-        self.sender = Config.mail_data.get("sender")
+        self.sender = Config.MAIL_NOTICE.get("sender")
         # 25 为 SMTP 端口号
-        self.port = Config.mail_data.get("port")
+        self.port = Config.MAIL_NOTICE.get("port")
         # 定义接收放的邮箱(可以是多个)
-        self.receivers = Config.mail_data.get("receivers")
+        self.receivers = Config.MAIL_NOTICE.get("receivers")
 
     def content(self, content=None, file_path=None):
         """内容"""

@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 jsonpath-ng = "*"
-ddt = "*"
 jsonpath = "*"
 requests = "*"
 urllib3 = "*"
@@ -18,7 +17,9 @@ pydes = "*"
 pyyaml = "*"
 dbutils = "*"
 openpyxl = "*"
-unittestreport = "*"
+mitmproxy = "*"
+pytesseract = "*"
+paho-mqtt = "*"
 
 [dev-packages]
 

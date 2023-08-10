@@ -1,3 +1,13 @@
+#!/usr/bin/env python
+# encoding: utf-8
+"""
+@author: kira
+@contact: 262667641@qq.com
+@file: parsing_openapi.py
+@time: 2023/8/8 10:58
+@desc:
+"""
+
 import json
 
 
@@ -20,24 +30,24 @@ def parsing_openapi(file_path):
 				'Method': method,
 				'Url': path,
 				'Headers': json.dumps(extract_parameters(details.get('parameters', []), 'header')),
-				'Headers Crypto': "",
-				'Query Str': json.dumps(extract_parameters(details.get('parameters', []), 'query')),
-				'Request Data Type': determine_request_type(details.get('requestBody')),
-				'Request Data': json.dumps(extract_request_body(details.get('requestBody'))),
-				'Setup Script': '',
-				'Request Data Crypto': '',
-				'Extract Request Data': '',
+				'HeadersCrypto': "",
+				'QueryString': json.dumps(extract_parameters(details.get('parameters', []), 'query')),
+				'RequestDataType': determine_request_type(details.get('requestBody')),
+				'RequestData': json.dumps(extract_request_body(details.get('requestBody'))),
+				'SetupScript': '',
+				'RequestDataCrypto': '',
+				'ExtractRequestData': '',
 				'Jsonpath': '',
 				'Regex': '',
-				'Regex Params List': '',
-				'Retrieve Value': '',
+				'RegexParamsList': '',
+				'RetrieveValue': '',
 				'SQL': '',
-				'Sql Params Dict': '',
-				'Teardown Script': '',
+				'SqlParamsDict': '',
+				'TeardownScript': '',
 				'Expected': '',
 				'Response': '',
 				'Assertion': '',
-				'Error Log': ''}
+				'ErrorLog': ''}
 			test_cases.append(test_case)
 			count += 1
 	
@@ -109,6 +119,6 @@ if __name__ == '__main__':
 	from common.file_handling.excel import DoExcel
 	from config import Config
 	
-	templates = Config.templates  # 使用标准模板
+	templates = Config.TEMPLATES  # 使用标准模板
 	ex = DoExcel(templates)
 	ex.do_main("openapi.xlsx", *res)

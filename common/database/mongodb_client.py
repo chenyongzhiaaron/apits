@@ -51,7 +51,7 @@ class MongodbClient(object):
 		return result
 	
 	def insert_data(self):
-		base_path = os.path.join(Config.base_path, "data")
+		base_path = os.path.join(Config.BASE_URL, "data")
 		names = os.listdir(base_path)
 		for name in names:
 			if re.match(r"(.+?).json", name):

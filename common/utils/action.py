@@ -90,22 +90,21 @@ class Action(Extractor, LoadScript, Validator):
         finally:
             print(f'| 断言结果-->{self.assertions}\n')
             response = self.response.text if self.response is not None else str(self.response)
-            excel.write_back(sheet_name=sheet, i=iid, response=response, test_result=result,
-                             assert_log=str(self.assertions))
+            excel.write_back(sheet_name=sheet, i=iid, response=response, result=result, assertions=str(self.assertions))
 
     @staticmethod
     def base_info(item):
         """
         获取基础信息
         """
-        sheet = item.pop("sheet")
+        sheet = item.pop("Sheet")
         item_id = item.pop("Id")
         condition = item.pop("Run")
         sleep_time = item.pop("Time")
         name = item.pop("Name")
         desc = item.pop("Description")
-        headers_crypto = item.pop("Headers Crypto")
-        request_data_crypto = item.pop("Request Data Crypto")
+        headers_crypto = item.pop("HeadersCrypto")
+        request_data_crypto = item.pop("RequestDataCrypto")
         method = item.pop("Method")
         expected = item.pop("Expected")
         return sheet, item_id, condition, sleep_time, name, desc, headers_crypto, request_data_crypto, method, expected
@@ -113,7 +112,7 @@ class Action(Extractor, LoadScript, Validator):
     @staticmethod
     def sql_info(item):
         sql = item.pop("SQL")
-        sql_params_dict = item.pop("Sql Params Dict")
+        sql_params_dict = item.pop("SqlParamsDict")
         return sql, sql_params_dict
 
     @staticmethod
@@ -127,10 +126,10 @@ class Action(Extractor, LoadScript, Validator):
 
         """
         regex = item.pop("Regex")
-        keys = item.pop("Regex Params List")
-        deps = item.pop("Retrieve Value")
+        keys = item.pop("RegexParamsList")
+        deps = item.pop("RetrieveValue")
         jp_dict = item.pop("Jsonpath")
-        extract_request_data = item.pop("Extract Request Data")
+        extract_request_data = item.pop("ExtractRequestData")
         return regex, keys, deps, jp_dict, extract_request_data
 
     @staticmethod
@@ -139,17 +138,17 @@ class Action(Extractor, LoadScript, Validator):
         请求数据
         """
         url = item.pop("Url")
-        query_str = item.pop("Query Str")
-        request_data = item.pop("Request Data")
+        query_str = item.pop("QueryString")
+        request_data = item.pop("RequestData")
         headers = item.pop("Headers")
-        request_data_type = item.pop("Request Data Type") if item.get("Request Data Type") else 'params'
+        request_data_type = item.pop("RequestDataType") if item.get("RequestDataType") else 'params'
 
         return url, query_str, request_data, headers, request_data_type
 
     @staticmethod
     def script(item):
-        setup_script = item.pop("Setup Script")
-        teardown_script = item.pop("Teardown Script")
+        setup_script = item.pop("SetupScript")
+        teardown_script = item.pop("TeardownScript")
         return setup_script, teardown_script
 
     @staticmethod

@@ -55,7 +55,7 @@ class FileUtils:
     @staticmethod
     def get_file_path(file_name):
         """根据文件名获取指定目录下的文件路径"""
-        for root, dirs, files in os.walk(Config.test_files):
+        for root, dirs, files in os.walk(Config.TEST_FILES):
             for file in files:
                 if file == file_name:
                     return os.path.join(root, file)

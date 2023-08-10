@@ -1,33 +1,42 @@
+#!/usr/bin/env python
+# encoding: utf-8
+"""
+@author: kira
+@contact: 262667641@qq.com
+@file: config.py
+@time: 2023/3/27 8:40
+@desc: 全局配置文件
+"""
+
 import os
 
 
 class Config:
     # 根目录路径
     # *****************************************************************
-    base_path = os.path.dirname(__file__)
+    BASE_URL = os.path.dirname(__file__)
     # *****************************************************************
     # 测试数据所在路径
     # *****************************************************************
-    templates = os.path.join(base_path, "cases", "templates", "template.xlsx")  # 模板文件
-    # test_case = os.path.join(base_path, "cases", "cases", "test_api.xlsx")
-    test_case = os.path.join(base_path, "cases", "cases", "test_cases.xlsx")
-    test_files = os.path.join(base_path, 'cases', 'files')
+    TEMPLATES = os.path.join(BASE_URL, "cases", "templates", "template.xlsx")  # 用例模板文件
+    TEST_CASE = os.path.join(BASE_URL, "cases", "cases", "test_cases.xlsx")
+    TEST_FILES = os.path.join(BASE_URL, 'cases', 'files')  # 用来上传文件的文件夹
     # *****************************************************************
 
     # 测试用例脚本目录
     # *****************************************************************
-    script = os.path.join(base_path, "test_script")
+    SCRIPT = os.path.join(BASE_URL, "test_script")
+    SCRIPTS_DIR = os.path.join(BASE_URL, "scripts")
     # *****************************************************************
 
     # 测试报告及 logger 所在路径
     # *****************************************************************
-    test_report = os.path.join(base_path, "output", "reports")
-    test_report_file = os.path.join(base_path, "output", "reports","report.html")
-    log_path = os.path.join(base_path, "output", "log")
-    SCRIPTS_DIR = os.path.join(base_path, "scripts")
+    TEST_REPORT = os.path.join(BASE_URL, "output", "reports")
+    TEST_REPORT_FILE = os.path.join(BASE_URL, "output", "reports", "report.html")
+    LOG_PATH = os.path.join(BASE_URL, "output", "log")
 
     # 邮件配置信息
-    mail_data = {
+    MAIL_NOTICE = {
         "host": "smtp.qq.com",  # 邮件服务地址
         "user": "262667641@qq.com",  # 用户名
         "password": "ztvqsnikiupvbghe",  # 密码（部分邮箱为授权码）# 密码
@@ -36,13 +45,13 @@ class Config:
         "receivers": ['262667641@qq.com', '125109524@qq.com']  # 接收方的邮箱
     }
     # 企业微信机器人配置信息
-    weixin_notice = {
+    WeChat_NOTICE = {
         "send_url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=8b1647d4-dc32-447c-b524-548acf18a938",
         "upload_url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/upload_media?type=file&key=8b1647d4-dc32-447c-b524-548acf18a938",
-        "file_lists": [test_report_file, test_case]  # 需要推送的文件的路径
+        "file_lists": [TEST_REPORT_FILE, TEST_CASE]  # 需要推送的文件的路径
     }
     # 钉钉机器人配置信息
-    dingtalk_notice = {
+    DINGTALK_NOTICE = {
         "url": "https://oapi.dingtalk.com/robot/send?access_token=7d1e11079e00a4ca9f11283f526349abd5ba3f792ef7bcb346909ff215af02de",
         "secret": "SEC441dbbdb8dbe150e5fc3e348bb449d3113b1be1a90be527b898ccd78c51566c1",
         "key": "",  # 安全关键字
@@ -54,8 +63,8 @@ class Config:
 
 if __name__ == '__main__':
     test = Config()
-    print(test.base_path)
-    print(test.test_case)
-    print(test.test_report)
-    print(test.test_case)
+    print(test.BASE_URL)
+    print(test.TEST_CASE)
+    print(test.TEST_REPORT)
+    print(test.TEST_CASE)
     print(test.SCRIPTS_DIR)

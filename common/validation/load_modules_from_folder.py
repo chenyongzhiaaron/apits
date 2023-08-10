@@ -3,9 +3,9 @@
 """
 @author: kira
 @contact: 262667641@qq.com
-@file: load_fun_from_modul.py
+@file: load_modules_from_folder.py
 @time: 2023/3/17 16:15
-@desc:
+@desc:动态加载文件或模块
 """
 import importlib.util
 import os

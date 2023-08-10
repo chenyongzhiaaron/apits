@@ -1,9 +1,10 @@
 # -*- coding:utf-8 -*-
 """
-Time: 2020/6/1/001 15:29
-Author: kira
-Email:262667641@qq.com
-Project:api_project
+@author: kira
+@contact: 262667641@qq.com
+@file: data_extractor.py
+@time: 2023/3/24 10:32
+@desc:
 """
 import json
 import re

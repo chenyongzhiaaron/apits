@@ -3,7 +3,7 @@
 """
 @author: kira
 @contact: 262667641@qq.com
-@file: MQTT.py
+@file: mqtt_client.py
 @time: 2023/4/23 18:54
 @desc:
 """

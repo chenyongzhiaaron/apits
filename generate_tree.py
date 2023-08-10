@@ -1,3 +1,11 @@
+"""
+@author: kira
+@contact: 262667641@qq.com
+@file: generate_tree.py
+@time: 2023/7/21 17:44
+@desc: 目录树生成器
+"""
+
 import os
 
 

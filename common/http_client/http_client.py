@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+"""
+@Time : 2021/5/8 10:36
+@Author : kira
+@Email : 262667641@qq.com
+@File : http_client.py
+"""
+
 import json
 import mimetypes
 import re
@@ -7,14 +14,13 @@ import sys
 import requests
 import urllib3
 
-from common.utils.exceptions import ResponseJsonConversionError
-
 sys.path.append("../")
 sys.path.append("./common")
 
 from common.validation.load_modules_from_folder import LoadModulesFromFolder
 from common.file_handling.file_utils import FileUtils
 from common.utils.decorators import request_retry_on_exception
+from common.utils.exceptions import ResponseJsonConversionError
 
 
 class HttpClient(LoadModulesFromFolder):

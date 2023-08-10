@@ -1,3 +1,14 @@
+# coding: utf-8
+
+# -------------------------------------------------------------------------------
+# Name:         load_and_execute_script.py
+# Description:  模块脚本动态执行器
+# Author:       kira
+# EMAIL:        262667641@qq.com
+# Date:         2020/2/25 16:48
+# -------------------------------------------------------------------------------
+
+
 import importlib.util
 import os
 import sys

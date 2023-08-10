@@ -1,7 +1,7 @@
 # coding: utf-8
 # -------------------------------------------------------------------------------
 # Name:         validator.py
-# Description:
+# Description:  校验器
 # Author:       kira
 # EMAIL:        262667641@qq.com
 # Date:         2023/03/24 17:32

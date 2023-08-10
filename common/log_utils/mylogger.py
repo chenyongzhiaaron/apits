@@ -13,7 +13,7 @@ from loguru import logger
 
 from config import Config
 
-LOG_DIR = Config.log_path
+LOG_DIR = Config.LOG_PATH
 
 
 class MyLogger:

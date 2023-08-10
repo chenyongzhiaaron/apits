@@ -19,10 +19,10 @@ class WeChat:
     headers = {"Content-Type": "application/json"}
 
     def __init__(self, notice_content):
-        self.send_url = Config.weixin_notice.get('send_url')
-        self.up_url = Config.weixin_notice.get("upload_url")
+        self.send_url = Config.WeChat_NOTICE.get('send_url')
+        self.up_url = Config.WeChat_NOTICE.get("upload_url")
         self.notice_content = notice_content
-        self.file_lists = Config.weixin_notice.get("file_lists")
+        self.file_lists = Config.WeChat_NOTICE.get("file_lists")
 
     def send_markdown(self):
         """

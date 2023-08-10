@@ -3,7 +3,7 @@
 """
 @author: kira
 @contact: 262667641@qq.com
-@file: RabbitMQClient.py
+@file: rabbit_mq_client.py
 @time: 2023/4/23 16:44
 @desc:
 """

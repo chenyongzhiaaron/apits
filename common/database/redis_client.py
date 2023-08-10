@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
-# @Time : 2021/5/8 10:36
-# @Author : kira
-# @Email : 262667641@qq.com
-# @File : do_redis.py
-# @Project : api-test-project
+"""
+@Time : 2021/5/8 10:36
+@Author : kira
+@Email : 262667641@qq.com
+@File : redis_client.py
+"""
+
 import redis
 
 

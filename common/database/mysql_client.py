@@ -3,9 +3,9 @@
 """
 @author: kira
 @contact: 262667641@qq.com
-@file: pymysql_.py
+@file: mysql_client.py
 @time: 2023/6/14 17:58
-@desc:
+@desc: mysql数据库操作封装
 """
 import json
 

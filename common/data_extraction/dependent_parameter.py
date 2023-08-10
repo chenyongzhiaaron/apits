@@ -3,7 +3,7 @@
 """
 @author: kira
 @contact: 262667641@qq.com
-@file: restr.py
+@file: dependent_parameter.py
 @time: 2023/3/24 10:32
 @desc:
 """

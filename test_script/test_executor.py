@@ -10,14 +10,13 @@
 import unittest
 
 import extensions
+from common.core.dataDriver import ddt
 from common.file_handling.do_excel import DoExcel
 from common.utils.action import Action
+from common.utils.decorators import list_data
 from config import Config
-from unittestreportnew import list_data
-# from ddt import ddt, data
-from unittestreportnew.core.dataDriver import ddt
 
-test_file = Config.test_case  # 获取 excel 文件路径
+test_file = Config.TEST_CASE  # 获取 excel 文件路径
 excel = DoExcel(test_file)
 
 test_case, databases, initialize_data, host = excel.get_excel_init_and_cases()
@@ -35,7 +34,6 @@ class TestProjectApi(unittest.TestCase):
     def setUp(self) -> None:
         pass
 
-    # @data(*test_case)
     @list_data(test_case)
     def test_api(self, item):
         sheet, iid, condition, st, name, desc, h_crypto, r_crypto, method, expected = self.action.base_info(item)

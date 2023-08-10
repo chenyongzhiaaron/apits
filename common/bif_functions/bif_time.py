@@ -58,6 +58,5 @@ def ms_fmt_hms(ms):
     return f"{hour}:{minute}:{sec}.{ms}"
 
 
-
 if __name__ == '__main__':
     get_timestamp()

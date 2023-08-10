@@ -1,12 +1,17 @@
+"""
+@author: kira
+@contact: 262667641@qq.com
+@file: execute_sql_files.py
+@time: 2023/3/24 10:32
+@desc: sql 语句批量执行小工具
+"""
+
 import glob
 import os
 
 import pymysql
 
-from common.database import logger
 
-
-@logger.log_decorator()
 def execute_sql_files(sql_path, db_config):
     """
     批量执行sql语句

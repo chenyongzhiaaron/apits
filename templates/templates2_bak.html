@@ -21,78 +21,85 @@
 
         .title {
             width: auto;
-            height: 50px;
+            height: 80px;
             text-align: center;
-            font: bolder 25px/50px "Microsoft YaHei UI";
+            font: bolder 30px/80px "Microsoft YaHei UI";
             color: #61AFEF; /* 蓝色文字颜色 */
             background: #1E1E1E; /* 深灰色背景颜色 */
             border-bottom: solid 1px #3E4451; /* 深灰色边框颜色 */
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         .content-box {
-            height: 410px;
+            height: 700px;
             width: 100%;
             display: flex;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
-        .box1, .box2, .box3 {
-            flex: 1px;
-            margin: 0 5px;
+        .box1 {
+            flex: 3;
         }
 
-        .box3 > .panel {
-            background: #282C34;
-            border: 1px solid rgba(25, 186, 139, 0.17);
-            width: 100%;
-            height: 410px;
+        .box2 {
+            flex: 5;
+            margin: 0 10px;
         }
 
+        .box3 {
+            flex: 4;
+        }
 
         .panel {
             position: relative;
             border: 1px solid rgba(25, 186, 139, 0.17);
             background: #282C34; /* 深蓝灰色背景颜色 */
-            padding: 0 5px 10px;
-            margin-bottom: 5px;
+            padding: 0 10px 50px;
+            margin-bottom: 10px;
         }
 
         .panel h2,
         .test_info h2 {
-            height: 30px;
-            line-height: 35px;
+            height: 40px;
+            line-height: 40px;
             text-align: center;
             color: #61AFEF; /* 蓝色标题颜色 */
             font-size: 20px;
             font-weight: bold;
-            margin: 5px;
+            margin: 0;
         }
 
-        .panel .chart, .panel .chart2, .panel .chart3, .panel .desc {
+        .panel .chart {
+            height: 250px;
+        }
+
+        .panel .chart2 {
+            height: 350px;
+        }
+
+        .panel .desc {
             height: 150px;
         }
 
-        .info {
-            font: normal 5px/10px "Microsoft YaHei UI Light";
+        .panel .desc .info {
+            font: normal 18px/25px "Microsoft YaHei UI";
             color: #D4D4D4; /* 浅灰色文字颜色 */
             display: flex;
         }
 
-        .info div {
-            padding: 8px;
+        .panel .desc .info div {
+            padding: 10px;
             border: solid 1px #3E4451; /* 深灰色边框颜色 */
         }
 
-
-        .info div span {
-            margin-left: 5px;
+        .panel .desc .info div span {
+            margin-left: 20px;
         }
 
         /* 执行信息样式   */
         .test_info {
             width: 100%;
-            /*padding: 1;*/
+            padding: 20px 100px;
             background: #282C34; /* 深蓝灰色背景颜色 */
         }
 
@@ -100,9 +107,9 @@
         .table th {
             border: solid 1px #3E4451 !important; /* 深灰色边框颜色 */
             padding: 0 !important;
-            line-height: 30px;
+            line-height: 40px;
             text-align: center;
-            height: 15px;
+            height: 40px;
             color: #D4D4D4; /* 浅灰色文字颜色 */
         }
 
@@ -110,33 +117,31 @@
             border: 0;
             padding: 0;
             margin: 0;
-            height: 1.5em;
-            width: 6em;
-            margin-left: 0.5em;
+            height: 2em;
+            width: 8em;
+            margin-left: 2em;
         }
 
         option {
             text-align: center;
-            height: 15px;
-            font: none 10px/20px "Microsoft YaHei UI";
+            height: 36px;
+            font: none 18px/36px "Microsoft YaHei UI";
             color: #73C991; /* 明亮绿色 */
         }
 
         .test_log {
-            background: rgba(45, 25, 18, 0.15); /* 黑色背景颜色 */
+            background: rgba(255, 69, 0, 0.15); /* 橙红色背景颜色 */
             width: 100%;
-            height: 30px;
+            height: 50px;
             border-top: none;
             border-bottom: none;
             display: none;
             text-align: left;
-            margin: 10px 10px;
-            padding: 10px 10px;
         }
 
         .test_log td {
             text-align: left;
-            height: 15px;
+            height: 30px;
             margin: 0;
             padding-left: 3em;
             padding-right: 3em;
@@ -150,54 +155,50 @@
             white-space: -o-pre-wrap;
             word-wrap: break-word;
             color: #D4D4D4; /* 浅灰色文字颜色 */
-            line-height: 35px;
-            font-size: 13px;
+            line-height: 22px;
+            font-size: 14px;
         }
 
         .chart4 {
             overflow: auto;
             width: 100%;
-            height: 350px;
+            height: 600px;
         }
 
         .chart4::-webkit-scrollbar {
-            width: 2px;
+            width: 10px;
         }
 
         .chart4::-webkit-scrollbar-thumb {
             /* 滚动条里面小方块 */
-            border-radius: 2px;
+            border-radius: 5px;
             -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.62); /* 深灰色背景颜色 */
             background: #1E1E1E; /* 深灰色背景颜色 */
-            height: 5px;
+            height: 10px;
         }
 
         .chart4::-webkit-scrollbar-track {
             /* 滚动条里面轨道 */
             -webkit-box-shadow: inset 0 0 5px #3E4451; /* 深灰色边框颜色 */
-            border-radius: 5px;
+            border-radius: 10px;
             background: #1E1E1E; /* 深灰色背景颜色 */
         }
 
         /* 详细内容描述的小标题 */
-    .table_data {
+        .table_title {
             text-align: center;
-            background: #282C34; /* 蓝色背景颜色 */
-            font: bold 14px/28px 'Microsoft YaHei UI';
+            background: #61AFEF; /* 蓝色背景颜色 */
+            font: bold 18px/30px 'Microsoft YaHei UI';
             color: #D4D4D4; /* 浅灰色文字颜色 */
-            border-radius: 5px;
+            border-radius: 10px;
         }
-    button,.btn-sm{
-    font-size:0.5rem;
-        border-radius:0.5rem
-    }
     </style>
+
 
 </head>
 <body>
 <div class="main">
-    <div class="title"
-         style="color: #61AFEF; background: #1E1E1E; border-bottom: solid 1px #3E4451; margin-bottom: 10px;">
+    <div class="title" style="color: #61AFEF; background: #1E1E1E; border-bottom: solid 1px #3E4451; margin-bottom: 10px;">
         {{ title }}
     </div>
     <div class="content-box">
@@ -243,14 +244,14 @@
                             <span>{{ success }}</span>
                         </div>
                         <div style="flex: 5">
-                            <button type="button" class="btn btn-primary btn-sm ">成功占比</button>
+                            <button type="button" class="btn btn-primary btn-sm ">通过率</button>
                             <span>{{ pass_rate }}%</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="panel" style="background: #282C34; border: 1px solid rgba(25, 186, 139, 0.17);">
-                <h2 style="color: #61AFEF;">通过率趋势</h2>
+                <h2 style="color: #61AFEF;">通过率趋势图</h2>
                 <div class="chart2" id="char2"></div>
             </div>
         </div>
@@ -263,8 +264,8 @@
                         <tr>
                             <th scope="col">执行时间</th>
                             <th scope="col">用例总数</th>
-                            <th scope="col">成功数量</th>
-                            <th scope="col">成功占比</th>
+                            <th scope="col">成功用例数</th>
+                            <th scope="col">通过率</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -332,7 +333,7 @@
                     <td class="text-info">{{ foo.state }}</td>
                     {% endif %}
                     <td>
-                        <button type="button" class="btn btn_info btn-primary btn-sm">详情</button>
+                        <button type="button" class="btn btn_info btn-primary btn-sm">查看详情</button>
                     </td>
                 </tr>
                 <tr class="test_log">
@@ -365,7 +366,8 @@
         "begin_time": "{{runtime}}",
         "pass_rate": '{{pass_rate}}',
     };
-    const history = {{history}};
+    const history = {{ history }};
+
     var passRate = [];
     var dTime = [];
     history.forEach(function (item, index, array) {
@@ -423,10 +425,10 @@
                         show: false,
                     },
                     data: [
-                        {value: resulte.success, name: '通过'},
-                        {value: resulte.fail, name: '失败'},
-                        {value: resulte.error, name: '错误'},
-                        {value: resulte.skip, name: '跳过'},
+                        { value: resulte.success, name: '通过' },
+                        { value: resulte.fail, name: '失败' },
+                        { value: resulte.error, name: '错误' },
+                        { value: resulte.skip, name: '跳过' },
                     ],
                 },
             ],
@@ -511,7 +513,7 @@
             ],
             series: [
                 {
-                    name: '成功占比',
+                    name: '通过率',
                     type: 'line',
                     smooth: true,
                     symbol: 'circle',

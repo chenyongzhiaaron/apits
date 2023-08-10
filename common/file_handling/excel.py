@@ -178,7 +178,7 @@ if __name__ == '__main__':
 	        {"url": "1234", "header": "2134", "method": "{}sss", "body": json.dumps({})}]
 	from config import Config
 	
-	template_file = Config.templates
+	template_file = Config.TEMPLATES
 	excel = DoExcel(path=template_file)
 	out_file = r'..\..\OutPut\另存为的文件.xlsx'
 	excel.do_main(out_file, *data)

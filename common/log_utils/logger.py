@@ -3,8 +3,7 @@
 # @Author : kira
 # @Email : 262667641@qq.com
 # @File : logger.py.py
-# @Project : risk_api_project
-
+# @Project :
 
 import logging
 import time
@@ -33,7 +32,7 @@ class MyLog:
 		每星期（interval == 0 时代表星期一
 		midnight 每天凌晨
 		"""
-		file_name = Config.log_path
+		file_name = Config.LOG_PATH
 
 		my_logger = logging.getLogger()  # 定义日志收集器 my_logger
 		my_logger.setLevel(self.level_relations.get(level))  # 设置日志级别

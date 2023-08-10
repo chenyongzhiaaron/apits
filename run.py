@@ -3,7 +3,7 @@
 # @Author : kira
 # @Email : 262667641@qq.com
 # @File : run_main.py
-# @Project : risk_api_project
+# @Desc : 程序执行入口文件
 import sys
 import unittest
 
@@ -12,19 +12,20 @@ sys.path.append("./")
 sys.path.append('cases')
 
 from config import Config
-# from unittestreport import TestRunner
-from unittestreportnew import TestRunner
+from common.core.testRunner import TestRunner
+from common.utils.install_dependencies import install_dependencies
 
 
 def run():
-    test_report = Config.test_report
-    test_case = unittest.defaultTestLoader.discover(Config.script, pattern="test_*.py")
+    install_dependencies()
+    test_report = Config.TEST_REPORT
+    test_case = unittest.defaultTestLoader.discover(Config.SCRIPT, pattern="test_*.py")
     runner = TestRunner(test_case, report_dir=test_report, title="接口自动化测试报告", templates=2, tester="kira",
                         desc="自动化测试")
     runner.run()
     # get_failed_test_cases = runner.get_failed_test_cases()
     # runner.email_notice()
-    # runner.dingtalk_notice()
+    # runner.DINGTALK_NOTICE()
     runner.weixin_notice()
 
 

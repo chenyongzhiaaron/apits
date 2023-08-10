@@ -23,11 +23,11 @@ class DingTalk:
 
     def __init__(self, title, notice_content, except_info):
         """"""
-        self.url = Config.dingtalk_notice.get("url")
+        self.url = Config.DINGTALK_NOTICE.get("url")
         self.notice_content = notice_content
         self.title = title
         self.except_info = except_info
-        self.secret = Config.dingtalk_notice.get("secret")
+        self.secret = Config.DINGTALK_NOTICE.get("secret")
 
     def sign(self):
         """加签"""
@@ -41,18 +41,18 @@ class DingTalk:
 
     def content(self):
         """markdown 内容"""
-        if Config.dingtalk_notice.get("except_info"):
+        if Config.DINGTALK_NOTICE.get("except_info"):
             self.notice_content += '\n ### 未通过用例详情：\n'
             self.notice_content += self.except_info
         data = {
             "msgtype": "markdown",
             "markdown": {
-                "title": '{}({})'.format(self.title, Config.dingtalk_notice.get("key")),
+                "title": '{}({})'.format(self.title, Config.DINGTALK_NOTICE.get("key")),
                 "text": self.notice_content
             },
             "at": {
-                "atMobiles": Config.dingtalk_notice.get("atMobiles"),
-                "isAtAll": Config.dingtalk_notice.get("isatall")
+                "atMobiles": Config.DINGTALK_NOTICE.get("atMobiles"),
+                "isAtAll": Config.DINGTALK_NOTICE.get("isatall")
             }
         }
         return data
