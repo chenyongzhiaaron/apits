@@ -436,13 +436,13 @@ excel 中有一个 method 字段，设置值为 sql 即可，后面的 SQL,SQL �
 #### 测试报告?
 
 html 或者 excel 中 都有，直接自行使用查看吧
-![img.png](image/img_22.png)
-![img.png](image/img_23.png)
+![img.png](image/img_33.png)
+![img.png](image/img_34.png)
 ![img.png](/image/img_13.png)
 ![img.png](/image/img_14.png)
 ![img.png](/image/img_15.png)
 ![img.png](/image/img_16.png)
-![img.png](/image/img_17.png)
+![img.png](/image/img_32.png)
 
 #### 统计用例运行时长？
 

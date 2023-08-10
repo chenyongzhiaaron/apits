@@ -4,65 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="增加处理函数调用链变量以及修复动态函数中传参失效的问题">
+    <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="美化测试报告样式，优化代码">
+      <change afterPath="$PROJECT_DIR$/image/img_32.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutPut/reports/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/OutPut/reports/report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cases/cases/test_cases.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/cases/cases/test_cases.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cases/templates/template.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/cases/templates/template.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/MQclient/mqtt_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/MQclient/mqtt_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/MQclient/rabbit_mq_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/MQclient/rabbit_mq_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/bif_functions/bif_str.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/bif_functions/bif_str.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/bif_functions/bif_time.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/bif_functions/bif_time.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/crypto/encrypt_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/crypto/encrypt_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/crypto/encryption_aes.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/crypto/encryption_aes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/crypto/encryption_base64_to_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/crypto/encryption_base64_to_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/crypto/encryption_str.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/crypto/encryption_str.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/data_extraction/data_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/data_extraction/data_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/data_extraction/dependent_parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/data_extraction/dependent_parameter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/database/execute_sql_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/database/execute_sql_files.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/database/mongodb_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/database/mongodb_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/database/mysql_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/database/mysql_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/database/redis_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/database/redis_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/file_handling/do_excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/file_handling/do_excel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/file_handling/excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/file_handling/excel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/file_handling/file_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/file_handling/file_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/http_client/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/http_client/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/http_client/http_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/http_client/http_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/log_utils/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/log_utils/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/log_utils/mylogger.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/log_utils/mylogger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/notice/dingding.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/notice/dingding.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/notice/email_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/notice/email_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/notice/weChat.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/notice/weChat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/parsing/parsing_openapi.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/parsing/parsing_openapi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/parsing/parsing_postman.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/parsing/parsing_postman.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/action.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/action.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/environments.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/environments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/validation/load_and_execute_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/validation/load_and_execute_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/validation/load_modules_from_folder.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/validation/load_modules_from_folder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/validation/loaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/validation/loaders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/validation/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/validation/validator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug/filtered_requests.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/excel_converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/excel_converter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/generate_tree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_personal_information.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_personal_information.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/reports/history.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/reports/history.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/templates/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/templates.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/templates.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/templates2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/templates2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_script/api_performance_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_script/api_performance_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_script/test_executor.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_script/test_executor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreportnew/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreportnew/core/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreportnew/core/dataDriver.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreportnew/core/parameterized.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreportnew/core/resultPush.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreportnew/core/testResult.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittestreportnew/core/testRunner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +226,7 @@
       <workItem from="1690937027137" duration="37912000" />
       <workItem from="1691034024300" duration="10612000" />
       <workItem from="1691370512935" duration="75686000" />
-      <workItem from="1691638175448" duration="3134000" />
+      <workItem from="1691638175448" duration="3561000" />
     </task>
     <task id="LOCAL-00001" summary="优化代码">
       <option name="closed" value="true" />
@@ -387,7 +332,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690970941519</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="美化测试报告样式，优化代码">
+      <option name="closed" value="true" />
+      <created>1691642894708</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1691642894708</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +356,8 @@
     <MESSAGE value="测试浏览记录到csv" />
     <MESSAGE value="修复动态加载函数的bug" />
     <MESSAGE value="增加处理函数调用链变量以及修复动态函数中传参失效的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加处理函数调用链变量以及修复动态函数中传参失效的问题" />
+    <MESSAGE value="美化测试报告样式，优化代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="美化测试报告样式，优化代码" />
   </component>
   <component name="com.github.evgenys91.machinet.common.dslhistory.DslHistoryState">
     <option name="historyDtoById">
