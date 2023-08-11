@@ -7,3 +7,7 @@
 @time: 2023/3/13 14:48
 @desc:
 """
+import sys
+
+sys.path.append("../../../")
+sys.path.append("../../common")

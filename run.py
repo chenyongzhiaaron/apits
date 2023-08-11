@@ -13,11 +13,11 @@ sys.path.append('cases')
 
 from config import Config
 from common.core.testRunner import TestRunner
-from common.utils.install_dependencies import install_dependencies
+from common.utils.decorators import install_dependencies
 
 
+@install_dependencies
 def run():
-    install_dependencies()
     test_report = Config.TEST_REPORT
     test_case = unittest.defaultTestLoader.discover(Config.SCRIPT, pattern="test_*.py")
     runner = TestRunner(test_case, report_dir=test_report, title="接口自动化测试报告", templates=2, tester="kira",
@@ -25,7 +25,7 @@ def run():
     runner.run()
     # get_failed_test_cases = runner.get_failed_test_cases()
     # runner.email_notice()
-    # runner.DINGTALK_NOTICE()
+    runner.dingtalk_notice()
     runner.weixin_notice()
 
 

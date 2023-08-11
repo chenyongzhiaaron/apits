@@ -11,12 +11,3 @@ import subprocess
 import sys
 
 
-def install_dependencies():
-    try:
-        print("---------------- 檢測并且安装依赖文件 ----------------")
-        subprocess.check_call(["pipenv", "install"])
-        print("---------------- 成功安装所有依赖文件 ----------------")
-
-    except Exception as e:
-        print(f"Failed to install dependencies: {str(e)}")
-        sys.exit(1)

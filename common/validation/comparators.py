@@ -12,7 +12,9 @@ import re
 
 
 def p_string(a, e):
-    return f"预期：{a} -> {type(a)}, 实际：{e} -> {type(e)}"
+    ta = str(type(a)).replace("<", "(").replace(">", ")")
+    te = str(type(e)).replace("<", "(").replace(">", ")")
+    return f"<span style='color:red' >预期：{a} -> {ta}, 实际：{e} -> {te}</span>"
 
 
 def eq(actual_value, expect_value):

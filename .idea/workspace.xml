@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="更新说明文档">
+    <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="更友好的异常信息输出">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OutPut/reports/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/OutPut/reports/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cases/cases/test_cases.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/cases/cases/test_cases.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/database/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/database/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/database/mysql_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/database/mysql_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/utils/action.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/action.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/utils/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/decorators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/utils/install_dependencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/install_dependencies.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/validation/comparators.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/validation/comparators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dingtalk.md" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dingtalk.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/weChat.md" beforeDir="false" afterPath="$PROJECT_DIR$/templates/weChat.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/reports/history.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/reports/history.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/templates2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/templates2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,32 +55,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/app/apitest/templates&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/app/apitest",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\app\apitest" />
       <recent name="D:\app\apitest\templates" />
       <recent name="D:\app\apitest\image" />
-      <recent name="D:\app\apitest" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\app\apitest\common" />
@@ -82,7 +90,7 @@
       <recent name="D:\app\apitest\common\log_utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.comparators">
+  <component name="RunManager" selected="Python.run">
     <configuration name="comparators" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="api_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -127,28 +135,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="email_client (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="api_project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common/notiction" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common/notiction/email_client.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="api_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -163,6 +149,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run_script_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="api_project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_script_main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -188,11 +196,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.comparators" />
         <item itemvalue="Python.run" />
+        <item itemvalue="Python.run_script_main" />
+        <item itemvalue="Python.comparators" />
         <item itemvalue="Python 测试.Python 测试 (test_executor.py 内)" />
         <item itemvalue="Python.dingding" />
-        <item itemvalue="Python.email_client (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -228,7 +236,8 @@
       <workItem from="1691034024300" duration="10612000" />
       <workItem from="1691370512935" duration="75686000" />
       <workItem from="1691638175448" duration="3625000" />
-      <workItem from="1691657355432" duration="2811000" />
+      <workItem from="1691657355432" duration="5387000" />
+      <workItem from="1691667714661" duration="8406000" />
     </task>
     <task id="LOCAL-00001" summary="优化代码">
       <option name="closed" value="true" />
@@ -350,7 +359,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691643261338</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="更友好的异常信息输出">
+      <option name="closed" value="true" />
+      <created>1691660444913</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1691660444913</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +385,8 @@
     <MESSAGE value="增加处理函数调用链变量以及修复动态函数中传参失效的问题" />
     <MESSAGE value="美化测试报告样式，优化代码" />
     <MESSAGE value="更新说明文档" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新说明文档" />
+    <MESSAGE value="更友好的异常信息输出" />
+    <option name="LAST_COMMIT_MESSAGE" value="更友好的异常信息输出" />
   </component>
   <component name="com.github.evgenys91.machinet.common.dslhistory.DslHistoryState">
     <option name="historyDtoById">
@@ -389,13 +407,14 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/apitest$load_modules_from_folder.coverage" NAME="load_modules_from_folder 覆盖结果" MODIFIED="1691398471049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/validation" />
-    <SUITE FILE_PATH="coverage/apitest$run.coverage" NAME="run 覆盖结果" MODIFIED="1691642368284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/apitest$run.coverage" NAME="run 覆盖结果" MODIFIED="1691722116466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/apitest$Unittest__test_api_py__.coverage" NAME="Unittest (test_api.py 内) 覆盖结果" MODIFIED="1689907531802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_script" />
     <SUITE FILE_PATH="coverage/apitest$dingding.coverage" NAME="dingding 覆盖结果" MODIFIED="1691483158998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/notiction" />
     <SUITE FILE_PATH="coverage/apitest$assert_dict.coverage" NAME="assert_dict 覆盖结果" MODIFIED="1691034548959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/data_extraction" />
     <SUITE FILE_PATH="coverage/apitest$dependent_parameter.coverage" NAME="dependent_parameter 覆盖结果" MODIFIED="1691398478714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/data_extraction" />
     <SUITE FILE_PATH="coverage/apitest$re_chain.coverage" NAME="re_chain 覆盖结果" MODIFIED="1690962595251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/debug" />
     <SUITE FILE_PATH="coverage/apitest$validator.coverage" NAME="validator 覆盖结果" MODIFIED="1691395818973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/validation" />
+    <SUITE FILE_PATH="coverage/apitest$run_script_main.coverage" NAME="run_script_main 覆盖结果" MODIFIED="1691722112563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/apitest$exceptions.coverage" NAME="exceptions 覆盖结果" MODIFIED="1691395709236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/utils" />
     <SUITE FILE_PATH="coverage/apitest$requestRecord__1_.coverage" NAME="requestRecord (1) 覆盖结果" MODIFIED="1690531988570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/debug" />
     <SUITE FILE_PATH="coverage/apitest$__init__.coverage" NAME="__init__ 覆盖结果" MODIFIED="1691028135541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/debug" />
@@ -410,7 +429,7 @@
     <SUITE FILE_PATH="coverage/apitest$resultPush.coverage" NAME="resultPush 覆盖结果" MODIFIED="1691465454364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/unittestreportnew/core" />
     <SUITE FILE_PATH="coverage/apitest$.coverage" NAME=" 覆盖结果" MODIFIED="1691568903890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_script" />
     <SUITE FILE_PATH="coverage/apitest$method_chain.coverage" NAME="method_chain 覆盖结果" MODIFIED="1690967090148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/debug" />
-    <SUITE FILE_PATH="coverage/apitest$comparators.coverage" NAME="comparators 覆盖结果" MODIFIED="1691660379642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/validation" />
+    <SUITE FILE_PATH="coverage/apitest$comparators.coverage" NAME="comparators 覆盖结果" MODIFIED="1691666161767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/validation" />
     <SUITE FILE_PATH="coverage/apitest$encryption_str.coverage" NAME="encryption_str 覆盖结果" MODIFIED="1690796164466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/crypto" />
     <SUITE FILE_PATH="coverage/apitest$data_extractor.coverage" NAME="data_extractor 覆盖结果" MODIFIED="1691398486016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/data_extraction" />
     <SUITE FILE_PATH="coverage/apitest$get_set.coverage" NAME="get_set 覆盖结果" MODIFIED="1689930576115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/debug" />

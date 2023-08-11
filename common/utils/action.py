@@ -88,7 +88,8 @@ class Action(Extractor, LoadScript, Validator):
             AssertionFailedError(error_info, e)
             raise e
         finally:
-            print(f'| 断言结果-->{self.assertions}\n')
+            print(f'| <span style="color:yellow">断言结果-->{self.assertions}</span>\n')
+            print("-" * 50)
             response = self.response.text if self.response is not None else str(self.response)
             excel.write_back(sheet_name=sheet, i=iid, response=response, result=result, assertions=str(self.assertions))
 

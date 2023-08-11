@@ -8,6 +8,8 @@
 @desc:
 """
 import json
+import subprocess
+import sys
 from functools import wraps
 
 import yaml
@@ -43,7 +45,7 @@ def request_retry_on_exception(retries=2, delay=1.5):
             nonlocal e
             for i in range(retries):
                 try:
-                    print(f"| 第{i + 1}次发送请求的参数： {kwargs}")
+
                     response = func(*args, **kwargs)
                     print(f"| 请求地址 --> {response.request.url}")
                     print(f"| 请求头 --> {response.request.headers}")
@@ -53,6 +55,7 @@ def request_retry_on_exception(retries=2, delay=1.5):
                     print(f"| 接口响应--> {response.text}")
 
                 except Exception as error:
+                    print(f"| 第{i + 1}次发送请求的参数：{args} -- {kwargs}")
                     e = error
                     time.sleep(delay)
                 else:
@@ -149,5 +152,23 @@ def rerun(count, interval=2):
             run_count(count, interval, func, *args, **kwargs)
 
         return decorator
+
+    return wrapper
+
+
+def install_dependencies(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+
+        try:
+            print("---------------- 檢測并且安装依赖文件 ----------------")
+            subprocess.check_call(["pipenv", "install"])
+            print("---------------- 成功安装所有依赖文件 ----------------")
+
+        except Exception as e:
+            print(f"Failed to install dependencies: {str(e)}")
+            sys.exit(1)
+        else:
+            return func(*args, **kwargs)
 
     return wrapper
