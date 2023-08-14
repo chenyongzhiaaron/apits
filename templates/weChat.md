@@ -6,7 +6,7 @@
 > 开始时间：<font color='info'>{{begin_time}}</font> 
 > 运行时间：<font color='info'>{{runtime}}</font>  
 > 测试用例总数：<font color='info'>{{all}}</font>
-> 测试用例通过率：<font color='info'>{pass_rate}%</font>
+> 测试用例通过率：<font color='info'>{{pass_rate}}%</font>
 > 成功数: <font color='info'>{{success}}</font>
 > 失败数：<font color='warning'>{{fail}}</font>
 > 跳过数：<font color='info'>{{skip}}, </font>

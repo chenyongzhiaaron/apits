@@ -74,7 +74,7 @@ class TestRunner:
 
     def __get_reports(self):
         """生成测试报告"""
-        print("所有用例执行完毕，正在生成测试报告中......")
+        print("All cases have been executed and the test report is being generated......")
         test_result = self.__calculate_test_result()
         test_result['runtime'] = '{:.2f} S'.format(time.time() - self.starttime)
         test_result["begin_time"] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(self.starttime))
@@ -97,7 +97,7 @@ class TestRunner:
         with open(self.file_path, 'wb') as f:
             f.write(report_content.encode('utf8'))
         self.test_result = test_result
-        print(f"测试报告已经生成，报告路径为:{self.file_path}")
+        print(f"The test report path is: {self.file_path}")
         return test_result
 
     def __calculate_test_result(self):
@@ -196,12 +196,15 @@ class TestRunner:
             for texts in i.failures:
                 t, content = texts
                 num += 1
-                except_info.append("*{}、用例【{}】执行失败*，\n失败信息如下：".format(num, t._testMethodDoc))
+                except_info.append(
+                    "*{}、case【{}】Execution failed*，\nThe Execution information is as follows：".format(num,
+                                                                                                      t._testMethodDoc))
                 except_info.append(content)
             for texts in i.errors:
                 num += 1
                 t, content = texts
-                except_info.append("*{}、用例【{}】执行错误*，\n错误信息如下：".format(num, t._testMethodDoc))
+                except_info.append(
+                    "*{}、case【{}】Execution error*，\nThe error information is as follows：".format(num, t._testMethodDoc))
                 except_info.append(content)
         except_str = "\n".join(except_info)
         return except_str

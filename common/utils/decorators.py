@@ -45,9 +45,10 @@ def request_retry_on_exception(retries=2, delay=1.5):
             nonlocal e
             for i in range(retries):
                 try:
-
+                    print(f"| 第{i + 1}次未处理过得请求参数：{args} -- {kwargs}")
                     response = func(*args, **kwargs)
                     print(f"| 请求地址 --> {response.request.url}")
+                    print(f"| 请求方法 --> {response.request.method}")
                     print(f"| 请求头 --> {response.request.headers}")
                     print(f"| 请求 body --> {response.request.body}")
                     print(f"| 接口状态--> {response.status_code}")
@@ -55,7 +56,7 @@ def request_retry_on_exception(retries=2, delay=1.5):
                     print(f"| 接口响应--> {response.text}")
 
                 except Exception as error:
-                    print(f"| 第{i + 1}次发送请求的参数：{args} -- {kwargs}")
+
                     e = error
                     time.sleep(delay)
                 else:
@@ -119,7 +120,6 @@ def json_data(file_path):
 
 
 import time
-import traceback
 
 
 def run_count(count, interval, func, *args, **kwargs):
@@ -128,8 +128,8 @@ def run_count(count, interval, func, *args, **kwargs):
         try:
             func(*args, **kwargs)
         except Exception as e:
-            print("====用例执行失败===")
-            traceback.print_exc()
+            # print("====用例执行失败===", e)
+            # traceback.print_exc()
             if i + 1 == count:
                 raise e
             else:

@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="更友好的异常信息输出">
+    <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="增加依赖装饰器，增加自动安装依赖文件，修改报告日志输出边距及颜色">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutPut/reports/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/OutPut/reports/report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cases/cases/test_cases.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/cases/cases/test_cases.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/database/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/database/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/database/mysql_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/database/mysql_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/action.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/action.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/core/testRunner.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/core/testRunner.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/utils/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/install_dependencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/install_dependencies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/validation/comparators.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/validation/comparators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/utils/install_dependencies.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/output/reports/history.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/reports/history.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/templates2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/templates2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dingtalk.md" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dingtalk.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/weChat.md" beforeDir="false" afterPath="$PROJECT_DIR$/templates/weChat.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,27 +52,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/app/apitest",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/app/apitest&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\app\apitest" />
@@ -237,7 +234,8 @@
       <workItem from="1691370512935" duration="75686000" />
       <workItem from="1691638175448" duration="3625000" />
       <workItem from="1691657355432" duration="5387000" />
-      <workItem from="1691667714661" duration="8406000" />
+      <workItem from="1691667714661" duration="8686000" />
+      <workItem from="1691973725101" duration="6000000" />
     </task>
     <task id="LOCAL-00001" summary="优化代码">
       <option name="closed" value="true" />
@@ -367,7 +365,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691660444913</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="增加依赖装饰器，增加自动安装依赖文件，修改报告日志输出边距及颜色">
+      <option name="closed" value="true" />
+      <created>1691722760750</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1691722760750</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +392,8 @@
     <MESSAGE value="美化测试报告样式，优化代码" />
     <MESSAGE value="更新说明文档" />
     <MESSAGE value="更友好的异常信息输出" />
-    <option name="LAST_COMMIT_MESSAGE" value="更友好的异常信息输出" />
+    <MESSAGE value="增加依赖装饰器，增加自动安装依赖文件，修改报告日志输出边距及颜色" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加依赖装饰器，增加自动安装依赖文件，修改报告日志输出边距及颜色" />
   </component>
   <component name="com.github.evgenys91.machinet.common.dslhistory.DslHistoryState">
     <option name="historyDtoById">
@@ -407,7 +414,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/apitest$load_modules_from_folder.coverage" NAME="load_modules_from_folder 覆盖结果" MODIFIED="1691398471049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/validation" />
-    <SUITE FILE_PATH="coverage/apitest$run.coverage" NAME="run 覆盖结果" MODIFIED="1691722116466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/apitest$run.coverage" NAME="run 覆盖结果" MODIFIED="1691979676787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/apitest$Unittest__test_api_py__.coverage" NAME="Unittest (test_api.py 内) 覆盖结果" MODIFIED="1689907531802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_script" />
     <SUITE FILE_PATH="coverage/apitest$dingding.coverage" NAME="dingding 覆盖结果" MODIFIED="1691483158998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/notiction" />
     <SUITE FILE_PATH="coverage/apitest$assert_dict.coverage" NAME="assert_dict 覆盖结果" MODIFIED="1691034548959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/data_extraction" />
