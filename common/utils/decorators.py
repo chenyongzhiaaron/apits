@@ -20,7 +20,7 @@ from common.utils.exceptions import RequestSendingError
 def singleton(cls):
     """
     Args:
-    cls:被装饰类
+    cls:Decorated class
     Returns:
     """
     instance = {}
@@ -35,7 +35,7 @@ def singleton(cls):
 
 
 def request_retry_on_exception(retries=2, delay=1.5):
-    """失败请求重发"""
+    """Retry on Failed Requests"""
 
     def request_decorator(func):
         e = None
@@ -54,7 +54,6 @@ def request_retry_on_exception(retries=2, delay=1.5):
                     print(f"| 接口状态--> {response.status_code}")
                     print(f"| 接口耗时--> {response.elapsed}")
                     print(f"| 接口响应--> {response.text}")
-
                 except Exception as error:
 
                     e = error
@@ -70,7 +69,7 @@ def request_retry_on_exception(retries=2, delay=1.5):
 
 def list_data(datas):
     """
-    :param datas: 测试数据
+    :param datas: Test data
     :return:
     """
 
@@ -83,7 +82,7 @@ def list_data(datas):
 
 def yaml_data(file_path):
     """
-    :param file_path: yaml文件路径
+    :param file_path:YAML file path
     :return:
     """
 
@@ -102,7 +101,7 @@ def yaml_data(file_path):
 
 def json_data(file_path):
     """
-    :param file_path: json文件路径
+    :param file_path: YAML file path
     :return:
     """
 
@@ -123,7 +122,7 @@ import time
 
 
 def run_count(count, interval, func, *args, **kwargs):
-    """运行计数"""
+    """Run Count"""
     for i in range(count):
         try:
             func(*args, **kwargs)
@@ -141,9 +140,9 @@ def run_count(count, interval, func, *args, **kwargs):
 
 def rerun(count, interval=2):
     """
-    单个测试用例重运行的装饰器,注意点，如果使用了ddt,那么该方法要在用在ddt之前
-    :param count: 失败重运行次数
-    :param interval: 每次重运行间隔时间,默认三秒钟
+     Decorator for rerunning a single test case; note that if using ddt, this method should be used before ddt
+    :param count: Number of retries on failure
+    :param interval: Interval time between each retry, default is three seconds
     :return:
     """
 
@@ -157,13 +156,15 @@ def rerun(count, interval=2):
 
 
 def install_dependencies(func):
+    """Checking and Installing Dependencies"""
+
     @wraps(func)
     def wrapper(*args, **kwargs):
 
         try:
-            print("---------------- 檢測并且安装依赖文件 ----------------")
+            print("---------------- Checking and Installing Dependencies ----------------")
             subprocess.check_call(["pipenv", "install"])
-            print("---------------- 成功安装所有依赖文件 ----------------")
+            print("---------------- Successfully Installed All Dependencies ----------------")
 
         except Exception as e:
             print(f"Failed to install dependencies: {str(e)}")
@@ -172,3 +173,27 @@ def install_dependencies(func):
             return func(*args, **kwargs)
 
     return wrapper
+
+
+def send_request_decorator(func):
+    """Decorator to handle the logic of sending requests."""
+
+    def decorator(self, host, method, extract_request_data):
+        """Handles setup, request execution, and teardown logic for sending requests.
+
+               Args:
+                   self: The instance of the class.
+                   host: The host for the request.
+                   method: The HTTP method for the request.
+                   extract_request_data: Data for extracting request details.
+
+               Returns:
+                   The response from the request.
+               """
+        setup_script, teardown_script = self.script(self.variables)
+        self.execute_dynamic_code(self.variables, setup_script)
+        response = func(self, host, method, extract_request_data)
+        self.execute_dynamic_code(self.response, teardown_script)
+        return response
+
+    return decorator

@@ -74,7 +74,7 @@ class Validator(Loaders):
             check_item = validate_variable['check']
             expect_value = validate_variable['expect']
             comparator = validate_variable['comparator']
-            if not check_item.startswith("$"):
+            if not str(check_item).startswith("$"):
                 actual_value = check_item
             else:
                 actual_value = Extractor.extract_value_by_jsonpath(resp_obj=resp, expr=check_item)
@@ -111,7 +111,7 @@ class Validator(Loaders):
         self.uniform_validate(validate_variables)
         if not self.validate_variables_list:
             raise InvalidParameterFormatError(self.validate_variables_list,
-                                        "uniform_validate 执行失败，无法进行 validate 校验")
+                                              "uniform_validate 执行失败，无法进行 validate 校验")
         self.validate(resp)
 
 

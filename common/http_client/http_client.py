@@ -83,6 +83,8 @@ class HttpClient(LoadModulesFromFolder):
         [i.close() for i in fs if len(fs) > 0]
         try:
             self.response_json = self.response.json()
+            self.update_environments("responseStatusCode", self.response.status_code)
+            self.update_environments("responseTime", round(self.response.elapsed.total_seconds() * 1000, 2))
         except Exception as e:
             ResponseJsonConversionError(self.response.text, str(e))
             self.response_json = None

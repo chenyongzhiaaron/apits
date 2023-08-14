@@ -175,10 +175,8 @@ def length_lte(actual_value, expect_value):
     Returns:
 
     """
-    assert isinstance(expect_value, (
-        int,)), p_string(actual_value, expect_value)
-    assert len(
-        actual_value) <= expect_value, p_string(actual_value, expect_value)
+    assert isinstance(expect_value, (int,)), p_string(actual_value, expect_value)
+    assert len(actual_value) <= expect_value, p_string(actual_value, expect_value)
 
 
 def contains(actual_value, expect_value):
@@ -296,3 +294,4 @@ def endswith(actual_value, expect_value):
 
 if __name__ == '__main__':
     eq(1, "1")
+    lte(1.23, 400.3)

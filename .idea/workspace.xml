@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="增加依赖装饰器，增加自动安装依赖文件，修改报告日志输出边距及颜色">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutPut/reports/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/OutPut/reports/report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cases/cases/test_cases.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/cases/cases/test_cases.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/core/testRunner.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/core/testRunner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils/install_dependencies.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/reports/history.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/reports/history.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dingtalk.md" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dingtalk.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/weChat.md" beforeDir="false" afterPath="$PROJECT_DIR$/templates/weChat.md" afterDir="false" />
-    </list>
+    <list default="true" id="eded71e8-6551-463d-9bd4-cdbb3ffc536c" name="更改" comment="优化钉钉报告样式" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -194,8 +184,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.run" />
-        <item itemvalue="Python.run_script_main" />
         <item itemvalue="Python.comparators" />
+        <item itemvalue="Python.run_script_main" />
         <item itemvalue="Python 测试.Python 测试 (test_executor.py 内)" />
         <item itemvalue="Python.dingding" />
       </list>
@@ -235,7 +225,8 @@
       <workItem from="1691638175448" duration="3625000" />
       <workItem from="1691657355432" duration="5387000" />
       <workItem from="1691667714661" duration="8686000" />
-      <workItem from="1691973725101" duration="6000000" />
+      <workItem from="1691973725101" duration="6601000" />
+      <workItem from="1691980768817" duration="14005000" />
     </task>
     <task id="LOCAL-00001" summary="优化代码">
       <option name="closed" value="true" />
@@ -373,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691722760750</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="优化钉钉报告样式">
+      <option name="closed" value="true" />
+      <created>1691980245927</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1691980245927</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +392,8 @@
     <MESSAGE value="更新说明文档" />
     <MESSAGE value="更友好的异常信息输出" />
     <MESSAGE value="增加依赖装饰器，增加自动安装依赖文件，修改报告日志输出边距及颜色" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加依赖装饰器，增加自动安装依赖文件，修改报告日志输出边距及颜色" />
+    <MESSAGE value="优化钉钉报告样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化钉钉报告样式" />
   </component>
   <component name="com.github.evgenys91.machinet.common.dslhistory.DslHistoryState">
     <option name="historyDtoById">
@@ -414,7 +414,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/apitest$load_modules_from_folder.coverage" NAME="load_modules_from_folder 覆盖结果" MODIFIED="1691398471049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/validation" />
-    <SUITE FILE_PATH="coverage/apitest$run.coverage" NAME="run 覆盖结果" MODIFIED="1691979676787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/apitest$run.coverage" NAME="run 覆盖结果" MODIFIED="1692004486581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/apitest$Unittest__test_api_py__.coverage" NAME="Unittest (test_api.py 内) 覆盖结果" MODIFIED="1689907531802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_script" />
     <SUITE FILE_PATH="coverage/apitest$dingding.coverage" NAME="dingding 覆盖结果" MODIFIED="1691483158998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/notiction" />
     <SUITE FILE_PATH="coverage/apitest$assert_dict.coverage" NAME="assert_dict 覆盖结果" MODIFIED="1691034548959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/data_extraction" />
@@ -436,7 +436,7 @@
     <SUITE FILE_PATH="coverage/apitest$resultPush.coverage" NAME="resultPush 覆盖结果" MODIFIED="1691465454364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/unittestreportnew/core" />
     <SUITE FILE_PATH="coverage/apitest$.coverage" NAME=" 覆盖结果" MODIFIED="1691568903890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_script" />
     <SUITE FILE_PATH="coverage/apitest$method_chain.coverage" NAME="method_chain 覆盖结果" MODIFIED="1690967090148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/debug" />
-    <SUITE FILE_PATH="coverage/apitest$comparators.coverage" NAME="comparators 覆盖结果" MODIFIED="1691666161767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/validation" />
+    <SUITE FILE_PATH="coverage/apitest$comparators.coverage" NAME="comparators 覆盖结果" MODIFIED="1691996672342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/validation" />
     <SUITE FILE_PATH="coverage/apitest$encryption_str.coverage" NAME="encryption_str 覆盖结果" MODIFIED="1690796164466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/crypto" />
     <SUITE FILE_PATH="coverage/apitest$data_extractor.coverage" NAME="data_extractor 覆盖结果" MODIFIED="1691398486016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/data_extraction" />
     <SUITE FILE_PATH="coverage/apitest$get_set.coverage" NAME="get_set 覆盖结果" MODIFIED="1689930576115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/debug" />

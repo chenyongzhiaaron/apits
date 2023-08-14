@@ -13,7 +13,7 @@ import time
 from common import bif_functions
 from common.crypto.encrypt_data import EncryptData
 from common.database.mysql_client import MysqlClient
-from common.utils.decorators import singleton
+from common.utils.decorators import singleton, send_request_decorator
 from common.utils.exceptions import *
 from common.validation.extractor import Extractor
 from common.validation.load_and_execute_script import LoadScript
@@ -46,52 +46,24 @@ class Action(Extractor, LoadScript, Validator):
 
         return self.variables
 
-    @property
-    def variables(self, key=None):
-        return self.__variables if not key else self.__variables.get(key)
+    @send_request_decorator
+    def send_request(self, host, method, extract_request_data):
 
-    @variables.setter
-    def variables(self, item):
-        self.__variables = item
+        url, kwargs = self.prepare_request(extract_request_data, self.variables)
+        self.http_client(host, url, method, **kwargs)
+
+    def prepare_request(self, extract_request_data, item):
+        item = self.replace_dependent_parameter(item)
+        url, query_str, request_data, headers, request_data_type, h_crypto, r_crypto = self.request_info(item)
+        headers, request_data = self.analysis_request(request_data, h_crypto, headers, r_crypto, extract_request_data)
+        kwargs = {request_data_type: request_data, "headers": headers, "params": query_str}
+        return url, kwargs
 
     def analysis_request(self, request_data, headers_crypto, headers, request_crypto, extract_request_data):
         headers, request_data = self.encrypt.encrypts(headers_crypto, headers, request_crypto, request_data)
         if extract_request_data is not None and request_data is not None:
             self.substitute_data(request_data, jp_dict=extract_request_data)
         return headers, request_data
-
-    def send_request(self, host, url, method, teardown_script, **kwargs):
-        self.http_client(host, url, method, **kwargs)
-        self.update_environments("responseStatusCode", self.response.status_code)
-        self.update_environments("responseTime", round(self.response.elapsed.total_seconds() * 1000, 2))
-        self.execute_dynamic_code(self.response, teardown_script)
-
-    def analysis_response(self, sheet, iid, name, desc, regex, keys, deps, jp_dict):
-        try:
-            self.substitute_data(self.response_json, regex=regex, keys=keys, deps=deps, jp_dict=jp_dict)
-        except Exception as err:
-            msg = f"| 分析响应失败：{sheet}_{iid}_{name}_{desc}"
-            f"\nregex={regex};"
-            f" \nkeys={keys};"
-            f"\ndeps={deps};"
-            f"\njp_dict={jp_dict}"
-            f"\n{err}"
-            ParameterExtractionError(msg, err)
-
-    def execute_validation(self, excel, sheet, iid, name, desc, expected):
-        try:
-            self.run_validate(expected, self.response_json)
-            result = "PASS"
-        except Exception as e:
-            result = "FAIL"
-            error_info = f"| exception case:**{sheet}_{iid}_{name}_{desc},{self.assertions}"
-            AssertionFailedError(error_info, e)
-            raise e
-        finally:
-            print(f'| <span style="color:yellow">断言结果-->{self.assertions}</span>\n')
-            print("-" * 50)
-            response = self.response.text if self.response is not None else str(self.response)
-            excel.write_back(sheet_name=sheet, i=iid, response=response, result=result, assertions=str(self.assertions))
 
     @staticmethod
     def base_info(item):
@@ -104,11 +76,9 @@ class Action(Extractor, LoadScript, Validator):
         sleep_time = item.pop("Time")
         name = item.pop("Name")
         desc = item.pop("Description")
-        headers_crypto = item.pop("HeadersCrypto")
-        request_data_crypto = item.pop("RequestDataCrypto")
         method = item.pop("Method")
         expected = item.pop("Expected")
-        return sheet, item_id, condition, sleep_time, name, desc, headers_crypto, request_data_crypto, method, expected
+        return sheet, item_id, condition, sleep_time, name, desc, method, expected
 
     @staticmethod
     def sql_info(item):
@@ -143,8 +113,10 @@ class Action(Extractor, LoadScript, Validator):
         request_data = item.pop("RequestData")
         headers = item.pop("Headers")
         request_data_type = item.pop("RequestDataType") if item.get("RequestDataType") else 'params'
+        headers_crypto = item.pop("HeadersCrypto")
+        request_data_crypto = item.pop("RequestDataCrypto")
 
-        return url, query_str, request_data, headers, request_data_type
+        return url, query_str, request_data, headers, request_data_type, headers_crypto, request_data_crypto
 
     @staticmethod
     def script(item):
@@ -168,6 +140,7 @@ class Action(Extractor, LoadScript, Validator):
 
     def exc_sql(self, item):
         sql, sql_params_dict = self.sql_info(item)
+        self.variables = item
         sql = self.replace_dependent_parameter(sql)
         if sql:
             client = MysqlClient(self.db_config)
@@ -175,6 +148,42 @@ class Action(Extractor, LoadScript, Validator):
             print(f"| 执行 sql 成功--> {execute_sql_results}")
             if execute_sql_results and sql_params_dict:
                 self.substitute_data(execute_sql_results, jp_dict=sql_params_dict)
+
+    def analysis_response(self, sheet, iid, name, desc, regex, keys, deps, jp_dict):
+        try:
+            self.substitute_data(self.response_json, regex=regex, keys=keys, deps=deps, jp_dict=jp_dict)
+        except Exception as err:
+            msg = f"| 分析响应失败：{sheet}_{iid}_{name}_{desc}"
+            f"\nregex={regex};"
+            f" \nkeys={keys};"
+            f"\ndeps={deps};"
+            f"\njp_dict={jp_dict}"
+            f"\n{err}"
+            ParameterExtractionError(msg, err)
+
+    def execute_validation(self, excel, sheet, iid, name, desc, expected):
+        expected = self.replace_dependent_parameter(expected)
+        try:
+            self.run_validate(expected, self.response_json)
+            result = "PASS"
+        except Exception as e:
+            result = "FAIL"
+            error_info = f"| exception case:**{sheet}_{iid}_{name}_{desc},{self.assertions}"
+            AssertionFailedError(error_info, e)
+            raise e
+        finally:
+            print(f'| <span style="color:yellow">断言结果-->{self.assertions}</span>\n')
+            print("-" * 50 + "我是分割线" + "-" * 50)
+            response = self.response.text if self.response is not None else str(self.response)
+            excel.write_back(sheet_name=sheet, i=iid, response=response, result=result, assertions=str(self.assertions))
+
+    @property
+    def variables(self, key=None):
+        return self.__variables if not key else self.__variables.get(key)
+
+    @variables.setter
+    def variables(self, item):
+        self.__variables = item
 
 
 if __name__ == '__main__':
