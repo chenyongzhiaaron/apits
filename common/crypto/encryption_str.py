@@ -213,5 +213,18 @@ def captcha(file_path):
     print(str(res))
     return res
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 if __name__ == '__main__':
     captcha('../../image/origina388l.png')

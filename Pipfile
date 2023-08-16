@@ -20,6 +20,8 @@ openpyxl = "*"
 mitmproxy = "*"
 pytesseract = "*"
 paho-mqtt = "*"
+ddddocr = "*"
+crypto = "*"
 
 [dev-packages]
 
