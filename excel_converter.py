@@ -7,7 +7,7 @@
 """
 import os.path
 
-from config import Config
+from config.config import Config
 from common.file_handling.excel import DoExcel
 from common.parsing.parsing_openapi import parsing_openapi
 from common.parsing.parsing_postman import parsing_postman

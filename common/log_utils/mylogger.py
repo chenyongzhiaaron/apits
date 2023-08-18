@@ -11,7 +11,7 @@ from time import perf_counter
 
 from loguru import logger
 
-from config import Config
+from config.config import Config
 
 LOG_DIR = Config.LOG_PATH
 

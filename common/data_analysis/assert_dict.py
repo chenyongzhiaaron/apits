@@ -7,7 +7,7 @@ import sys
 
 sys.path.append("../")
 sys.path.append("./common")
-from common.data_extraction.analysis_json import AnalysisJson
+from common.data_analysis.analysis_json import AnalysisJson
 from common.utils.decorators import singleton
 
 

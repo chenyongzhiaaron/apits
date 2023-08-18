@@ -12,7 +12,7 @@ import requests
 import urllib3
 
 urllib3.disable_warnings()
-from config import Config
+from config.config import Config
 
 
 class WeChat:

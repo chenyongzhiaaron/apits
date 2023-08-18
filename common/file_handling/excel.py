@@ -176,7 +176,7 @@ if __name__ == '__main__':
 	data = [{"url": "1234", "header": "2134", "method": "get", "body": "hhh", "ok": 12345},
 	        {"url": "1234", "header": "2134"},
 	        {"url": "1234", "header": "2134", "method": "{}sss", "body": json.dumps({})}]
-	from config import Config
+	from config.config import Config
 	
 	template_file = Config.TEMPLATES
 	excel = DoExcel(path=template_file)

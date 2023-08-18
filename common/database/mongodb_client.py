@@ -6,7 +6,7 @@ import jsonpath
 import pymongo
 
 from dateutil import parser
-from config import Config
+from config.config import Config
 from common.file_handling.do_excel import DoExcel
 
 sys.path.append("../")

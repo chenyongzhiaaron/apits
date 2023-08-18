@@ -18,22 +18,22 @@ class Config:
     # *****************************************************************
     # 测试数据所在路径
     # *****************************************************************
-    TEMPLATES = os.path.join(BASE_URL, "cases", "templates", "template.xlsx")  # 用例模板文件
-    TEST_CASE = os.path.join(BASE_URL, "cases", "cases", "test_cases.xlsx")
-    TEST_FILES = os.path.join(BASE_URL, 'cases', 'files')  # 用来上传文件的文件夹
+    TEMPLATES = os.path.join(BASE_URL, "../cases", "templates", "template.xlsx")  # 用例模板文件
+    TEST_CASE = os.path.join(BASE_URL, "../cases", "cases", "test_cases.xlsx")
+    TEST_FILES = os.path.join(BASE_URL, '../cases', 'files')  # 用来上传文件的文件夹
     # *****************************************************************
 
     # 测试用例脚本目录
     # *****************************************************************
-    SCRIPT = os.path.join(BASE_URL, "test_script")
-    SCRIPTS_DIR = os.path.join(BASE_URL, "scripts")
+    SCRIPT = os.path.join(BASE_URL, "../test_script")
+    SCRIPTS_DIR = os.path.join(BASE_URL, "../scripts")
     # *****************************************************************
 
     # 测试报告及 logger 所在路径
     # *****************************************************************
-    TEST_REPORT = os.path.join(BASE_URL, "output", "reports")
-    TEST_REPORT_FILE = os.path.join(BASE_URL, "output", "reports", "report.html")
-    LOG_PATH = os.path.join(BASE_URL, "output", "log")
+    TEST_REPORT = os.path.join(BASE_URL, "../OutPut", "reports")
+    TEST_REPORT_FILE = os.path.join(BASE_URL, "../OutPut", "reports", "report.html")
+    LOG_PATH = os.path.join(BASE_URL, "../OutPut", "log")
 
     # 邮件配置信息
     MAIL_NOTICE = {

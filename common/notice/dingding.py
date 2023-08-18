@@ -15,7 +15,7 @@ import urllib.parse
 
 import requests
 
-from config import Config
+from config.config import Config
 
 
 class DingTalk:

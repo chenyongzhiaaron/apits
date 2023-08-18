@@ -11,7 +11,7 @@ sys.path.append("./common")
 sys.path.append("./")
 sys.path.append('cases')
 
-from config import Config
+from config.config import Config
 from common.core.testRunner import TestRunner
 from common.utils.decorators import install_dependencies
 

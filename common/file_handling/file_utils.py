@@ -14,7 +14,7 @@ from configparser import RawConfigParser
 
 import yaml
 
-from config import Config
+from config.config import Config
 
 
 class FileUtils:

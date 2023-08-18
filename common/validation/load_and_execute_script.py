@@ -60,7 +60,7 @@ class LoadScript:
 
 
 if __name__ == '__main__':
-    from config import Config
+    from config.config import Config
 
     SCRIPTS_DIR = Config.SCRIPTS_DIR
     load_and_exe_s = LoadScript()

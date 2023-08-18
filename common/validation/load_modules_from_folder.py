@@ -11,7 +11,7 @@ import importlib.util
 import os
 import types
 
-from common.data_extraction.dependent_parameter import DependentParameter
+from common.data_analysis.dependent_parameter import DependentParameter
 from common.utils.exceptions import DynamicLoadingError
 
 

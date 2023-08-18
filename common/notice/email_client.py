@@ -13,7 +13,7 @@ from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart  # 定义带有附件的邮件对象
 from email.mime.text import MIMEText
 
-from config import Config
+from config.config import Config
 
 
 class SendEmail:

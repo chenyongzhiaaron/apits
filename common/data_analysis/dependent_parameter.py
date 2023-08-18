@@ -9,7 +9,7 @@
 """
 import json
 
-from common.data_extraction.data_extractor import DataExtractor
+from common.data_analysis.data_extractor import DataExtractor
 from common.utils.exceptions import ParameterExtractionError, ResponseJsonConversionError
 
 

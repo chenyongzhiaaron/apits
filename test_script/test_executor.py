@@ -14,7 +14,7 @@ from common.core.dataDriver import ddt
 from common.file_handling.do_excel import DoExcel
 from common.utils.action import Action
 from common.utils.decorators import list_data
-from config import Config
+from config.config import Config
 
 test_file = Config.TEST_CASE  # 获取 excel 文件路径
 excel = DoExcel(test_file)

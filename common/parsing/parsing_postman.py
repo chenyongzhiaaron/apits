@@ -125,7 +125,7 @@ if __name__ == '__main__':
 	pat = r'..\..\cases\temporary_file\postman.json'
 	res = parsing_postman(pat)
 	from common.file_handling.excel import DoExcel
-	from config import Config
+	from config.config import Config
 	
 	templates = Config.TEMPLATES  # 使用标准模板
 	ex = DoExcel(templates)

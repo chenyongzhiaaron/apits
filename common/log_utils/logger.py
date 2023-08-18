@@ -9,7 +9,7 @@ import logging
 import time
 from logging import handlers
 
-from config import Config
+from config.config import Config
 
 
 class MyLog:
