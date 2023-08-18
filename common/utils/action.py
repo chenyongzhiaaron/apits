@@ -177,8 +177,15 @@ class Action(Extractor, LoadScript, Validator):
     @staticmethod
     def is_run(condition):
         is_run = condition
-        if not is_run or is_run.upper() != "YES":
+        if not is_run or is_run.upper() != FieldNames.YES:
             return True
+        return None
+
+    @staticmethod
+    def is_only_sql(method):
+        if method.upper() == FieldNames.SQL:
+            return True
+        return None
 
     @staticmethod
     def pause_execution(sleep_time):

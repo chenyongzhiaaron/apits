@@ -11,6 +11,8 @@
 
 class FieldNames:
     """sheet字段"""
+    INIT = "init"
+    SHEETS = "Sheets"
     SHEET = "Sheet"
     ITEM_ID = "Id"
     RUN_CONDITION = "Run"
@@ -36,3 +38,11 @@ class FieldNames:
     SETUP_SCRIPT = "SetupScript"
     TEARDOWN_SCRIPT = "TeardownScript"
     PARAMS = "params"
+    RESPONSE = "response"
+    RESULT = "result"
+    ASSERTIONS = "assertions"
+    YES = "YES"
+    DATABASES = "Databases"
+    INITIALIZE_DATA = "InitializeData"
+    HOST = "Host"
+    PATH = "Path"

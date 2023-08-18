@@ -11,7 +11,7 @@ sys.path.append("../../common")
 from openpyxl import load_workbook
 from common.utils.decorators import singleton
 from common.file_handling import logger
-
+from config.field_constants import FieldNames
 
 @singleton
 class DoExcel:
@@ -19,7 +19,7 @@ class DoExcel:
     def __init__(self, file_name):
         self.file_name = file_name
         self.wb = load_workbook(self.file_name)
-        self.init_sheet = self.wb["init"]
+        self.init_sheet = self.wb[FieldNames.INIT]
 
     # def __enter__(self):
     #     self.wb = load_workbook(self.file_name)
@@ -42,7 +42,7 @@ class DoExcel:
         Returns:
     
         """
-        sheets = eval(self.get_excel_init().get("Sheets"))
+        sheets = eval(self.get_excel_init().get(FieldNames.SHEETS))
         for sheet_name in sheets:
             sheet = self.wb[sheet_name]
             max_row = self.get_max_row(sheet)
@@ -54,7 +54,7 @@ class DoExcel:
                 sub_data = {}
                 for k in range(1, max_column + 1):
                     sub_data[first_header[k - 1]] = sheet.cell(i, k).value
-                    sub_data["Sheet"] = sheet_name
+                    sub_data[FieldNames.SHEET] = sheet_name
                 yield sub_data
 
     @logger.log_decorator()
@@ -69,9 +69,9 @@ class DoExcel:
             assert_log: 报错结果
         Returns:
         """
-        response = kwargs.get("response")
-        result = kwargs.get("result")
-        assertions = kwargs.get("assertions")
+        response = kwargs.get(FieldNames.RESPONSE)
+        result = kwargs.get(FieldNames.RESULT)
+        assertions = kwargs.get(FieldNames.ASSERTIONS)
         sheet = self.wb[sheet_name]
         sheet.cell(i + 1, 24).value = response
         sheet.cell(i + 1, 25).value = result
@@ -85,7 +85,7 @@ class DoExcel:
         Returns:
     
         """
-        sheets = eval(self.get_excel_init().get("Sheets"))
+        sheets = eval(self.get_excel_init().get(FieldNames.SHEETS))
 
         for sheet_name in sheets:
             sheet = self.wb[sheet_name]
@@ -112,7 +112,7 @@ class DoExcel:
         for k in range(2, max_row + 1):
             for i, v in enumerate(first_head):
                 init[v] = self.init_sheet.cell(k, i + 1).value
-            if init.get("Run").upper() == "YES":
+            if init.get(FieldNames.RUN_CONDITION).upper() == FieldNames.YES:
                 break
         return init
 
@@ -126,10 +126,10 @@ class DoExcel:
             self.clear_date()
             test_case = self.do_excel_yield()
             init_data = self.get_excel_init()
-            databases = init_data.get('Databases')
-            initialize_data = eval(init_data.get("InitializeData"))
-            host = init_data.get('Host', "")
-            path = init_data.get("Path", "")
+            databases = init_data.get(FieldNames.DATABASES)
+            initialize_data = eval(init_data.get(FieldNames.INITIALIZE_DATA))
+            host = init_data.get(FieldNames.HOST, "")
+            path = init_data.get(FieldNames.PATH, "")
             host_path = host if host is not None else "" + path if path is not None else ""
         except Exception as e:
             raise e

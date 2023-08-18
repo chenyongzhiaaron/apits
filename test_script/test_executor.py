@@ -42,7 +42,7 @@ class TestProjectApi(unittest.TestCase):
         regex, keys, deps, jp_dict, ex_request_data = self.action.extractor_info(item)
         self.action.pause_execution(st)
         self.action.exc_sql(item)
-        if method.upper() == 'SQL':
+        if self.action.is_only_sql(method):
             self.skipTest("这条测试用例被 SQL 吃了，所以放弃执行了！！")
         # prepost_script = f"prepost_script_{sheet}_{iid}.py"
         # item = self.action.load_and_execute_script(Config.SCRIPTS_DIR, prepost_script, "setup", item)
