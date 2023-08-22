@@ -66,6 +66,7 @@ class DingTalk:
             sign = None
         try:
             requests.post(url=self.url, json=notice_content, params=sign)
+            print("The dingtalk has been sent successfully！！")
         except Exception as e:
             print("发送钉钉异常", e)
 

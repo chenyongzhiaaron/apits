@@ -23,6 +23,8 @@ paho-mqtt = "*"
 ddddocr = "*"
 crypto = "*"
 jinja2 = "*"
+prettytable = "*"
+Crypto = "*"
 
 [dev-packages]
 

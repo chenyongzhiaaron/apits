@@ -45,7 +45,6 @@ def request_retry_on_exception(retries=2, delay=1.5):
             nonlocal e
             for i in range(retries):
                 try:
-                    print(f"| 第{i + 1}次未处理过得请求参数：{args} -- {kwargs}")
                     response = func(*args, **kwargs)
                     print(f"| 请求地址 --> {response.request.url}")
                     print(f"| 请求方法 --> {response.request.method}")
@@ -55,7 +54,7 @@ def request_retry_on_exception(retries=2, delay=1.5):
                     print(f"| 接口耗时--> {response.elapsed}")
                     print(f"| 接口响应--> {response.text}")
                 except Exception as error:
-
+                    print(f"| 第{i + 1}次请求参数：{args} -- {kwargs}")
                     e = error
                     time.sleep(delay)
                 else:

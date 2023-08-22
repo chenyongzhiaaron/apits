@@ -65,10 +65,17 @@ class SendEmail:
     def send_mail(self, content, file_path=None):
         """发送邮件"""
         try:
-            s = smtplib.SMTP_SSL(self.host, self.port)
-            # s.starttls()
+            # s = smtplib.SMTP_SSL(self.host, self.port)
+            s = smtplib.SMTP(self.host, self.port)
+            s.starttls()  # 尝试启用TLS/SSL连接
             s.login(self.user, self.password)
             s.sendmail(self.sender, self.receivers, self.content(content, file_path))
             s.quit()
+            print("The email has been sent successfully！！")
         except Exception as e:
             print("发送邮件异常", e)
+
+
+if __name__ == '__main__':
+    s = SendEmail()
+    s.send_mail()

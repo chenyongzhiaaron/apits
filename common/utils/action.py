@@ -118,7 +118,6 @@ class Action(Extractor, LoadScript, Validator):
         """
         获取基础信息
         """
-        print(item)
         sheet = item.pop(FieldNames.SHEET)
         item_id = item.pop(FieldNames.ITEM_ID)
         condition = item.pop(FieldNames.RUN_CONDITION)

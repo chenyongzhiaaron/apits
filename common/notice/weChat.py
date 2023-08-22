@@ -101,9 +101,13 @@ class WeChat:
         """
         try:
             self.send_markdown()
+            print("The weChat_markdown has been sent successfully！！")
         except Exception as e:
             print("发送markdown信息异常", e)
         try:
             self.send_file(self.file_lists)
+            print("The weChat_file has been sent successfully！！")
         except Exception as e:
             print("发送企业微信附件异常", e)
+
+
