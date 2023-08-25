@@ -3,7 +3,7 @@ import json
 
 
 def setup(pm):
-    print("pm---------------->", pm.variables())
+    print("pm---------------->", pm.variables)
     # request_data = pm.get_variables()  # 获取得到请求数据
     """
     request_data 的值:  {'Url': '/login',
@@ -14,7 +14,7 @@ def setup(pm):
        'Expected': None, 'Response': '', 'Assertion': '', 'Error Log': ''
        }
     """
-    request = pm.variables()
+    request = pm.variables
     email = json.loads(request.get("Request Data")).get("email")
     pm.update_environments("email", email)  # 设置环境变量
     print("---->pm.get_environments", pm.get_environments("{{email}}"))
@@ -26,7 +26,7 @@ setup(pm)
 # 后置脚本代码
 def tear_down(pm):
     # vars_data = pm.get_environments("{{变量名称}}")  # 获取环境变量
-    response = pm.variables()  # 获取得到响应结果对象
+    response = pm.variables  # 获取得到响应结果对象
     response.json()
     # print(f"请求地址 --> {response.request.url}")
     # print(f"请求头 --> {response.request.headers}")

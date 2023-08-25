@@ -77,7 +77,6 @@ class ExecuteDynamiCodeError(MyBaseException):
 
     def __init__(self, code_info, reason):
         msg = f"执行动态代码异常：动态代码信息={code_info}, 原因={reason}"
-        print(msg)
         super().__init__(msg)
         self.logger.error(msg)
 
