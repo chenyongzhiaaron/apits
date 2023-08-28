@@ -1,35 +1,634 @@
 {
 	"info": {
-		"_postman_id": "9f5b15a9-464b-40c7-8aa5-95d3094cce23",
-		"name": "New Collection",
+		"_postman_id": "d9de4ca3-5775-4784-ac49-03ced684595a",
+		"name": "test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "6288605"
 	},
 	"item": [
 		{
-			"name": "login",
-			"event": [
+			"name": "wifi",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"get_bsptoken\", function () {\r",
-							"     let res = pm.response.json();\r",
-							"     let bspToken = res.data.bspToken;\r",
-							"     pm.environment.set(\"bsToken\", bspToken);\r",
-							"\r",
-							"})"
+					"name": "save_wifi",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var res = JSON.parse(responseBody)\r",
+									"\r",
+									"console.log(res)\r",
+									"\r",
+									"var accessToken = res.data.accessToken\r",
+									"\r",
+									"pm.environment.set(\"accessToken\", accessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=UTF-8",
+								"type": "text"
+							}
 						],
-						"type": "text/javascript"
-					}
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\": \"333\",\r\n    \"grantType\": \"password\",\r\n    \"isBip\": \"false\",\r\n    \"password\": \"o+///+++++4O+==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ibs-test.bzlrobot.com/api/ibs-auth/ibs_platform/login?t=168672334",
+							"protocol": "https",
+							"host": [
+								"ibs-test",
+								"bzlrobot",
+								"com"
+							],
+							"path": [
+								"api",
+								"ibs-auth",
+								"ibs_platform",
+								"login"
+							],
+							"query": [
+								{
+									"key": "t",
+									"value": "168672334"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_wifi_page",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Your test name\", function () {\r",
+									"     var jsonData = pm.response.json();\r",
+									"     let wifiNameList = []\r",
+									"     for (let i of jsonData.data.records) {\r",
+									"          wifiNameList.push(i.wifiName)\r",
+									"     }\r",
+									"     let body = pm.environment.get(\"body\")\r",
+									"     pm.expect(wifiNameList).to.includes(body.wifiName);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=UTF-8",
+								"type": "text"
+							},
+							{
+								"key": "Bsp_token",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Bsp_user_env_id",
+								"value": "{{envId}}",
+								"type": "text"
+							},
+							{
+								"key": "Bsp_user_id",
+								"value": "{{userId}}",
+								"type": "text"
+							},
+							{
+								"key": "Bsp_user_tenant",
+								"value": "{{tenantId}}",
+								"type": "text"
+							},
+							{
+								"key": "Bzlrobot-Authorization",
+								"value": "{{bearer}}",
+								"type": "text"
+							},
+							{
+								"key": "Projectid",
+								"value": "{{projectId}}",
+								"type": "text"
+							},
+							{
+								"key": "Projectname",
+								"value": "{{projectName}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/ibs-security/wifiRouter/page?t=1686744544000&projectId={{projectId}}&current=1&size=10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"ibs-security",
+								"wifiRouter",
+								"page"
+							],
+							"query": [
+								{
+									"key": "t",
+									"value": "1686744544000"
+								},
+								{
+									"key": "projectId",
+									"value": "{{projectId}}"
+								},
+								{
+									"key": "current",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			],
+			]
+		},
+		{
+			"name": "common",
+			"item": [
+				{
+					"name": "用户登录-正确的手机号与密码登录成功",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"断言用户登录成功，返回的手机号是登录的账号;同时提取一些参数给下游接口使用\", function () {\r",
+									"     let response = pm.response.json();\r",
+									"     let accessToken = response.data.accessToken;\r",
+									"     let account = response.data.account;\r",
+									"     let bspUserId = response.data.bspUserId;\r",
+									"     let userId = response.data.userId;\r",
+									"     let userName = response.data.userName;\r",
+									"     let bearer = \"bearer \" + accessToken\r",
+									"     pm.environment.set(\"accessToken\", accessToken) // 写道环境变量里面\r",
+									"     pm.environment.set(\"account\", account) // 写道环境变量里面\r",
+									"     pm.environment.set(\"bspUserId\", bspUserId) // 写道环境变量里面\r",
+									"     pm.environment.set(\"userId\", userId) // 写道环境变量里面\r",
+									"     pm.environment.set(\"userName\", userName) // 写道环境变量里面\r",
+									"     pm.environment.set(\"bearer\", bearer) // 写道环境变量里面\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"grantType\": \"password\",\r\n     \"account\": {{account}},\r\n     \"password\": \"{{password}}\",\r\n     \"isBip\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/ibs-auth/ibs_platform/login?t=1686740475000",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"ibs-auth",
+								"ibs_platform",
+								"login"
+							],
+							"query": [
+								{
+									"key": "t",
+									"value": "1686740475000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllOrg",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Your test name\", function () {\r",
+									"     var jsonData = pm.response.json();\r",
+									"     let data = jsonData.data\r",
+									"     for (let i of data) {\r",
+									"          if (i.name.indexOf(\"安徽\") >= 0) {\r",
+									"               let envId = i.envId\r",
+									"               let tenantId = i.tenantId\r",
+									"               pm.environment.set(\"envId\", envId)\r",
+									"               pm.environment.set(\"tenantId\", tenantId)\r",
+									"               for (let j of i.children) {\r",
+									"                    if (j.name === \"张家口蔚县蔚州镇碧桂园\") {\r",
+									"                         let projectId = j.id\r",
+									"                         pm.environment.set(\"projectId\", projectId)\r",
+									"                         pm.environment.set(\"projectName\", j.name)\r",
+									"                         break\r",
+									"                    }\r",
+									"               }\r",
+									"               break\r",
+									"          }\r",
+									"     }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Bsp_token",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Bsp_user_env_id",
+								"value": "d1b4f959495f433fb1dd5400a78bce2c",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Bsp_user_id",
+								"value": "{{bspUserId}}",
+								"type": "text"
+							},
+							{
+								"key": "Bsp_user_tenant",
+								"value": "216572673247394736",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Bzlrobot-Authorization",
+								"value": "{{bearer}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/ibs-shiro/bsp/getUserAllOrg?t=1686742555000",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"ibs-shiro",
+								"bsp",
+								"getUserAllOrg"
+							],
+							"query": [
+								{
+									"key": "t",
+									"value": "1686742555000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login_test",
+			"item": [
+				{
+					"name": "用户登录-手机号为空",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"timestamp = new Date().getTime()\r",
+									"console.log(timestamp)\r",
+									"pm.variables.set(\"timestamp\", timestamp)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Your test name\", function () {\r",
+									"     var jsonData = pm.response.json();\r",
+									"     pm.expect(jsonData.msg).to.eql(\"操作成功\");\r",
+									"     pm.expect(String(jsonData.code)).to.include(\"200\");\r",
+									"     pm.expect(jsonData.data.account).to.eql(\"luoshunwen001\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=UTF-8",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "bimdc.bzlrobot.com",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bimdc.bzlrobot.com",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bimdc.bzlrobot.com/bsp/",
+								"type": "text"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty",
+								"type": "text"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"type": "text"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43",
+								"type": "text"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Microsoft Edge\";v=\"114\"",
+								"type": "text"
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0",
+								"type": "text"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\"",
+								"type": "text"
+							},
+							{
+								"key": "bspToken",
+								"value": "{{bsp_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"grantType\": \"password\",\r\n     \"account\": \"{{account}}\",\r\n     \"password\": \"{{password}}\",\r\n     \"isBip\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/ibs-auth/ibs_platform/login?t={{timestamp}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"ibs-auth",
+								"ibs_platform",
+								"login"
+							],
+							"query": [
+								{
+									"key": "tps",
+									"value": "{{query_data}}",
+									"disabled": true
+								},
+								{
+									"key": "t",
+									"value": "{{timestamp}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户登录-正确的手机号与密码登录成功 Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"断言用户登录成功，返回的手机号是登录的账号;同时提取一些参数给下游接口使用\", function () {\r",
+									"     let response = pm.response.json();\r",
+									"     let accessToken = response.data.accessToken;\r",
+									"     let account = response.data.account;\r",
+									"     let bspUserId = response.data.bspUserId;\r",
+									"     let userId = response.data.userId;\r",
+									"     let userName = response.data.userName;\r",
+									"     pm.environment.set(\"accessToken\", accessToken) // 写道环境变量里面\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"grantType\": \"password\",\r\n     \"account\": \"{{account}}\",\r\n     \"password\": \"{{password}}\",\r\n     \"isBip\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/ibs-auth/ibs_platform/login?t=1686740475000",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"ibs-auth",
+								"ibs_platform",
+								"login"
+							],
+							"query": [
+								{
+									"key": "t",
+									"value": "1686740475000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "https://bimdc.bzlrobot.com/bsp/test/user/ugs/api/ibs-material/data/order/record/receive",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML",
+						"disabled": true
+					},
+					{
+						"key": "appId",
+						"value": ""
+					},
+					{
+						"key": "timeStamp",
+						"value": ""
+					},
+					{
+						"key": "sign",
+						"value": ""
+					},
+					{
+						"key": "BSP_TOKEN",
+						"value": "46553eb73ce60314ea8d916208074ed0"
+					},
+					{
+						"key": "BSP_USER_ENV_ID",
+						"value": "9f251f38ee7b4ff48dca3b916f91b68e"
+					},
+					{
+						"key": "BSP_USER_ID",
+						"value": "216856100432632915"
+					},
+					{
+						"key": "BSP_USER_TENANT",
+						"value": "216856035475436506"
+					},
+					{
+						"key": "bzlrobot-authorization",
+						"value": "bearer 46553eb73ce60314ea8d916208074ed0"
+					},
+					{
+						"key": "projectId",
+						"value": "99000411"
+					},
+					{
+						"key": "projectName",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "BSP_COMPANY_NAME",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"disabled": true
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"disabled": true
+					},
+					{
+						"key": "Host",
+						"value": "bimdc.bzlrobot.com",
+						"disabled": true
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"disabled": true
+					},
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=C9E2F747F5463EF00625B8499962A193",
+						"disabled": true
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n     \"account\": \"181200\",\r\n     \"password\": \"WD6YB1ZhNc8=\"\r\n}",
+					"raw": "[\n     {\n          \"auditDate\": \"2023-07-03 11:11:26\",\n          \"auditUserCode\": \"2\",\n          \"auditUserName\": \"12\",\n          \"closed\": 0,\n          \"code\": \"xxx\",\n          \"createDate\": \"2023-07-03 11:11:26\",\n          \"createUserCode\": \"lizhaomin\",\n          \"createUserName\": \"xxx\",\n          \"ncDept\": \"xxx\",\n          \"ncDeptCode\": \"x\",\n          \"orderDate\": \"2023-07-03 x11:11:26\",\n          \"orderStatus\": 0,\n          \"orderTypeCode\": \"21-Cxx-001\",\n          \"orderTypeName\": \"固定资产\",\n          \"outId\": \"13489588\",\n          \"outProjectCode\": \"P020001\",\n          \"outProjectName\": \"xx\",\n          \"previousOrderId\": \"xxx\",\n          \"purchaseUserCode\": \"lizhaomin\",\n          \"purchaseUserRealName\": \"xx\",\n          \"purchaserBip\": \"chenyongzhi\",\n          \"purchaserName\": \"勇哥\",\n          \"recordDate\": \"2023-07-03 11:11:26\",\n          \"remark\": \"xxx\",\n          \"supplierCode\": \"1000070536\",\n          \"supplierName\": \"广东电缆厂有限公司\",\n          \"supplierPhone\": \"18100000000\",\n          \"orderDetails\": [\n               {\n                    \"materialCode\": \"xxx\",\n                    \"materialName\": \"1158725；1725；蓝色\",\n                    \"materialNumber\": 899,\n                    \"materialUnit\": \"个\",\n                    \"orderOutStatus\": 0,\n                    \"outOrderDetailId\": 13489589,\n                    \"outProjectCode\": \"P020001\",\n                    \"outProjectName\": \"佛山三水时代宝艺名苑\",\n                    \"previousOrderId\": \"RE202307030002\",\n                    \"recordDate\": \"2023-07-03 11:11:26\",\n                    \"remark\": \"2324324\",\n                    \"rowno\": 13489589,\n                    \"sourceSystemCode\": \"\",\n                    \"taxPrice\": \"9.99\",\n                    \"rate\": \"0.08\",\n                    \"receiveStorageCode\": \"xxx\",\n                    \"receiveStorageName\": \"xxxxxx\"\n               }\n          ]\n     }\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -37,12 +636,24 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/bsp/test/user/ugs/auth/loginByNotBip",
+					"raw": "https://bimdc.bzlrobot.com/bsp/test/user/ugs/api/ibs-material/data/order/record/receive",
+					"protocol": "https",
 					"host": [
-						"{{url}}"
+						"bimdc",
+						"bzlrobot",
+						"com"
 					],
 					"path": [
-						"loginByNotBip"
+						"bsp",
+						"test",
+						"user",
+						"ugs",
+						"api",
+						"ibs-material",
+						"data",
+						"order",
+						"record",
+						"receive"
 					]
 				}
 			},

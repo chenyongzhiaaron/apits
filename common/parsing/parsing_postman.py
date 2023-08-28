@@ -9,11 +9,18 @@
 """
 
 import json
+import re
 
 from common.file_handling.file_utils import FileUtils
 
 id_count = 0
 result = []
+# 兼容 postman 中存在 {{xxx}} 不带双引号会导致反序列化失败的情景，将不带双引号的强制带上双引号！
+pattern = r'(?<="): (\{\{[^}]+\}\})(?=,|\s*\n*\s*[\}\]])'
+
+
+def replace_match(match):
+	return f': "{match.group(1)}"'
 
 
 def parsing_postman(path):
@@ -88,8 +95,15 @@ def parsing_postman(path):
 						request_data = body.get(request_mode)
 						api['RequestData'] = {}
 						if request_data and 'raw' == request_mode:
-							api['RequestData'].update(
-								json.loads(request_data.replace('\t', '').replace('\n', '').replace('\r', '')))
+							rp_data = request_data.replace('\t', '').replace('\n', '').replace('\r', '')
+							match_data = re.sub(pattern, replace_match, rp_data)
+							try:
+								json_obj = json.loads(match_data)
+								api['RequestData'] = json_obj
+							except Exception as e:
+								print(f"报错啦！！error={e}")
+								print("数据源", rp_data)
+								print("异常数据", match_data)
 						elif request_data and 'formdata' == request_mode:
 							if isinstance(request_data, list):
 								for item in request_data:
@@ -116,8 +130,8 @@ def parsing_postman(path):
 				
 				result.append(api)
 	
-	for _ in data:
-		_parse_api(content=data)
+	for item in data['item']:
+		_parse_api(content=item)
 	return result
 
 
