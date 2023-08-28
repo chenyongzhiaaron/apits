@@ -96,12 +96,9 @@ class Action(Extractor, LoadScript, Validator):
                 ast_obj = ast.parse(code, mode='exec')
                 compiled = compile(ast_obj, '<string>', 'exec')
                 exec(compiled, {"pm": self})
-            except SyntaxError as e:
-                ExecuteDynamiCodeError(code, e)
-            except TypeError as e:
-                ExecuteDynamiCodeError(code, e)
             except Exception as e:
                 ExecuteDynamiCodeError(code, e)
+                raise e
 
         return self.variables
 
