@@ -31,8 +31,11 @@ class DependentParameter(DataExtractor):
         """
 
         def execute_method_chain(obj, methods, args=None):
+            """处理参数为调用链的函数"""
             if not methods:
-                return obj(*args) if callable(obj) else obj
+                if args and args[0]:
+                    return obj(*args) if callable(obj) else obj
+                return obj() if callable(obj) else obj
             method_name, *remaining_methods = methods
             if hasattr(obj(), method_name) and callable(getattr(obj(), method_name)):
                 method = getattr(obj(), method_name)
@@ -40,14 +43,16 @@ class DependentParameter(DataExtractor):
             return None
 
         def get_method_call_and_method_names(strings):
+            """获取方法命名及参数列表"""
             first_method_call_match = self.FUNCTION_CALL_MATCHER.search(strings)
             if first_method_call_match:
                 first_method_call = "{{" + f'{first_method_call_match.group()}'.split("(")[0] + "()" + "}}"
                 first_fun = first_method_call_match.group()
                 args_string = self.ARGS_MATCHER.search(first_method_call_match.group())
+                # 获取字符串参数
                 args_list = args_string.group(1).split(',') if args_string else []
             else:
-                raise ParameterExtractionError(key, "在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常")
+                raise ParameterExtractionError(strings, "在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常")
 
                 # raise ValueError(f"函数写法错误：无法匹配函数调用格式，字符串为：{strings}")
             remaining_method_names = self.METHOD_NAME_MATCHER.findall(strings)
@@ -58,6 +63,7 @@ class DependentParameter(DataExtractor):
         json_string = json.dumps(json_string) if isinstance(json_string, (dict, list)) else json_string
         while self.PARAMETER_MATCHER.search(json_string):
             if self.FUNCTION_CHAIN_MATCHER.search(json_string):
+                # 匹配调用链
                 function_pattern = self.FUNCTION_CHAIN_MATCHER.search(json_string).group()
                 function_with_args, key, remaining_methods, args = get_method_call_and_method_names(function_pattern)
                 if key in self.get_environments().keys():
@@ -66,7 +72,6 @@ class DependentParameter(DataExtractor):
                     json_string = json_string.replace(function_pattern, str(obj))
                 else:
                     ParameterExtractionError(key, "在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常")
-                    # logger.error(f"函数key:{key},在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
             else:
                 key = self.PARAMETER_MATCHER.search(json_string)
@@ -81,20 +86,21 @@ class DependentParameter(DataExtractor):
                     json_string = json_string.replace(key.group(), str(obj))
                 else:
                     ParameterExtractionError(key, "在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常")
-                    # logger.error(f"字符串key:{key},字符串在关联参数表中查询不到,请检查关联参数字段提取及填写是否正常\n")
                     break
             json_string = json_string.replace("True", "true").replace("False", "false")
         if self.BRACE_MATCHER.search(json_string) and not self.FUNCTION_CHAIN_MATCHER.search(json_string):
             try:
                 json_string = json.loads(json_string)
             except json.JSONDecodeError as e:
-                ResponseJsonConversionError(json_string,e)
-                # logger.error(f"JSONDecodeError:{json_string}:{e}")
+                ResponseJsonConversionError(json_string, e)
         return json_string
 
 
 if __name__ == '__main__':
-    from common.utils.environments import Environments
+    from common.validation import loaders
+    from common import bif_functions
+
+    loader = loaders.Loaders()
 
     dps = {
         "{{var_a}}": "foo",
@@ -105,13 +111,8 @@ if __name__ == '__main__':
         "{{var_f}}": ["baz", False],
         "{{var_g}}": {'g': 'gg', 'g1': 'gg', 'g2': 'gg2'}
     }
-
-    d = Environments()
-    d.set_environments(dps)
-    from common.validation import loaders
-    from common import bif_functions
-
-    loaders.Loaders().set_bif_fun(bif_functions)
+    loader.set_environments(dps)
+    loader.set_bif_fun(bif_functions)
     dat = {
         "a": "{{var_a}}",
         "b": {"c": "{{var_c}}", "d": "{{var_d}}", "e": ["{{var_e_1}}", "{{var_e_2}}"]},
@@ -119,8 +120,9 @@ if __name__ == '__main__':
         "g": "{{var_g}}",
         "t": "{{get_timestamp()}}",
         "fk": "{{fk().email()}}",
-        "rt": "{{fk().ean(length=13)}}",
-        "st": "{{ms_fmt_hms(2000)}}"
+        "ft": "{{fk().ean(length=13)}}",
+        "st": "{{ms_fmt_hms(2000)}}",
+        "time": "{{random_id_card()}}",
     }
-    d = DependentParameter()
-    print(d.replace_dependent_parameter(dat))
+    ret = loader.replace_dependent_parameter(dat)
+    print(ret)

@@ -16,7 +16,7 @@ __all__ = [
     "random_string", "random_ssn",
     "random_email", "random_id_card",
     "random_int", "random_male_name",
-    "random_female_name", "random_current_time"
+    "random_female_name", "random_current_time",
 ]
 
 f = Faker(locale='Zh-CN')
