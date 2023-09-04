@@ -1,9 +1,0 @@
-2023-07-15 00:01:21 | ERROR | 被提取对象非字典、非字符串、非列表，不执行jsonpath提取，被提取对象: None
-2023-07-15 00:01:21 | ERROR | 提取失败：提取表达式：data.projectId，没有提取到对应的值
-2023-07-15 00:01:21 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
-'FAIL' unexpectedly found in ('FAIL', [{'检查项': 'data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中
-2023-07-15 00:07:51 | ERROR | | called clear_date | error: 快看，异常了，别唧唧哇哇，快排查！！: [Errno 13] Permission denied: 'E:\\apitest\\cases\\cases\\test_api.xlsx'
-2023-07-15 00:07:52 | ERROR | | called write_back | error: 快看，异常了，别唧唧哇哇，快排查！！: [Errno 13] Permission denied: 'E:\\apitest\\cases\\cases\\test_api.xlsx'
-2023-07-15 00:11:01 | ERROR | 提取失败：提取表达式：data.projectId，没有提取到对应的值
-2023-07-15 00:11:01 | ERROR | 异常用例: **safe_5_劳务基础配置_查询配置**
-'FAIL' unexpectedly found in ('FAIL', [{'检查项': 'data.projectId', '期望值': '103654', '实际值': [], '断言方法': 'contained_by:实际值被包含在期望值中'}]) : FAIL 存在结果元组中

@@ -9,8 +9,3 @@
 """
 import sys
 
-# sys.path.append('../../common')
-
-# from common.utils.mylogger import MyLogger
-#
-# logger = MyLogger()

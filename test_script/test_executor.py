@@ -12,7 +12,7 @@ import unittest
 import extensions
 from common.core.dataDriver import ddt
 from common.file_handling.do_excel import DoExcel
-from common.utils.action import Action
+from common.core.action import Action
 from common.utils.decorators import list_data
 from config.config import Config
 

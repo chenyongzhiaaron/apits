@@ -59,12 +59,15 @@ class Loaders(HttpClient):
 if __name__ == '__main__':
     from common.bif_functions import bif_faker
     import extensions
-
-    print()
+    import encryption_rules
+    from encryption_rules import rules
+    # print()
     loaders = Loaders()
-    loaders.load_built_in_comparators()
-    loaders.set_bif_fun(bif_faker)
-    print(loaders.get_environments())
-
-    loaders.set_bif_fun(extensions)
-    print(loaders.get_environments())
+    res = loaders.load_built_in_functions(rules)
+    print(res)
+    # loaders.load_built_in_comparators()
+    # loaders.set_bif_fun(bif_faker)
+    # print(loaders.get_environments())
+    #
+    # loaders.set_bif_fun(extensions)
+    # print(loaders.get_environments())

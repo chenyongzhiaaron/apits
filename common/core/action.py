@@ -22,35 +22,40 @@ from config.field_constants import FieldNames
 
 
 @singleton
-class Action(Extractor, LoadScript, Validator):
+class Action(Extractor, LoadScript, Validator, EncryptData):
     def __init__(self, initialize_data=None, db_config=None):
         super().__init__()
         self.db_config = db_config
-        self.encrypt = EncryptData()
         self.__variables = {}
         self.set_environments(initialize_data)
         self.set_bif_fun(bif_functions)
 
     @send_request_decorator
     def send_request(self, host, method, extract_request_data):
-
+        """发送请求"""
         url, kwargs = self.prepare_request(extract_request_data, self.variables)
         self.http_client(host, url, method, **kwargs)
 
     def prepare_request(self, extract_request_data, item):
+        """准备请求数据"""
         item = self.replace_dependent_parameter(item)
         url, query_str, request_data, headers, request_data_type, h_crypto, r_crypto = self.request_info(item)
-        headers, request_data = self.analysis_request(request_data, h_crypto, headers, r_crypto, extract_request_data)
+        headers, query_str, request_data = self.analysis_request(query_str, request_data, h_crypto, headers, r_crypto,
+                                                                 extract_request_data)
         kwargs = {request_data_type: request_data, "headers": headers, "params": query_str}
         return url, kwargs
 
-    def analysis_request(self, request_data, headers_crypto, headers, request_crypto, extract_request_data):
-        headers, request_data = self.encrypt.encrypts(headers_crypto, headers, request_crypto, request_data)
-        if extract_request_data is not None and request_data is not None:
-            self.substitute_data(request_data, jp_dict=extract_request_data)
-        return headers, request_data
+    def analysis_request(self, query_str, request_data, headers_crypto, headers, request_crypto, extract_request_data):
+        """分析请求数据"""
+        headers, request_data = self.encrypts(headers_crypto, headers, request_crypto, request_data)
+        if extract_request_data:
+            for data in (query_str, request_data):
+                if data:
+                    self.substitute_data(data, jp_dict=extract_request_data)
+        return headers, query_str, request_data
 
     def exc_sql(self, item):
+        """执行sql处理"""
         sql, sql_params_dict = self.sql_info(item)
         self.variables = item
         sql = self.replace_dependent_parameter(sql)
@@ -62,6 +67,7 @@ class Action(Extractor, LoadScript, Validator):
                 self.substitute_data(execute_sql_results, jp_dict=sql_params_dict)
 
     def analysis_response(self, sheet, iid, name, desc, regex, keys, deps, jp_dict):
+        """分析响应结果并提取响应"""
         try:
             self.substitute_data(self.response_json, regex=regex, keys=keys, deps=deps, jp_dict=jp_dict)
         except Exception as err:
@@ -74,6 +80,7 @@ class Action(Extractor, LoadScript, Validator):
             ParameterExtractionError(msg, err)
 
     def execute_validation(self, excel, sheet, iid, name, desc, expected):
+        """执行断言校验"""
         expected = self.replace_dependent_parameter(expected)
         try:
             self.run_validate(expected, self.response_json)
@@ -90,6 +97,7 @@ class Action(Extractor, LoadScript, Validator):
             excel.write_back(sheet_name=sheet, i=iid, response=response, result=result, assertions=str(self.assertions))
 
     def execute_dynamic_code(self, item, code):
+
         self.variables = item
         if code is not None:
             try:

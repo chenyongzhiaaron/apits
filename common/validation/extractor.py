@@ -25,6 +25,7 @@ class Extractor:
     """
 
     def __init__(self):
+        super().__init__()
         self.output_variables_mapping = {}
 
     def uniform_output(self, output_variables):

@@ -3,8 +3,8 @@ import base64
 import pytesseract
 from PIL import Image
 
-
 """base64信息转图片与图片转base64"""
+
 
 def base64_to_img(byte_str, file_path):
     imgdata = base64.b64decode(byte_str)

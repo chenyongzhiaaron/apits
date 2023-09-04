@@ -20,6 +20,10 @@ sys.path.append('../utils')
 
 
 class LoadScript:
+
+    def __init__(self):
+        super().__init__()
+
     def load_script(self, script_path):
 
         """

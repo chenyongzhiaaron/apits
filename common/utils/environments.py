@@ -23,6 +23,9 @@ class Environments:
     METHOD_NAME_MATCHER = re.compile(r"\.(\w+)\([^)]*\)")  # 匹配函数调用中的方法名 {{.func()}} 中的 func
     ARGS_MATCHER = re.compile(r'\(([^)]*)\)')  # 匹配函数调用中的参数列表 {{func(arg1, arg2, ...)}}
 
+    def __init__(self):
+        super().__init__()
+
     @classmethod
     def update_environments(cls, key, value):
         """更新依赖表"""

@@ -123,6 +123,7 @@ if __name__ == '__main__':
         "ft": "{{fk().ean(length=13)}}",
         "st": "{{ms_fmt_hms(2000)}}",
         "time": "{{random_id_card()}}",
+        "x":'{"a":"b","c":"{{get_timestamp()}}"}'
     }
     ret = loader.replace_dependent_parameter(dat)
     print(ret)

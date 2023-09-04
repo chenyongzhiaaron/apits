@@ -139,3 +139,7 @@ class EncryptionError(MyBaseException):
     def __init__(self, method_name, error_message):
         msg = f"加密失败异常:  加密方法={method_name} 原因={error_message}"
         super().__init__(msg)
+        self.logger.error(msg)
+
+if __name__ == '__main__':
+    raise EncryptionError("111","222")

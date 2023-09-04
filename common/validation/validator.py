@@ -105,7 +105,8 @@ class Validator(Loaders):
 
         """
         if not validate_variables:
-            return ""
+            self.assertions = '未填写断言信息，默认断言通过！！！'
+            return
         self.validate_variables_list.clear()
         self.assertions.clear()
         self.uniform_validate(validate_variables)

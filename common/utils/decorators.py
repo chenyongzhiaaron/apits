@@ -14,8 +14,6 @@ from functools import wraps
 
 import yaml
 
-from common.utils.exceptions import RequestSendingError
-
 
 def singleton(cls):
     """
@@ -36,6 +34,7 @@ def singleton(cls):
 
 def request_retry_on_exception(retries=2, delay=1.5):
     """Retry on Failed Requests"""
+    from common.utils.exceptions import RequestSendingError
 
     def request_decorator(func):
         e = None
@@ -43,9 +42,12 @@ def request_retry_on_exception(retries=2, delay=1.5):
         @wraps(func)
         def wrapper(*args, **kwargs):
             nonlocal e
+
             for i in range(retries):
+                # st = time.time()
                 try:
                     response = func(*args, **kwargs)
+                    # print(f"| 代码耗时--> {time.time() - st}")
                     print(f"| 请求地址 --> {response.request.url}")
                     print(f"| 请求方法 --> {response.request.method}")
                     print(f"| 请求头 --> {response.request.headers}")
@@ -54,12 +56,13 @@ def request_retry_on_exception(retries=2, delay=1.5):
                     print(f"| 接口耗时--> {response.elapsed}")
                     print(f"| 接口响应--> {response.text}")
                 except Exception as error:
-                    print(f"| 第{i + 1}次请求参数：{args} -- {kwargs}")
+                    print(f"| 第{i + 1}次请求参数=【{args}__{kwargs}】")
+                    # print(f"| 代码耗时--> {time.time() - st}")
                     e = error
                     time.sleep(delay)
                 else:
                     return response
-            raise RequestSendingError(kwargs, e)
+            raise RequestSendingError(f"{args}__{kwargs}", e)
 
         return wrapper
 

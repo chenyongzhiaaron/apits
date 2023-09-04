@@ -18,9 +18,9 @@ class Config:
     PARENT_DIR = os.path.dirname(BASE_URL)
 
     # 测试数据所在路径
-    TEMPLATES = os.path.join(PARENT_DIR, "cases", "templates", "template.xlsx")  # 用例模板文件
-    TEST_CASE = os.path.join(PARENT_DIR, "cases", "cases", "test_cases.xlsx")
-    TEST_FILES = os.path.join(PARENT_DIR, 'cases', 'files')  # 用来上传文件的文件夹
+    TEMPLATES = os.path.join(PARENT_DIR, "src", "templates", "template.xlsx")  # 用例模板文件
+    TEST_CASE = os.path.join(PARENT_DIR, "src", "cases", "test_cases.xlsx")
+    TEST_FILES = os.path.join(PARENT_DIR, 'src', 'files')  # 用来上传文件的文件夹
 
     # 测试用例脚本目录
     SCRIPT = os.path.join(PARENT_DIR, "test_script")

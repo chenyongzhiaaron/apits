@@ -31,6 +31,7 @@ class HttpClient(LoadModulesFromFolder):
         self.request = None
         self.response = None
         self.response_json = None
+        self.files = []
 
     @request_retry_on_exception()
     def http_client(self, host, url, method, **kwargs):
@@ -44,23 +45,35 @@ class HttpClient(LoadModulesFromFolder):
         """
         # 关闭 https 警告信息
         urllib3.disable_warnings()
-        self.request = None
-        self.response = None
+        kwargs = self.processing_data(host, url, method, **kwargs)
+
+        # 发送请求
+        self.request = requests.Request(**kwargs)
+        self.response = self.session.send(self.request.prepare(), timeout=(15, 20), verify=True)
+        # 关闭文件
+        [i.close() for i in self.files if len(self.files) > 0]
+
+        self.post_response()
+
+        return self.response
+
+    def processing_data(self, host, url, method, **kwargs):
+        kwargs["method"] = method
         if not url:
             raise ValueError("URL cannot be None")
         __url = f'{host}{url}' if not re.match(r"https?", url) else url
-
-        # 增加兼容
-        # 处理 headers 参数为字符串类型的情况
+        kwargs["url"] = __url
+        #  兼容处理 headers 参数为字符串类型的情况
         if 'headers' in kwargs and isinstance(kwargs['headers'], str):
             kwargs['headers'] = json.loads(kwargs['headers'])
 
-        # 处理 json 参数为字符串类型的情况
+        # 兼容处理 json 参数为字符串类型的情况
         if 'json' in kwargs and isinstance(kwargs['json'], str):
             kwargs['json'] = json.loads(kwargs['json'])
 
+        kwargs['params'] = json.loads(kwargs['params']) if isinstance(kwargs['params'], str) else None
+
         # 处理 files 参数的情况
-        fs = []
         if 'files' in kwargs:
             file_paths = kwargs['files']
             if isinstance(file_paths, str):
@@ -71,34 +84,32 @@ class HttpClient(LoadModulesFromFolder):
                 file_type = mimetypes.guess_type(file_path)[0]
                 file_path_completion = file_utils.get_file_path(file_path)
                 f = open(file_path_completion, 'rb')
-                fs.append(f)
+                self.files.append(f)
                 files.append(
                     ('file', (f'{file_path}', f, file_type))
                 )
             kwargs['files'] = files
+        return kwargs
 
-        # 发送请求
-        self.request = requests.Request(method, __url, **kwargs)
-        self.response = self.session.send(self.request.prepare(), timeout=30, verify=True)
-        [i.close() for i in fs if len(fs) > 0]
+    def post_response(self):
+        # 处理响应结果
+        self.update_environments("responseStatusCode", self.response.status_code)
+        self.update_environments("responseTime", round(self.response.elapsed.total_seconds() * 1000, 2))
         try:
             self.response_json = self.response.json()
-            self.update_environments("responseStatusCode", self.response.status_code)
-            self.update_environments("responseTime", round(self.response.elapsed.total_seconds() * 1000, 2))
         except Exception as e:
             ResponseJsonConversionError(self.response.text, str(e))
             self.response_json = None
-        return self.response
 
 
 if __name__ == '__main__':
     hst = 'https://kkk.ll.com'
-    url = '/bsp/test/'
-    method = 'post'
-    kwargs = {
+    ul = '/bsp/test/'
+    meth = 'post'
+    kwarg = {
         'headers': {},
         'data': {},
         'files': ['test.txt']
     }
     pyt = HttpClient()
-    pyt.http_client(hst, url, method, **kwargs)
+    pyt.http_client(hst, ul, meth, **kwarg)
