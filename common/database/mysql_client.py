@@ -40,7 +40,7 @@ class MysqlClient:
             self.cursor = self.conn.cursor(DictCursor)
         except Exception as e:
             DatabaseExceptionError(self.db_base, e)
-            # raise
+            raise
 
     def execute_sql(self, sql):
         """
@@ -117,7 +117,6 @@ class MysqlClient:
             try:
                 self.cursor.execute(sql_)
                 self.result[sql_name] = self.cursor.fetchall()
-
             except Exception as err:
                 DatabaseExceptionError(sql_, err)
                 raise err
@@ -127,15 +126,15 @@ if __name__ == '__main__':
     sql_2 = {
         "select":
             {
-                # "select_one": "select username,password as pwd  from lea.user where username ='luoshunwen003';"
+                # "slect_1": "select name,age from test_ea;"
             }
     }
     database_2 = {
         "host": "localhost",
         "port": 3306,
-        "database": "lea",
+        "database": "test",
         "user": "root",
-        "password": "admin"
+        "password": ""
     }
     res = MysqlClient(database_2).execute_sql(sql_2)
     print("数据执行结果", res)

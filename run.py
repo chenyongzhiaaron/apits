@@ -26,8 +26,8 @@ def run():
     # # get_failed_test_cases = runner.get_failed_test_cases()
     # 发送通知
     # runner.email_notice()
-    runner.dingtalk_notice()
-    runner.weixin_notice()
+    # runner.dingtalk_notice()
+    # runner.weixin_notice()
 
 
 if __name__ == '__main__':
