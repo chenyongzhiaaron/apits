@@ -16,7 +16,7 @@ from common.file_handling.file_utils import FileUtils
 id_count = 0
 result = []
 # 兼容 postman 中存在 {{xxx}} 不带双引号会导致反序列化失败的情景，将不带双引号的强制带上双引号！
-pattern = r'(?<="): (\{\{[^}]+\}\})(?=,|\s*\n*\s*[\}\]])'
+pattern = r'(?<="):(\{\{[^}]+\}\})(?=,|\s*\n*\s*[\}\]])'
 
 
 def replace_match(match):
@@ -79,7 +79,7 @@ def parsing_postman(path):
 					# api请求头
 					api['Headers'] = json.dumps(header, ensure_ascii=False)
 					api['HeadersCrypto'] = ''
-					api['QueryStr'] = ''
+					api['QueryString'] = ''
 					body = request.get('body')
 					if body:
 						# api接口请求参数类型

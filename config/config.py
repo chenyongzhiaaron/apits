@@ -19,7 +19,8 @@ class Config:
 
     # 测试数据所在路径
     TEMPLATES = os.path.join(PARENT_DIR, "src", "templates", "template.xlsx")  # 用例模板文件
-    TEST_CASE = os.path.join(PARENT_DIR, "src", "cases", "test_cases.xlsx")
+    TEST_CASE = os.path.join(PARENT_DIR, "src", "cases", "test_openapi_cases.xlsx")
+    # TEST_CASE = os.path.join(PARENT_DIR, "src", "cases", "test_cases.xlsx")
     TEST_FILES = os.path.join(PARENT_DIR, 'src', 'files')  # 用来上传文件的文件夹
 
     # 测试用例脚本目录

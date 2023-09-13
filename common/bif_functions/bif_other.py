@@ -39,7 +39,7 @@ def gen_random_num(length):
     Returns:
 
     """
-    return random.randint(int('1' + '0' * (length - 1)), int('9' * length))
+    return random.randint(int('1' + '0' * (int(length) - 1)), int('9' * int(length)))
 
 
 @logger.log_decorator()

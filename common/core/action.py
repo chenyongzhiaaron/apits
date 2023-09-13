@@ -83,9 +83,9 @@ class Action(Extractor, LoadScript, Validator, EncryptData):
 		"""执行断言校验"""
 		expected = self.replace_dependent_parameter(expected)
 		try:
-			res = self.run_validate(expected, self.response_json)
+			self.run_validate(expected, self.response_json)
 			# 如果不填写断言，则自动断言状态码
-			if res is None:
+			if not expected:
 				from common.validation.comparators import eq
 				eq(200, self.response.status_code)
 			result = "PASS"

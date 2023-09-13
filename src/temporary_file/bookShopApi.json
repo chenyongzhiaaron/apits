@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "c5447393-7c43-4967-ac19-292724f807c7",
+		"name": "bookShopApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6288605"
+	},
+	"item": [
+		{
+			"name": "注册-/api/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"name\": \"kira\",\r\n     \"email\": \"kira@163.com\",\r\n     \"password\": 123456,\r\n     \"password_confirmation\": 123456\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/auth/register",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登录-/api/auth/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code name has string\", function () {\r",
+							"     let response = pm.response.json();\r",
+							"     pm.environment.set(\"Authorization\", \"Bearer \" + response.access_token)\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"email\": \"kira@163.com\",\r\n     \"password\": 123456\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/auth/login",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刷新token-api/auth/refresh",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code name has string\", function () {\r",
+							"     let response = pm.response.json();\r",
+							"     pm.environment.set(\"Authorization\", \"Bearer \" + response.access_token)\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/api/auth/refresh",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询商品列表-/api/goods",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"     let res = pm.response.json()\r",
+							"     pm.environment.set(\"good_id\", res.goods.data[0].id)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/api/goods?page=1",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"goods"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取商品详情-/api/goods/{{goodId}}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/api/goods/{{good_id}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"goods",
+						"{{good_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查看购物车列表-/api/carts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"     let res = pm.response.json()\r",
+							"     let good_id = pm.environment.get(\"good_id\")\r",
+							"     console.log(\"good_id\",good_id)\r",
+							"     for (i of res.data) {\r",
+							"          if (i.good_id === good_id) {\r",
+							"               console.log(\"i.id=\", i.id)\r",
+							"               pm.environment.set(\"cart\", i.id)\r",
+							"          }\r",
+							"\r",
+							"     }\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/api/carts",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加商品进入购物车-/api/carts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"goods_id\":\"{{good_id}}\",\r\n     \"num\":\"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/carts",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "再次查看购物车列表-/api/carts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"     let res = pm.response.json()\r",
+							"     let good_id = pm.environment.get(\"good_id\")\r",
+							"     console.log(\"good_id\",good_id)\r",
+							"     for (i of res.data) {\r",
+							"          if (i.goods_id === good_id) {\r",
+							"               console.log(\"i.id=\", i.id)\r",
+							"               pm.environment.set(\"cart\", i.id)\r",
+							"          }\r",
+							"\r",
+							"     }\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/api/carts",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改购物车商品数量-/api/carts/{{cart}}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"num\": \"6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/carts/{{cart}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"carts",
+						"{{cart}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "购物车改变选中商品-/api/carts/checked",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"cart_ids\": [\"{{cart}\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/carts/checked",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"carts",
+						"checked"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "购物车商品变成预览订单-/api/orders/preview",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"     let res = pm.response.json();\r",
+							"     pm.environment.set(\"address_id\",res.address[0].id)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/api/orders/preview",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"preview"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "提交订单-/api/orders",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"address_id\":{{address_id}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/orders",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
