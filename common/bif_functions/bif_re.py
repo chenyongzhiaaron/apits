@@ -15,7 +15,7 @@ from common.bif_functions import logger
 __all__ = ['regex_extract']
 
 
-@logger.log_decorator()
+@logger.catch
 def regex_extract(string, pattern, group=None):
     """
     根据正则表达式提取内容

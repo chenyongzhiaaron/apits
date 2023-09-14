@@ -128,7 +128,7 @@ class DoExcel:
 			row_data.append(cell_value)
 		return row_data
 	
-	@logger.log_decorator()
+	@logger.catch
 	def save(self, filename=None):
 		"""
 		获取文件名
@@ -145,7 +145,7 @@ class DoExcel:
 		# print("保存成功")
 		return True
 	
-	@logger.log_decorator()
+	@logger.catch
 	def do_main(self, output_filename=None, *data):
 		"""
 		动态保存列表嵌套字典的数据到 excel 中

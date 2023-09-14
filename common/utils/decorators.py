@@ -54,7 +54,10 @@ def request_retry_on_exception(retries=2, delay=1.5):
 					print(f"| 请求 body --> {response.request.body}")
 					print(f"| 接口状态--> {response.status_code}")
 					print(f"| 接口耗时--> {response.elapsed}")
-					print(f"| 接口响应--> {response.text}")
+					try:
+						print(f"| 接口响应--> {response.json()}")
+					except:
+						print(f"| 接口响应--> {response.text}")
 				except Exception as error:
 					print(f"| 第{i + 1}次请求参数=【{args}__{kwargs}】")
 					# print(f"| 代码耗时--> {time.time() - st}")

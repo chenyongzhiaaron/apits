@@ -31,7 +31,7 @@ def substr(raw_str, start=None, end=None):
         return ''
 
 
-@logger.log_decorator()
+@logger.catch
 def str_join(obj, connector=","):
     """
     连接任意数量的字符

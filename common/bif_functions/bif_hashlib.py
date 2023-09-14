@@ -14,7 +14,7 @@ __all__ = ['md5_encryption']
 from common.bif_functions import logger
 
 
-@logger.log_decorator()
+@logger.catch
 def md5_encryption(raw_str, sha_str='', toupper=False):
     """
     执行md5加密

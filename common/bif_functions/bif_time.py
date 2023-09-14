@@ -14,7 +14,7 @@ from common.bif_functions import logger
 __all__ = ['get_timestamp', 'ms_fmt_hms']
 
 
-@logger.log_decorator("错误原因：时间戳的长度只能在10到16位之间，默认返回长度为13位的时间戳")
+@logger.catch
 def get_timestamp(length=13):
     """
     获取时间戳字符串，长度最多为16位；默认13位
@@ -34,7 +34,7 @@ def get_timestamp(length=13):
         get_timestamp(13)
 
 
-@logger.log_decorator()
+@logger.catch
 def ms_fmt_hms(ms):
     """
     将毫秒转换成 h:m:s.ms格式字符串

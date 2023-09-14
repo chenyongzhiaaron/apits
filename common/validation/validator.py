@@ -105,7 +105,7 @@ class Validator(Loaders):
 
 		"""
 		if not validate_variables:
-			self.assertions = '未填写预期结果，默认断言HTTP请求状态码！！！'
+			self.assertions = ['未填写预期结果，默认断言HTTP请求状态码！！！']
 			return
 		self.validate_variables_list.clear()
 		self.assertions.clear()

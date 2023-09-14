@@ -12,7 +12,7 @@ from common.bif_functions import logger
 __all__ = ['list_slice', 'sublist']
 
 
-@logger.log_decorator()
+@logger.catch
 def list_slice(obj, index=None, start=None, end=None, step=1):
     """
     切片方法
@@ -37,7 +37,7 @@ def list_slice(obj, index=None, start=None, end=None, step=1):
     return None
 
 
-@logger.log_decorator()
+@logger.catch
 def sublist(raw_list, start=None, end=None):
     """
     截取子列表

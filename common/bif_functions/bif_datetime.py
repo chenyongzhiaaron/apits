@@ -14,7 +14,7 @@ from common.bif_functions import logger
 __all__ = ['get_current_date', 'get_current_time', 'get_delta_time']
 
 
-@logger.log_decorator()
+@logger.catch
 def get_current_date(fmt="%Y-%m-%d"):
     """
     获取当前日期，默认格式为：%Y-%m-%d
@@ -27,7 +27,7 @@ def get_current_date(fmt="%Y-%m-%d"):
     return datetime.now().strftime(fmt)
 
 
-@logger.log_decorator()
+@logger.catch
 def get_current_time(fmt="%Y-%m-%d %H:%M:%S"):
     """
     获取当前时间：默认格式为：%Y-%m-%d %H:%M:%S
@@ -40,7 +40,7 @@ def get_current_time(fmt="%Y-%m-%d %H:%M:%S"):
     return datetime.now().strftime(fmt)
 
 
-@logger.log_decorator()
+@logger.catch
 def get_delta_time(days=0, hours=0, minutes=0, seconds=0, fmt="%Y-%m-%d %H:%M:%S"):
     """
     获取当前时间指定间隔后的时间

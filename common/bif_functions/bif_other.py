@@ -16,7 +16,7 @@ from common.bif_functions import logger
 __all__ = ['random_choice', 'gen_random_num', 'gen_random_str', 'random_gps']
 
 
-@logger.log_decorator()
+@logger.catch
 def random_choice(args):
     """
     随机选择
@@ -29,7 +29,7 @@ def random_choice(args):
     return random.choice(args)
 
 
-@logger.log_decorator()
+@logger.catch
 def gen_random_num(length):
     """
     随机生成指定长度的数字
@@ -42,7 +42,7 @@ def gen_random_num(length):
     return random.randint(int('1' + '0' * (int(length) - 1)), int('9' * int(length)))
 
 
-@logger.log_decorator()
+@logger.catch
 def gen_random_str(length):
     """
     生成指定长度的随机字符串

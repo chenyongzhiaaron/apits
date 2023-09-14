@@ -28,7 +28,7 @@ class DataExtractor(Environments):
     def __init__(self):
         super().__init__()
 
-    @logger.log_decorator("提取参数出现了意想不到的错误！！")
+    @logger.catch
     def substitute_data(self, response, regex=None, keys=None, deps=None, jp_dict=None):
         """
         数据提取

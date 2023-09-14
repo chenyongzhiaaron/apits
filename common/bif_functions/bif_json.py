@@ -14,7 +14,7 @@ from common.bif_functions import logger
 __all__ = ['json_dumps', 'json_loads']
 
 
-@logger.log_decorator()
+@logger.catch
 def json_dumps(obj):
     """
     Serialize ``obj`` to a JSON formatted ``str``.
@@ -27,7 +27,7 @@ def json_dumps(obj):
     return json.dumps(obj, ensure_ascii=False)
 
 
-@logger.log_decorator()
+@logger.catch
 def json_loads(obj):
     """
     Deserialize ``obj`` (a ``str``, ``bytes`` or ``bytearray`` instance containing a JSON document) to a Python object.

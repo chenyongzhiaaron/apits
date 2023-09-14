@@ -54,7 +54,7 @@ class Config:
         "url": "https://oapi.dingtalk.com/robot/send?access_token=7d1e11079e00a4ca9f11283f526349abd5ba3f792ef7bcb346909ff215af02de",
         "secret": "SEC441dbbdb8dbe150e5fc3e348bb449d3113b1be1a90be527b898ccd78c51566c1",
         "key": "",  # 安全关键字
-        "atMobiles": "xxxxx",  # 需要@指定人员的手机号
+        "atMobiles": "1827813600",  # 需要@指定人员的手机号
         "isAtAll": True,  # 是否@ 所有人
         "except_info": False  # 是否发送测试不通过的异常数据
     }

@@ -18,7 +18,7 @@ class Loaders(HttpClient):
     def __init__(self):
         super().__init__()
 
-    @logger.log_decorator()
+    @logger.catch
     def load_built_in_functions(self, model):
         """
         加载bif_functions包中的内建方法
@@ -31,7 +31,7 @@ class Loaders(HttpClient):
         return built_in_functions
 
     @staticmethod
-    @logger.log_decorator()
+    @logger.catch
     def load_built_in_comparators() -> object:
         """
         加载包中的内建比较器
@@ -45,7 +45,7 @@ class Loaders(HttpClient):
 
         return built_in_comparators
 
-    @logger.log_decorator()
+    @logger.catch
     def set_bif_fun(self, model):
         """
         加载内置方法

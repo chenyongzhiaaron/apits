@@ -119,7 +119,7 @@ class InvalidParameterFormatError(MyBaseException):
 	def __init__(self, parameter_info, reason):
 		msg = f"无效的参数格式异常：parameter_info={parameter_info}，原因={reason}"
 		super().__init__(msg)
-		self.logger.error(msg)
+		self.logger.warning(msg)
 
 
 class ResponseJsonConversionError(MyBaseException):
@@ -129,7 +129,7 @@ class ResponseJsonConversionError(MyBaseException):
 	def __init__(self, response_text, reason):
 		msg = f"响应内容转换为 JSON 格式异常：响应内容={response_text}, 原因={reason}"
 		super().__init__(msg)
-		self.logger.error(msg)
+		self.logger.warning(msg)
 
 
 class DynamicLoadingError(MyBaseException):

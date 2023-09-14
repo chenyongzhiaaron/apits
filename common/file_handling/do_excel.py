@@ -57,7 +57,7 @@ class DoExcel:
                     sub_data[FieldNames.SHEET] = sheet_name
                 yield sub_data
 
-    @logger.log_decorator()
+    @logger.catch
     def write_back(self, sheet_name, i, **kwargs):
         """
     
@@ -78,7 +78,7 @@ class DoExcel:
         sheet.cell(i + 1, 26).value = assertions
         self.wb.save(self.file_name)
 
-    @logger.log_decorator()
+    @logger.catch
     def clear_date(self):
         """
         执行清空单元格数据
@@ -97,7 +97,7 @@ class DoExcel:
         self.wb.save(self.file_name)
         return f"清空指定 {sheets} 中的单元格成功"
 
-    @logger.log_decorator()
+    @logger.catch
     def get_excel_init(self):
         """
         获取 excel 中 sheet 名称为 init 中的基础数据
