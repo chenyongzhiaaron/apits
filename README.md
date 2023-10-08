@@ -462,6 +462,7 @@ html 或者 excel 中 都有，直接自行使用查看吧
 ![img.png](/image/img_15.png)
 ![img.png](/image/img_16.png)
 ![img.png](/image/img_32.png)
+![img.png](/image/img_42.png)
 
 #### 统计用例运行时长？
 

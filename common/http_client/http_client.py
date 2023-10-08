@@ -89,6 +89,7 @@ class HttpClient(LoadModulesFromFolder):
 					('file', (f'{file_path}', f, file_type))
 				)
 			kwargs['files'] = files
+		
 		return kwargs
 	
 	def post_response(self):
@@ -103,13 +104,14 @@ class HttpClient(LoadModulesFromFolder):
 
 
 if __name__ == '__main__':
-	hst = 'https://kkk.ll.com'
-	ul = '/bsp/test/'
-	meth = 'post'
+	hst = 'http://localhost:3000'
+	ul = '/get'
+	meth = 'get'
 	kwarg = {
 		'headers': {},
 		'data': {},
-		'files': ['test.txt']
+		"params":"",
+		# 'files': ['test.txt']
 	}
 	pyt = HttpClient()
 	pyt.http_client(hst, ul, meth, **kwarg)

@@ -104,7 +104,7 @@ if __name__ == '__main__':
 
     dps = {
         "{{var_a}}": "foo",
-        "{{var_c}}": 123,
+        "{{var_c}}": 3,
         "{{var_d}}": None,
         "{{var_e_1}}": True,
         "{{var_e_2}}": "bar",
@@ -114,17 +114,17 @@ if __name__ == '__main__':
     loader.set_environments(dps)
     loader.set_bif_fun(bif_functions)
     dat = {
-        "a": "{{var_a}}",
-        "b": {"c": "{{var_c}}", "d": "{{var_d}}", "e": ["{{var_e_1}}", "{{var_e_2}}"]},
-        "f": "{{var_f}}[1]",
-        "g": "{{var_g}}",
-        "t": "{{get_timestamp()}}",
-        "fk": "{{fk().email()}}",
-        "ft": "{{fk().ean(length=13)}}",
-        "st": "{{ms_fmt_hms(2000)}}",
-        "time": "{{random_id_card()}}",
-        "gen_random_num": "{{gen_random_num(5)}}",
-        "x":'{"a":"b","c":"{{get_timestamp()}}"}'
+        # "a": "{{var_a}}",
+        # "b": {"c": "{{var_c}}", "d": "{{var_d}}", "e": ["{{var_e_1}}", "{{var_e_2}}"]},
+        # "f": "{{var_f}}[1]",
+        # "g": "{{var_g}}",
+        # "t": "{{get_timestamp()}}",
+        # "fk": "{{fk().email()}}",
+        # "ft": "{{fk().ean(length=13)}}",
+        # "st": "{{ms_fmt_hms(2000)}}",
+        # "time": "{{random_id_card()}}",
+        "gen_random_num": "{{gen_random_num({{var_c}})}}"
+        # "x":'{"a":"b","c":"{{get_timestamp()}}"}'
     }
     ret = loader.replace_dependent_parameter(dat)
     print(ret)
