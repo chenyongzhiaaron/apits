@@ -9,3 +9,6 @@
 """
 a = {"key": "value", "c": ""}
 print(a.get("c", ""))
+
+
+

@@ -19,22 +19,22 @@ from common.utils.decorators import install_dependencies
 
 @install_dependencies
 def run():
-	test_report = Config.TEST_REPORT
-	test_case = unittest.defaultTestLoader.discover(Config.SCRIPT, pattern="test_*.py")
-	runner = TestRunner(test_case,
-	                    report_dir=test_report,
-	                    filename=Config.TEST_REPORT_FILE,
-	                    title="接口自动化测试报告",
-	                    templates=2,
-	                    tester="kira",
-	                    desc="自动化测试")
-	runner.run()
-	# # get_failed_test_cases = runner.get_failed_test_cases()
-	# 发送通知
-	# runner.email_notice()
-	runner.dingtalk_notice()
-	runner.weixin_notice()
+    test_report = Config.TEST_REPORT
+    test_case = unittest.defaultTestLoader.discover(Config.SCRIPT, pattern="test_*.py")
+    runner = TestRunner(test_case,
+                        report_dir=test_report,
+                        filename=Config.TEST_REPORT_FILE,
+                        title="接口自动化测试报告",
+                        templates=2,
+                        tester="kira",
+                        desc="自动化测试")
+    runner.run()
+    # # get_failed_test_cases = runner.get_failed_test_cases()
+    # 发送通知
+    # runner.email_notice()
+    # runner.dingtalk_notice()
+    # runner.weixin_notice()
 
 
 if __name__ == '__main__':
-	run()
+    run()

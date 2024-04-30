@@ -75,8 +75,6 @@ class Extractor:
         Returns:
 
         """
-        # logger.debug(f'正在执行数据提取：提取数据源内容：{resp_obj},{type(resp_obj)}')
-        # logger.debug('正在执行数据提取：提取表达式：{expr}'.format(expr=expr))
         try:
             result = jsonpath.jsonpath(resp_obj if isinstance(resp_obj, (dict, list)) else json.dumps(resp_obj), expr)
         except Exception as e:
@@ -89,11 +87,11 @@ class Extractor:
             elif isinstance(result, list):
                 if len(result) == 1:
                     result = result[0]
-            # logger.info(f'提取成功，输出结果，提取表达式：{expr}，提取结果：{result}')
             return result
 
 
 if __name__ == '__main__':
     r_obg = {"data": ["key", 1, "val", 2]}
-    Extractor.extract_value_by_jsonpath(r_obg, "$.data[0]")
-    Extractor.extract_value_by_jsonpath(r_obg, 200)
+    res = Extractor.extract_value_by_jsonpath(r_obg, "$..*")
+    print(res)
+    # Extractor.extract_value_by_jsonpath(r_obg, 200)

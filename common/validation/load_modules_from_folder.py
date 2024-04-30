@@ -19,13 +19,13 @@ class LoadModulesFromFolder(DependentParameter):
     def __init__(self):
         super().__init__()
 
-    def load_modules_from_folder(self, folder_or_mnodule):
+    def load_modules_from_folder(self, folder_or_module):
         """
         动态加载文件或模块
         """
 
-        if isinstance(folder_or_mnodule, str):
-            folder_path = folder_or_mnodule
+        if isinstance(folder_or_module, str):
+            folder_path = folder_or_module
             if not os.path.exists(folder_path):
                 raise ValueError("Folder path does not exist.")
 
@@ -42,14 +42,14 @@ class LoadModulesFromFolder(DependentParameter):
                     for name, obj in vars(module).items():
                         if callable(obj):
                             self.update_environments(name, obj)
-        elif isinstance(folder_or_mnodule, types.ModuleType):
-            module = folder_or_mnodule
+        elif isinstance(folder_or_module, types.ModuleType):
+            module = folder_or_module
             module = importlib.reload(module)
             for n, o in vars(module).items():
                 if callable(o):
                     self.update_environments(n, o)
         else:
-            raise DynamicLoadingError(folder_or_mnodule,
+            raise DynamicLoadingError(folder_or_module,
                                       "older_or_module should be either a folder path (str) or a module ("
                                       "types.ModuleType).")
 

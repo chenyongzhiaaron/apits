@@ -11,202 +11,145 @@ import ast
 import time
 
 from common import bif_functions
-from common.crypto.encrypt_data import EncryptData
-from common.database.mysql_client import MysqlClient
 from common.utils.decorators import singleton, send_request_decorator
 from common.utils.exceptions import *
-from common.validation.extractor import Extractor
 from common.validation.load_and_execute_script import LoadScript
-from common.validation.validator import Validator
-from config.field_constants import FieldNames
 
 
 @singleton
-class Action(Extractor, LoadScript, Validator, EncryptData):
-	def __init__(self, initialize_data=None, db_config=None):
-		super().__init__()
-		self.db_config = db_config
-		self.__variables = {}
-		self.set_environments(initialize_data)
-		self.set_bif_fun(bif_functions)
-	
-	@send_request_decorator
-	def send_request(self, host, method, extract_request_data, scripts_dir, prepost_script):
-		"""发送请求"""
-		url, kwargs = self.prepare_request(extract_request_data, self.variables)
-		self.http_client(host, url, method, **kwargs)
-	
-	def prepare_request(self, extract_request_data, item):
-		"""准备请求数据"""
-		item = self.replace_dependent_parameter(item)
-		url, query_str, request_data, headers, request_data_type, h_crypto, r_crypto = self.request_info(item)
-		headers, query_str, request_data = self.analysis_request(query_str, request_data, h_crypto, headers, r_crypto,
-		                                                         extract_request_data)
-		kwargs = {request_data_type: request_data, "headers": headers, "params": query_str}
-		return url, kwargs
-	
-	def analysis_request(self, query_str, request_data, headers_crypto, headers, request_crypto, extract_request_data):
-		"""分析请求数据"""
-		headers, request_data = self.encrypts(headers_crypto, headers, request_crypto, request_data)
-		if extract_request_data:
-			for data in (query_str, request_data):
-				if data:
-					self.substitute_data(data, jp_dict=extract_request_data)
-		return headers, query_str, request_data
-	
-	def exc_sql(self, item):
-		"""执行sql处理"""
-		sql, sql_params_dict = self.sql_info(item)
-		self.variables = item
-		sql = self.replace_dependent_parameter(sql)
-		if sql:
-			client = MysqlClient(self.db_config)
-			execute_sql_results = client.execute_sql(sql)
-			print(f"| 执行 sql 成功--> {execute_sql_results}")
-			if execute_sql_results and sql_params_dict:
-				self.substitute_data(execute_sql_results, jp_dict=sql_params_dict)
-	
-	def analysis_response(self, sheet, iid, name, desc, regex, keys, deps, jp_dict):
-		"""分析响应结果并提取响应"""
-		try:
-			self.substitute_data(self.response_json, regex=regex, keys=keys, deps=deps, jp_dict=jp_dict)
-		except Exception as err:
-			msg = f"| 分析响应失败：{sheet}_{iid}_{name}_{desc}"
-			f"\nregex={regex};"
-			f" \nkeys={keys};"
-			f"\ndeps={deps};"
-			f"\njp_dict={jp_dict}"
-			f"\n{err}"
-			ParameterExtractionError(msg, err)
-	
-	def execute_validation(self, excel, sheet, iid, name, desc, expected):
-		"""执行断言校验"""
-		expected = self.replace_dependent_parameter(expected)
-		try:
-			self.run_validate(expected, self.response_json)
-			# 如果不填写断言，则自动断言状态码
-			if not expected:
-				from common.validation.comparators import eq
-				eq(200, self.response.status_code)
-			result = "PASS"
-		except Exception as e:
-			result = "FAIL"
-			error_info = f"| exception case:**{sheet}_{iid}_{name}_{desc},{self.assertions}"
-			AssertionFailedError(error_info, e)
-			raise e
-		finally:
-			print(f'| <span style="color:yellow">断言结果-->{self.assertions}</span>\n')
-			print("-" * 50 + "我是分割线" + "-" * 50)
-			response = self.response.text if self.response is not None else str(self.response)
-			excel.write_back(sheet_name=sheet, i=iid, response=response, result=result, assertions=str(self.assertions))
-	
-	def execute_dynamic_code(self, item, code):
-		
-		self.variables = item
-		if code is not None:
-			try:
-				ast_obj = ast.parse(code, mode='exec')
-				compiled = compile(ast_obj, '<string>', 'exec')
-				exec(compiled, {"pm": self})
-			except Exception as e:
-				ExecuteDynamiCodeError(code, e)
-				raise e
-		
-		return self.variables
-	
-	def execute_prepost_script(self, scripts_dir, prepost_script, method_name):
-		self.load_and_execute_script(scripts_dir, prepost_script, self, method_name)
-	
-	@property
-	def variables(self, key=None):
-		return self.__variables if not key else self.__variables.get(key)
-	
-	@variables.setter
-	def variables(self, item):
-		self.__variables = item
-	
-	@staticmethod
-	def base_info(item):
-		"""
-		获取基础信息
-		"""
-		sheet = item.pop(FieldNames.SHEET)
-		item_id = item.pop(FieldNames.ITEM_ID)
-		condition = item.pop(FieldNames.RUN_CONDITION)
-		sleep_time = item.pop(FieldNames.SLEEP_TIME)
-		name = item.pop(FieldNames.NAME)
-		desc = item.pop(FieldNames.DESCRIPTION)
-		method = item.pop(FieldNames.METHOD)
-		expected = item.pop(FieldNames.EXPECTED)
-		prepost_script = f"prepost_script_{sheet}_{item_id}.py"
-		return sheet, item_id, condition, sleep_time, name, desc, method, expected, prepost_script
-	
-	@staticmethod
-	def sql_info(item):
-		sql = item.pop(FieldNames.SQL)
-		sql_params_dict = item.pop(FieldNames.SQL_PARAMS_DICT)
-		return sql, sql_params_dict
-	
-	@staticmethod
-	def extractor_info(item):
-		"""
-		获取提取参数的基本字段信息
-		Args:
-			item:
+class Action(LoadScript):
+    def __init__(self, host='', initialize_data=None):
+        super().__init__()
+        self.__variables = {}
+        if not initialize_data:
+            initialize_data = {}
+        self.set_environments(initialize_data)
+        self.set_bif_fun(bif_functions)
+        self.host = host
 
-		Returns:
+    def base_info(self, item):
+        """
+        获取基础信息
+        """
+        # self.variable = deepcopy(item)
+        self.sheet = item.pop(self.SHEET)
+        self.item_id = item.pop(self.ITEM_ID)
+        self.condition = item.pop(self.RUN_CONDITION)
+        self.sleep_time = item.pop(self.SLEEP_TIME)
+        self.name = item.pop(self.NAME)
+        self.desc = item.pop(self.DESCRIPTION)
+        self.method = item.pop(self.METHOD)
+        self.prepost_script = f"prepost_script_{self.sheet}_{self.item_id}.py"
+        self.sql = self.replace_dependent_parameter(item.pop(self.SQL))
+        self.exc_sql = item.pop(self.SQL_PARAMS_DICT)
+        self.regex = item.pop(self.REGEX)
+        self.keys = item.pop(self.REGEX_PARAMS_LIST)
+        self.deps = item.pop(self.RETRIEVE_VALUE)
+        self.jp_dict = item.pop(self.JSON_PATH_DICT)
+        self.extract_request_data = item.pop(self.EXTRACT_REQUEST_DATA)
+        self.url = self.replace_dependent_parameter(item.pop(self.URL))
+        self.query_str = self.replace_dependent_parameter(item.pop(self.QUERY_STRING))
+        self.body = self.replace_dependent_parameter(item.pop(self.REQUEST_DATA))
+        self.headers = self.replace_dependent_parameter(item.pop(self.HEADERS))
+        self.headers_crypto = item.pop(self.HEADERS_CRYPTO)  # 请求头加密方式
+        self.body_typ = item.pop(self.REQUEST_DATA_TYPE) if item.get(self.REQUEST_DATA_TYPE) else self.PARAMS
+        self.body_crypto = item.pop(self.REQUEST_DATA_CRYPTO)  # 请求数据加密方式
+        self.setup_script = item.pop(self.SETUP_SCRIPT)
+        self.teardown_script = item.pop(self.TEARDOWN_SCRIPT)
+        self.expected = item.pop(self.EXPECTED)
 
-		"""
-		regex = item.pop(FieldNames.REGEX)
-		keys = item.pop(FieldNames.REGEX_PARAMS_LIST)
-		deps = item.pop(FieldNames.RETRIEVE_VALUE)
-		jp_dict = item.pop(FieldNames.JSON_PATH_DICT)
-		extract_request_data = item.pop(FieldNames.EXTRACT_REQUEST_DATA)
-		return regex, keys, deps, jp_dict, extract_request_data
-	
-	@staticmethod
-	def request_info(item):
-		"""
-		请求数据
-		"""
-		url = item.pop(FieldNames.URL)
-		query_str = item.pop(FieldNames.QUERY_STRING)
-		request_data = item.pop(FieldNames.REQUEST_DATA)
-		headers = item.pop(FieldNames.HEADERS)
-		request_data_type = item.pop(FieldNames.REQUEST_DATA_TYPE) if item.get(
-			FieldNames.REQUEST_DATA_TYPE) else FieldNames.PARAMS
-		headers_crypto = item.pop(FieldNames.HEADERS_CRYPTO)
-		request_data_crypto = item.pop(FieldNames.REQUEST_DATA_CRYPTO)
-		
-		return url, query_str, request_data, headers, request_data_type, headers_crypto, request_data_crypto
-	
-	@staticmethod
-	def script(item):
-		setup_script = item.pop(FieldNames.SETUP_SCRIPT)
-		teardown_script = item.pop(FieldNames.TEARDOWN_SCRIPT)
-		return setup_script, teardown_script
-	
-	@staticmethod
-	def is_run(condition):
-		is_run = condition
-		if not is_run or is_run.upper() != FieldNames.YES:
-			return True
-		return None
-	
-	@staticmethod
-	def is_only_sql(method):
-		if method.upper() == FieldNames.SQL:
-			return True
-		return None
-	
-	@staticmethod
-	def pause_execution(sleep_time):
-		if sleep_time:
-			try:
-				time.sleep(sleep_time)
-			except Exception as e:
-				raise InvalidSleepTimeError(f"{sleep_time}", e)
+    @send_request_decorator
+    def send_request(self):
+        """发送请求"""
+        if not self.body_typ:
+            raise "当前测试用例没有填写请求参数类型！"
+        self.http_client()
 
+    def analysis_request(self):
+        """分析请求数据"""
+        # 开始请求头、请求body加密
+        headers, body = self.encrypts(self.headers_crypto, self.headers, self.body_crypto, self.body)
+        if self.extract_request_data:
+            for data in (self.query_str, body):
+                if data:
+                    self.substitute_data(data, jp_dict=self.extract_request_data)
+        kwargs = {self.body_typ: body, "headers": headers, "params": self.query_str}
+        self.processing_data(self.host, self.url, self.method, **kwargs)
 
-if __name__ == '__main__':
-	print(Action())
+    def analysis_response(self):
+        """分析响应结果并提取响应"""
+        try:
+            self.substitute_data(self.response_json, regex=self.regex, keys=self.keys, deps=self.deps,
+                                 jp_dict=self.jp_dict)
+        except Exception as err:
+            msg = f"| 分析响应失败：{self.sheet}_{self.iid}_{self.name}_{self.desc}"
+            f"\nregex={self.regex};"
+            f" \nkeys={self.keys};"
+            f"\ndeps={self.deps};"
+            f"\njp_dict={self.jp_dict}"
+            f"\n{err}"
+            ParameterExtractionError(msg, err)
+
+    def execute_validation(self, excel=None):
+        """执行断言校验"""
+        expected = self.replace_dependent_parameter(self.expected)
+        result = None
+        try:
+            self.run_validate(expected, self.response_json)
+            # 如果不填写断言，则自动断言状态码
+            if not self.expected:
+                from common.validation.comparators import eq
+                eq(200, self.response.status_code)
+            result = "PASS"
+        except Exception as e:
+            result = "FAIL"
+            error_info = f"| exception case:**{self.sheet}_{self.item_id}_{self.name}_{self.desc},{self.assertions}"
+            AssertionFailedError(error_info, e)
+            raise e
+        finally:
+            print(f'| <span style="color:yellow">断言结果-->{self.assertions}</span>\n')
+            print("-" * 50 + "我是分割线" + "-" * 50)
+            response = self.response.text if self.response is not None else str(self.response)
+            if not excel:
+                excel.write_back(sheet_name=self.sheet, i=self.item_id, response=response, result=result,
+                                 assertions=str(self.assertions))
+
+    def execute_dynamic_code(self, code):
+
+        if code is not None:
+            try:
+                ast_obj = ast.parse(code, mode='exec')
+                compiled = compile(ast_obj, '<string>', 'exec')
+                exec(compiled, {"py": self})
+            except Exception as e:
+                ExecuteDynamiCodeError(code, e)
+                raise e
+
+    def execute_prepost_script(self, scripts_dir, prepost_script, method_name):
+        self.load_and_execute_script(scripts_dir, prepost_script, self, method_name)
+
+    def is_run(self):
+        if not self.condition or self.condition.upper() != 'NO':
+            return True
+        return None
+
+    def exec_sql(self, client):
+        """执行sql处理"""
+        if self.sql:
+            execute_sql_results = client.execute_sql(self.sql)
+            print(f"| 执行 sql 成功--> {execute_sql_results}")
+            if execute_sql_results and self.exc_sql:
+                self.substitute_data(execute_sql_results, jp_dict=self.exc_sql)
+
+    def is_only_sql(self, client):
+        if self.method.upper() == self.SQL:
+            self.exec_sql(client)
+            return True
+        return None
+
+    def pause_execution(self):
+        if self.sleep_time:
+            try:
+                time.sleep(self.sleep_time)
+            except Exception as e:
+                raise InvalidSleepTimeError(f"{self.sleep_time}", e)

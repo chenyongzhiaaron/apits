@@ -11,9 +11,10 @@
 import re
 from dataclasses import dataclass
 
+from config.field_constants import FieldNames
 
-@dataclass
-class Environments:
+
+class Environments(FieldNames):
     environments = {}
     PARAMETER_MATCHER = re.compile(r"{{\s*([^}\s]+)\s*}}(?:\[(\d+)\])?")  # 匹配需要替换的参数
     PARAMETER_PATTERN = re.compile(r"{{(.*?)}}")  # 匹配参数模式 {{...}}

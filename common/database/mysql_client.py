@@ -12,8 +12,6 @@ import json
 
 import pymysql
 
-
-
 # from DBUtils.PooledDB import PooledDB
 from dbutils.pooled_db import PooledDB
 from pymysql.cursors import DictCursor
@@ -40,7 +38,6 @@ class MysqlClient:
             self.cursor = self.conn.cursor(DictCursor)
         except Exception as e:
             DatabaseExceptionError(self.db_base, e)
-            raise
 
     def execute_sql(self, sql):
         """

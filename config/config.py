@@ -35,9 +35,9 @@ class Config:
     # 邮件配置信息
     MAIL_NOTICE = {
         "host": "smtp.qq.com",  # 邮件服务地址
-        "user": "xxxxx@qq.com",  # 用户名
-        "password": "xxxxx",  # 密码（部分邮箱为授权码）# 密码
-        "sender": "xxxxx@qq.com",  # 发送人
+        "user": "262667641@qq.com",  # 用户名
+        "password": "xnvmmcchcxghbgfi",  # 密码（部分邮箱为授权码）# 密码
+        "sender": "262667641@qq.com",  # 发送人
         "port": 465,  # smtp 端口号
         "receivers": ['262667641@qq.com']  # 接收方的邮箱
     }

@@ -46,3 +46,6 @@ class FieldNames:
     INITIALIZE_DATA = "InitializeData"
     HOST = "Host"
     PATH = "Path"
+
+    def __init__(self):
+        super().__init__()

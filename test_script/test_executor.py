@@ -15,44 +15,51 @@ from common.file_handling.do_excel import DoExcel
 from common.core.action import Action
 from common.utils.decorators import list_data
 from config.config import Config
+from common.database.mysql_client import MysqlClient
 
 test_file = Config.TEST_CASE  # 获取 excel 文件路径
 excel = DoExcel(test_file)
 
+# 获取测试用例、数据库、初始化数据和主机
 test_case, databases, initialize_data, host = excel.get_excel_init_and_cases()
 
 
 @ddt
 class TestProjectApi(unittest.TestCase):
-	maxDiff = None
-	action = Action(initialize_data, databases)
-	
-	@classmethod
-	def setUpClass(cls) -> None:
-		cls.action.load_modules_from_folder(extensions)
-	
-	def setUp(self) -> None:
-		pass
-	
-	@list_data(test_case)
-	def test_api(self, item):
-		sheet, iid, condition, st, name, desc, method, expected, prepost_script = self.action.base_info(item)
-		if self.action.is_run(condition):
-			self.skipTest("这个测试用例听说泡面比较好吃，所以放弃执行了！！")
-		regex, keys, deps, jp_dict, ex_request_data = self.action.extractor_info(item)
-		self.action.pause_execution(st)
-		self.action.exc_sql(item)
-		if self.action.is_only_sql(method):
-			self.skipTest("这条测试用例被 SQL 吃了，所以放弃执行了！！")
-		
-		self.action.send_request(host, method, ex_request_data, Config.SCRIPTS_DIR, prepost_script)
-		self.action.analysis_response(sheet, iid, name, desc, regex, keys, deps, jp_dict)
-		self.action.execute_validation(excel, sheet, iid, name, desc, expected)
-	
-	@classmethod
-	def tearDownClass(cls) -> None:
-		excel.close_excel()
+    maxDiff = None
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.action = Action(host, initialize_data)
+        cls.action.load_modules_from_folder(extensions)
+        cls.action.client = MysqlClient(databases)
+        cls.action.scripts_dir = Config.SCRIPTS_DIR
+
+    def setUp(self) -> None:
+        pass
+
+    @list_data(test_case)
+    def test_api(self, item):
+        self.__class__.action.base_info(item)
+        if not self.__class__.action.is_run():
+            self.skipTest("这个测试用例听说泡面比较好吃，所以放弃执行了！！")
+        # 用例暂停
+        self.__class__.action.pause_execution()
+
+        # 单独执行 sql
+        if self.__class__.action.is_only_sql(self.__class__.action.client):
+            self.skipTest("这条测试用例被 SQL 吃了，所以只执行 sql 语句！！")
+        # 执行 sql 语句
+        self.__class__.action.exec_sql(self.__class__.action.client)
+        self.__class__.action.send_request()
+        # 断言响应及提取响应信息
+        self.__class__.action.analysis_response()
+        self.__class__.action.execute_validation(excel)
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        excel.close_excel()
 
 
 if __name__ == '__main__':
-	unittest.main()
+    unittest.main()

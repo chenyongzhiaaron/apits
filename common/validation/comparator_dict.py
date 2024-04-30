@@ -31,4 +31,5 @@ comparator_dict = {
 	'regex_search': 'regex_search:正则匹配(从字符串的任意位置匹配)',
 	'startswith': 'startswith:实际值是以期望值开始',
 	'endswith': 'endswith:实际值是以期望值结束',
+	'check': 'check: 实际复杂对象包含预期复杂对象'
 }
