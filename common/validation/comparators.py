@@ -446,7 +446,7 @@ def check(actual_value, expect_value, ignore=None):
             else:
                 if actual != expect:
                     current_level_failed_info.append(
-                        {"status": "Mismatch", "message": "value_not_equal", "path": path,
+                        {"status": "Mismatch", "message": "expect not equal to actual", "path": path,
                          "actual_value": actual, "expect_value": expect})
                     return False, current_level_failed_info
                 else:

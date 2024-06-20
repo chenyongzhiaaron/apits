@@ -77,7 +77,7 @@ if __name__ == '__main__':
 		return a / b
 	
 	
-	for i in range(100):
+	for i in range(1):
 		test_zero_division_error(1, 0)
 		log.debug('调试信息')
 		log.info('普通信息')
